@@ -7,8 +7,10 @@ export CFLAGS="-Wall -O2 -arch i386 -arch ppc -pipe -DNO_ALLOCA"
 export LDFLAGS="-Wall -O2 -arch i386 -arch ppc -pipe -DNO_ALLOCA"
 
 # Parallel Make.  Change $MAKE if you don't have gmake installed
-MAKE="gmake"
+MAKE="/opt/local/bin/gmake"
 MAKE_OPTS="-j3"
+
+export PKG_CONFIG="/opt/local/bin/pkg-config"
 
 rootdir="$(pwd)"
 DESTDIR="$(pwd)/dist"
@@ -26,6 +28,7 @@ strip_finkmp() {
 	IFS=$OIFS
 }
 
+# It is neccessary to sanitize PATH since pixman looks for gtk-config
 export PATH="/usr/X11/bin:$(strip_finkmp ${PATH})"
 export CPLUS_INCLUDE_PATH="/usr/X11/include:$(strip_finkmp ${CPLUS_INCLUDE_PATH})"
 export C_INCLUDE_PATH="/usr/X11/include:$(strip_finkmp ${C_INCLUDE_PATH})"

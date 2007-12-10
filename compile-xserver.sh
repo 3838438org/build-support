@@ -10,8 +10,10 @@ MESA="$(pwd)/../Mesa-6.5.2"
 #MESA="$(pwd)/../Mesa-7.0.2"
 
 # Parallel Make.  Change $MAKE if you don't have gmake installed
-MAKE="gmake"
+MAKE="/opt/local/bin/gmake"
 MAKE_OPTS="-j3"
+ 
+export PKG_CONFIG="/opt/local/bin/pkg-config"
 
 export CFLAGS="-Wall -O2 -arch i386 -arch ppc -pipe -DNO_ALLOCA"
 export LDFLAGS="-Wall -O2 -arch i386 -arch ppc -pipe -DNO_ALLOCA"
