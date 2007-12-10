@@ -13,7 +13,7 @@ MESA="$(pwd)/../Mesa-6.5.2"
 MAKE="/opt/local/bin/gmake"
 MAKE_OPTS="-j3"
  
-export PKG_CONFIG="/opt/local/bin/pkg-config"
+export PKG_CONFIG="/usr/local/bin/pkg-config"
 
 export CFLAGS="-Wall -O2 -arch i386 -arch ppc -pipe -DNO_ALLOCA"
 export LDFLAGS="-Wall -O2 -arch i386 -arch ppc -pipe -DNO_ALLOCA"
