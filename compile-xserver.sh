@@ -9,20 +9,33 @@ CONFIGURE="./autogen.sh"
 MESA="$(pwd)/../Mesa-6.5.2"
 #MESA="$(pwd)/../Mesa-7.0.2"
 
-# Sanitize the include path to grab from /usr/X11 before MacPorts, Fink, whatever
-export CPLUS_INCLUDE_PATH="/usr/X11/include:${CPLUS_INCLUDE_PATH}"
-export C_INCLUDE_PATH="/usr/X11/include:${C_INCLUDE_PATH}"
-export OBJC_INCLUDE_PATH="/usr/X11/include:${OBJC_INCLUDE_PATH}"
-
-export PKG_CONFIG_PATH="/usr/X11/lib/pkgconfig:${PKG_CONFIG_PATH}"
-export ACLOCAL="aclocal -I /usr/X11/share/aclocal"
-
 # Parallel Make.  Change $MAKE if you don't have gmake installed
 MAKE="gmake"
 MAKE_OPTS="-j3"
 
 export CFLAGS="-Wall -O2 -arch i386 -arch ppc -pipe -DNO_ALLOCA"
 export LDFLAGS="-Wall -O2 -arch i386 -arch ppc -pipe -DNO_ALLOCA"
+
+strip_finkmp() {
+        local OIFS=$IFS
+        local d
+        IFS=:                                
+        for d in ${@} ; do
+                if [[ "${d}" == "${d#/opt/local}" && "${d}" == "${d#/sw}" ]] ; then
+                        echo -n "${d}:"
+                fi
+        done
+        echo
+        IFS=$OIFS
+}
+
+export PATH="/usr/X11/bin:$(strip_finkmp ${PATH})"
+export CPLUS_INCLUDE_PATH="/usr/X11/include:$(strip_finkmp ${CPLUS_INCLUDE_PATH})"
+export C_INCLUDE_PATH="/usr/X11/include:$(strip_finkmp ${C_INCLUDE_PATH})"
+export OBJC_INCLUDE_PATH="/usr/X11/include:$(strip_finkmp ${OBJC_INCLUDE_PATH})"
+export PKG_CONFIG_PATH="/usr/X11/lib/pkgconfig:$(strip_finkmp ${PKG_CONFIG_PATH})"
+
+export ACLOCAL="aclocal -I /usr/X11/share/aclocal"
 
 die() {
 	echo "${@}" >&2

@@ -3,13 +3,6 @@
 # xinit post 1.0.7
 # lndir post 1.0.1
 
-export CPLUS_INCLUDE_PATH="/usr/X11/include:${CPLUS_INCLUDE_PATH}"
-export C_INCLUDE_PATH="/usr/X11/include:${C_INCLUDE_PATH}"
-export OBJC_INCLUDE_PATH="/usr/X11/include:${OBJC_INCLUDE_PATH}"
-
-export PKG_CONFIG_PATH="/usr/X11/lib/pkgconfig:${PKG_CONFIG_PATH}"
-export ACLOCAL="aclocal -I /usr/X11/share/aclocal"
-
 export CFLAGS="-Wall -O2 -arch i386 -arch ppc -pipe -DNO_ALLOCA"
 export LDFLAGS="-Wall -O2 -arch i386 -arch ppc -pipe -DNO_ALLOCA"
 
@@ -20,17 +13,38 @@ MAKE_OPTS="-j3"
 rootdir="$(pwd)"
 DESTDIR="$(pwd)/dist"
 
+strip_finkmp() {
+	local OIFS=$IFS
+	local d
+	IFS=:
+	for d in ${@} ; do
+		if [[ "${d}" == "${d#/opt/local}" && "${d}" == "${d#/sw}" ]] ; then
+			echo -n "${d}:"
+		fi
+	done
+	echo
+	IFS=$OIFS
+}
+
+export PATH="/usr/X11/bin:$(strip_finkmp ${PATH})"
+export CPLUS_INCLUDE_PATH="/usr/X11/include:$(strip_finkmp ${CPLUS_INCLUDE_PATH})"
+export C_INCLUDE_PATH="/usr/X11/include:$(strip_finkmp ${C_INCLUDE_PATH})"
+export OBJC_INCLUDE_PATH="/usr/X11/include:$(strip_finkmp ${OBJC_INCLUDE_PATH})"
+export PKG_CONFIG_PATH="/usr/X11/lib/pkgconfig:$(strip_finkmp ${PKG_CONFIG_PATH})"
+
+export ACLOCAL="aclocal -I /usr/X11/share/aclocal"
+
 die() {
 	echo "${@}" >&2
 	exit 1
 }
 
 doinst() {
-	d=$1
+	local d=$1
 	shift
 	cd ${rootdir}/${d} || die "unable to find source for ${d}"
 	${MAKE} clean
-	CONFIGURE="./configure"
+	local CONFIGURE="./configure"
 	[[ -f ${CONFIGURE} ]] || CONFIGURE="./autogen.sh"
 	${CONFIGURE} --prefix=/usr/X11 --mandir=/usr/X11/man --disable-dependency-tracking "${@}" || die "Configure of ${d} failed."
 	${MAKE} ${MAKE_OPTS} || die "Compile of ${d} failed."
