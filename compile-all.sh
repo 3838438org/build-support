@@ -1,3 +1,8 @@
+# git versions from 2007.12.09:
+# xauth post 1.0.2
+# xinit post 1.0.7
+# lndir post 1.0.1
+
 export CPLUS_INCLUDE_PATH="/usr/X11/include:${CPLUS_INCLUDE_PATH}"
 export C_INCLUDE_PATH="/usr/X11/include:${C_INCLUDE_PATH}"
 export OBJC_INCLUDE_PATH="/usr/X11/include:${OBJC_INCLUDE_PATH}"
@@ -25,7 +30,9 @@ doinst() {
 	shift
 	cd ${rootdir}/${d} || die "unable to find source for ${d}"
 	${MAKE} clean
-	./configure --prefix=/usr/X11 --mandir=/usr/X11/man --disable-dependency-tracking "${@}" || die "Configure of ${d} failed."
+	CONFIGURE="./configure"
+	[[ -f ${CONFIGURE} ]] || CONFIGURE="./autogen.sh"
+	${CONFIGURE} --prefix=/usr/X11 --mandir=/usr/X11/man --disable-dependency-tracking "${@}" || die "Configure of ${d} failed."
 	${MAKE} ${MAKE_OPTS} || die "Compile of ${d} failed."
 	${MAKE} install DESTDIR="${DESTDIR}" || die "Install of ${d} failed."
 }
@@ -35,7 +42,7 @@ for d in compositeproto-0.4 damageproto-1.1.0 glproto-1.4.9 inputproto-1.4.2.1 r
 	doinst $d
 done
 
-# Apps, git versions from 2007.12.09
+# Apps
 for d in xauth xinit lndir xfs-1.0.5; do
 	doinst $d
 done
