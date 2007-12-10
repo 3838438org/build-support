@@ -21,8 +21,8 @@ export ACLOCAL="aclocal -I /usr/X11/share/aclocal"
 MAKE="gmake"
 MAKE_OPTS="-j3"
 
-export CFLAGS="-Wall -O2 -arch i386 -arch ppc -pipe"
-export LDFLAGS="-Wall -O2 -arch i386 -arch ppc -pipe"
+export CFLAGS="-Wall -O2 -arch i386 -arch ppc -pipe -DNO_ALLOCA"
+export LDFLAGS="-Wall -O2 -arch i386 -arch ppc -pipe -DNO_ALLOCA"
 
 die() {
 	echo "${@}" >&2
@@ -50,8 +50,6 @@ dodist() {
 	bzip2 Xquartz-$1
 	dosign Xquartz-$1.bz2 
 	dosign xorg-server-$1.tar.bz2
-#	ssh people.freedesktop.org mkdir w/x11-apple/releases/$1
-#	scp Xquartz-$1.bz2* xorg-server-$1.tar.bz2* people.freedesktop.org:w/x11-apple/releases/$1
 }
 
 docomp
