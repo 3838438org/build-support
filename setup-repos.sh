@@ -1,4 +1,4 @@
-#GIT_BASE="git://anongit.freedesktop.org/git/xorg/util/lndir"
+#GIT_BASE="git://anongit.freedesktop.org/git"
 GIT_BASE="ssh://git.freedesktop.org/git"
 
 svn checkout --username jeremyhu@freedesktop.org http://svn.macosforge.org/repository/xquartz
@@ -6,6 +6,10 @@ mv xquartz svn-xquartz
 
 mkdir src
 cd src
+curl -LO http://superb-west.dl.sourceforge.net/sourceforge/mesa3d/MesaLib-6.5.2.tar.bz2
+tar -xjvf Mesa-6.5.2.tar.bz2
+curl -LO http://superb-west.dl.sourceforge.net/sourceforge/mesa3d/MesaLib-7.0.2.tar.bz2
+tar -xjvf Mesa-7.0.2.tar.bz2
 git-clone ${GIT_BASE}/xorg/app/xauth.git
 git-clone ${GIT_BASE}/xorg/app/xinit.git
 git-clone ${GIT_BASE}/xorg/util/lndir.git

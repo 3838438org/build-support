@@ -2,6 +2,7 @@
 # xauth post 1.0.2
 # xinit post 1.0.7
 # lndir post 1.0.1
+# libX11-1.1.3 needs libX11-apple.patch applied - see git-diff 4b91ed099554626f1ec17d5bdf7bd77ce1a70037 b57129ef324c73ee91c2a796b800c4b45f4d4855
 
 export CFLAGS="-Wall -O2 -arch i386 -arch ppc -pipe -DNO_ALLOCA"
 export LDFLAGS="-Wall -O2 -arch i386 -arch ppc -pipe -DNO_ALLOCA"
@@ -41,9 +42,29 @@ die() {
 	exit 1
 }
 
+fetch_source() {
+	local d=$1
+	local s
+	cd ${rootdir} || die "Could not change to ${rootdir}"
+#	for d in app data doc driver font lib proto testdir util xserver
+	for s in lib proto app data doc driver font testdir util xserver ; do
+		curl -LO ftp://ftp.x.org/pub/individual/${s}/${d}.tar.bz2 && break
+	done
+
+	if [[ -f ${d}.tar.bz2 ]] ; then
+		tar -xjvf ${d}.tar.bz2 || die "Failed to extract ${d}.tar.bz2"
+		return 0
+	fi
+
+	for s in lib proto app data doc driver font testdir util xserver ; do
+		git-clone git://anongit.freedesktop.org/git/xorg/${s}/${d} && break
+	done
+}
+
 doinst() {
 	local d=$1
 	shift
+	[[ -d "${rootdir}/${d}" ]] || fetch_source ${d}
 	cd ${rootdir}/${d} || die "unable to find source for ${d}"
 	${MAKE} clean
 	local CONFIGURE="./configure"
@@ -67,6 +88,4 @@ done
 CFLAGS="${CFLAGS} -arch x86_64 -arch ppc64"
 
 doinst pixman-0.9.6 --disable-static
-
-# libX11-1.1.3 has libX11-apple.patch applied - see git-diff 4b91ed099554626f1ec17d5bdf7bd77ce1a70037 b57129ef324c73ee91c2a796b800c4b45f4d4855
 doinst libX11-1.1.3 --disable-xf86bigfont --disable-xcb --disable-static
