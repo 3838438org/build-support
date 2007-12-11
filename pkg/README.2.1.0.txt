@@ -1,27 +1,22 @@
 == Disclaimer ==
 
-This updates is not an official Apple releases. It is a convenient way 
-for users to stay up to date with progress made in the open source 
-community (in which Apple is participating). Official Apple releases 
-will come from Apple (most likely through Apple Update). These updates 
-will likely incorporate many of the changes made in our releases when 
-and if Apple deems them appropriate.
+This updates is not an official Apple releases. It is a convenient way for users to stay up to date with progress made in the open source community (in which Apple is participating). Official Apple releases will come from Apple (most likely through Apple Update). These updates will likely incorporate many of the changes made in our releases when and if Apple deems them appropriate.
 
 == Changes in 2.1.0 ==
   * New versions of packages from x.org:
     * app:
-      * [http://lists.freedesktop.org/archives/xorg-announce/2007-October/000415.html xfs 1.0.5]
-        * Fixes [http://nvd.nist.gov/nvd.cfm?cvename=CVE-2007-4568 CVE-2007-4568]
-        * Fixes [http://nvd.nist.gov/nvd.cfm?cvename=CVE-2007-4990 CVE-2007-4990]
+      * xfs 1.0.5
+        * Fixes CVE-2007-4568
+        * Fixes CVE-2007-4990
     * lib:
-      * [http://lists.freedesktop.org/archives/xorg-announce/2007-August/000332.html libX11 1.1.3]
+      * libX11 1.1.3
         * Fixes gtk and related crashes
     * proto:
-      * [http://lists.freedesktop.org/archives/xorg-announce/2007-January/000238.html damageproto 1.1.0]
-      * [http://lists.freedesktop.org/archives/xorg-announce/2007-February/000255.html randrproto 1.2.1]
-  * Xquartz fixes from [http://cgit.freedesktop.org/xorg/xserver/log/?h=xorg-server-1.2-apple xorg-server-1.2-apple] (Up to Xquartz-1.3.0-apple2)
+      * damageproto 1.1.0
+      * randrproto 1.2.1
+  * Xquartz fixes from xorg-server-1.2-apple (Up to Xquartz-1.3.0-apple2)
     * xserver codebase updated from 1.2.0 to 1.3 branch
-      * Fixes [http://nvd.nist.gov/nvd.cfm?cvename=CVE-2007-1003 CVE-2007-1003]
+      * Fixes CVE-2007-1003
     * Fixed support for multiple displays (Xinerama)
     * Fixed yellow cursor issue on Intel machines
     * Fixed broken 3-button mouse emulation (i.e. option-click to paste)
