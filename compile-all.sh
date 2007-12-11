@@ -92,7 +92,10 @@ for d in xauth xinit lndir xfs-1.0.5; do
 	doinst $d
 done
 
+OCFLAGS=${CFLAGS}
+CFLAGS="${CFLAGS} -D_DARWIN_C_SOURCE"
 doinst xterm-229 --enable-wide-chars --enable-luit --enable-256-color --enable-logging --enable-load-vt-fonts
+CFLAGS=${OCFLAGS}
 
 # Libs need x86_64 and ppc64
 CFLAGS="${CFLAGS} -arch x86_64 -arch ppc64"
