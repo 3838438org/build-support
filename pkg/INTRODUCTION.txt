@@ -1,0 +1,1 @@
+This is a community supported update to the version of X11 shipped with Mac OS-X Leopard.  Please visit http://xquartz.macosforge.org for more information.
