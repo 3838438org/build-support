@@ -1,0 +1,1 @@
+lsbom `pkgutil --bom *pkg`

@@ -1,8 +1,9 @@
-# git versions from 2007.12.09:
+# git versions from 2007.12.11:
 # xauth post 1.0.2
 # xinit post 1.0.7
 # lndir post 1.0.1
 # libxtrans post 1.0.4
+# x11proto post 1.0.11
 # xterm 229 ftp://invisible-island.net/xterm/xterm-229.tgz
 
 export CFLAGS="-Wall -O2 -arch i386 -arch ppc -pipe -DNO_ALLOCA"
@@ -83,7 +84,8 @@ doinst() {
 }
 
 # Protos
-for d in compositeproto-0.4 damageproto-1.1.0 glproto-1.4.9 inputproto-1.4.2.1 randrproto-1.2.1 renderproto-0.9.3 ; do
+#for d in compositeproto-0.4 damageproto-1.1.0 glproto-1.4.9 inputproto-1.4.2.1 randrproto-1.2.1 renderproto-0.9.3 x11proto; do
+for d in damageproto-1.1.0 randrproto-1.2.1 x11proto; do
 	doinst $d
 done
 
@@ -92,15 +94,12 @@ for d in xauth xinit lndir xfs-1.0.5; do
 	doinst $d
 done
 
-OCFLAGS=${CFLAGS}
-CFLAGS="${CFLAGS} -D_DARWIN_C_SOURCE"
 doinst xterm-229 --enable-wide-chars --enable-luit --enable-256-color --enable-logging --enable-load-vt-fonts
-CFLAGS=${OCFLAGS}
 
 # Libs need x86_64 and ppc64
 CFLAGS="${CFLAGS} -arch x86_64 -arch ppc64"
 
-doinst pixman-0.9.6 --disable-static
+#doinst pixman-0.9.6 --disable-static
 doinst libxtrans
 
 # These extra libX11 flags will be set by default in 1.1.4

@@ -2,7 +2,6 @@
 
 #CONFIGURE="./autogen.sh"
 CONFIGURE="./configure"
-#CONFOPT="--enable-xnest --enable-xvfb"
 #CONFOPT="--disable-xquartz --disable-launchd --enable-kdrive --disable-xsdl --enable-xnest --enable-xvfb"
 #CONFOPT="-disable-glx"
 
@@ -11,12 +10,12 @@ MESA="$(pwd)/../Mesa-6.5.2"
 
 # Parallel Make.  Change $MAKE if you don't have gmake installed
 MAKE="/opt/local/bin/gmake"
-MAKE_OPTS="-j3"
+MAKE_OPTS="-j5"
  
 export PKG_CONFIG="/usr/local/bin/pkg-config"
 
-export CFLAGS="-Wall -O2 -arch i386 -arch ppc -pipe -DNO_ALLOCA"
-export LDFLAGS="-Wall -O2 -arch i386 -arch ppc -pipe -DNO_ALLOCA"
+export CFLAGS="-Wall -O2 -arch i386 -arch ppc -pipe -DNO_ALLOCA -D__DARWIN__"
+export LDFLAGS="-Wall -O2 -arch i386 -arch ppc -pipe -DNO_ALLOCA -D__DARWIN__"
 
 strip_finkmp() {
         local OIFS=$IFS
@@ -46,17 +45,17 @@ die() {
 
 docomp() {
 	${CONFIGURE} --prefix=/usr/X11 --mandir=/usr/X11/man --with-mesa-source="${MESA}" ${CONFOPT} --disable-dependency-tracking --enable-maintainer-mode || die "Could not configure xserver"
-#	${MAKE} clean || die "Unable to make clean"
+	${MAKE} clean || die "Unable to make clean"
 	${MAKE} ${MAKE_OPTS} || die "Could not make xserver"
 }
 
 doinst() {
-	${MAKE} install DESTDIR="$(pwd)/../$(basename $(pwd)).dest" || die "Could not install xserver"
+	${MAKE} install DESTDIR="$(pwd)/../dist" || die "Could not install xserver"
 }
 
 dosign() {
-	gmd5sum $1 > $1.md5sum
-	gpg2 -b $1
+	/opt/local/bin/gmd5sum $1 > $1.md5sum
+	/opt/local/bin/gpg2 -b $1
 }
 
 dodist() {

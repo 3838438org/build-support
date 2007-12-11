@@ -6,7 +6,27 @@ If you move /Applications/Utilities/X11.app to another location, you must also u
 
 This updates is not an official Apple releases. It is a convenient way for users to stay up to date with progress made in the open source community (in which Apple is participating). Official Apple releases will come from Apple (most likely through Apple Update). These updates will likely incorporate many of the changes made in our releases when and if Apple deems them appropriate.
 
-== Changes in 2.1.1 ==  * All changes in 2.1.0.1 plus:  * Updated versions of packages:    * xterm 229      * Replace antiquated version (207) with new version from upstream source.      * Better UTF8 support among other bugfixes    * x11proto git 20071210      * Changed references of __DARWIN__ to __APPLE__  * fc-cache is run during post-install  * Xquartz fixes from xorg-server-1.2-apple (Up to Xquartz-1.3.0-apple5)    * Crash and stability fixes    * Fixed startup to check preferences set in org.x.X11 instead of com.apple.X11    * Multiple dock-icons bug fixed    * XDMCP now works    * Fixed Alt to work right with [wiki:KeyboardMapping#AltvsMode_switch ~/.Xmodmap]    * Added workaround to support Fink until they update their packages    * Small updates to Xquartz.man page (still needs a good edit, if you can help, please contact the xquartz-dev mailing list)
+== Changes in 2.1.1 ==
+  * All changes in 2.1.0.1 plus:
+  * Updated versions of packages:
+    * app:
+      * xinit git 20071210
+        * Added package.
+      * xterm 229
+        * Replace antiquated version (207) with new version from upstream source.
+        * Better UTF8 support among other bugfixes
+    * proto:
+      * x11proto git 20071210
+        * Changed references of __DARWIN__ to __APPLE__
+  * fc-cache is run during post-install
+  * Xquartz fixes from xorg-server-1.2-apple (Up to Xquartz-1.3.0-apple5)
+    * Crash and stability fixes
+    * Fixed startup to check preferences set in org.x.X11 instead of com.apple.X11
+    * Multiple dock-icons bug fixed
+    * XDMCP now works
+    * Fixed Alt to work right with [wiki:KeyboardMapping#AltvsMode_switch ~/.Xmodmap]
+    * Added workaround to support Fink until they update their packages
+    * Small updates to Xquartz.man page (still needs a good edit, if you can help, please contact the xquartz-dev mailing list)
 
 == Changes in 2.1.0.1 ==
   * All changes in 2.1.0 plus
