@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Label</key><string>org.x.fontconfig</string>
+	<key>Program</key><string>/usr/X11/bin/fc-cache</string>
+	<key>RunAtLoad</key><true/>
+</dict>
+</plist>
