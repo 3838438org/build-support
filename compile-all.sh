@@ -3,6 +3,7 @@
 # xinit post 1.0.7
 # lndir post 1.0.1
 # libxtrans post 1.0.4
+# xterm 229 ftp://invisible-island.net/xterm/xterm-229.tgz
 
 export CFLAGS="-Wall -O2 -arch i386 -arch ppc -pipe -DNO_ALLOCA"
 export LDFLAGS="-Wall -O2 -arch i386 -arch ppc -pipe -DNO_ALLOCA"
@@ -46,6 +47,17 @@ fetch_source() {
 	local d=$1
 	local s
 	cd ${rootdir} || die "Could not change to ${rootdir}"
+
+	if curl -LO ftp://ftp.x.org/pub/current/src/everything/${d}.tar.bz2 ; then
+		tar -xjvf ${d}.tar.bz2 || die "Failed to extract ${d}.tar.bz2"
+		return 0
+	fi
+
+	for s in lib proto app data doc driver font testdir util xserver ; do
+		git-clone git://anongit.freedesktop.org/git/xorg/${s}/${d} && break
+	done
+
+	# Fallback to pub/individual
 #	for d in app data doc driver font lib proto testdir util xserver
 	for s in lib proto app data doc driver font testdir util xserver ; do
 		curl -LO ftp://ftp.x.org/pub/individual/${s}/${d}.tar.bz2 && break
@@ -55,10 +67,6 @@ fetch_source() {
 		tar -xjvf ${d}.tar.bz2 || die "Failed to extract ${d}.tar.bz2"
 		return 0
 	fi
-
-	for s in lib proto app data doc driver font testdir util xserver ; do
-		git-clone git://anongit.freedesktop.org/git/xorg/${s}/${d} && break
-	done
 }
 
 doinst() {
@@ -83,6 +91,8 @@ done
 for d in xauth xinit lndir xfs-1.0.5; do
 	doinst $d
 done
+
+doinst xterm-229 --enable-wide-chars --enable-luit --enable-256-color --enable-logging --enable-load-vt-fonts
 
 # Libs need x86_64 and ppc64
 CFLAGS="${CFLAGS} -arch x86_64 -arch ppc64"
