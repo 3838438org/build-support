@@ -2,14 +2,14 @@
 # xauth post 1.0.2
 # xinit post 1.0.7
 # lndir post 1.0.1
-# libX11-1.1.3 needs libX11-apple.patch applied - see git-diff 4b91ed099554626f1ec17d5bdf7bd77ce1a70037 b57129ef324c73ee91c2a796b800c4b45f4d4855
+# libxtrans post 1.0.4
 
 export CFLAGS="-Wall -O2 -arch i386 -arch ppc -pipe -DNO_ALLOCA"
 export LDFLAGS="-Wall -O2 -arch i386 -arch ppc -pipe -DNO_ALLOCA"
 
 # Parallel Make.  Change $MAKE if you don't have gmake installed
 MAKE="/opt/local/bin/gmake"
-MAKE_OPTS="-j3"
+MAKE_OPTS="-j5"
 
 export PKG_CONFIG="/usr/local/bin/pkg-config"
 
@@ -88,4 +88,8 @@ done
 CFLAGS="${CFLAGS} -arch x86_64 -arch ppc64"
 
 doinst pixman-0.9.6 --disable-static
-doinst libX11-1.1.3 --disable-xf86bigfont --disable-xcb --disable-static
+doinst libxtrans
+
+# These extra libX11 flags will be set by default in 1.1.4
+CFLAGS="${CFLAGS} -DHAVE_LAUNCHD -D__DARWIN__"
+doinst libX11-1.1.3 --disable-xf86bigfont --without-xcb --disable-static

@@ -1,9 +1,9 @@
 #!/bin/bash
 
-CONFIGURE="./autogen.sh"
-#CONFIGURE="./configure"
+#CONFIGURE="./autogen.sh"
+CONFIGURE="./configure"
 #CONFOPT="--enable-xnest --enable-xvfb"
-#CONFOPT="--disable-xquartz --enable-kdrive --disable-xsdl --enable-xnest --enable-xvfb"
+#CONFOPT="--disable-xquartz --disable-launchd --enable-kdrive --disable-xsdl --enable-xnest --enable-xvfb"
 #CONFOPT="-disable-glx"
 
 MESA="$(pwd)/../Mesa-6.5.2"
@@ -45,8 +45,8 @@ die() {
 }
 
 docomp() {
-	${CONFIGURE} --prefix=/usr/X11 --mandir=/usr/X11/man --with-mesa-source="${MESA}" ${CONFOPT} --disable-dependency-tracking || die "Could not configure xserver"
-	${MAKE} clean || die "Unable to make clean"
+	${CONFIGURE} --prefix=/usr/X11 --mandir=/usr/X11/man --with-mesa-source="${MESA}" ${CONFOPT} --disable-dependency-tracking --enable-maintainer-mode || die "Could not configure xserver"
+#	${MAKE} clean || die "Unable to make clean"
 	${MAKE} ${MAKE_OPTS} || die "Could not make xserver"
 }
 
