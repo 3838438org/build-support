@@ -10,13 +10,15 @@ This updates is not an official Apple releases. It is a convenient way for users
   * All changes in 2.1.0.1 plus:
   * Updated versions of packages:
     * app:
-      * xinit git 20071210
+      * lndir git 2007.12.08
+        * Properly ignore .DS_Store 
+      * xinit git 2007.12.10
         * Added package.
       * xterm 229
         * Replace antiquated version (207) with new version from upstream source.
         * Better UTF8 support among other bugfixes
     * proto:
-      * x11proto git 20071210
+      * x11proto git 2007.12.10
         * Changed references of __DARWIN__ to __APPLE__
   * fc-cache is run during post-install
   * Xquartz fixes from xorg-server-1.2-apple (Up to Xquartz-1.3.0-apple5)

@@ -4,6 +4,7 @@
 # lndir post 1.0.1
 # libxtrans post 1.0.4
 # x11proto post 1.0.11
+# libX11 post 1.1.3
 # xterm 229 ftp://invisible-island.net/xterm/xterm-229.tgz
 
 export CFLAGS="-Wall -O2 -arch i386 -arch ppc -pipe -DNO_ALLOCA"
@@ -84,8 +85,7 @@ doinst() {
 }
 
 # Protos
-#for d in compositeproto-0.4 damageproto-1.1.0 glproto-1.4.9 inputproto-1.4.2.1 randrproto-1.2.1 renderproto-0.9.3 x11proto; do
-for d in damageproto-1.1.0 randrproto-1.2.1 x11proto; do
+for d in compositeproto-0.4 damageproto-1.1.0 glproto-1.4.9 inputproto-1.4.2.1 randrproto-1.2.1 renderproto-0.9.3 x11proto; do
 	doinst $d
 done
 
@@ -99,9 +99,6 @@ doinst xterm-229 --enable-wide-chars --enable-luit --enable-256-color --enable-l
 # Libs need x86_64 and ppc64
 CFLAGS="${CFLAGS} -arch x86_64 -arch ppc64"
 
-#doinst pixman-0.9.6 --disable-static
+doinst pixman-0.9.6 --disable-static
 doinst libxtrans
-
-# These extra libX11 flags will be set by default in 1.1.4
-CFLAGS="${CFLAGS} -DHAVE_LAUNCHD -D__DARWIN__"
-doinst libX11-1.1.3 --disable-xf86bigfont --without-xcb --disable-static
+doinst libX11 --disable-xf86bigfont --without-xcb --disable-static
