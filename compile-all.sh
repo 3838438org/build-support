@@ -1,10 +1,12 @@
-# git versions from 2007.12.11:
-# xauth post 1.0.2
-# xinit post 1.0.7
-# lndir post 1.0.1
-# libxtrans post 1.0.4
-# x11proto post 1.0.11
-# libX11 post 1.1.3
+# git versions:
+# xauth post 1.0.2 - 2007.12.11
+# xinit post 1.0.7 - 2008.01.04
+# lndir post 1.0.1 - 2007.12.11
+# libxtrans post 1.0.4 - 2007.12.11
+# x11proto post 1.0.11 - 2007.12.11
+# libX11 post 1.1.3 - 2008.01.04
+
+# Not x.org maintained:
 # xterm 229 ftp://invisible-island.net/xterm/xterm-229.tgz
 
 export CFLAGS="-Wall -O2 -arch i386 -arch ppc -pipe -DNO_ALLOCA"
@@ -60,7 +62,6 @@ fetch_source() {
 	done
 
 	# Fallback to pub/individual
-#	for d in app data doc driver font lib proto testdir util xserver
 	for s in lib proto app data doc driver font testdir util xserver ; do
 		curl -LO ftp://ftp.x.org/pub/individual/${s}/${d}.tar.bz2 && break
 	done
@@ -90,9 +91,11 @@ for d in compositeproto-0.4 damageproto-1.1.0 glproto-1.4.9 inputproto-1.4.2.1 r
 done
 
 # Apps
-for d in xauth xinit lndir xfs-1.0.5; do
+for d in xauth lndir xfs-1.0.5; do
 	doinst $d
 done
+
+doinst xinit --with-launchagents-dir=/System//Library/LaunchAgents
 
 doinst xterm-229 --enable-wide-chars --enable-luit --enable-256-color --enable-logging --enable-load-vt-fonts
 

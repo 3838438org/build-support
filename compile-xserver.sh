@@ -1,7 +1,7 @@
 #!/bin/bash
 
-#CONFIGURE="./autogen.sh"
-CONFIGURE="./configure"
+CONFIGURE="./autogen.sh"
+#CONFIGURE="./configure"
 #CONFOPT="--disable-xquartz --disable-launchd --enable-kdrive --disable-xsdl --enable-xnest --enable-xvfb"
 #CONFOPT="-disable-glx"
 
@@ -14,8 +14,8 @@ MAKE_OPTS="-j5"
  
 export PKG_CONFIG="/usr/local/bin/pkg-config"
 
-export CFLAGS="-Wall -O2 -arch i386 -arch ppc -pipe -DNO_ALLOCA -D__DARWIN__"
-export LDFLAGS="-Wall -O2 -arch i386 -arch ppc -pipe -DNO_ALLOCA -D__DARWIN__"
+export CFLAGS="-Wall -O2 -arch i386 -arch ppc -pipe -DNO_ALLOCA"
+export LDFLAGS="-Wall -O2 -arch i386 -arch ppc -pipe -DNO_ALLOCA"
 
 strip_finkmp() {
         local OIFS=$IFS
@@ -34,7 +34,7 @@ export PATH="/usr/X11/bin:$(strip_finkmp ${PATH})"
 export CPLUS_INCLUDE_PATH="/usr/X11/include:$(strip_finkmp ${CPLUS_INCLUDE_PATH})"
 export C_INCLUDE_PATH="/usr/X11/include:$(strip_finkmp ${C_INCLUDE_PATH})"
 export OBJC_INCLUDE_PATH="/usr/X11/include:$(strip_finkmp ${OBJC_INCLUDE_PATH})"
-export PKG_CONFIG_PATH="/usr/X11/lib/pkgconfig:$(strip_finkmp ${PKG_CONFIG_PATH})"
+export PKG_CONFIG_PATH="/usr/lib/pkgconfig:/usr/X11/lib/pkgconfig:$(strip_finkmp ${PKG_CONFIG_PATH})"
 
 export ACLOCAL="aclocal -I /usr/X11/share/aclocal"
 
@@ -50,7 +50,7 @@ docomp() {
 }
 
 doinst() {
-	${MAKE} install DESTDIR="$(pwd)/../dist.a" || die "Could not install xserver"
+	${MAKE} install DESTDIR="$(pwd)/../dist" || die "Could not install xserver"
 }
 
 dosign() {
