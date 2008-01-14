@@ -9,11 +9,6 @@ for d in {,/System}/Library/Fonts ; do
 	/usr/X11/bin/mkfontscale ${d}
 done
 
-# Kill off old X11.app
-if [[ -d /usr/X11/X11.app ]] ; then
-        rm -rf /usr/X11/X11.app
-fi
-
 exit 0
 
 

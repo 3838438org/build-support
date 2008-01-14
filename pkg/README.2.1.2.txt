@@ -6,12 +6,14 @@ This updates is not an official Apple releases. It is a convenient way for users
 == Changes in 2.1.2 ==
   * All changes in 2.1.1 plus:
   * app:
-    * xinit git 2008.01.04
+    * xinit git 2008.01.09
       * Updated xinit to support launchd
       * Now using xinit to start the server rather than running X11.app directly
         * X11.app is relocatable now
       * Fixed fast-user-switching X11 regression
       * Properly honor xauth and tcp/ip preferences
+    * xauth git 2008.01.11
+      * fixed duplicate entry crash during xauth remove
   * lib:
     * pixman 0.9.6
   * proto:
@@ -20,12 +22,13 @@ This updates is not an official Apple releases. It is a convenient way for users
     * inputproto-1.4.2.1
     * renderproto-0.9.3
   * server:
-    * Xquartz fixes from xorg-server-1.2-apple (Up to Xquartz-1.3.0-apple6)
+    * Xquartz fixes from xorg-server-1.2-apple (Up to Xquartz-1.3.0-apple7)
       * XQuartz comes to the foreground later in the startup process to not cause 'XQuartz -version' to flash a dock icon
       * Fixed -depth command line argument to work properly (still no 8-bit support)
       * added 'startx_script' defaults option which defaults to /usr/X11/bin/startx.
       * This is used when launchd support is disabled and the user uses X11.app to start the server (such as with Tiger).
       * added localization from Leopard's shipped X11.
+      * added 'login_shell' key to org.x.X11 plist which defaults to /bin/sh and is used for launching from the Applications menu.  tcsh users will probably want to change this to /bin/tcsh.
 
 == Changes in 2.1.1 ==
   * All changes in 2.1.0.1 plus:

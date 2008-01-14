@@ -5,8 +5,8 @@ CONFIGURE="./autogen.sh"
 #CONFOPT="--disable-xquartz --disable-launchd --enable-kdrive --disable-xsdl --enable-xnest --enable-xvfb"
 #CONFOPT="-disable-glx"
 
-MESA="$(pwd)/../Mesa-6.5.2"
-#MESA="$(pwd)/../Mesa-7.0.2"
+#MESA="$(pwd)/../Mesa-6.5.2"
+MESA="$(pwd)/../Mesa-7.0.2"
 
 # Parallel Make.  Change $MAKE if you don't have gmake installed
 MAKE="/opt/local/bin/gmake"
@@ -44,8 +44,8 @@ die() {
 }
 
 docomp() {
-#	${CONFIGURE} --prefix=/usr/X11 --mandir=/usr/X11/man --with-mesa-source="${MESA}" ${CONFOPT} --disable-dependency-tracking --enable-maintainer-mode --with-launchagents-dir=/System/Library/LaunchAgents || die "Could not configure xserver"
-#	${MAKE} clean || die "Unable to make clean"
+	${CONFIGURE} --prefix=/usr/X11 --mandir=/usr/X11/man --with-mesa-source="${MESA}" ${CONFOPT} --disable-dependency-tracking --enable-maintainer-mode --with-launchagents-dir=/System/Library/LaunchAgents || die "Could not configure xserver"
+	${MAKE} clean || die "Unable to make clean"
 	${MAKE} ${MAKE_OPTS} || die "Could not make xserver"
 }
 
