@@ -5,6 +5,7 @@
 # libxtrans post 1.0.4 - 2007.12.11
 # x11proto post 1.0.11 - 2007.12.11
 # libX11 post 1.1.3 - 2008.01.04
+# libXfont post 1.3.1 - 2008.01.17
 
 # Not x.org maintained:
 # xterm 229 ftp://invisible-island.net/xterm/xterm-229.tgz
@@ -100,8 +101,11 @@ doinst xinit --with-launchagents-dir=/System//Library/LaunchAgents
 doinst xterm-229 --enable-wide-chars --enable-luit --enable-256-color --enable-logging --enable-load-vt-fonts
 
 # Libs need x86_64 and ppc64
-CFLAGS="${CFLAGS} -arch x86_64 -arch ppc64"
+export CFLAGS="${CFLAGS} -arch x86_64 -arch ppc64"
 
-doinst pixman-0.9.6 --disable-static
+for d in pixman-0.9.6 libXfont ; do
+	doinst $d --disable-static
+done
+
 doinst libxtrans
 doinst libX11 --disable-xf86bigfont --without-xcb --disable-static

@@ -15,6 +15,7 @@ git-clone ${GIT_BASE}/xorg/app/xauth.git
 git-clone ${GIT_BASE}/xorg/app/xinit.git
 git-clone ${GIT_BASE}/xorg/util/lndir.git
 git-clone ${GIT_BASE}/xorg/lib/libX11.git
+git-clone ${GIT_BASE}/xorg/lib/libXfont
 
 git-clone ${GIT_BASE}/xorg/xserver.git
 cd xserver
