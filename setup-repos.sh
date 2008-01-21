@@ -10,6 +10,8 @@ curl -LO http://superb-west.dl.sourceforge.net/sourceforge/mesa3d/MesaLib-6.5.2.
 tar -xjvf MesaLib-6.5.2.tar.bz2
 curl -LO http://superb-west.dl.sourceforge.net/sourceforge/mesa3d/MesaLib-7.0.2.tar.bz2
 tar -xjvf MesaLib-7.0.2.tar.bz2
+curl -LO ftp://invisible-island.net/xterm/xterm-229.tgz
+tar -xjzf xterm-229.tgz
 git-clone ${GIT_BASE}/fontconfig
 git-clone ${GIT_BASE}/xorg/app/xauth.git
 git-clone ${GIT_BASE}/xorg/app/xinit.git
