@@ -1,13 +1,10 @@
 #!/bin/sh
 # Load the fontconfig launchd.plist
-/bin/launchctl load -w /System/Library/LaunchAgents/org.x.fontconfig.plist
-
-# Update font info
-/usr/X11/bin/fc-cache
-for d in {,/System}/Library/Fonts ; do
-	/usr/X11/bin/mkfontdir ${d}
-	/usr/X11/bin/mkfontscale ${d}
-done
+/bin/launchctl unload -w /System/Library/LaunchAgents/org.x.fontconfig.plist
+if [ -f /System/Library/LaunchAgents/org.x.fontconfig.plist ] ; then
+	rm /System/Library/LaunchAgents/org.x.fontconfig.plist
+fi
+/bin/launchctl load -w /System/Library/LaunchDaemons/org.x.fontconfig.plist
 
 exit 0
 
