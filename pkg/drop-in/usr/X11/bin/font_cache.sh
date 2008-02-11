@@ -1,7 +1,6 @@
 #!/bin/bash
 # (c) 1999-2004 Gentoo Foundation (portions from /etc/init.d/xfs)
-# (c) 2008 Apple, Inc
-#
+# Portions copyright (c) 2008 Apple Inc.  All rights reserved.
 # Distributed under the terms of the GNU General Public License, v2
 
 X11DIR=/usr/X11
@@ -28,7 +27,7 @@ check_changed() {
 		if [[ -n "${fontlist}" ]] ; then
 			# No list file exist, so create it and return 0 to add
 			# this font dir as a candidate for updating...
-			echo "${fontlist}" > $1/fonts.list
+			echo "${fontlist}" > "$1"/fonts.list
 
 			return 0
 		fi
@@ -37,9 +36,9 @@ check_changed() {
 
 		# All the fonts were removed, so cleanup
 		if [[ -z "${fontlist}" ]] ; then
-			for x in $1/fonts.* $1/encodings.dir $1/XftCache ; do
+			for x in "$1"/fonts.* "$1"/encodings.dir "$1"/XftCache ; do
 				if [[ -f ${x} ]] ; then
-					rm -f ${x}
+					rm -f "${x}"
 				fi
 			done
 
@@ -52,7 +51,7 @@ check_changed() {
 		fi
 
 		# Check that no files was added or removed....
-		if [[ "$(cat $1/fonts.list)" != "${fontlist}" ]] ; then
+		if [[ "$(cat "$1"/fonts.list)" != "${fontlist}" ]] ; then
 			retval=0
 		fi
 
@@ -60,7 +59,7 @@ check_changed() {
 		if [[ "${retval}" -ne 0 ]] ; then
 			local changed_list=""
 
-			changed_list="$(find $1/ -type f -cnewer $1/fonts.dir | \
+			changed_list="$(find "$1"/ -type f -cnewer "$1"/fonts.dir | \
 			                awk '$0 !~ /fonts\.(list|cache-1)$|XftCache/ {print}')"
 
 			if [[ -n "${changed_list}" ]] ; then
@@ -71,7 +70,7 @@ check_changed() {
 		# OK, something changed, so recreate fonts.list and add as candidate
 		# for updating...
 		if [[ "${retval}" -eq 0 ]] ; then
-			echo "${fontlist}" > $1/fonts.list
+			echo "${fontlist}" > "$1"/fonts.list
 
 			return 0
 		fi
@@ -85,16 +84,16 @@ get_fontdir_list() {
 	if [[ $system == 1 ]] ; then
 		find {/System/,/}Library/Fonts -type d
 
-		for d in ${X11FONTDIR}/* ; do
+		for d in "${X11FONTDIR}"/* ; do
 			case ${d#${X11FONTDIR}/} in
 				conf*|encodings*) ;;
-				*) find $d -type d ;;
+				*) find "$d" -type d ;;
 			esac
 		done
 	else 
-		for d in ${HOME}/{.fonts,Library/Fonts} ; do
+		for d in "${HOME}"/{.fonts,Library/Fonts} ; do
 			if [[ -d $d ]] ; then
-				find $d -type d
+				find "$d" -type d
 			fi
 		done
 	fi
@@ -121,12 +120,16 @@ setup_font_dirs() {
 	else
 		echo "font_cache.sh: Scanning user font directories to generate X11 font caches"
 	fi
+
+	OIFS=$IFS
+	IFS='
+'
 	for x in $(get_fontdir_list) ; do
-		if test -d ${x} && check_changed ${x} ; then
+		if test -d "${x}" && check_changed "${x}" ; then
 			if [[ -z "${pending_fontdirs}" ]] ; then
 				pending_fontdirs="${x}"
 			else
-				pending_fontdirs="${pending_fontdirs} ${x}"
+				pending_fontdirs="${pending_fontdirs}${IFS}${x}"
 			fi
 		fi
 	done
@@ -185,6 +188,7 @@ setup_font_dirs() {
 			changed="yes"
 		done
 	fi
+	IFS=$OIFS
 
 	# While we at it, update fontconfig's cache as well
 	echo "font_cache.sh: Updating FC cache"
