@@ -8,7 +8,7 @@
 # libXfont post 1.3.1 - 2008.01.17
 
 # Not x.org maintained:
-# xterm 229 ftp://invisible-island.net/xterm/xterm-229.tgz
+# xterm 232 ftp://invisible-island.net/xterm/xterm-229.tgz
 
 export CFLAGS="-Wall -O2 -arch i386 -arch ppc -pipe -DNO_ALLOCA"
 export LDFLAGS="-Wall -O2 -arch i386 -arch ppc -pipe -DNO_ALLOCA"
@@ -17,7 +17,7 @@ export LDFLAGS="-Wall -O2 -arch i386 -arch ppc -pipe -DNO_ALLOCA"
 MAKE="/opt/local/bin/gmake"
 MAKE_OPTS="-j5"
 
-export PKG_CONFIG="/usr/local/bin/pkg-config"
+export PKG_CONFIG="/usr/bin/pkg-config"
 
 rootdir="$(pwd)"
 DESTDIR="$(pwd)/dist"
@@ -45,7 +45,7 @@ export ACLOCAL="aclocal -I /usr/X11/share/aclocal"
 
 die() {
 	echo "${@}" >&2
-	exit 1
+	#exit 1
 }
 
 fetch_source() {
@@ -87,18 +87,18 @@ doinst() {
 }
 
 # Protos
-for d in compositeproto-0.4 damageproto-1.1.0 glproto-1.4.9 inputproto-1.4.2.1 randrproto-1.2.1 renderproto-0.9.3 x11proto; do
+for d in glproto-1.4.9 x11proto; do
 	doinst $d
 done
 
 # Apps
-for d in xauth lndir xfs-1.0.5; do
+for d in xauth lndir ; do
 	doinst $d
 done
 
 doinst xinit --with-launchagents-dir=/System//Library/LaunchAgents
 
-doinst xterm-229 --enable-wide-chars --enable-luit --enable-256-color --enable-logging --enable-load-vt-fonts
+doinst xterm-232 --enable-wide-chars --enable-luit --enable-256-color --enable-logging --enable-load-vt-fonts
 
 # Libs need x86_64 and ppc64
 export CFLAGS="${CFLAGS} -arch x86_64 -arch ppc64"
@@ -108,4 +108,10 @@ for d in pixman-0.9.6 libXfont ; do
 done
 
 doinst libxtrans
-doinst libX11 --disable-xf86bigfont --without-xcb --disable-static
+#doinst libX11 --disable-xf86bigfont --without-xcb --disable-static
+
+#LDFLAGS="-lz -Xlinker -framework -Xlinker CoreServices -Xlinker -framework -Xlinker ApplicationServices $LDFLAGS"
+#CFLAGS="-I/usr/X11/include/freetype2 $CFLAGS" 
+
+doinst fontconfig-2.5.0 --with-confdir=/usr/X11/lib/X11/fonts --with-default-fonts=/usr/X11/lib/X11/fonts
+

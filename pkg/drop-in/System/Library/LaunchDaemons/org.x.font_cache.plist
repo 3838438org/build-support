@@ -3,13 +3,19 @@
 <plist version="1.0">
 <dict>
 	<key>Label</key>
-		<string>org.x.fontconfig</string>
+		<string>org.x.font_cache</string>
 	<key>ProgramArguments</key>
 		<array>
 			<string>/usr/X11/bin/font_cache.sh</string>
 			<string>-s</string>
 		</array>
+	<key>UserName</key>
+		<string>root</string>
 	<key>RunAtLoad</key>
+		<true/>
+	<key>Nice</key>
+		<integer>15</integer>
+	<key>LowPriorityIO</key>
 		<true/>
 </dict>
 </plist>
