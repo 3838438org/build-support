@@ -2,7 +2,22 @@
 
 This updates is not an official Apple releases. It is a convenient way for users to stay up to date with progress made in the open source community (in which Apple is participating). Official Apple releases will come from Apple (most likely through Apple Update). These updates will likely incorporate many of the changes made in our releases when and if Apple deems them appropriate.
 
-== Changes in 2.2 ==
+== Notice ==
+
+2.2.0 is a full release of X11 for Mac OS 10.5 Leopard.  It contains 
+updated versions of applications, libraries, and the server and can be 
+installed fully functional on a 10.5 system with no existing X11.
+
+This version does *NOT* contain some deprecated software that was 
+released with Leopard.  xmkmf and imake have been removed from X11 as 
+they are no longer functional with the new autoconf version of X11.  
+Should you still require these applications, it is recommened that you 
+either compile them yourself (./configure --prefix=/usr/X11 && make && 
+sudo make install should be sufficient) or install this package over an 
+existing install of X11 that contains xmkmf (ie "Updating" the Official 
+shipping version of X11).
+
+== Changes in 2.2.0 ==
   * All changes in 2.1.4 plus:
   * All packages updated to versions intended to ship as part of X11R7.4 (as of 2008.03.14):
   * app:
@@ -15,7 +30,7 @@ This updates is not an official Apple releases. It is a convenient way for users
     * mkfontdir 1.0.4
     * mkfontscale 1.0.4
     * setxkbmap 1.0.4
-    * [http://gentoo-portage.com/x11-apps/ttmkfdir ttmkfdir 3.0.9
+    * ttmkfdir 3.0.9
     * sessreg 1.0.3
     * twm 1.0.4
     * x11perf 1.5
