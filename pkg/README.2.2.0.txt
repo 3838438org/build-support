@@ -39,12 +39,14 @@ This version does *NOT* contain some deprecated software that was released with 
     * xfs 1.0.6
     * xgamma 1.0.2
     * xhost 1.0.2
-    * xinit 1.0.8-git-2008.04.04
+    * xinit 1.0.8-git-2008.04.05
       * Moved font caching logic to startx rather than xinitrc
       * Added support for xinitrc.d directory, so fink, macports, et al won't clobber our xinitrc
       * Moved some stuff out of xinitrc into the xinitrc.d directory
       * Fixed startup to work correctly even with broken .bashrc and .profile ('set <blah>' bug)
       * Fixed "post-crash titlebar missing" bug
+      * Fixed /tmp/.X11-unix permission
+      * Now cache system font directories at X11.app startup rather than system startup
     * xload 1.0.2
     * xlsfonts 1.0.2
     * xmag 1.0.2
