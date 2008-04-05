@@ -4,18 +4,9 @@ This updates is not an official Apple releases. It is a convenient way for users
 
 == Notice ==
 
-2.2.0 is a full release of X11 for Mac OS 10.5 Leopard.  It contains 
-updated versions of applications, libraries, and the server and can be 
-installed fully functional on a 10.5 system with no existing X11.
+2.2.0 is a full release of X11 for Mac OS 10.5 Leopard.  It contains updated versions of applications, libraries, and the server and can be installed fully functional on a 10.5 system with no existing X11.
 
-This version does *NOT* contain some deprecated software that was 
-released with Leopard.  xmkmf and imake have been removed from X11 as 
-they are no longer functional with the new autoconf version of X11.  
-Should you still require these applications, it is recommened that you 
-either compile them yourself (./configure --prefix=/usr/X11 && make && 
-sudo make install should be sufficient) or install this package over an 
-existing install of X11 that contains xmkmf (ie "Updating" the Official 
-shipping version of X11).
+This version does *NOT* contain some deprecated software that was released with Leopard.  xmkmf and imake have been removed from X11 as they are no longer functional with the new autoconf version of X11.  Should you still require these applications, it is recommened that you either compile them yourself (./configure --prefix=/usr/X11 && make && sudo make install should be sufficient) or install this package over an existing install of X11 that contains xmkmf (ie "Updating" the Official shipping version of X11).
 
 == Changes in 2.2.0 ==
   * All changes in 2.1.4 plus:
@@ -48,11 +39,12 @@ shipping version of X11).
     * xfs 1.0.6
     * xgamma 1.0.2
     * xhost 1.0.2
-    * xinit 1.0.8
+    * xinit 1.0.8-git-2008.04.04
       * Moved font caching logic to startx rather than xinitrc
       * Added support for xinitrc.d directory, so fink, macports, et al won't clobber our xinitrc
       * Moved some stuff out of xinitrc into the xinitrc.d directory
       * Fixed startup to work correctly even with broken .bashrc and .profile ('set <blah>' bug)
+      * Fixed "post-crash titlebar missing" bug
     * xload 1.0.2
     * xlsfonts 1.0.2
     * xmag 1.0.2
