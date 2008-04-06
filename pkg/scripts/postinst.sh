@@ -1,8 +1,4 @@
 #!/bin/sh
-# Load the font_cache launchd.plist
-/bin/launchctl load -w /System/Library/LaunchDaemons/org.x.font_cache.plist
-
+# Load the privileged_startx daemon
+/bin/launchctl load -w /System/Library/LaunchDaemons/org.x.privileged_startx.plist
 exit 0
-
-
-
