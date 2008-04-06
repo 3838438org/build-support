@@ -4,12 +4,22 @@ if [[ -d /usr/X11/X11.app ]] ; then
         rm -rf /usr/X11/X11.app
 fi
 
-/bin/launchctl unload -w /System/Library/LaunchAgents/org.x.fontconfig.plist
+# This plist is the old name (and the future name for X11.app)
+if [ -f /System/Library/LaunchAgents/org.x.X11.plist ] ; then
+	/bin/launchctl unload -w /System/Library/LaunchAgents/org.x.X11.plist
+        rm /System/Library/LaunchAgents/org.x.X11.plist
+fi
+
+# This is done now by startx
 if [ -f /System/Library/LaunchAgents/org.x.fontconfig.plist ] ; then
+	/bin/launchctl unload -w /System/Library/LaunchAgents/org.x.fontconfig.plist
         rm /System/Library/LaunchAgents/org.x.fontconfig.plist
 fi
 
+# This is done now by privileged_startx
+if [ -f /System/Library/LaunchDaemons/org.x.font_cache.plist ] ; then
+	/bin/launchctl unload -w /System/Library/LaunchDaemons/org.x.font_cache.plist
+	rm /System/Library/LaunchDaemons/org.x.font_cache.plist
+fi
+
 exit 0
-
-
-
