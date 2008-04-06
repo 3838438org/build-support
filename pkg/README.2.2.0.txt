@@ -47,6 +47,7 @@ This version does *NOT* contain some deprecated software that was released with 
       * Fixed "post-crash titlebar missing" bug
       * Fixed /tmp/.X11-unix permission
       * Now cache system font directories at X11.app startup rather than system startup
+      * Renamed startx LaunchDaemon org.x.startx from org.x.X11
     * xload 1.0.2
     * xlsfonts 1.0.2
     * xmag 1.0.2
