@@ -19,10 +19,14 @@ if [ -f /System/Library/LaunchAgents/org.x.x11.plist ] ; then
 	/bin/launchctl unload -w /System/Library/LaunchAgents/org.x.x11.plist
 fi
 
+if [ -f /System/Library/LaunchAgents/org.x.startx.plist ] ; then
+	/bin/launchctl unload -w /System/Library/LaunchAgents/org.x.startx.plist
+fi
+
 # This is old stuffs that can be removed
 if [ -f /System/Library/LaunchAgents/org.x.fontconfig.plist ] ; then
 	/bin/launchctl unload -w /System/Library/LaunchAgents/org.x.fontconfig.plist
-        rm /System/Library/LaunchAgents/org.x.fontconfig.plist
+	rm /System/Library/LaunchAgents/org.x.fontconfig.plist
 fi
 
 exit 0

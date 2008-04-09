@@ -66,7 +66,7 @@ This version does *NOT* contain some deprecated software that was released with 
   * font:
     * font-xfree86-type1 1.0.1
   * lib:
-    * cairo
+    * cairo 1.4.14
     * libICE 1.0.4
     * libSM 1.0.3
     * libX11 1.1.4
@@ -96,11 +96,13 @@ This version does *NOT* contain some deprecated software that was released with 
     * makedepend 1.0.1
     * util-macros 1.1.6
   * server:
-    * xorg-server-1.3.0-apple12
+    * xorg-server-1.3.0-apple14
       * Added informational output when falling through to failsafe startup in X11.app
       * Unsetenv(DISPLAY) when falling through to failsafe startup in X11.app
       * Fixed "confirm on exit"
       * Exposé now works as expected
+      * Disabled rlAccel (suspected of causing some crashes, won't be fixed since plans are to migrate to COMPOSITE)
+      * X11 works better with spaces
 
 == Changes in 2.1.4 ==
   * All changes in 2.1.3 plus:
