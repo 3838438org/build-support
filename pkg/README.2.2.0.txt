@@ -2,11 +2,23 @@
 
 This updates is not an official Apple releases. It is a convenient way for users to stay up to date with progress made in the open source community (in which Apple is participating). Official Apple releases will come from Apple (most likely through Apple Update). These updates will likely incorporate many of the changes made in our releases when and if Apple deems them appropriate.
 
-== Notice ==
+== Important Notices ==
 
-2.2.0 is a full release of X11 for Mac OS 10.5 Leopard.  It contains updated versions of applications, libraries, and the server and can be installed fully functional on a 10.5 system with no existing X11.
+=== OS-X Requirements ===
 
-This version does *NOT* contain some deprecated software that was released with Leopard.  xmkmf and imake have been removed from X11 as they are no longer functional with the new autoconf version of X11.  Should you still require these applications, it is recommened that you either compile them yourself (./configure --prefix=/usr/X11 && make && sudo make install should be sufficient) or install this package over an existing install of X11 that contains xmkmf (ie "Updating" the Official shipping version of X11).
+OS-X 10.5.0 or later is required to install this package.
+
+=== Mac OS-X Updates ===
+
+You will need to re-install this package after future OS and Security Updates delivered through Apple's Software Update.
+
+=== Logout Notice ===
+
+Because we've changed the way launchd starts the server, you will need to logout after installation.
+
+=== Deprecated Software ===
+
+The software supporting the deprecated imake build system is not provided in this package.  If you need imake and xmkmf, please install the X11 package that came with your Leopard DVD before installing this version.  Alternatively, you can compile these packages on your own or get them from a third party such as Fink or MacPorts.  The darwin configuration files used by the imake build system are outdated and not supported.  Developers using this build system are advised to migrate to autoconf.
 
 == Changes in 2.2.0 ==
   * All changes in 2.1.4 plus:
@@ -39,7 +51,7 @@ This version does *NOT* contain some deprecated software that was released with 
     * xfs 1.0.6
     * xgamma 1.0.2
     * xhost 1.0.2
-    * xinit 1.0.8-git-2008.04.05
+    * xinit 1.0.8-git-2008.04.08
       * Moved font caching logic to startx rather than xinitrc
       * Added support for xinitrc.d directory, so fink, macports, et al won't clobber our xinitrc
       * Moved some stuff out of xinitrc into the xinitrc.d directory
@@ -47,7 +59,8 @@ This version does *NOT* contain some deprecated software that was released with 
       * Fixed "post-crash titlebar missing" bug
       * Fixed /tmp/.X11-unix permission
       * Now cache system font directories at X11.app startup rather than system startup
-      * Renamed startx LaunchDaemon org.x.startx from org.x.X11
+      * Renamed startx LaunchAgent org.x.startx from org.x.X11
+      * System xinitrc now works for users with spaces in $HOME
     * xload 1.0.2
     * xlsfonts 1.0.2
     * xmag 1.0.2
@@ -85,6 +98,7 @@ This version does *NOT* contain some deprecated software that was released with 
     * libXt 1.0.5
     * libXtst 1.0.3
     * libXxf86dga 1.0.2
+    * libpng 1.2.26
     * xcb 1.1
     * xtrans 1.1
   * proto:
@@ -95,6 +109,10 @@ This version does *NOT* contain some deprecated software that was released with 
   * util:
     * makedepend 1.0.1
     * util-macros 1.1.6
+  * quartz-wm:
+    * Restores minimized windows when the server crashes
+    * Added preference to control moving X11.app into the foreground when a new X11 window is created
+    * Added preference to toggle shading of windows
   * server:
     * xorg-server-1.3.0-apple14
       * Added informational output when falling through to failsafe startup in X11.app
