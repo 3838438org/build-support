@@ -20,6 +20,11 @@ Because we've changed the way launchd starts the server, you will need to logout
 
 The software supporting the deprecated imake build system is not provided in this package.  If you need imake and xmkmf, please install the X11 package that came with your Leopard DVD before installing this version.  Alternatively, you can compile these packages on your own or get them from a third party such as Fink or MacPorts.  The darwin configuration files used by the imake build system are outdated and not supported.  Developers using this build system are advised to migrate to autoconf.
 
+== Changes in 2.2.0.1 ==
+  * All changes in 2.2.0 plus:
+    * Updated /usr/X11/lib/X11/xinit/privileged_startx.d/10-tmpdirs to address a potential security risk (privilege escalation):
+      * A user could create a symbolic link from /tmp/.X11-unix to /usr/X11/lib/X11/xinit/privileged_startx.d and execute privileged_startx to give himself write permission to /usr/X11/lib/X11/xinit/privileged_startx.d 
+
 == Changes in 2.2.0 ==
   * All changes in 2.1.4 plus:
   * All packages updated to versions intended to ship as part of X11R7.4 (as of 2008.03.14):
