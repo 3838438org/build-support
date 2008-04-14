@@ -30,6 +30,7 @@ The software supporting the deprecated imake build system is not provided in thi
     * iceauth 1.0.2
     * ico 1.0.2
     * luit 1.0.3
+      * Also added Martin's secure tty patch
     * mkfontdir 1.0.4
     * mkfontscale 1.0.4
     * setxkbmap 1.0.4
@@ -114,7 +115,7 @@ The software supporting the deprecated imake build system is not provided in thi
     * Added preference to control moving X11.app into the foreground when a new X11 window is created
     * Added preference to toggle shading of windows
   * server:
-    * xorg-server-1.3.0-apple14
+    * xorg-server-1.3.0-apple15
       * Added informational output when falling through to failsafe startup in X11.app
       * Unsetenv(DISPLAY) when falling through to failsafe startup in X11.app
       * Fixed "confirm on exit"

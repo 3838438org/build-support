@@ -1,6 +1,6 @@
 #!/bin/sh
 # Kill off old X11.app before installing because relocation will use this one
-if [[ -d /usr/X11/X11.app ]] ; then
+if [ -d /usr/X11/X11.app ] ; then
         rm -rf /usr/X11/X11.app
 fi
 
@@ -29,5 +29,12 @@ if [ -f /System/Library/LaunchDaemons/org.x.font_cache.plist ] ; then
 	/bin/launchctl unload -w /System/Library/LaunchDaemons/org.x.font_cache.plist
 	rm /System/Library/LaunchDaemons/org.x.font_cache.plist
 fi
+
+# This stuff was moved to xinit dir in the final release of 2.2.0
+[ -f /usr/X11/bin/privileged_startx ] && rm /usr/X11/bin/privileged_startx
+[ -f /usr/X11/sbin/privileged_startx.sh ] && rm /usr/X11/sbin/privileged_startx.d
+
+# Renamed to drop the .sh
+[ -f /usr/X11/bin/font_cache.sh ] && rm /usr/X11/bin/font_cache.sh
 
 exit 0
