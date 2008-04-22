@@ -100,6 +100,7 @@ The software supporting the deprecated imake build system is not provided in thi
     * libXtst 1.0.3
     * libXxf86dga 1.0.2
     * libpng 1.2.26
+      * Includes fix for CVE-2008-1382
     * xcb 1.1
     * xtrans 1.1
   * proto:
