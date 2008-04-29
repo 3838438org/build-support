@@ -41,6 +41,8 @@ The software supporting the deprecated imake build system is not provided in thi
   * proto:
     * dri2proto 1.1
     * xf86driproto 2.0.4
+  * quartz-wm:
+    * Fixed "closing X11 window swaps spaces" bug
   * server:
     * xorg-server-1.3.0-apple18
       * Fixed multiple crash-causing bugs
