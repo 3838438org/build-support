@@ -25,6 +25,8 @@ The software supporting the deprecated imake build system is not provided in thi
   * All packages updated to versions intended to ship as part of X11R7.4 (as of 2008.04.21):
   * app:
     * setxkbmap 1.0.4 
+    * xinit 1.0.8-git-2008.04.26
+      * Use CFProcessPath instead of argv[0] trick
     * xkbcomp 1.0.4
     * xkbdata 1.0.1
     * xkbevd 1.0.2
@@ -44,7 +46,7 @@ The software supporting the deprecated imake build system is not provided in thi
   * quartz-wm:
     * Fixed "closing X11 window swaps spaces" bug
   * server:
-    * xorg-server-1.3.0-apple18
+    * xorg-server-1.3.0-apple20
       * Fixed multiple crash-causing bugs
       * Fixed cmd-tab to properly move all windows forward when entering X11.app
 
