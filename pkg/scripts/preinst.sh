@@ -32,7 +32,7 @@ fi
 
 # This stuff was moved to xinit dir in the final release of 2.2.0
 [ -f /usr/X11/bin/privileged_startx ] && rm /usr/X11/bin/privileged_startx
-[ -f /usr/X11/sbin/privileged_startx.sh ] && rm /usr/X11/sbin/privileged_startx.d
+[ -f /usr/X11/sbin/privileged_startx.sh ] && rm /usr/X11/sbin/privileged_startx.sh
 
 # Renamed to drop the .sh
 [ -f /usr/X11/bin/font_cache.sh ] && rm /usr/X11/bin/font_cache.sh
