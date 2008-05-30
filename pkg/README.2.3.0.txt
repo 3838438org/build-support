@@ -6,7 +6,7 @@ This updates is not an official Apple releases. It is a convenient way for users
 
 === OS-X Requirements ===
 
-OS-X 10.5.0 or later is required to install this package.
+OS-X 10.5.4 or later is required to install this package.
 
 === Mac OS-X Updates ===
 
@@ -24,20 +24,34 @@ The software supporting the deprecated imake build system is not provided in thi
   * All changes in 2.2.1 plus:
   * app:
     * fonttosfnt 1.0.4
+    * fslsfonts 1.0.2
+    * fstobdf 1.0.3
     * mkfontscale 1.0.5
+    * showfont 1.0.2
+    * xdm 1.1.8
+    * xdpyinfo 1.0.3
+    * xfs 1.0.8
+    * xfsinfo 1.0.2
+    * xinit 1.0.9
     * xkbcomp 1.0.5
+    * xkeyboard-config 1.3
   * lib:
+    * libFS 1.0.1
     * xtrans 1.2
+  * proto:
+    * xextproto 7.0.3
+    * xproto 7.0.13
   * server:
-    * Xquartz fixes from xorg-server-1.4-apple11
+    * Xquartz fixes from xorg-server-1.4-apple13
       * xserver codebase updated to 1.4 branch
-        * Support for tablets
-        * Threading is more robust
-        * Support monitor hotplugging
-        * Initial support for new startup model
-          * server bits are in the bundle now
-          * /usr/X11/bin/Xquartz is just a stub that will "do the right thing"
-            * For now, it just exec's the server, but this will eventually be mach IPC
+      * Support for tablets
+      * Threading is more robust
+      * Support monitor hotplugging
+      * Initial support for new startup model
+        * support for adding new $DISPLAY sockets after the server is running
+        * server bits are in the bundle now
+        * /usr/X11/bin/Xquartz is just a stub that will "do the right thing"
+          * For now, it just exec's the server, but this will eventually be mach IPC
 
 == Changes in 2.2.1 ==
   * All changes in 2.2.0.1 plus:
