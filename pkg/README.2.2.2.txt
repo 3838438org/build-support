@@ -6,7 +6,7 @@ This updates is not an official Apple releases. It is a convenient way for users
 
 === OS-X Requirements ===
 
-OS-X 10.5.4 or later is required to install this package.
+OS-X 10.5.2 or later is required to install this package.
 
 === Mac OS-X Updates ===
 
@@ -19,19 +19,6 @@ Because we've changed the way launchd starts the server, you will need to logout
 === Deprecated Software ===
 
 The software supporting the deprecated imake build system is not provided in this package.  If you need imake and xmkmf, please install the X11 package that came with your Leopard DVD before installing this version.  Alternatively, you can compile these packages on your own or get them from a third party such as Fink or MacPorts.  The darwin configuration files used by the imake build system are outdated and not supported.  Developers using this build system are advised to migrate to autoconf.
-
-== Changes in 2.3.0 ==
-  * All changes in 2.2.2 plus:
-  * server:
-    * Xquartz fixes from xorg-server-1.4.2-apple1
-      * xserver codebase updated to 1.4 branch
-      * Support for tablets
-      * Threading is more robust
-      * Initial support for new startup model
-        * support for adding new $DISPLAY sockets after the server is running
-        * server bits are in the bundle now
-        * /usr/X11/bin/Xquartz is just a stub that will "do the right thing"
-          * For now, it just exec's the server, but this will eventually be mach IPC
 
 == Changes in 2.2.2 ==
   * All changes in 2.2.1 plus:
