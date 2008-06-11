@@ -22,29 +22,8 @@ The software supporting the deprecated imake build system is not provided in thi
 
 == Changes in 2.2.2 ==
   * All changes in 2.2.1 plus:
-  * app:
-    * fonttosfnt 1.0.4
-    * fslsfonts 1.0.2
-    * fstobdf 1.0.3
-    * mkfontscale 1.0.5
-    * rgb 1.0.3
-    * showfont 1.0.2
-    * xdm 1.1.8
-    * xdpyinfo 1.0.3
-    * xfs 1.0.8
-    * xfsinfo 1.0.2
-    * xinit 1.0.9
-    * xkbcomp 1.0.5
-    * xkeyboard-config 1.3
-  * lib:
-    * libFS 1.0.1
-    * pixman 0.11.4
-    * xtrans 1.2
-  * proto:
-    * xextproto 7.0.3
-    * xproto 7.0.13
   * server:
-    * Xquartz fixes from xorg-server-1.3-apple21
+    * Xquartz fixes from xorg-server-1.3.0-apple21
       * Support monitor hotplugging
       * CVE-2008-1377
       * CVE-2008-1379

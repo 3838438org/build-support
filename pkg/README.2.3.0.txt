@@ -22,19 +22,6 @@ The software supporting the deprecated imake build system is not provided in thi
 
 == Changes in 2.3.0 ==
   * All changes in 2.2.2 plus:
-  * server:
-    * Xquartz fixes from xorg-server-1.4.2-apple1
-      * xserver codebase updated to 1.4 branch
-      * Support for tablets
-      * Threading is more robust
-      * Initial support for new startup model
-        * support for adding new $DISPLAY sockets after the server is running
-        * server bits are in the bundle now
-        * /usr/X11/bin/Xquartz is just a stub that will "do the right thing"
-          * For now, it just exec's the server, but this will eventually be mach IPC
-
-== Changes in 2.2.2 ==
-  * All changes in 2.2.1 plus:
   * app:
     * fonttosfnt 1.0.4
     * fslsfonts 1.0.2
@@ -57,7 +44,20 @@ The software supporting the deprecated imake build system is not provided in thi
     * xextproto 7.0.3
     * xproto 7.0.13
   * server:
-    * Xquartz fixes from xorg-server-1.3-apple21
+    * Xquartz fixes from xorg-server-1.4.2-apple1
+      * xserver codebase updated to 1.4 branch
+      * Support for tablets
+      * Threading is more robust
+      * Initial support for new startup model
+        * support for adding new $DISPLAY sockets after the server is running
+        * server bits are in the bundle now
+        * /usr/X11/bin/Xquartz is just a stub that will "do the right thing"
+          * For now, it just exec's the server, but this will eventually be mach IPC
+
+== Changes in 2.2.2 ==
+  * All changes in 2.2.1 plus:
+  * server:
+    * Xquartz fixes from xorg-server-1.3.0-apple21
       * Support monitor hotplugging
       * CVE-2008-1377
       * CVE-2008-1379
