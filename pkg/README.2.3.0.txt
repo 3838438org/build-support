@@ -21,13 +21,14 @@ Because we've changed the way launchd starts the server, you will need to logout
 The software supporting the deprecated imake build system is not provided in this package.  If you need imake and xmkmf, please install the X11 package that came with your Leopard DVD before installing this version.  Alternatively, you can compile these packages on your own or get them from a third party such as Fink or MacPorts.  The darwin configuration files used by the imake build system are outdated and not supported.  Developers using this build system are advised to migrate to autoconf.
 
 == Changes in 2.3.0 ==
-  * All changes in 2.2.2 plus:
+  * All changes in 2.2.3 plus:
   * app:
     * fonttosfnt 1.0.4
     * fslsfonts 1.0.2
     * fstobdf 1.0.3
     * mkfontscale 1.0.5
     * rgb 1.0.3
+    * sessreg 1.0.4
     * showfont 1.0.2
     * xdm 1.1.8
     * xdpyinfo 1.0.3
@@ -36,6 +37,9 @@ The software supporting the deprecated imake build system is not provided in thi
     * xinit 1.0.9
     * xkbcomp 1.0.5
     * xkeyboard-config 1.3
+    * xrx 1.0.2
+    * xwd 1.0.2
+    * xwininfo 1.0.4 
   * lib:
     * libFS 1.0.1
     * xtrans 1.2
@@ -43,7 +47,7 @@ The software supporting the deprecated imake build system is not provided in thi
     * xextproto 7.0.3
     * xproto 7.0.13
   * server:
-    * Xquartz fixes from xorg-server-1.4.2-apple1
+    * Xquartz fixes from xorg-server-1.4.2-apple2
       * xserver codebase updated to 1.4 branch
       * Support for tablets
       * Threading is more robust
