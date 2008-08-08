@@ -20,6 +20,24 @@ Because we've changed the way launchd starts the server, you will need to logout
 
 The software supporting the deprecated imake build system is not provided in this package.  If you need imake and xmkmf, please install the X11 package that came with your Leopard DVD before installing this version.  Alternatively, you can compile these packages on your own or get them from a third party such as Fink or MacPorts.  The darwin configuration files used by the imake build system are outdated and not supported.  Developers using this build system are advised to migrate to autoconf.
 
+== Changes in 2.3.1 ==
+  * All changes in 2.3.0 plus:
+  * app:
+    * xedit 1.1.1
+  * lib:
+    * pixman 0.11.8
+    * xpyb 0.9
+    * xtrans 1.2.1-git-2008.08.05
+  * proto:
+    * randrproto 1.2.2
+    * xextproto 7.0.3
+    * xproto 7.0.13
+  * server:
+    * Xquartz fixes from xorg-server-1.4.2-apple6
+      * X11.app now properly notices button clicks with tablets
+      * Fixed xinitrc / first launchd-first-client race condition
+      * Re-added old fallback keyboard map detection fallback with extra debugging
+
 == Changes in 2.3.0 ==
   * All changes in 2.2.3 plus:
   * app:
