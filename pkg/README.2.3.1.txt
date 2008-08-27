@@ -25,7 +25,11 @@ The software supporting the deprecated imake build system is not provided in thi
   * app:
     * xedit 1.1.1
   * lib:
+    * mesa 7.1-rc4
+      * For libGLU, libglut, libGLw, glxgears, glxinfo
     * pixman 0.11.8
+    * Xplugin
+      * Added API for detecting if a Carbon EventRef corresponds to a Mac OSX key-equivalent action
     * xpyb 0.9
     * xtrans 1.2.1-git-2008.08.05
   * proto:
@@ -33,10 +37,21 @@ The software supporting the deprecated imake build system is not provided in thi
     * xextproto 7.0.3
     * xproto 7.0.13
   * server:
-    * Xquartz fixes from xorg-server-1.4.2-apple6
+    * Xquartz fixes from xorg-server-1.4.2-apple12
+      * building with mesa 7.0.4
       * X11.app now properly notices button clicks with tablets
-      * Fixed xinitrc / first launchd-first-client race condition
+      * partially fixed xinitrc / launchd-first-client race condition
       * Re-added old fallback keyboard map detection fallback with extra debugging
+      * Capslock "press ignored" bug is fixed.
+      * Fixed stuck modifier key bug
+      * Fixed 3-button mouse emulation
+      * The list of modifiers allowed in the fake_button{2,3} defaults has been expanded:
+        * fn,{l,r,}{command,alt,shift,control}
+      * Expanded handling of key equivalents beyond just the menu when enabled (such as the input menu, etc)
+        * Also added appkit_modifiers defaults option which users can set to certain modifier keys to always be for Appkit in case this is insufficient
+      * Added window_item_modifiers defaults item (and option to localization) to change the modifier keys used for the windows menu.
+        * Set it to an empty string to disable key equivalents for changing windows.
+      * Fixed a possible crash in SwitchCoreKeyboard resulting from the use of tablets (or anything sending NSTabletPoint events)
 
 == Changes in 2.3.0 ==
   * All changes in 2.2.3 plus:
