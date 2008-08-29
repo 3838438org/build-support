@@ -6,15 +6,11 @@ This updates is not an official Apple releases. It is a convenient way for users
 
 === OS-X Requirements ===
 
-OS-X 10.5.4 or later is required to install this package.
+OS-X 10.5.5 or later is required to install this package.
 
 === Mac OS-X Updates ===
 
 You will need to re-install this package after future OS and Security Updates delivered through Apple's Software Update.
-
-=== Logout Notice ===
-
-Because we've changed the way launchd starts the server, you will need to logout after installation.
 
 === Deprecated Software ===
 
