@@ -16,6 +16,44 @@ You will need to re-install this package after future OS and Security Updates de
 
 The software supporting the deprecated imake build system is not provided in this package.  If you need imake and xmkmf, please install the X11 package that came with your Leopard DVD before installing this version.  Alternatively, you can compile these packages on your own or get them from a third party such as Fink or MacPorts.  The darwin configuration files used by the imake build system are outdated and not supported.  Developers using this build system are advised to migrate to autoconf.
 
+== Changes in 2.3.2 ==
+  * All changes in X112.3.1 2.3.1 plus:
+  * app:
+    * quartz-wm
+      * Cleaned up parenting of dialog and utility windows
+      * Respond to new AppleWMReloadPreferences notification rather than just SIGHUP
+      * space-change shortcuts and dragging work to move windows to other spaces
+      * Fixed bug with --no-pasteboard option that didn't completely disable it (it still grabbed PRIMARY in activate/deactivate)
+      * defaults to --no-pasteboard when the server uses version 1.1 and greater of applewmproto
+    * xterm 237
+  * lib:
+    * fontconfig 2.6.0
+    * libpng 1.2.32
+      * Note that our previous version was 1.2.26 and was not affected by CVE-2008-3964.
+    * libXau 1.0.4
+    * libX11 1.1.5
+    * mesa-7.2
+      * For libGLU, libglut, glxgears, glxinfo
+    * pixman 0.12.0
+    * Xplugin
+      * Cleaned up parenting of dialog and utility windows
+  * proto:
+    * applewmproto 1.1.0
+      * AppleWMReloadPreferences notification
+  * server:
+    * Xquartz fixes from xorg-server-1.4.2-apple18
+      * Send out AppleWMReloadPreferences notification to tell quartz-wm and xpbproxy to reload preferences
+      * Fix a crash in RootlessNativeWindowMoved when compiled for 64bit
+      * Fix a possible crash on startup due to TSM not being thread safe
+      * Added new preferences UI for xpbproxy options
+      * Disabled 8bit visuals while in TrueColor mode since they don't work yet
+      * Tabblet support improved for GDK-based applications (Gimp, Inkscape, etc)
+      * enable_stereo defaults option should work for enabling stereo GLX visuals
+      * Massive update of proxying between OSX pasteboard and X11 clipboard/primary buffers
+        * Image support
+        * Unicode support
+        * Preference options available in the X11 Preferences window
+
 == Changes in 2.3.1 ==
   * All changes in 2.3.0 plus:
   * app:

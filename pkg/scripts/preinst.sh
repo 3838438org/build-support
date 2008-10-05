@@ -17,6 +17,10 @@ if [ -f /System/Library/LaunchAgents/org.x.X11.plist ] ; then
 	/bin/launchctl unload -w /System/Library/LaunchAgents/org.x.X11.plist
         rm /System/Library/LaunchAgents/org.x.X11.plist
 fi
+if [ -f /Library/LaunchAgents/org.x.X11.plist ] ; then
+	/bin/launchctl unload -w /Library/LaunchAgents/org.x.X11.plist
+        rm /Library/LaunchAgents/org.x.X11.plist
+fi
 
 # This is done now by startx
 if [ -f /System/Library/LaunchAgents/org.x.fontconfig.plist ] ; then
