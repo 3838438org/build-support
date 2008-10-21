@@ -25,9 +25,12 @@ The software supporting the deprecated imake build system is not provided in thi
       * space-change shortcuts and dragging work to move windows to other spaces
       * Fixed bug with --no-pasteboard option that didn't completely disable it (it still grabbed PRIMARY in activate/deactivate)
       * defaults to --no-pasteboard when the server uses version 1.1 and greater of applewmproto
+      * Cleaned up some memory leaks
     * xterm 237
   * lib:
+    * cairo 1.8.0
     * fontconfig 2.6.0
+    * freetype 2.3.7
     * libpng 1.2.32
       * Note that our previous version was 1.2.26 and was not affected by CVE-2008-3964.
     * libXau 1.0.4
@@ -37,11 +40,12 @@ The software supporting the deprecated imake build system is not provided in thi
     * pixman 0.12.0
     * Xplugin
       * Cleaned up parenting of dialog and utility windows
+    * xtrans 1.2.2
   * proto:
-    * applewmproto 1.1.0
+    * applewmproto 1.1.1
       * AppleWMReloadPreferences notification
   * server:
-    * Xquartz fixes from xorg-server-1.4.2-apple18
+    * Xquartz fixes from xorg-server-1.4.2-apple20
       * Send out AppleWMReloadPreferences notification to tell quartz-wm and xpbproxy to reload preferences
       * Fix a crash in RootlessNativeWindowMoved when compiled for 64bit
       * Fix a possible crash on startup due to TSM not being thread safe
@@ -49,6 +53,13 @@ The software supporting the deprecated imake build system is not provided in thi
       * Disabled 8bit visuals while in TrueColor mode since they don't work yet
       * Tabblet support improved for GDK-based applications (Gimp, Inkscape, etc)
       * enable_stereo defaults option should work for enabling stereo GLX visuals
+      * Fixed levels for CGWindows
+      * Fullscreen-rooted support (same behavior as tiger)
+      * Correctly follow system keyboard layout when enabled
+      * Stereo GLX supported (defaults write org.x.X11 enable_stereo -bool true)
+      * Tooltips won't display from X11 apps "behind" native apps.
+        * Apps like xeyes only get events when the mouse is actually over an X11 window now
+      * Default dpi reported is now 96 instead of 75
       * Massive update of proxying between OSX pasteboard and X11 clipboard/primary buffers
         * Image support
         * Unicode support
