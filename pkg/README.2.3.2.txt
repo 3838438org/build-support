@@ -45,21 +45,24 @@ The software supporting the deprecated imake build system is not provided in thi
     * applewmproto 1.1.1
       * AppleWMReloadPreferences notification
   * server:
-    * Xquartz fixes from xorg-server-1.4.2-apple20
+    * Xquartz fixes from xorg-server-1.4.2-apple21
       * Send out AppleWMReloadPreferences notification to tell quartz-wm and xpbproxy to reload preferences
       * Fix a crash in RootlessNativeWindowMoved when compiled for 64bit
       * Fix a possible crash on startup due to TSM not being thread safe
       * Added new preferences UI for xpbproxy options
       * Disabled 8bit visuals while in TrueColor mode since they don't work yet
       * Tabblet support improved for GDK-based applications (Gimp, Inkscape, etc)
-      * enable_stereo defaults option should work for enabling stereo GLX visuals
+      * Many updates to GLX support
+        * Stereo GLX support detected
+        * Accum buffers supported
+        * More visuals supported
       * Fixed levels for CGWindows
       * Fullscreen-rooted support (same behavior as tiger)
       * Correctly follow system keyboard layout when enabled
-      * Stereo GLX supported (defaults write org.x.X11 enable_stereo -bool true)
       * Tooltips won't display from X11 apps "behind" native apps.
         * Apps like xeyes only get events when the mouse is actually over an X11 window now
       * Default dpi reported is now 96 instead of 75
+      * Fixed possible (rare) deadlock in event processing
       * Massive update of proxying between OSX pasteboard and X11 clipboard/primary buffers
         * Image support
         * Unicode support
