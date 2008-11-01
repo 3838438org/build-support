@@ -45,7 +45,7 @@ The software supporting the deprecated imake build system is not provided in thi
     * applewmproto 1.1.1
       * AppleWMReloadPreferences notification
   * server:
-    * Xquartz fixes from xorg-server-1.4.2-apple21
+    * Xquartz fixes from xorg-server-1.4.2-apple22
       * Send out AppleWMReloadPreferences notification to tell quartz-wm and xpbproxy to reload preferences
       * Fix a crash in RootlessNativeWindowMoved when compiled for 64bit
       * Fix a possible crash on startup due to TSM not being thread safe
@@ -58,6 +58,7 @@ The software supporting the deprecated imake build system is not provided in thi
         * More visuals supported
       * Fixed levels for CGWindows
       * Fullscreen-rooted support (same behavior as tiger)
+        * Added an option for getting access to the OSX menu bar while in fullscreen
       * Correctly follow system keyboard layout when enabled
       * Tooltips won't display from X11 apps "behind" native apps.
         * Apps like xeyes only get events when the mouse is actually over an X11 window now
@@ -67,6 +68,7 @@ The software supporting the deprecated imake build system is not provided in thi
         * Image support
         * Unicode support
         * Preference options available in the X11 Preferences window
+      * X11.app should exit properly when using another WM
 
 == Changes in 2.3.1 ==
   * All changes in 2.3.0 plus:
