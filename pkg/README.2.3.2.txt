@@ -26,6 +26,7 @@ The software supporting the deprecated imake build system is not provided in thi
       * Fixed bug with --no-pasteboard option that didn't completely disable it (it still grabbed PRIMARY in activate/deactivate)
       * defaults to --no-pasteboard when the server uses version 1.1 and greater of applewmproto
       * Cleaned up some memory leaks
+      * We now support window gravity in WM size hints
     * xterm 237
   * lib:
     * cairo 1.8.0
@@ -45,13 +46,13 @@ The software supporting the deprecated imake build system is not provided in thi
     * applewmproto 1.1.1
       * AppleWMReloadPreferences notification
   * server:
-    * Xquartz fixes from xorg-server-1.4.2-apple22
+    * Xquartz fixes from xorg-server-1.4.2-apple23
       * Send out AppleWMReloadPreferences notification to tell quartz-wm and xpbproxy to reload preferences
       * Fix a crash in RootlessNativeWindowMoved when compiled for 64bit
       * Fix a possible crash on startup due to TSM not being thread safe
       * Added new preferences UI for xpbproxy options
       * Disabled 8bit visuals while in TrueColor mode since they don't work yet
-      * Tabblet support improved for GDK-based applications (Gimp, Inkscape, etc)
+      * Tablet support improved for GDK-based applications (Gimp, Inkscape, etc)
       * Many updates to GLX support
         * Stereo GLX support detected
         * Accum buffers supported
