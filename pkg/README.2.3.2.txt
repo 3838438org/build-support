@@ -26,27 +26,35 @@ The software supporting the deprecated imake build system is not provided in thi
       * Fixed bug with --no-pasteboard option that didn't completely disable it (it still grabbed PRIMARY in activate/deactivate)
       * defaults to --no-pasteboard when the server uses version 1.1 and greater of applewmproto
       * Cleaned up some memory leaks
-      * We now support window gravity in WM size hints
+      * Support added for window gravity in WM size hints 
+      * Support added for WM fullscreen hints
+    * xedit 1.1.2
     * xterm 237
   * lib:
-    * cairo 1.8.0
+    * cairo 1.8.4
     * fontconfig 2.6.0
     * freetype 2.3.7
-    * libpng 1.2.32
-      * Note that our previous version was 1.2.26 and was not affected by CVE-2008-3964.
+    * libpng 1.2.33
+      * Note that our previous version was 1.2.26 and was NOT affected by CVE-2008-3964.
+    * libxcb 1.1
+      * Fixed potential problems with xcb using the launchd socket
     * libXau 1.0.4
+    * libXaw 1.0.5
+      * libXaw.8.dylib is still provided from libXaw-1.0.4 for compatability
+    * libXi 1.1.4
     * libX11 1.1.5
     * mesa-7.2
       * For libGLU, libglut, glxgears, glxinfo
     * pixman 0.12.0
     * Xplugin
       * Cleaned up parenting of dialog and utility windows
+    * xcb-util 0.3.1
     * xtrans 1.2.2
   * proto:
     * applewmproto 1.1.1
       * AppleWMReloadPreferences notification
   * server:
-    * Xquartz fixes from xorg-server-1.4.2-apple23
+    * Xquartz fixes from xorg-server-1.4.2-apple25
       * Send out AppleWMReloadPreferences notification to tell quartz-wm and xpbproxy to reload preferences
       * Fix a crash in RootlessNativeWindowMoved when compiled for 64bit
       * Fix a possible crash on startup due to TSM not being thread safe
@@ -70,6 +78,8 @@ The software supporting the deprecated imake build system is not provided in thi
         * Unicode support
         * Preference options available in the X11 Preferences window
       * X11.app should exit properly when using another WM
+      * Improved support for running X11 without launchd
+      * Improved support for running multiple X11 servers
 
 == Changes in 2.3.1 ==
   * All changes in 2.3.0 plus:
