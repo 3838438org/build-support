@@ -55,7 +55,7 @@ The software supporting the deprecated imake build system is not provided in thi
       * AppleWMReloadPreferences notification
     * xproto 7.0.14
   * server:
-    * Xquartz fixes from xorg-server-1.4.2-apple25
+    * Xquartz fixes from xorg-server-1.4.2-apple26
       * Send out AppleWMReloadPreferences notification to tell quartz-wm and xpbproxy to reload preferences
       * Fix a crash in RootlessNativeWindowMoved when compiled for 64bit
       * Fix a possible crash on startup due to TSM not being thread safe
