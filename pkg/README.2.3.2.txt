@@ -17,7 +17,7 @@ You will need to re-install this package after future OS and Security Updates de
 The software supporting the deprecated imake build system is not provided in this package.  If you need imake and xmkmf, please install the X11 package that came with your Leopard DVD before installing this version.  Alternatively, you can compile these packages on your own or get them from a third party such as Fink or MacPorts.  The darwin configuration files used by the imake build system are outdated and not supported.  Developers using this build system are advised to migrate to autoconf.
 
 == Changes in 2.3.2 ==
-  * All changes in X112.3.1 2.3.1 plus:
+  * All changes in 2.3.1 plus:
   * app:
     * quartz-wm
       * Cleaned up parenting of dialog and utility windows
@@ -53,6 +53,7 @@ The software supporting the deprecated imake build system is not provided in thi
   * proto:
     * applewmproto 1.1.1
       * AppleWMReloadPreferences notification
+    * xproto 7.0.14
   * server:
     * Xquartz fixes from xorg-server-1.4.2-apple25
       * Send out AppleWMReloadPreferences notification to tell quartz-wm and xpbproxy to reload preferences
@@ -80,6 +81,11 @@ The software supporting the deprecated imake build system is not provided in thi
       * X11.app should exit properly when using another WM
       * Improved support for running X11 without launchd
       * Improved support for running multiple X11 servers
+      * Fixed dead-acute with the Czech and Greek layouts
+      * Fixed working directory of the initial xterm to be $HOME
+      * Ensured that /usr/X11/bin was in the PATH of the initial xterm
+      * Added a defaults option to enable DEC-XTRAP, RENDER, and XTEST extensions
+        * defaults write org.x.X11 enable_test_extensions -boolean true
 
 == Changes in 2.3.1 ==
   * All changes in 2.3.0 plus:
