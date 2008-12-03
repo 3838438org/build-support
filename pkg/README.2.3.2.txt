@@ -53,6 +53,7 @@ The software supporting the deprecated imake build system is not provided in thi
   * proto:
     * applewmproto 1.1.1
       * AppleWMReloadPreferences notification
+    * inputproto 1.5.0
     * xproto 7.0.14
   * server:
     * Xquartz fixes from xorg-server-1.4.2-apple26
