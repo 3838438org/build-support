@@ -41,4 +41,7 @@ fi
 # Renamed to drop the .sh
 [ -f /usr/X11/bin/font_cache.sh ] && rm /usr/X11/bin/font_cache.sh
 
+[ -f /usr/X11/lib/X11/xinit/xinitrc.d/98-pbproxy.sh ] && rm /usr/X11/lib/X11/xinit/xinitrc.d/98-pbproxy.sh
+[ -f /usr/X11/lib/X11/xinit/xinitrc.d/98-xpbproxy.sh ] && rm /usr/X11/lib/X11/xinit/xinitrc.d/98-xpbproxy.sh
+
 exit 0
