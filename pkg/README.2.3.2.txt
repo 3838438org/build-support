@@ -41,7 +41,7 @@ The software supporting the deprecated imake build system is not provided in thi
     * libXau 1.0.4
     * libXaw 1.0.5
       * libXaw.8.dylib is still provided from libXaw-1.0.4 for compatability
-    * libXi 1.1.4
+    * libXi 1.2.0
     * libX11 1.1.5
     * mesa-7.2
       * For libGLU, libglut, glxgears, glxinfo
@@ -50,13 +50,15 @@ The software supporting the deprecated imake build system is not provided in thi
       * Cleaned up parenting of dialog and utility windows
     * xcb-util 0.3.1
     * xtrans 1.2.2
+  * misc:
+    * util-macros 1.2.0
   * proto:
     * applewmproto 1.1.1
       * AppleWMReloadPreferences notification
     * inputproto 1.5.0
     * xproto 7.0.14
   * server:
-    * Xquartz fixes from xorg-server-1.4.2-apple26
+    * Xquartz fixes from xorg-server-1.4.2-apple27
       * Send out AppleWMReloadPreferences notification to tell quartz-wm and xpbproxy to reload preferences
       * Fix a crash in RootlessNativeWindowMoved when compiled for 64bit
       * Fix a possible crash on startup due to TSM not being thread safe
