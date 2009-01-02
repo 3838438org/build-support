@@ -6,7 +6,7 @@ This updates is not an official Apple releases. It is a convenient way for users
 
 === OS-X Requirements ===
 
-OS-X 10.5.5 or later is required to install this package.
+OS-X 10.5.6 or later is required to install this package.
 
 === Mac OS-X Updates ===
 
@@ -19,6 +19,7 @@ The software supporting the deprecated imake build system is not provided in thi
 == Changes in 2.3.2 ==
   * All changes in 2.3.1 plus:
   * app:
+    * mkfontscale 1.0.6
     * quartz-wm
       * Cleaned up parenting of dialog and utility windows
       * Respond to new AppleWMReloadPreferences notification rather than just SIGHUP
@@ -29,9 +30,11 @@ The software supporting the deprecated imake build system is not provided in thi
       * Support added for window gravity in WM size hints 
       * Support added for WM fullscreen hints
     * xedit 1.1.2
-    * xterm 237
+    * xinit 1.1.1
+    * xterm 238
+        * Addresses CVE-2008-2383
   * lib:
-    * cairo 1.8.4
+    * cairo 1.8.6
     * fontconfig 2.6.0
     * freetype 2.3.7
     * libpng 1.2.33
@@ -41,6 +44,7 @@ The software supporting the deprecated imake build system is not provided in thi
     * libXau 1.0.4
     * libXaw 1.0.5
       * libXaw.8.dylib is still provided from libXaw-1.0.4 for compatability
+    * libXfont 1.3.4
     * libXi 1.2.0
     * libX11 1.1.5
     * mesa-7.2
@@ -48,17 +52,18 @@ The software supporting the deprecated imake build system is not provided in thi
     * pixman 0.12.0
     * Xplugin
       * Cleaned up parenting of dialog and utility windows
-    * xcb-util 0.3.1
+    * xcb-util 0.3.2
     * xtrans 1.2.2
   * misc:
-    * util-macros 1.2.0
+    * util-macros 1.2.1
   * proto:
     * applewmproto 1.1.1
       * AppleWMReloadPreferences notification
     * inputproto 1.5.0
+    * xextproto 7.0.4
     * xproto 7.0.14
   * server:
-    * Xquartz fixes from xorg-server-1.4.2-apple27
+    * Xquartz fixes from xorg-server-1.4.2-apple30
       * Send out AppleWMReloadPreferences notification to tell quartz-wm and xpbproxy to reload preferences
       * Fix a crash in RootlessNativeWindowMoved when compiled for 64bit
       * Fix a possible crash on startup due to TSM not being thread safe
@@ -89,6 +94,9 @@ The software supporting the deprecated imake build system is not provided in thi
       * Ensured that /usr/X11/bin was in the PATH of the initial xterm
       * Added a defaults option to enable DEC-XTRAP, RENDER, and XTEST extensions
         * defaults write org.x.X11 enable_test_extensions -boolean true
+      * Fixed the white-rectangles bug
+      * Fixed stuck keys when switching to another OSX application
+      * Honor system key repeat rate
 
 == Changes in 2.3.1 ==
   * All changes in 2.3.0 plus:
