@@ -8,8 +8,8 @@ mkdir src
 cd src
 curl -LO http://superb-west.dl.sourceforge.net/sourceforge/mesa3d/MesaLib-6.5.2.tar.bz2
 tar -xjvf MesaLib-6.5.2.tar.bz2
-curl -LO http://superb-west.dl.sourceforge.net/sourceforge/mesa3d/MesaLib-7.0.2.tar.bz2
-tar -xjvf MesaLib-7.0.2.tar.bz2
+curl -LO http://superb-west.dl.sourceforge.net/sourceforge/mesa3d/MesaLib-7.0.4.tar.bz2
+tar -xjvf MesaLib-7.0.4.tar.bz2
 curl -LO ftp://invisible-island.net/xterm/xterm-229.tgz
 tar -xjzf xterm-229.tgz
 git-clone ${GIT_BASE}/fontconfig
@@ -20,13 +20,17 @@ git-clone ${GIT_BASE}/xorg/lib/libX11.git
 git-clone ${GIT_BASE}/xorg/lib/libXfont
 
 git-clone ${GIT_BASE}/xorg/xserver.git
-cd xserver
-git-branch --track xorg-server-1.2-apple origin/xorg-server-1.2-apple
+mv xserver xserver-1.4
+cd xserver-1.4
 git-branch --track xorg-server-1.4-apple origin/xorg-server-1.4-apple
-git-branch --track server-1.3-branch origin/server-1.3-branch
 git-branch --track server-1.4-branch origin/server-1.4-branch
-git-checkout -f xorg-server-1.2-apple
+git-checkout -f xorg-server-1.4-apple
 ln -s ../../svn-xquartz/trunk/compile-xserver.sh compile.sh
 
-cd ../..
-ln -s src/xserver
+cd ..
+git-clone ${GIT_BASE}/xorg/xserver.git
+mv xserver xserver-1.5
+cd xserver-1.5
+git-branch --track xorg-server-1.5-apple origin/xorg-server-1.5-apple
+git-branch --track server-1.5-branch origin/server-1.5-branch
+git-checkout -f xorg-server-1.5-apple
