@@ -23,7 +23,7 @@ die() {
 }
 
 docomp() {
-	${CONFIGURE} --prefix=/usr/X11 --with-mesa-source="${MESA}" ${CONFOPT} --disable-dependency-tracking --enable-maintainer-mode --enable-record || die "Could not configure xserver"
+	${CONFIGURE} --prefix=/usr/X11 --with-mesa-source="${MESA}" ${CONFOPT} --disable-dependency-tracking --enable-maintainer-mode --enable-record "${@}" || die "Could not configure xserver"
 	${MAKE} clean || die "Unable to make clean"
 	${MAKE} ${MAKE_OPTS} || die "Could not make xserver"
 }
@@ -49,6 +49,6 @@ dodist() {
 	dosign xorg-server-$1.tar.bz2
 }
 
-docomp
+docomp `[ -f conf_flags ] && cat conf_flags`
 #doinst
 [[ -n $1 ]] && dodist $1
