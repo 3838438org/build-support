@@ -18,18 +18,24 @@ The software supporting the deprecated imake build system is not provided in thi
 
 == Changes in 2.4.0 ==
   * All changes in 2.3.2.1 plus:
+  * apps:
+    * xinput 1.4.0
+    * xterm 239
   * proto:
     * dri2proto 1.99.3
     * randrproto 1.2.99.3
     * xf86rushproto 1.1.2
   * lib:
+    * libGL
+      * 64bit fixes
     * libICE 1.0.5
+    * libpng 1.2.34
     * libxcb 1.1.93
     * libX11 1.1.99.2
     * libXrandr 1.2.99.4
     * pixman 0.13.2
   * server:
-    * Xquartz fixes from xorg-server-1.5.3-apple1
+    * Xquartz fixes from xorg-server-1.5.3-apple2
       * xserver codebase updated to 1.5 branch
 
 == Changes in 2.3.2.1 ==
@@ -96,6 +102,7 @@ The software supporting the deprecated imake build system is not provided in thi
         * Stereo GLX support detected
         * Accum buffers supported
         * More visuals supported
+        * Multisampling now supported
       * Fixed levels for CGWindows
       * Fullscreen-rooted support (same behavior as tiger)
         * Added an option for getting access to the OSX menu bar while in fullscreen

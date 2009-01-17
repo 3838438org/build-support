@@ -74,6 +74,7 @@ The software supporting the deprecated imake build system is not provided in thi
         * Stereo GLX support detected
         * Accum buffers supported
         * More visuals supported
+        * Multisampling now supported
       * Fixed levels for CGWindows
       * Fullscreen-rooted support (same behavior as tiger)
         * Added an option for getting access to the OSX menu bar while in fullscreen
