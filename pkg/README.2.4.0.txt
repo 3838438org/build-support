@@ -20,7 +20,7 @@ The software supporting the deprecated imake build system is not provided in thi
   * All changes in 2.3.2.1 plus:
   * apps:
     * xinput 1.4.0
-    * xterm 239
+    * xterm 241
   * proto:
     * dri2proto 1.99.3
     * randrproto 1.2.99.3
