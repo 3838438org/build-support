@@ -20,20 +20,24 @@ The software supporting the deprecated imake build system is not provided in thi
   * All changes in 2.3.2.1 plus:
   * apps:
     * xinput 1.4.0
+    * xrandr 1.2.99.4]
     * xterm 241
   * proto:
     * dri2proto 1.99.3
     * randrproto 1.2.99.3
+    * xextproto 7.0.5
     * xf86rushproto 1.1.2
   * lib:
     * libGL
-      * 64bit fixes
+      * rewrite of libGL to support newer versions of the GLX protocol
     * libICE 1.0.5
     * libpng 1.2.34
     * libxcb 1.1.93
     * libX11 1.1.99.2
+    * libXext 1.0.5
     * libXrandr 1.2.99.4
-    * pixman 0.13.2
+    * pixman 0.14.0
+    * xtrans 1.2.3
   * server:
     * Xquartz fixes from xorg-server-1.5.3-apple2
       * xserver codebase updated to 1.5 branch
