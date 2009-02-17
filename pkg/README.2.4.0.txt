@@ -21,19 +21,20 @@ The software supporting the deprecated imake build system is not provided in thi
   * apps:
     * xinput 1.4.0
     * xrandr 1.2.99.4]
-    * xterm 241
+    * xterm 242
   * proto:
     * dri2proto 1.99.3
     * randrproto 1.2.99.3
     * xextproto 7.0.5
+    * xcb-proto 1.4
     * xf86rushproto 1.1.2
   * lib:
     * libGL
       * rewrite of libGL to support newer versions of the GLX protocol
     * libICE 1.0.5
     * libpng 1.2.34
-    * libxcb 1.1.93
-    * libX11 1.1.99.2
+    * libxcb 1.2
+    * libX11 1.2
     * libXext 1.0.5
     * libXrandr 1.2.99.4
     * pixman 0.14.0
