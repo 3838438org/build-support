@@ -38,6 +38,7 @@ The software supporting the deprecated imake build system is not provided in thi
     * libxcb 1.2
     * libX11 1.2
     * libXext 1.0.5
+    * libXfont 1.4.0
     * libXrandr 1.2.99.4
     * pixman 0.14.0
     * xtrans 1.2.3
