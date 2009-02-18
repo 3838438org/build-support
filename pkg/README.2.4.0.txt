@@ -29,8 +29,10 @@ The software supporting the deprecated imake build system is not provided in thi
     * xcb-proto 1.4
     * xf86rushproto 1.1.2
   * lib:
-    * libGL
+    * AppleSGLX 50
       * rewrite of libGL to support newer versions of the GLX protocol
+      * GLXPixmap
+      * GLXPbuffer
     * libICE 1.0.5
     * libpng 1.2.34
     * libxcb 1.2
