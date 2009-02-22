@@ -19,8 +19,11 @@ The software supporting the deprecated imake build system is not provided in thi
 == Changes in 2.4.0 ==
   * All changes in 2.3.2.1 plus:
   * apps:
+    * quartz-wm
+      * Properly re-enable the close widget when modal windows are destroyed
+      * Fixed a bug when the window was told to unmaximize when it was already not maximized.
     * xinput 1.4.0
-    * xrandr 1.2.99.4]
+    * xrandr 1.2.99.4
     * xterm 242
   * proto:
     * dri2proto 1.99.3
@@ -29,22 +32,26 @@ The software supporting the deprecated imake build system is not provided in thi
     * xcb-proto 1.4
     * xf86rushproto 1.1.2
   * lib:
-    * AppleSGLX 50
-      * rewrite of libGL to support newer versions of the GLX protocol
-      * GLXPixmap
-      * GLXPbuffer
+    * AppleSGLX 51
+      * rewrite of libGL now has support for GLX-1.4
+        * GLXPixmap
+        * GLXPbuffer
+    * fontconfig
+      * Avoid rebuilding font caches when switching between archs
     * libICE 1.0.5
     * libpng 1.2.34
     * libxcb 1.2
     * libX11 1.2
+    * libXau
+      * Avoid lock failures with AFP home directories
     * libXext 1.0.5
     * libXfont 1.4.0
     * libXrandr 1.2.99.4
     * pixman 0.14.0
     * xtrans 1.2.3
   * server:
-    * Xquartz fixes from xorg-server-1.5.3-apple2
-      * xserver codebase updated to 1.5 branch
+    * Xquartz fixes from xorg-server-1.6.0-apple1
+      * xserver codebase updated to 1.6 branch
 
 == Changes in 2.3.2.1 ==
   * All changes in 2.3.2 plus:
