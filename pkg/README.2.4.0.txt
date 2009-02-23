@@ -33,9 +33,13 @@ The software supporting the deprecated imake build system is not provided in thi
     * xf86rushproto 1.1.2
   * lib:
     * AppleSGLX 51
+      * Support the same version of OpenGL as OpenGL.framework (2.1)
+        * GLSL and other features now supported
+        * Many extensions from OpenGL.framework are now available
       * rewrite of libGL now has support for GLX-1.4
         * GLXPixmap
         * GLXPbuffer
+      * Threading support should be more stable
     * fontconfig
       * Avoid rebuilding font caches when switching between archs
     * libICE 1.0.5
