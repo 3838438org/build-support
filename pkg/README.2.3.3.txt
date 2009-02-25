@@ -24,6 +24,7 @@ The software supporting the deprecated imake build system is not provided in thi
       * Fixed a bug when the window was told to unmaximize when it was already not maximized.
     * xinput 1.4.0
     * xterm 242
+    * Xephyr, Xnest, Xfake, Xvfb 1.6.0
   * proto:
     * dri2proto 1.99.3
     * randrproto 1.2.99.3
