@@ -57,6 +57,7 @@ The software supporting the deprecated imake build system is not provided in thi
   * server:
     * Xquartz fixes from xorg-server-1.4.2-apple35
       * DRI Updates for new libGL
+      * Fix CapsLock
 
 == Changes in 2.3.2.1 ==
   * All changes in 2.3.2 plus:
