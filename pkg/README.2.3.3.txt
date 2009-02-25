@@ -16,14 +16,13 @@ You will need to re-install this package after future OS and Security Updates de
 
 The software supporting the deprecated imake build system is not provided in this package.  If you need imake and xmkmf, please install the X11 package that came with your Leopard DVD before installing this version.  Alternatively, you can compile these packages on your own or get them from a third party such as Fink or MacPorts.  The darwin configuration files used by the imake build system are outdated and not supported.  Developers using this build system are advised to migrate to autoconf.
 
-== Changes in 2.4.0 ==
+== Changes in 2.3.3 ==
   * All changes in 2.3.2.1 plus:
   * apps:
     * quartz-wm
       * Properly re-enable the close widget when modal windows are destroyed
       * Fixed a bug when the window was told to unmaximize when it was already not maximized.
     * xinput 1.4.0
-    * xrandr 1.2.99.4
     * xterm 242
   * proto:
     * dri2proto 1.99.3
@@ -32,7 +31,7 @@ The software supporting the deprecated imake build system is not provided in thi
     * xcb-proto 1.4
     * xf86rushproto 1.1.2
   * lib:
-    * AppleSGLX 51
+    * AppleSGLX 52
       * Support the same version of OpenGL as OpenGL.framework (2.1)
         * GLSL and other features now supported
         * Many extensions from OpenGL.framework are now available
@@ -42,8 +41,10 @@ The software supporting the deprecated imake build system is not provided in thi
       * Threading support should be more stable
     * fontconfig
       * Avoid rebuilding font caches when switching between archs
+    * freetype 2.3.8
     * libICE 1.0.5
-    * libpng 1.2.34
+    * libpng 1.2.35
+      * CVE-2009-0040
     * libxcb 1.2
     * libX11 1.2
     * libXau
@@ -54,8 +55,8 @@ The software supporting the deprecated imake build system is not provided in thi
     * pixman 0.14.0
     * xtrans 1.2.3
   * server:
-    * Xquartz fixes from xorg-server-1.6.0-apple1
-      * xserver codebase updated to 1.6 branch
+    * Xquartz fixes from xorg-server-1.4.2-apple35
+      * DRI Updates for new libGL
 
 == Changes in 2.3.2.1 ==
   * All changes in 2.3.2 plus:
