@@ -26,13 +26,15 @@ The software supporting the deprecated imake build system is not provided in thi
     * xterm 242
     * Xephyr, Xnest, Xfake, Xvfb 1.6.0
   * proto:
+    * applewmproto 1.2.0
     * dri2proto 1.99.3
-    * randrproto 1.2.99.3
+    * randrproto 1.3.0
+    * xproto 7.0.15
     * xextproto 7.0.5
     * xcb-proto 1.4
     * xf86rushproto 1.1.2
   * lib:
-    * AppleSGLX 52
+    * AppleSGLX 54
       * Support the same version of OpenGL as OpenGL.framework (2.1)
         * GLSL and other features now supported
         * Many extensions from OpenGL.framework are now available
@@ -43,6 +45,7 @@ The software supporting the deprecated imake build system is not provided in thi
     * fontconfig
       * Avoid rebuilding font caches when switching between archs
     * freetype 2.3.8
+    * libAppleWM 1.2.0
     * libICE 1.0.5
     * libpng 1.2.35
       * CVE-2009-0040
@@ -52,11 +55,12 @@ The software supporting the deprecated imake build system is not provided in thi
       * Avoid lock failures with AFP home directories
     * libXext 1.0.5
     * libXfont 1.4.0
-    * libXrandr 1.2.99.4
+    * libXi 1.2.1
+    * libXrandr 1.3.0
     * pixman 0.14.0
     * xtrans 1.2.3
   * server:
-    * Xquartz fixes from xorg-server-1.4.2-apple35
+    * Xquartz fixes from xorg-server-1.4.2-apple36
       * DRI Updates for new libGL
       * Fix CapsLock
 
