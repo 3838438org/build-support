@@ -44,7 +44,7 @@ The software supporting the deprecated imake build system is not provided in thi
       * Threading support should be more stable
     * fontconfig
       * Avoid rebuilding font caches when switching between archs
-    * freetype 2.3.8
+    * freetype 2.3.9
     * libAppleWM 1.2.0
     * libICE 1.0.5
     * libpng 1.2.35
