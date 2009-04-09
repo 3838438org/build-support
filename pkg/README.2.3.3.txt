@@ -60,11 +60,12 @@ The software supporting the deprecated imake build system is not provided in thi
     * pixman 0.14.0
     * xtrans 1.2.3
   * server:
-    * Xquartz fixes from xorg-server-1.4.2-apple40
+    * Xquartz fixes from xorg-server-1.4.2-apple41
       * DRI Updates for new libGL
       * Fix CapsLock
       * Fixed mouse tracking for games like Quake2, Halflife, etc in wine.
       * Fixed the annoying spaces bug resulting from accessing menus in a window that you moved to another space
+      * When configured for fullscreen mode, initial apps don't start rootless.
 
 == Changes in 2.3.2.1 ==
   * All changes in 2.3.2 plus:
