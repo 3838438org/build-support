@@ -22,8 +22,9 @@ The software supporting the deprecated imake build system is not provided in thi
     * quartz-wm
       * Properly re-enable the close widget when modal windows are destroyed
       * Fixed a bug when the window was told to unmaximize when it was already not maximized.
-    * xinput 1.4.0
-    * xterm 242
+    * xinput 1.4.1
+    * xrandr 1.3.0
+    * xterm 243b
     * Xephyr, Xnest, Xfake, Xvfb 1.6.0
   * proto:
     * applewmproto 1.2.0
@@ -60,12 +61,15 @@ The software supporting the deprecated imake build system is not provided in thi
     * pixman 0.14.0
     * xtrans 1.2.3
   * server:
-    * Xquartz fixes from xorg-server-1.4.2-apple41
+    * Xquartz fixes from xorg-server-1.4.2-apple42
       * DRI Updates for new libGL
       * Fix CapsLock
       * Fixed mouse tracking for games like Quake2, Halflife, etc in wine.
       * Fixed the annoying spaces bug resulting from accessing menus in a window that you moved to another space
       * When configured for fullscreen mode, initial apps don't start rootless.
+      * Update window levels when changing rootless status
+      * Fixed window levels to work with applications that create a desktop (nautilus, etc)
+      * Properly send tablet proximity events
 
 == Changes in 2.3.2.1 ==
   * All changes in 2.3.2 plus:
