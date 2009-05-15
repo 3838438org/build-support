@@ -70,6 +70,7 @@ The software supporting the deprecated imake build system is not provided in thi
       * Update window levels when changing rootless status
       * Fixed window levels to work with applications that create a desktop (nautilus, etc)
       * Properly send tablet proximity events
+      * Localization Updates
 
 == Changes in 2.3.2.1 ==
   * All changes in 2.3.2 plus:
