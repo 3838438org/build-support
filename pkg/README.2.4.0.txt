@@ -32,7 +32,7 @@ The software supporting the deprecated imake build system is not provided in thi
     * glproto 1.4.10
     * xcb-proto 1.5
   * server:
-    * Xquartz fixes from xorg-server-1.5.0-appleXX
+    * Xquartz fixes from xorg-server-1.5.0-apple8
       * xserver codebase updated to 1.5 branch
 
 == Changes in 2.3.3.2 ==
