@@ -26,6 +26,7 @@ The software supporting the deprecated imake build system is not provided in thi
     * xfs 1.1.0
     * Xephyr, Xnest, Xfake, Xvfb 1.6.1.901
   * lib:
+    * cairo 1.8.8
     * libxcb 1.3
     * libXplugin
       * Fix a possible deadlock when using 8bit visuals
