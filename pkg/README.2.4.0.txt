@@ -22,6 +22,7 @@ The software supporting the deprecated imake build system is not provided in thi
     * quartz-wm 1.0.4
       * Added an option to quit X11 when no more windows are being managed by quartz-wm
         * defaults write org.x.X11 wm_auto_quit -bool true
+        * defaults write org.x.X11 wm_auto_quit_timeout -int 3
     * xfs 1.1.0
     * Xephyr, Xnest, Xfake, Xvfb 1.6.1.901
   * lib:
@@ -30,6 +31,7 @@ The software supporting the deprecated imake build system is not provided in thi
       * Fix a possible deadlock when using 8bit visuals
     * mesa 7.4.4
       * libGLU, libglut, and OSMesa
+        * Fixed linking problems with libOSMesa
     * xcb-util 0.3.5
   * proto:
     * dri2proto 2.1
@@ -39,6 +41,8 @@ The software supporting the deprecated imake build system is not provided in thi
   * server:
     * Xquartz fixes from xorg-server-1.5.0-apple8
       * xserver codebase updated to 1.5 branch
+      * Localization updates
+      * Don't zombie "jumpstart" process at launch
 
 == Changes in 2.3.3.2 ==
   * All changes in 2.3.3.1 plus:
