@@ -23,6 +23,8 @@ The software supporting the deprecated imake build system is not provided in thi
       * Added an option to quit X11 when no more windows are being managed by quartz-wm
         * defaults write org.x.X11 wm_auto_quit -bool true
         * defaults write org.x.X11 wm_auto_quit_timeout -int 3
+      * fixed an input bug with fullscreen windows
+      * maximizing a window that is partially offscreen will no longer cause it to be behind the Dock
     * xfs 1.1.0
     * Xephyr, Xnest, Xfake, Xvfb 1.6.1.901
   * lib:
