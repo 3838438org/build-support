@@ -28,8 +28,10 @@ The software supporting the deprecated imake build system is not provided in thi
   * lib:
     * cairo 1.8.8
     * libxcb 1.3
+    * libXaw 1.0.6
     * libXplugin
       * Fix a possible deadlock when using 8bit visuals
+    * libXt 1.0.6
     * mesa 7.4.4
       * libGLU, libglut, and OSMesa
         * Fixed linking problems with libOSMesa
