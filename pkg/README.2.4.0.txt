@@ -29,16 +29,21 @@ The software supporting the deprecated imake build system is not provided in thi
     * Xephyr, Xnest, Xfake, Xvfb 1.6.1.901
   * lib:
     * cairo 1.8.8
+    * fontconfig 2.7.0
+    * libAppleWM 1.3.0
+    * libpng 1.2.37
     * libxcb 1.3
     * libXaw 1.0.6
     * libXplugin
       * Fix a possible deadlock when using 8bit visuals
+      * Added API for attaching transient windows
     * libXt 1.0.6
     * mesa 7.4.4
       * libGLU, libglut, and OSMesa
         * Fixed linking problems with libOSMesa
     * xcb-util 0.3.5
   * proto:
+    * applewmproto 1.3.0
     * dri2proto 2.1
     * glproto 1.4.10
     * inputproto 1.5.1
