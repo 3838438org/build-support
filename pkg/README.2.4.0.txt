@@ -49,7 +49,7 @@ The software supporting the deprecated imake build system is not provided in thi
     * inputproto 1.5.1
     * xcb-proto 1.5
   * server:
-    * Xquartz fixes from xorg-server-1.5.0-apple8
+    * Xquartz fixes from xorg-server-1.5.0-apple10
       * xserver codebase updated to 1.5 branch
       * Localization updates
       * Don't zombie "jumpstart" process at launch
