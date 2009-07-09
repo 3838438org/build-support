@@ -25,6 +25,8 @@ The software supporting the deprecated imake build system is not provided in thi
         * defaults write org.x.X11 wm_auto_quit_timeout -int 3
       * fixed an input bug with fullscreen windows
       * maximizing a window that is partially offscreen will no longer cause it to be behind the Dock
+    * setxkbmap 1.1.0
+    * xkbcomp 1.1.0
     * xfs 1.1.0
     * Xephyr, Xnest, Xfake, Xvfb 1.6.2
   * lib:
