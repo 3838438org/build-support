@@ -32,6 +32,8 @@ The software supporting the deprecated imake build system is not provided in thi
   * lib:
     * cairo 1.8.8
     * fontconfig 2.7.0
+    * freetype
+      * no longer built --with-old-mac-fonts in order to prevent linking against CoreFoundation. See #280
     * libAppleWM 1.3.0
     * libFS 1.0.2
     * libpng 1.2.37
@@ -54,8 +56,9 @@ The software supporting the deprecated imake build system is not provided in thi
     * renderproto 0.11
     * xcb-proto 1.5
   * server:
-    * Xquartz fixes from xorg-server-1.5.0-apple10
+    * Xquartz fixes from xorg-server-1.5.0-apple11
       * xserver codebase updated to 1.5 branch
+      * rewritten AIGLX dispatch code
       * Localization updates
       * Don't zombie "jumpstart" process at launch
 
