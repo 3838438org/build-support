@@ -35,7 +35,8 @@ The software supporting the deprecated imake build system is not provided in thi
     * libAppleWM 1.3.0
     * libFS 1.0.2
     * libpng 1.2.37
-    * libxcb 1.3
+    * libX11 1.2.2
+    * libxcb 1.4
     * libXaw 1.0.6
     * libXplugin
       * Fix a possible deadlock when using 8bit visuals
@@ -50,6 +51,7 @@ The software supporting the deprecated imake build system is not provided in thi
     * dri2proto 2.1
     * glproto 1.4.10
     * inputproto 1.5.1
+    * renderproto 0.11
     * xcb-proto 1.5
   * server:
     * Xquartz fixes from xorg-server-1.5.0-apple10
