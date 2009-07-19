@@ -61,6 +61,8 @@ The software supporting the deprecated imake build system is not provided in thi
       * rewritten AIGLX dispatch code
       * Localization updates
       * Don't zombie "jumpstart" process at launch
+      * GLXFBConfigs and GLXVisuals don't contain duplicates when using multiple monitors
+      * Automatic updates using Sparkle
 
 == Changes in 2.3.3.2 ==
   * All changes in 2.3.3.1 plus:
