@@ -6,7 +6,7 @@ This updates is not an official Apple releases. It is a convenient way for users
 
 === OS-X Requirements ===
 
-OS-X 10.5.6 or later is required to install this package.
+OS-X 10.5.7 or later is required to install this package.
 
 === Mac OS-X Updates ===
 
@@ -51,7 +51,6 @@ The software supporting the deprecated imake build system is not provided in thi
   * proto:
     * applewmproto 1.3.0
     * dri2proto 2.1
-    * fixesproto 4.1
     * glproto 1.4.10
     * inputproto 1.5.1
     * renderproto 0.11
