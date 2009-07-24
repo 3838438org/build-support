@@ -51,12 +51,13 @@ The software supporting the deprecated imake build system is not provided in thi
   * proto:
     * applewmproto 1.3.0
     * dri2proto 2.1
+    * fixesproto 4.1
     * glproto 1.4.10
     * inputproto 1.5.1
     * renderproto 0.11
     * xcb-proto 1.5
   * server:
-    * Xquartz fixes from xorg-server-1.5.0-apple11
+    * Xquartz fixes from xorg-server-1.5.0-apple12
       * xserver codebase updated to 1.5 branch
       * rewritten AIGLX dispatch code
       * Localization updates
