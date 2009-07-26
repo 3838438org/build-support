@@ -1,7 +1,7 @@
 #!/bin/bash
 
-CONFIGURE="./autogen.sh"
-#CONFIGURE="./configure"
+#CONFIGURE="./autogen.sh"
+CONFIGURE="./configure"
 #CONFOPT="--disable-xquartz --disable-launchd --enable-kdrive --disable-xsdl --enable-xnest --enable-xvfb"
 #CONFOPT="--disable-glx"
 
@@ -15,7 +15,20 @@ MAKE_OPTS="-j2"
  
 . ~/src/strip.sh
 
-export ACLOCAL="aclocal -I /usr/X11/share/aclocal"
+ACLOCAL="aclocal -I /usr/X11/share/aclocal"
+
+CFLAGS="-Wall -pipe -DNO_ALLOCA"
+CFLAGS="$CFLAGS -O0 -ggdb3"
+#CFLAGS="$CFLAGS -O2"
+CFLAGS="$CFLAGS -arch i386 -arch ppc"
+
+LDFLAGS="$CFLAGS"
+
+CPPFLAGS="$CPPFLAGS -F/Applications/Utilities/X11.app/Contents/Frameworks"
+LDFLAGS="$LDFLAGS -F/Applications/Utilities/X11.app/Contents/Frameworks"
+
+export ACLOCAL CPPFLAGS CFLAGS LDFLAGS
+
 
 die() {
 	echo "${@}" >&2
@@ -23,7 +36,7 @@ die() {
 }
 
 docomp() {
-	${CONFIGURE} --prefix=/usr/X11 --with-mesa-source="${MESA}" ${CONFOPT} --disable-dependency-tracking --enable-maintainer-mode --enable-record "${@}" || die "Could not configure xserver"
+	${CONFIGURE} --prefix=/usr/X11 --with-mesa-source="${MESA}" ${CONFOPT} --disable-dependency-tracking --enable-maintainer-mode --enable-xcsecurity --enable-record --enable-sparkle "${@}" || die "Could not configure xserver"
 	${MAKE} clean || die "Unable to make clean"
 	${MAKE} ${MAKE_OPTS} || die "Could not make xserver"
 }
@@ -35,7 +48,7 @@ doinst() {
 dosign() {
 	/opt/local/bin/gmd5sum $1 > $1.md5sum
 	/opt/local/bin/gsha1sum $1 > $1.sha1sum
-	/opt/local/bin/gpg2 -b $1
+	/opt/local/bin/gpg -b $1
 }
 
 dodist() {
