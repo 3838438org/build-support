@@ -6,7 +6,7 @@ This updates is not an official Apple releases. It is a convenient way for users
 
 === OS-X Requirements ===
 
-OS-X 10.5.7 or later is required to install this package.
+OS-X 10.5.8 or later is required to install this package.
 
 === Mac OS-X Updates ===
 
@@ -59,7 +59,7 @@ The software supporting the deprecated imake build system is not provided in thi
     * renderproto 0.11
     * xcb-proto 1.5
   * server:
-    * Xquartz fixes from xorg-server-1.5.0-apple13
+    * Xquartz fixes from xorg-server-1.5.3-apple14
       * xserver codebase updated to 1.5 branch
       * rewritten AIGLX dispatch code
       * Localization updates
