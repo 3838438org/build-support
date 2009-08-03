@@ -26,9 +26,11 @@ The software supporting the deprecated imake build system is not provided in thi
       * fixed an input bug with fullscreen windows
       * maximizing a window that is partially offscreen will no longer cause it to be behind the Dock
     * setxkbmap 1.1.0
-    * xkbcomp 1.1.0
+    * Xephyr, Xnest, Xfake, Xvfb 1.6.3
     * xfs 1.1.0
-    * Xephyr, Xnest, Xfake, Xvfb 1.6.2
+    * xkbcomp 1.1.0
+    * xmag 1.0.3
+    * xrx 1.0.3
   * lib:
     * cairo 1.8.8
     * fontconfig 2.7.1
