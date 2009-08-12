@@ -40,6 +40,8 @@ The software supporting the deprecated imake build system is not provided in thi
       * no longer built --with-old-mac-fonts in order to prevent linking against CoreFoundation. See #280
     * libAppleWM 1.3.0
     * libFS 1.0.2
+    * liblbxutil removed
+    * liboldX removed
     * libpng 1.2.37
     * libSM 1.1.1
     * libX11 1.2.2
@@ -48,6 +50,8 @@ The software supporting the deprecated imake build system is not provided in thi
     * libXplugin
       * Fix a possible deadlock when using 8bit visuals
       * Added API for attaching transient windows
+    * libXprintAppUtil removed
+    * libXprintUtil removed
     * libXt 1.0.6
     * mesa 7.4.4
       * libGLU, libglut, and OSMesa
