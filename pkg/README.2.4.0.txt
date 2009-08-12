@@ -19,6 +19,7 @@ The software supporting the deprecated imake build system is not provided in thi
 == Changes in 2.4.0 ==
   * All changes in 2.3.3.2 plus:
   * app:
+    * font-util 1.0.2
     * quartz-wm 1.0.4
       * Added an option to quit X11 when no more windows are being managed by quartz-wm
         * defaults write org.x.X11 wm_auto_quit -bool true
@@ -30,6 +31,7 @@ The software supporting the deprecated imake build system is not provided in thi
     * xfs 1.1.0
     * xkbcomp 1.1.0
     * xmag 1.0.3
+    * xrandr 1.3.1
     * xrx 1.0.3
   * lib:
     * cairo 1.8.8
@@ -39,6 +41,7 @@ The software supporting the deprecated imake build system is not provided in thi
     * libAppleWM 1.3.0
     * libFS 1.0.2
     * libpng 1.2.37
+    * libSM 1.1.1
     * libX11 1.2.2
     * libxcb 1.4
     * libXaw 1.0.6
