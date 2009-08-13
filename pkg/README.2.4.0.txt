@@ -33,6 +33,7 @@ The software supporting the deprecated imake build system is not provided in thi
     * xmag 1.0.3
     * xrandr 1.3.1
     * xrx 1.0.3
+    * xterm 245
   * lib:
     * cairo 1.8.8
     * fontconfig 2.7.1
