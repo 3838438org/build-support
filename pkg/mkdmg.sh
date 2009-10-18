@@ -1,5 +1,7 @@
 #!/bin/bash
 
+. ~/.bashrc
+
 verString=$1
 
 mkdir ${verString}.d
@@ -18,4 +20,3 @@ echo "         <sparkle:releaseNotesLink>http://xquartz.macosforge.org/trac/wiki
 echo "         <pubDate>$(date)</pubDate>"
 echo "         <enclosure url=\"http://xquartz.macosforge.org/downloads/${verString}.dmg\" sparkle:version=\"$2\" sparkle:shortVersionString=\"${verString}\" length=\"${SIZE}\" type=\"application/octet-stream\" sparkle:dsaSignature=\"${DSA}\" />"
 echo "      </item>"
-
