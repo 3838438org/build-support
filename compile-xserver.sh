@@ -4,13 +4,9 @@
 #CONFOPT="--disable-glx"
 #CONFOPT="--disable-shave"
 
-#MESA="$(pwd)/../Mesa-6.5.2"
-#MESA="$(pwd)/../Mesa-7.0.4"
-MESA="$(pwd)/mesa"
-
 # Parallel Make.  Change $MAKE if you don't have gmake installed
 MAKE="gnumake"
-MAKE_OPTS="-j2"
+MAKE_OPTS="-j8"
  
 . ~/src/strip.sh
 
@@ -69,3 +65,5 @@ dodist() {
 docomp `[ -f conf_flags ] && cat conf_flags`
 #doinst
 [[ -n $1 ]] && dodist $1
+
+exit 0
