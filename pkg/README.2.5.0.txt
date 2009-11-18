@@ -16,7 +16,7 @@ You will need to re-install this package after future OS and Security Updates de
 
 The software supporting the deprecated imake build system is not provided in this package.  If you need imake and xmkmf, please install the X11 package that came with your Leopard DVD before installing this version.  Alternatively, you can compile these packages on your own or get them from a third party such as Fink or MacPorts.  The darwin configuration files used by the imake build system are outdated and not supported.  Developers using this build system are advised to migrate to autoconf.
 
-== Changes in 2.4.1 ==
+== Changes in 2.5.0 ==
   * All changes in 2.4.0 plus:
   * app:
     * bdftopcf 1.0.2
@@ -171,8 +171,8 @@ The software supporting the deprecated imake build system is not provided in thi
     * xineramaproto 1.2
     * xproto 7.0.16
   * server:
-    * Xquartz fixes from xorg-server-1.6.5-apple3
-      * Move to the 1.6 branch
+    * Xquartz fixes from xorg-server-1.7.2
+      * Move to the 1.7 branch
       * 64bit fixes for pbproxy
       * Add support for side-by-side installation with system X11 (SnowLeopard Only)
       * Allow 16bit accumulation buffers
