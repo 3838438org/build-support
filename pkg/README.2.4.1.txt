@@ -36,10 +36,13 @@ The software supporting the deprecated imake build system is not provided in thi
     * xdm 1.1.9
     * xdpyinfo 1.1.0
     * xev 1.0.4
+    * xgc 1.0.2
     * xhost 1.0.3
+    * xinit 1.2.0
     * xinput 1.5.0
     * xkbcomp 1.1.1
     * xkbevd 1.1.0
+    * xkbprint 1.0.2
     * xkbutils 1.0.2
     * xkill 1.0.2
     * xlsatoms 1.0.2
@@ -54,7 +57,7 @@ The software supporting the deprecated imake build system is not provided in thi
     * xscope 1.2
     * xset 1.1.0
     * xsetroot 1.0.3
-    * xterm 250
+    * xterm 251
     * xvinfo 1.1.0
     * xwd 1.0.3
     * xwininfo 1.0.5
