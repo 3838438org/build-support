@@ -3,9 +3,10 @@
 . ~/.bashrc
 
 verString=$1
+name=${verString%-*}
 
 mkdir ${verString}.d
-mv ${verString}.pkg ${verString}.d/X11.pkg
+mv ${verString}.pkg ${verString}.d/${name}.pkg
 hdiutil create -srcfolder ${verString}.d -format UDBZ -volname "${verString}" ${verString}.dmg
 mv ${verString}.d/X11.pkg ${verString}.pkg
 rmdir $1.d

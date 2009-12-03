@@ -161,6 +161,7 @@ The software supporting the deprecated imake build system is not provided in thi
     * resourceproto 1.1.0
     * scrnsaverproto 1.2.0
     * videoproto 2.3.0
+    * xcb-proto 1.6
     * xcmiscproto 1.2.0
     * xextproto 7.1.1
     * xf86bigfontproto 1.2.0
@@ -171,7 +172,7 @@ The software supporting the deprecated imake build system is not provided in thi
     * xineramaproto 1.2
     * xproto 7.0.16
   * server:
-    * Xquartz fixes from xorg-server-1.7.2
+    * Xquartz fixes from xorg-server-1.7.3
       * Move to the 1.7 branch
       * 64bit fixes for pbproxy
       * Add support for side-by-side installation with system X11 (SnowLeopard Only)
