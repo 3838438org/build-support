@@ -106,10 +106,11 @@ The software supporting the deprecated imake build system is not provided in thi
     * libICE 1.0.6
     * libdmx 1.1.0
     * libfontenc 1.0.5
-    * libpng 1.2.40
+    * libpng 1.2.41
     * libX11 1.3.2
     * libXau 1.0.5
     * libXaw 1.0.7
+    * libxcb 1.5
     * libXcomposite 0.4.1
     * libXcursor 1.1.10
     * libXdamage 1.1.2
