@@ -23,11 +23,13 @@ The software supporting the deprecated imake build system is not provided in thi
     * bitmap 1.0.4
     * editres 1.0.4
     * iceauth 1.0.3
+    * listres 1.0.2
     * luit 1.0.4
     * makedepend 1.0.2
     * mkfontscale 1.0.7
     * mkfontdir 1.0.5
     * sessreg 1.0.5
+    * viewres 1.0.2
     * x11perf 1.5.1
     * xauth 1.0.4
     * xclipboard 1.1.0
@@ -57,7 +59,7 @@ The software supporting the deprecated imake build system is not provided in thi
     * xscope 1.2
     * xset 1.1.0
     * xsetroot 1.0.3
-    * xterm 251
+    * xterm 253
     * xvinfo 1.1.0
     * xwd 1.0.3
     * xwininfo 1.0.5
@@ -136,12 +138,13 @@ The software supporting the deprecated imake build system is not provided in thi
     * libXt 1.0.7
     * libXtst 1.1.0
     * mesa 7.6
-    * pixman 0.16.2
+    * pixman 0.16.4
     * xcb-util 0.3.6
+    * xpyb 1.2
     * xtrans 1.2.5
   * misc:
     * font-util 1.1.1
-    * util-macros 1.3.0
+    * util-macros 1.4.1
     * xbitmaps 1.1.0
     * xorg-sgml-doctools 1.3
     * xkeyboard-config 1.7
