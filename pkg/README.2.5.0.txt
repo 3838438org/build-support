@@ -47,6 +47,7 @@ The software supporting the deprecated imake build system is not provided in thi
     * xkbprint 1.0.2
     * xkbutils 1.0.2
     * xkill 1.0.2
+    * xlogo 1.0.2
     * xlsatoms 1.0.2
     * xlsclients 1.0.2
     * xman 1.1.0
