@@ -32,6 +32,7 @@ The software supporting the deprecated imake build system is not provided in thi
     * viewres 1.0.2
     * x11perf 1.5.1
     * xauth 1.0.4
+    * xcalc 1.0.3
     * xclipboard 1.1.0
     * xclock 1.0.4
     * xcursorgen 1.0.3
