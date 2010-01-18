@@ -114,7 +114,7 @@ The software supporting the deprecated imake build system is not provided in thi
     * libdmx 1.1.0
     * libfontenc 1.0.5
     * libpng 1.2.42
-    * libX11 1.3.2
+    * libX11 1.3.3
     * libXau 1.0.5
     * libXaw 1.0.7
     * libxcb 1.5
@@ -149,7 +149,7 @@ The software supporting the deprecated imake build system is not provided in thi
     * xtrans 1.2.5
   * misc:
     * font-util 1.1.1
-    * util-macros 1.4.1
+    * util-macros 1.5.0
     * xbitmaps 1.1.0
     * xorg-sgml-doctools 1.3
     * xkeyboard-config 1.7
