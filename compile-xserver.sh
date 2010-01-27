@@ -3,15 +3,17 @@
 #CONFOPT="--disable-xquartz --disable-launchd --enable-kdrive --disable-xsdl --enable-xnest --enable-xvfb"
 #CONFOPT="--disable-glx"
 #CONFOPT="--disable-shave"
+CONFOPT="--enable-standalone-xpbproxy --without-dtrace"
+
 
 # Parallel Make.  Change $MAKE if you don't have gmake installed
 MAKE="gnumake"
-MAKE_OPTS="-j8"
+MAKE_OPTS="-j3"
  
 . ~/src/strip.sh
 
-ACLOCAL="aclocal -I /opt/X11/share/aclocal -I /usr/local/share/aclocal"
-#ACLOCAL="aclocal -I /usr/X11/share/aclocal"
+#ACLOCAL="aclocal -I /opt/X11/share/aclocal -I /usr/local/share/aclocal"
+ACLOCAL="aclocal -I /usr/X11/share/aclocal -I /usr/local/share/aclocal"
 
 CFLAGS="-Wall -pipe -DNO_ALLOCA"
 CFLAGS="$CFLAGS -O0 -ggdb3"
@@ -25,11 +27,11 @@ LDFLAGS="$CFLAGS"
 
 export ACLOCAL CPPFLAGS CFLAGS LDFLAGS
 
-PKG_CONFIG_PATH=/opt/X11/lib/pkgconfig:$PKG_CONFIG_PATH
-PATH=/opt/X11/bin:$PATH
+#PKG_CONFIG_PATH=/opt/X11/lib/pkgconfig:$PKG_CONFIG_PATH
+#PATH=/opt/X11/bin:$PATH
 
-#PKG_CONFIG_PATH=/usr/X11/lib/pkgconfig:$PKG_CONFIG_PATH
-#PATH=/usr/X11/bin:$PATH
+PKG_CONFIG_PATH=/usr/X11/lib/pkgconfig:$PKG_CONFIG_PATH
+PATH=/usr/X11/bin:$PATH
 
 die() {
 	echo "${@}" >&2
@@ -38,7 +40,7 @@ die() {
 
 docomp() {
 	autoreconf -fvi || die
-	./configure --prefix=/opt/X11 --with-mesa-source="${MESA}" ${CONFOPT} --disable-dependency-tracking --enable-maintainer-mode --enable-xcsecurity --enable-record --with-apple-application-name=XQuartz --with-launchd-id-prefix=org.macosforge.xquartz "${@}" || die "Could not configure xserver"
+	./configure --prefix=/usr/X11 ${CONFOPT} --disable-dependency-tracking --enable-maintainer-mode --enable-xcsecurity --enable-record --with-apple-application-name=XQuartz --with-launchd-id-prefix=org.macosforge.xquartz "${@}" || die "Could not configure xserver"
 	${MAKE} clean || die "Unable to make clean"
 	${MAKE} ${MAKE_OPTS} || die "Could not make xserver"
 }
@@ -50,7 +52,7 @@ doinst() {
 dosign() {
 	/opt/local/bin/gmd5sum $1 > $1.md5sum
 	/opt/local/bin/gsha1sum $1 > $1.sha1sum
-	/opt/local/bin/gpg2 -b $1
+	DISPLAY="" /opt/local/bin/gpg2 -b $1
 }
 
 dodist() {
