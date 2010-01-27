@@ -12,26 +12,25 @@ MAKE_OPTS="-j3"
  
 . ~/src/strip.sh
 
-#ACLOCAL="aclocal -I /opt/X11/share/aclocal -I /usr/local/share/aclocal"
-ACLOCAL="aclocal -I /usr/X11/share/aclocal -I /usr/local/share/aclocal"
+PREFIX=/usr/X11
+#PREFIX=/opt/X11
+
+ACLOCAL="aclocal -I ${PREFIX}/share/aclocal -I /usr/local/share/aclocal"
 
 CFLAGS="-Wall -pipe -DNO_ALLOCA"
 CFLAGS="$CFLAGS -O0 -ggdb3"
-#CFLAGS="$CFLAGS -O2"
 CFLAGS="$CFLAGS -arch i386 -arch x86_64 -arch ppc"
 
 LDFLAGS="$CFLAGS"
 
 #CPPFLAGS="$CPPFLAGS -F/Applications/Utilities/XQuartz.app/Contents/Frameworks"
 #LDFLAGS="$LDFLAGS -F/Applications/Utilities/XQuartz.app/Contents/Frameworks"
+#CONFOPT="$CONFOPT --with-apple-application-name=XQuartz --with-launchd-id-prefix=org.macosforge.xquartz"
 
 export ACLOCAL CPPFLAGS CFLAGS LDFLAGS
 
-#PKG_CONFIG_PATH=/opt/X11/lib/pkgconfig:$PKG_CONFIG_PATH
-#PATH=/opt/X11/bin:$PATH
-
-PKG_CONFIG_PATH=/usr/X11/lib/pkgconfig:$PKG_CONFIG_PATH
-PATH=/usr/X11/bin:$PATH
+PKG_CONFIG_PATH=${PREFIX}/share/pkgconfig:${PREFIX}/lib/pkgconfig:$PKG_CONFIG_PATH
+PATH=${PREFIX}/bin:$PATH
 
 die() {
 	echo "${@}" >&2
@@ -40,7 +39,7 @@ die() {
 
 docomp() {
 	autoreconf -fvi || die
-	./configure --prefix=/usr/X11 ${CONFOPT} --disable-dependency-tracking --enable-maintainer-mode --enable-xcsecurity --enable-record --with-apple-application-name=XQuartz --with-launchd-id-prefix=org.macosforge.xquartz "${@}" || die "Could not configure xserver"
+	./configure --prefix=${PREFIX} ${CONFOPT} --disable-dependency-tracking --enable-maintainer-mode --enable-xcsecurity --enable-record "${@}" || die "Could not configure xserver"
 	${MAKE} clean || die "Unable to make clean"
 	${MAKE} ${MAKE_OPTS} || die "Could not make xserver"
 }
