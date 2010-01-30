@@ -52,6 +52,7 @@ The software supporting the deprecated imake build system is not provided in thi
     * xlsatoms 1.0.2
     * xlsclients 1.0.2
     * xman 1.1.0
+    * xmessage 1.0.3
     * xmodmap 1.0.4
     * xpr 1.0.3
     * xprop 1.1.0
@@ -152,7 +153,7 @@ The software supporting the deprecated imake build system is not provided in thi
     * util-macros 1.5.0
     * xbitmaps 1.1.0
     * xorg-sgml-doctools 1.3
-    * xkeyboard-config 1.7
+    * xkeyboard-config 1.8
   * proto:
     * applewmproto 1.4.1
     * bigreqsproto 1.1.0
@@ -183,13 +184,14 @@ The software supporting the deprecated imake build system is not provided in thi
     * xineramaproto 1.2
     * xproto 7.0.16
   * server:
-    * xorg-server 1.7.4
+    * xorg-server 1.7.5
       * Move to the 1.7 branch
       * 64bit fixes for pbproxy
       * Add support for side-by-side installation with system X11 (SnowLeopard Only)
       * Allow 16bit accumulation buffers
       * Properly set the key repeat rates in the server rather than relying on xinitrc
-      * Fixed the "borders don't show up" bug
+      * Partially fixed the "borders don't show up" bug
+      * Fixed the rare stuck mouse pointer bug
 
 == Changes in 2.4.0 ==
   * All changes in 2.3.3.2 plus:
