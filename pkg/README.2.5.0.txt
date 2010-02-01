@@ -106,7 +106,7 @@ The software supporting the deprecated imake build system is not provided in thi
     * font-winitzki-cyrillic 1.0.1
     * font-xfree86-type1 1.0.2
   * lib:
-    * AppleSGLX 59
+    * AppleSGLX 60
       * Rebased code off of mesa_7_7_branch
       * Fixed ABI for some extensions
     * fontconfig 2.7.3
