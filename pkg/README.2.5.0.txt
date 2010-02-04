@@ -28,6 +28,8 @@ The software supporting the deprecated imake build system is not provided in thi
     * makedepend 1.0.2
     * mkfontscale 1.0.7
     * mkfontdir 1.0.5
+    * quartz-wm
+      * Fixed a bug (#329) where windows could get lost behind the dock
     * sessreg 1.0.5
     * viewres 1.0.2
     * x11perf 1.5.1
@@ -190,8 +192,8 @@ The software supporting the deprecated imake build system is not provided in thi
       * Add support for side-by-side installation with system X11 (SnowLeopard Only)
       * Allow 16bit accumulation buffers
       * Properly set the key repeat rates in the server rather than relying on xinitrc
-      * Partially fixed the "borders don't show up" bug
-      * Fixed the rare stuck mouse pointer bug
+      * Partially fixed the "borders don't show up" bug (#290)
+      * Fixed the rare stuck mouse pointer bug (#64)
 
 == Changes in 2.4.0 ==
   * All changes in 2.3.3.2 plus:
