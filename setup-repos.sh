@@ -1,7 +1,7 @@
 #GIT_BASE="git://anongit.freedesktop.org/git"
 GIT_BASE="ssh://git.freedesktop.org/git"
 
-#svn checkout --username jeremyhu@freedesktop.org http://svn.macosforge.org/repository/xquartz
+#svn checkout --username jeremyhu@freedesktop.org https://svn.macosforge.org/repository/xquartz
 #mv xquartz svn-xquartz
 
 mkdir src
