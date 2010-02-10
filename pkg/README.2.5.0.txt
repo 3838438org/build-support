@@ -24,7 +24,7 @@ The software supporting the deprecated imake build system is not provided in thi
     * editres 1.0.4
     * iceauth 1.0.3
     * listres 1.0.2
-    * luit 1.0.4
+    * luit 1.0.5
     * makedepend 1.0.2
     * mkfontscale 1.0.7
     * mkfontdir 1.0.5
@@ -146,7 +146,7 @@ The software supporting the deprecated imake build system is not provided in thi
     * libXt 1.0.7
     * libXtst 1.1.0
     * mesa 7.6
-    * pixman 0.16.4
+    * pixman 0.16.6
     * xcb-util 0.3.6
     * xpyb 1.2
     * xtrans 1.2.5
