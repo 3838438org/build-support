@@ -112,6 +112,7 @@ The software supporting the deprecated imake build system is not provided in thi
       * Rebased code off of mesa_7_7_branch
       * Fixed ABI for some extensions
     * fontconfig 2.7.3
+    * freetype 2.3.12
     * libAppleWM 1.4.0
     * libICE 1.0.6
     * libdmx 1.1.0
@@ -152,7 +153,7 @@ The software supporting the deprecated imake build system is not provided in thi
     * xtrans 1.2.5
   * misc:
     * font-util 1.1.1
-    * util-macros 1.5.0
+    * util-macros 1.6.0
     * xbitmaps 1.1.0
     * xorg-sgml-doctools 1.3
     * xkeyboard-config 1.8
@@ -162,7 +163,7 @@ The software supporting the deprecated imake build system is not provided in thi
     * compositeproto 0.4.1
     * damageproto 1.2.0
     * dmxproto 2.3
-    * dri2proto 2.2
+    * dri2proto 2.3
     * evieext 1.1.0
     * fixesproto 4.1.1
     * fontcacheproto 0.1.3
