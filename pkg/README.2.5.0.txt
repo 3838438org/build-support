@@ -28,7 +28,7 @@ The software supporting the deprecated imake build system is not provided in thi
     * makedepend 1.0.2
     * mkfontscale 1.0.7
     * mkfontdir 1.0.5
-    * quartz-wm
+    * quartz-wm 1.1.0
       * Fixed a bug (#329) where windows could get lost behind the dock
     * sessreg 1.0.5
     * viewres 1.0.2
@@ -108,9 +108,6 @@ The software supporting the deprecated imake build system is not provided in thi
     * font-winitzki-cyrillic 1.0.1
     * font-xfree86-type1 1.0.2
   * lib:
-    * AppleSGLX 60
-      * Rebased code off of mesa_7_7_branch
-      * Fixed ABI for some extensions
     * fontconfig 2.7.3
     * freetype 2.3.12
     * libAppleWM 1.4.0
@@ -146,7 +143,10 @@ The software supporting the deprecated imake build system is not provided in thi
     * libXxf86vm 1.1.0
     * libXt 1.0.7
     * libXtst 1.1.0
-    * mesa 7.6
+    * mesa 7.7
+      * libGL:
+        * Rebased code off of mesa_7_7_branch
+        * Fixed ABI for some extensions
     * pixman 0.16.6
     * xcb-util 0.3.6
     * xpyb 1.2
