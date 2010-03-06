@@ -132,6 +132,9 @@ The software supporting the deprecated imake build system is not provided in thi
     * libXi 1.3
     * libXinerama 1.1
     * libXmu 1.0.5
+    * libXplugin
+      * Performance fix for ATI cards in DRI (SnowLeopard)
+      * Fix drawing of the window growbox (SnowLeopard)
     * libXpm 3.5.8
     * libXrender 0.9.5
     * libXres 1.0.4
