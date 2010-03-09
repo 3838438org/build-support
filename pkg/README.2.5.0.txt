@@ -64,7 +64,7 @@ The software supporting the deprecated imake build system is not provided in thi
     * xscope 1.2
     * xset 1.1.0
     * xsetroot 1.0.3
-    * xterm 255
+    * xterm 256
     * xvinfo 1.1.0
     * xwd 1.0.3
     * xwininfo 1.0.5
