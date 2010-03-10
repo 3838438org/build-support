@@ -135,6 +135,8 @@ The software supporting the deprecated imake build system is not provided in thi
     * libXplugin
       * Performance fix for ATI cards in DRI (SnowLeopard)
       * Fix drawing of the window growbox (SnowLeopard)
+      * Help quartz-wm claim ownership of existing windows
+      * Send notification of display change on display wake
     * libXpm 3.5.8
     * libXrender 0.9.5
     * libXres 1.0.4
