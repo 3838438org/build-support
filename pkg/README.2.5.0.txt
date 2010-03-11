@@ -22,6 +22,8 @@ The software supporting the deprecated imake build system is not provided in thi
     * bdftopcf 1.0.2
     * bitmap 1.0.4
     * editres 1.0.4
+    * font_cache
+      * Ensure that only one instance of font_cache can run at a time
     * iceauth 1.0.3
     * listres 1.0.2
     * luit 1.0.5
@@ -158,7 +160,7 @@ The software supporting the deprecated imake build system is not provided in thi
     * xtrans 1.2.5
   * misc:
     * font-util 1.1.1
-    * util-macros 1.6.0
+    * util-macros 1.6.1
     * xbitmaps 1.1.0
     * xorg-sgml-doctools 1.3
     * xkeyboard-config 1.8
