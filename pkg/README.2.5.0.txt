@@ -46,7 +46,7 @@ The software supporting the deprecated imake build system is not provided in thi
     * xgc 1.0.2
     * xhost 1.0.3
     * xinit 1.2.0
-    * xinput 1.5.0
+    * xinput 1.5.1
     * xkbcomp 1.1.1
     * xkbevd 1.1.0
     * xkbprint 1.0.2
@@ -148,7 +148,7 @@ The software supporting the deprecated imake build system is not provided in thi
     * libXxf86dga 1.1.1
     * libXxf86misc 1.0.2
     * libXxf86vm 1.1.0
-    * libXt 1.0.7
+    * libXt 1.0.8
     * libXtst 1.1.0
     * mesa 7.7
       * libGL:
