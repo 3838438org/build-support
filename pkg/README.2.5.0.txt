@@ -6,15 +6,15 @@ This updates is not an official Apple releases. It is a convenient way for users
 
 === OS-X Requirements ===
 
-OS-X 10.5.8 or 10.6.3 or later is required to install this package.
+OS-X 10.5.8, 10.6.3, or later is required to install this package.
 
-=== Mac OS-X Updates ===
+=== Mac OS-X Updates (Leopard Only) ===
 
-You will need to re-install this package after future OS and Security Updates delivered through Apple's Software Update. Additionally, you should reinstall this package after installing XCode.
+You will need to re-install this package after future OS, and Security Updates delivered through Apple's Software Update.  Additionally, you should reinstall this package after installing XCode.
 
-=== Deprecated Software ===
+=== Default X11 Server (Snow Leopard Only) ===
 
-The software supporting the deprecated imake build system is not provided in this package.  If you need imake and xmkmf, please install the X11 package that came with your Leopard DVD before installing this version.  Alternatively, you can compile these packages on your own or get them from a third party such as Fink or MacPorts.  The darwin configuration files used by the imake build system are outdated and not supported.  Developers using this build system are advised to migrate to autoconf.
+If this is your first time installing XQuartz on Snow Leopard, you may wish to logout and log back in.  This will update your DISPLAY environment variable to point to XQuartz.app rather than X11.app.  If you would prefer to keep using X11.app as your default server (you can still launch XQuartz.app manually), you'll want to disable /Library/LaunchAgents/org.macosforge.xquartz.startx.plist using launchctl(1).
 
 == Changes in 2.5.0 ==
   * All changes in 2.4.0 plus:
