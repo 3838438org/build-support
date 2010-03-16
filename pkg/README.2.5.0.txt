@@ -6,7 +6,7 @@ This updates is not an official Apple releases. It is a convenient way for users
 
 === OS-X Requirements ===
 
-OS-X 10.5.8 or 10.6.1 or later is required to install this package.
+OS-X 10.5.8 or 10.6.3 or later is required to install this package.
 
 === Mac OS-X Updates ===
 
