@@ -1,8 +1,10 @@
 #!/bin/bash
 
+# ./mkdmg.sh XQuartz-2.5.0_rc1.pkg
+
 . ~/.bashrc
 
-verString=$1
+verString=${1%.pkg}
 name=${verString%-*}
 
 mkdir ${verString}.d
