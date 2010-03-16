@@ -11,7 +11,7 @@ mkdir ${verString}.d
 mv ${verString}.pkg ${verString}.d/${name}.pkg
 hdiutil create -srcfolder ${verString}.d -format UDBZ -volname "${verString}" ${verString}.dmg
 mv ${verString}.d/${name}.pkg ${verString}.pkg
-rmdir $1.d
+rmdir ${verString}.d
 
 dosign ${verString}.dmg
 
