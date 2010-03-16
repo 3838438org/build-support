@@ -45,7 +45,7 @@ The software supporting the deprecated imake build system is not provided in thi
     * xev 1.0.4
     * xgc 1.0.2
     * xhost 1.0.3
-    * xinit 1.2.0
+    * xinit 1.2.1
     * xinput 1.5.1
     * xkbcomp 1.1.1
     * xkbevd 1.1.0
