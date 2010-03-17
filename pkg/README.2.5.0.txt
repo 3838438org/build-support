@@ -194,7 +194,7 @@ If this is your first time installing XQuartz on Snow Leopard, you may wish to l
     * xineramaproto 1.2
     * xproto 7.0.16
   * server:
-    * xorg-server 1.7.5
+    * xorg-server 1.7.6
       * Move to the 1.7 branch
       * 64bit fixes for pbproxy
       * Add support for side-by-side installation with system X11 (SnowLeopard Only)
