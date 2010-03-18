@@ -1,9 +1,11 @@
 #!/bin/bash
 
-#CONFOPT="--disable-xquartz --disable-launchd --enable-kdrive --disable-xsdl --enable-xnest --enable-xvfb"
+CONFOPT="--disable-xquartz --disable-launchd --enable-kdrive --disable-xsdl --enable-xnest --enable-xvfb"
+
+#CONFOPT="--enable-standalone-xpbproxy"
 #CONFOPT="--disable-glx"
-#CONFOPT="--disable-shave"
-CONFOPT="--enable-standalone-xpbproxy --without-dtrace"
+#CONFOPT="--disable-shave --without-dtrace"
+#CONFOPT="--enable-standalone-xpbproxy --without-dtrace"
 
 
 # Parallel Make.  Change $MAKE if you don't have gmake installed
@@ -12,8 +14,8 @@ MAKE_OPTS="-j3"
  
 . ~/src/strip.sh
 
-PREFIX=/usr/X11
-#PREFIX=/opt/X11
+#PREFIX=/usr/X11
+PREFIX=/opt/X11
 
 ACLOCAL="aclocal -I ${PREFIX}/share/aclocal -I /usr/local/share/aclocal"
 
