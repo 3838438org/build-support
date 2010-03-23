@@ -1,21 +1,21 @@
 #!/bin/bash
 
-CONFOPT="--disable-xquartz --disable-launchd --enable-kdrive --disable-xsdl --enable-xnest --enable-xvfb"
+CONFOPT="--disable-xquartz --disable-glx --disable-dri --disable-launchd --enable-kdrive --disable-xsdl --enable-xnest --enable-xvfb"
 
-#CONFOPT="--enable-standalone-xpbproxy"
-#CONFOPT="--disable-glx"
+CONFOPT="--enable-standalone-xpbproxy"
 #CONFOPT="--disable-shave --without-dtrace"
-#CONFOPT="--enable-standalone-xpbproxy --without-dtrace"
-
 
 # Parallel Make.  Change $MAKE if you don't have gmake installed
 MAKE="gnumake"
 MAKE_OPTS="-j3"
+
+#SCAN_BUILD="scan-build -v -V -o clang.d"
  
 . ~/src/strip.sh
 
 #PREFIX=/usr/X11
 PREFIX=/opt/X11
+CONFOPT="$CONFOPT --with-apple-application-name=XQuartz --with-launchd-id-prefix=org.macosforge.xquartz"
 
 ACLOCAL="aclocal -I ${PREFIX}/share/aclocal -I /usr/local/share/aclocal"
 
@@ -27,7 +27,6 @@ LDFLAGS="$CFLAGS"
 
 #CPPFLAGS="$CPPFLAGS -F/Applications/Utilities/XQuartz.app/Contents/Frameworks"
 #LDFLAGS="$LDFLAGS -F/Applications/Utilities/XQuartz.app/Contents/Frameworks"
-#CONFOPT="$CONFOPT --with-apple-application-name=XQuartz --with-launchd-id-prefix=org.macosforge.xquartz"
 
 export ACLOCAL CPPFLAGS CFLAGS LDFLAGS
 
@@ -41,9 +40,9 @@ die() {
 
 docomp() {
 	autoreconf -fvi || die
-	./configure --prefix=${PREFIX} ${CONFOPT} --disable-dependency-tracking --enable-maintainer-mode --enable-xcsecurity --enable-record "${@}" || die "Could not configure xserver"
+	${SCAN_BUILD} ./configure --prefix=${PREFIX} ${CONFOPT} --disable-dependency-tracking --enable-maintainer-mode --enable-xcsecurity --enable-record "${@}" || die "Could not configure xserver"
 	${MAKE} clean || die "Unable to make clean"
-	${MAKE} ${MAKE_OPTS} || die "Could not make xserver"
+	${SCAN_BUILD} ${MAKE} ${MAKE_OPTS} || die "Could not make xserver"
 }
 
 doinst() {
