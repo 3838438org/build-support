@@ -31,6 +31,17 @@ X11SERVER="${X11SERVER:-${TRAIN}}"
 X11APPS="${X11APPS:-${TRAIN}}"
 X11FONTS="${X11FONTS:-${TRAIN}}"
 
+export XMLTO=/opt/local/bin/xmlto
+export ASCIIDOC=/opt/local/bin/asciidoc
+export DOXYGEN=/opt/local/bin/doxygen
+export FOP=/opt/local/bin/fop
+export GROFF=/opt/local/bin/groff
+export PS2PDF=/opt/local/bin/ps2pdf
+
+for f in "${XMLTO}" "${ASCIIDOC}" "${DOXYGEN}" "${FOP}" "${GROFF}" "${PS2PDF}" ; do
+	[[ -x "${f}" ]] || die "Could not find ${f}"
+done
+
 MACOSFORGE_LEO=NO
 MACOSFORGE_SL=NO
 MACOSFORGE_RELEASE=NO
@@ -52,7 +63,7 @@ if [[ ${MACOSFORGE_SL} == "YES" ]] ; then
 	export X11_BUNDLE_ID_PREFIX="org.macosforge.xquartz"
 	export X11_APP_NAME="XQuartz"
 	export LAUNCHD_PREFIX="/Library"
-	export X11_PATHS_D_PREFIX="50"
+	export X11_PATHS_D_PREFIX="40"
 fi
 
 if [[ ${MACOSFORGE_RELEASE} == "YES" ]] ; then
