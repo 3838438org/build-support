@@ -1,0 +1,2 @@
+This is a community-supported version of the X11 windowing system for Mac OS-X Snow Leopard (10.6).  Please visit http://xquartz.macosforge.org for more information.
+
