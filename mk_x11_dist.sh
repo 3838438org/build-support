@@ -86,9 +86,11 @@ if [[ "${MACOSFORGE_LEO}" == "YES" ]] ; then
 	export GROFF=/opt/local/bin/groff
 else
 	ARCH_EXEC="-arch i386 -arch x86_64"
-	ARCH_ALL="${ARCH_EXEC} -arch ppc"
 	if [[ "${MACOSFORGE_SL}" == "YES" ]] ; then
 		export PYTHONPATH="${X11_PREFIX}/lib/python2.6:${X11_PREFIX}/lib/python2.6/site-packages"
+		ARCH_ALL="${ARCH_EXEC}"
+	else
+		ARCH_ALL="${ARCH_EXEC} -arch ppc"
 	fi
 fi
 
