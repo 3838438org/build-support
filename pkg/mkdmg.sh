@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# ./mkdmg.sh XQuartz-2.5.0_rc1.pkg
+# ./mkdmg.sh XQuartz-2.5.0_rc2.pkg 2.5.3
 
 . ~/.bashrc
 
