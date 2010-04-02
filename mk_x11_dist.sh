@@ -31,6 +31,11 @@ X11SERVER="${X11SERVER:-${TRAIN}}"
 X11APPS="${X11APPS:-${TRAIN}}"
 X11FONTS="${X11FONTS:-${TRAIN}}"
 
+die() {
+	echo "${@}" >&2
+	exit 1
+}
+
 MACOSFORGE_LEO=NO
 MACOSFORGE_SL=NO
 MACOSFORGE_RELEASE=NO
@@ -74,16 +79,14 @@ if [[ "${MACOSFORGE_LEO}" == "YES" && ${XPLUGIN} == "trunk" ]] ; then
 	XPLUGIN="trains/MacOSForge"
 fi
 
-die() {
-	echo "${@}" >&2
-	exit 1
-}
-
 if [[ "${MACOSFORGE_LEO}" == "YES" ]] ; then
 	ARCH_EXEC="-arch i386 -arch ppc"
 	ARCH_ALL="${ARCH_EXEC} -arch x86_64 -arch ppc64"
 	export PYTHONPATH="/usr/X11/lib/python2.5:/usr/X11/lib/python2.5/site-packages"
 	export GROFF=/opt/local/bin/groff
+elif [[ "${TRAIN}" == "trains/SULeo" ]] ; then
+	ARCH_EXEC="-arch i386 -arch ppc"
+	ARCH_ALL="${ARCH_EXEC} -arch x86_64 -arch ppc64"
 else
 	ARCH_EXEC="-arch i386 -arch x86_64"
 	if [[ "${MACOSFORGE_SL}" == "YES" ]] ; then
