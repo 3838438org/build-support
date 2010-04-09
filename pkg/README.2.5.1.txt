@@ -24,8 +24,12 @@ If this is your first time installing XQuartz on Snow Leopard, you may wish to l
   * lib:
     * cairo 1.8.10
     * libpng 1.4.1
+    * libxcb 1.6
     * mesa 7.8
     * pixman 0.18.0
+  * misc:
+    * util-macros 1.7.0
+    * xorg-sgml-doctools 1.4
   * server:
     * xorg-server 1.8.0
       * Move to the 1.8 branch
