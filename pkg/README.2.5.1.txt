@@ -20,7 +20,8 @@ If this is your first time installing XQuartz on Snow Leopard, you may wish to l
   * All changes in 2.5.0 plus:
   * app:
     * quartz-wm 1.1.1
-      * Fixed an issue with focus loss and Spaces (#370)
+      * Fixed an issue with focus loss (#370)
+      * Fixed an issue dragging windows to other spaces (#375)
   * lib:
     * cairo 1.8.10
     * libpng 1.4.1
@@ -33,6 +34,8 @@ If this is your first time installing XQuartz on Snow Leopard, you may wish to l
   * server:
     * xorg-server 1.8.0
       * Move to the 1.8 branch
+      * Fixed shift-arrow keys sending math symbols in wine (#295)
+      * Added a preference to toggle between Alt_L, Alt_R and Mode_switch (#374)
 
 == Changes in 2.5.0 ==
   * All changes in 2.4.0 plus:
