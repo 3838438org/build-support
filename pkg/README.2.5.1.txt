@@ -36,6 +36,7 @@ If this is your first time installing XQuartz on Snow Leopard, you may wish to l
       * Move to the 1.8 branch
       * Fixed shift-arrow keys sending math symbols in wine (#295)
       * Added a preference to toggle between Alt_L, Alt_R and Mode_switch (#374)
+      * Fixed possible errors with GLX pixel formats  Bugzilla #27654
 
 == Changes in 2.5.0 ==
   * All changes in 2.4.0 plus:
