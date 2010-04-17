@@ -22,6 +22,8 @@ If this is your first time installing XQuartz on Snow Leopard, you may wish to l
     * quartz-wm 1.1.1
       * Fixed an issue with focus loss (#370)
       * Fixed an issue dragging windows to other spaces (#375)
+    * xscope
+      * Fixed a wedge by building without xtrans
   * lib:
     * cairo 1.8.10
     * libpng 1.4.1
