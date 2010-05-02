@@ -24,7 +24,7 @@ If this is your first time installing XQuartz on Snow Leopard, you may wish to l
       * Fixed an issue dragging windows to other spaces (#375)
     * xscope
       * Fixed a wedge by building without xtrans
-    * xterm 257
+    * xterm 258
   * lib:
     * cairo 1.8.10
     * libpng 1.4.1
