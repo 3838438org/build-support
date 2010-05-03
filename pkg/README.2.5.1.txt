@@ -22,6 +22,8 @@ If this is your first time installing XQuartz on Snow Leopard, you may wish to l
     * quartz-wm 1.1.1
       * Fixed an issue with focus loss (#370)
       * Fixed an issue dragging windows to other spaces (#375)
+    * xinit
+      * Fixed startx to be POSIX compliant for users of non-bash /bin/sh (#399)
     * xscope
       * Fixed a wedge by building without xtrans
     * xterm 258
