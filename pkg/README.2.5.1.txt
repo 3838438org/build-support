@@ -25,7 +25,7 @@ If this is your first time installing XQuartz on Snow Leopard, you may wish to l
     * xinit
       * Fixed startx to be POSIX compliant for users of non-bash /bin/sh (#399)
     * xscope
-      * Fixed a wedge by building without xtrans
+      * Fixed a wedge by forcing TCP connections
     * xterm 258
   * lib:
     * cairo 1.8.10
