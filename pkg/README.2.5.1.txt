@@ -34,13 +34,13 @@ If this is your first time installing XQuartz on Snow Leopard, you may wish to l
       * Now built --with-xcb
     * libxcb 1.6
       * Fixed $DISPLAY parsing (#390)
-    * mesa 7.8
-    * pixman 0.18.0
+    * mesa 7.8.1
+    * pixman 0.18.2
   * misc:
     * util-macros 1.7.0
     * xorg-sgml-doctools 1.4
   * server:
-    * xorg-server 1.8.0
+    * xorg-server 1.8.1
       * Move to the 1.8 branch
       * Fixed shift-arrow keys sending math symbols in wine (#295)
       * Added a preference to toggle between Alt_L, Alt_R and Mode_switch (#374)
