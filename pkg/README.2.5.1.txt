@@ -39,6 +39,8 @@ If this is your first time installing XQuartz on Snow Leopard, you may wish to l
   * misc:
     * util-macros 1.7.0
     * xorg-sgml-doctools 1.4
+  * proto:
+    * xproto 7.0.17
   * server:
     * xorg-server 1.8.1
       * Move to the 1.8 branch
