@@ -42,7 +42,7 @@ If this is your first time installing XQuartz on Snow Leopard, you may wish to l
   * proto:
     * xproto 7.0.17
   * server:
-    * xorg-server 1.8.1
+    * xorg-server 1.8.1 plus other patches
       * Move to the 1.8 branch
       * Fixed shift-arrow keys sending math symbols in wine (#295)
       * Added a preference to toggle between Alt_L, Alt_R and Mode_switch (#374)
@@ -228,7 +228,7 @@ If this is your first time installing XQuartz on Snow Leopard, you may wish to l
     * xineramaproto 1.2
     * xproto 7.0.16
   * server:
-    * xorg-server 1.7.6
+    * xorg-server 1.7.6 plus other patches
       * Move to the 1.7 branch
       * 64bit fixes for pbproxy
       * Add support for side-by-side installation with system X11 (SnowLeopard Only)
