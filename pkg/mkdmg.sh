@@ -19,7 +19,9 @@ DSA=$(./sign_update.rb ${verString}.dmg sparkle_priv.pem)
 SIZE=$(wc -c ${verString}.dmg | awk '{print $1}')
 echo "      <item>"
 if [[ "${name}" == "XQuartz" ]] ; then
-echo "         <sparkle:minimumSystemVersion>10.6</sparkle:minimumSystemVersion>"
+echo "         <sparkle:minimumSystemVersion>10.6.3</sparkle:minimumSystemVersion>"
+else
+echo "         <sparkle:minimumSystemVersion>10.5.8</sparkle:minimumSystemVersion>"
 fi
 echo "         <title>${verString}</title>"
 echo "         <sparkle:releaseNotesLink>http://xquartz.macosforge.org/trac/wiki/ChangeLog</sparkle:releaseNotesLink>"
