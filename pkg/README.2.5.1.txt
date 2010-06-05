@@ -22,22 +22,28 @@ If this is your first time installing XQuartz on Snow Leopard, you may wish to l
     * quartz-wm 1.1.1
       * Fixed an issue with focus loss (#370)
       * Fixed an issue dragging windows to other spaces (#375)
+    * sessreg 1.0.6
     * xinit
       * Fixed startx to be POSIX compliant for users of non-bash /bin/sh (#399)
+    * xinput 1.5.2
+    * xlsatoms 1.1.0
+    * xlsclients 1.1.0
     * xscope
       * Fixed a wedge by forcing TCP connections
     * xterm 258
   * lib:
     * cairo 1.8.10
     * libpng 1.4.1
-    * libX11
+    * libX11 1.3.4
       * Now built --with-xcb
+    * libXext 1.1.2
     * libxcb 1.6
       * Fixed $DISPLAY parsing (#390)
     * mesa 7.8.1
     * pixman 0.18.2
   * misc:
-    * util-macros 1.7.0
+    * util-macros 1.8.0
+    * xkeyboard-config 1.9
     * xorg-sgml-doctools 1.4
   * proto:
     * xproto 7.0.17
