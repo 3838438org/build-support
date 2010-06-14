@@ -28,6 +28,7 @@ If this is your first time installing XQuartz on Snow Leopard, you may wish to l
     * xinput 1.5.2
     * xlsatoms 1.1.0
     * xlsclients 1.1.0
+    * xlsfonts 1.0.3
     * xscope
       * Fixed a wedge by forcing TCP connections
     * xterm 258
@@ -36,7 +37,11 @@ If this is your first time installing XQuartz on Snow Leopard, you may wish to l
     * libpng 1.4.1
     * libX11 1.3.4
       * Now built --with-xcb
+    * libXcomposite 0.4.2
+    * libXdamage 1.1.3
     * libXext 1.1.2
+    * libXfixes 4.0.5
+    * libXrender 0.9.6
     * libxcb 1.6
       * Fixed $DISPLAY parsing (#390)
     * mesa 7.8.1
