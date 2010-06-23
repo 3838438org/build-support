@@ -31,7 +31,7 @@ If this is your first time installing XQuartz on Snow Leopard, you may wish to l
     * xlsfonts 1.0.3
     * xscope
       * Fixed a wedge by forcing TCP connections
-    * xterm 258
+    * xterm 260
   * lib:
     * cairo 1.8.10
     * libpng 1.4.1
@@ -41,15 +41,16 @@ If this is your first time installing XQuartz on Snow Leopard, you may wish to l
     * libXdamage 1.1.3
     * libXext 1.1.2
     * libXfixes 4.0.5
+    * libXfont 1.4.2
     * libXrender 0.9.6
     * libxcb 1.6
       * Fixed $DISPLAY parsing (#390)
     * mesa 7.8.1
     * pixman 0.18.2
   * misc:
-    * util-macros 1.8.0
+    * util-macros 1.9.0
     * xkeyboard-config 1.9
-    * xorg-sgml-doctools 1.4
+    * xorg-sgml-doctools 1.5
   * proto:
     * xproto 7.0.17
   * server:
