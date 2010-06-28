@@ -34,7 +34,10 @@ If this is your first time installing XQuartz on Snow Leopard, you may wish to l
     * xterm 260
   * lib:
     * cairo 1.8.10
-    * libpng 1.4.1
+    * libpng 1.2.44
+      * CVE-2010-1205
+    * libpng 1.4.3
+      * CVE-2010-1205
     * libX11 1.3.4
       * Now built --with-xcb
     * libXcomposite 0.4.2
