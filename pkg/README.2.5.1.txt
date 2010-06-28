@@ -48,7 +48,7 @@ If this is your first time installing XQuartz on Snow Leopard, you may wish to l
     * mesa 7.8.1
     * pixman 0.18.2
   * misc:
-    * util-macros 1.9.0
+    * util-macros 1.10.0
     * xkeyboard-config 1.9
     * xorg-sgml-doctools 1.5
   * proto:
