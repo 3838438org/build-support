@@ -51,13 +51,14 @@ If this is your first time installing XQuartz on Snow Leopard, you may wish to l
     * mesa 7.8.1
     * pixman 0.18.2
   * misc:
+    * pkg-config 0.25
     * util-macros 1.10.0
     * xkeyboard-config 1.9
     * xorg-sgml-doctools 1.5
   * proto:
     * xproto 7.0.17
   * server:
-    * xorg-server 1.8.1 plus other patches
+    * xorg-server 1.8.2 plus other patches
       * Move to the 1.8 branch
       * Fixed shift-arrow keys sending math symbols in wine (#295)
       * Added a preference to toggle between Alt_L, Alt_R and Mode_switch (#374)
