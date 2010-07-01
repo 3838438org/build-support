@@ -19,6 +19,8 @@ If this is your first time installing XQuartz on Snow Leopard, you may wish to l
 == Changes in 2.5.1 ==
   * All changes in 2.5.0 plus:
   * app:
+    * luit
+      * includes changes from Thomas Dickey's luit-20100601
     * quartz-wm 1.1.1
       * Fixed an issue with focus loss (#370)
       * Fixed an issue dragging windows to other spaces (#375)
