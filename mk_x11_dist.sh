@@ -12,13 +12,11 @@ MERGE_DIRS="/"
 #MERGE_DIRS="${MERGE_DIRS} /Users/jeremy/src/freedesktop/pkg/X11"
 
 #MACOSFORGE=LEO
-#MACOSFORGE=SL
+MACOSFORGE=SL
 
 TRAIN="trunk"
 #TRAIN="trains/SnowLeopard"
 #TRAIN="trains/SULeo"
-
-#TRAIN="branches/PR-6468134"
 
 ### End Configuration ###
 

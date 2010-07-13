@@ -14,14 +14,17 @@ MAKE_OPTS="-j3"
 . ~/src/strip.sh
 
 #PREFIX=/usr/X11
+#ARCHFLAGS="-arch i386 -arch ppc"
+
 PREFIX=/opt/X11
 CONFOPT="$CONFOPT --with-apple-application-name=XQuartz --with-launchd-id-prefix=org.macosforge.xquartz"
+ARCHFLAGS="-arch i386 -arch x86_64"
 
 ACLOCAL="aclocal -I ${PREFIX}/share/aclocal -I /usr/local/share/aclocal"
 
 CFLAGS="-Wall -pipe -DNO_ALLOCA"
 CFLAGS="$CFLAGS -O0 -ggdb3"
-CFLAGS="$CFLAGS -arch i386 -arch x86_64 -arch ppc"
+CFLAGS="$CFLAGS $ARCHFLAGS"
 
 LDFLAGS="$CFLAGS"
 
@@ -40,7 +43,7 @@ die() {
 
 docomp() {
 	autoreconf -fvi || die
-	${SCAN_BUILD} ./configure --prefix=${PREFIX} ${CONFOPT} --disable-dependency-tracking --enable-maintainer-mode --enable-xcsecurity --enable-record "${@}" || die "Could not configure xserver"
+	${SCAN_BUILD} ./configure --prefix=${PREFIX} ${CONFOPT} --disable-dependency-tracking --enable-maintainer-mode --enable-xcsecurity --enable-record --disable-xevie "${@}" || die "Could not configure xserver"
 	${MAKE} clean || die "Unable to make clean"
 	${SCAN_BUILD} ${MAKE} ${MAKE_OPTS} || die "Could not make xserver"
 }
