@@ -25,6 +25,8 @@ If this is your first time installing XQuartz on Snow Leopard, you may wish to l
 == Changes in 2.5.3 ==
   * All changes in 2.5.2 plus:
   * apps:
+      * quartz-wm 1.1.2
+        * Addresses an issue where quartz-wm would not release the KB if there were no meta keys in the modmap (#427)
       * xmore 1.0.2
       * xrandr 1.3.3
   * server:

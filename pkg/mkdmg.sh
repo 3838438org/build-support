@@ -15,7 +15,8 @@ rmdir ${verString}.d
 
 dosign ${verString}.dmg
 
-DSA=$(./sign_update.rb ${verString}.dmg sparkle_priv.pem)
+#DSA=$(./sign_update.rb ${verString}.dmg sparkle_priv.pem)
+DSA=$(openssl dgst -sha1 -binary < ${verString}.dmg | openssl dgst -dss1 -sign sparkle_priv.pem | openssl enc -base64)
 SIZE=$(wc -c ${verString}.dmg | awk '{print $1}')
 echo "      <item>"
 if [[ "${name}" == "XQuartz" ]] ; then
