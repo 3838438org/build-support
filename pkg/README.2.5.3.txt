@@ -23,6 +23,8 @@ If this is your first time installing XQuartz on Snow Leopard, you may wish to l
         * Addresses an issue where quartz-wm would not release the KB if there were no meta keys in the modmap (#427)
       * xmore 1.0.2
       * xrandr 1.3.3
+  * libs
+      * libXi 1.3.1
   * server:
     * xorg-server 1.8.2 plus other patches
       * Finish cleanup of /tmp on server quit (#421)
