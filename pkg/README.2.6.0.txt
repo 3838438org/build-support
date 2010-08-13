@@ -24,13 +24,29 @@ If this is your first time installing XQuartz on Snow Leopard, you may wish to l
 
 == Changes in 2.5.3 ==
   * All changes in 2.5.2 plus:
-  * apps:
+  * app:
       * quartz-wm 1.1.2
         * Addresses an issue where quartz-wm would not release the KB if there were no meta keys in the modmap (#427)
+      * xditview 1.0.2
       * xmore 1.0.2
       * xrandr 1.3.3
-  * libs
-      * libXi 1.3.1
+      * xset 1.2.0
+  * lib:
+      * freetype 2.4.2
+        * CVE-2010-1797
+        * CVE-2010-2805
+        * CVE-2010-2806
+        * CVE-2010-2807
+        * CVE-2010-2808
+      * libX11 1.3.5
+      * libXi 1.3.2
+  * proto:
+      * kbproto 1.0.5
+      * glproto 1.4.12
+      * renderproto 0.11.1
+      * videoproto 2.3.1
+      * xproto 7.0.18
+      * xextproto 7.1.2
   * server:
     * xorg-server 1.8.2 plus other patches
       * Finish cleanup of /tmp on server quit (#421)
@@ -38,7 +54,7 @@ If this is your first time installing XQuartz on Snow Leopard, you may wish to l
 
 == Changes in 2.5.2 ==
   * All changes in 2.5.1 plus:
-  * libs:
+  * lib:
       * freetype 2.4.1
         * CVE-2010-2497
         * CVE-2010-2498
