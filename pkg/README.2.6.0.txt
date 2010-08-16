@@ -18,6 +18,11 @@ If this is your first time installing XQuartz on Snow Leopard, you may wish to l
 
 == Changes in 2.6.0 ==
   * All changes in 2.5.3 plus:
+  * app:
+    * lndir 1.0.2
+  * lib:
+    * libxcb 1.7
+    * libXvMC 1.0.6
   * server:
     * xorg-server 1.9.0 plus other patches
       * Initial RandR support (#6)
