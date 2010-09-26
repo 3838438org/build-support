@@ -20,9 +20,22 @@ If this is your first time installing XQuartz on Snow Leopard, you may wish to l
   * All changes in 2.5.3 plus:
   * app:
     * lndir 1.0.2
+    * oclock 1.0.2
+    * setxkbmap 1.2.0
+    * x11perf 1.5.2
+    * xauth 1.0.5
+    * xclock 1.0.5
+    * xcmsdb 1.0.3
+    * xconsole 1.0.4
+    * xcursorgen 1.0.4
+    * xlsclients 1.1.1
+    * xmodmap 1.0.5
   * lib:
+    * libX11 1.4
     * libxcb 1.7
     * libXvMC 1.0.6
+  * misc:
+    * util-macros 1.10.1
   * server:
     * xorg-server 1.9.0 plus other patches
       * Initial RandR support (#6)
