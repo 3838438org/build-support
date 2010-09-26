@@ -31,6 +31,7 @@ If this is your first time installing XQuartz on Snow Leopard, you may wish to l
     * xlsclients 1.1.1
     * xmodmap 1.0.5
   * lib:
+    * cairo 1.10.0
     * libX11 1.4
     * libxcb 1.7
     * libXvMC 1.0.6
