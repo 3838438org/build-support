@@ -28,8 +28,13 @@ If this is your first time installing XQuartz on Snow Leopard, you may wish to l
     * xcmsdb 1.0.3
     * xconsole 1.0.4
     * xcursorgen 1.0.4
+    * xfontsel 1.0.3
+    * xload 1.1.0
     * xlsclients 1.1.1
     * xmodmap 1.0.5
+    * xsm 1.0.2
+    * xstdcmap 1.0.2
+    * xwininfo 1.1.0
   * lib:
     * cairo 1.10.0
     * libX11 1.4
