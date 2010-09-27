@@ -34,6 +34,7 @@ If this is your first time installing XQuartz on Snow Leopard, you may wish to l
     * xmodmap 1.0.5
     * xsm 1.0.2
     * xstdcmap 1.0.2
+    * xterm 262
     * xwininfo 1.1.0
   * lib:
     * cairo 1.10.0
