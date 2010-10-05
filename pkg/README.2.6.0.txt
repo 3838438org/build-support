@@ -46,6 +46,7 @@ If this is your first time installing XQuartz on Snow Leopard, you may wish to l
     * font-alias 1.0.3
     * font-arabic-misc 1.0.2
     * font-bh-100dpi 1.0.2
+    * font-bh-75dpi 1.0.2
     * font-bh-lucidatypewriter-100dpi 1.0.2
     * font-bh-lucidatypewriter-75dpi 1.0.2
     * font-bh-ttf 1.0.2
