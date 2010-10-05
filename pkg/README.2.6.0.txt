@@ -28,6 +28,7 @@ If this is your first time installing XQuartz on Snow Leopard, you may wish to l
     * xcmsdb 1.0.3
     * xconsole 1.0.4
     * xcursorgen 1.0.4
+    * xdpyinfo 1.2.0
     * xfontsel 1.0.3
     * xload 1.1.0
     * xlsclients 1.1.1
@@ -36,13 +37,50 @@ If this is your first time installing XQuartz on Snow Leopard, you may wish to l
     * xstdcmap 1.0.2
     * xterm 262
     * xwininfo 1.1.0
+  * font:
+    * font-adobe-100dpi 1.0.2
+    * font-adobe-75dpi 1.0.2
+    * font-adobe-utopia-100dpi 1.0.3
+    * font-adobe-utopia-75dpi 1.0.3
+    * font-adobe-utopia-type1 1.0.3
+    * font-alias 1.0.3
+    * font-arabic-misc 1.0.2
+    * font-bh-100dpi 1.0.2
+    * font-bh-lucidatypewriter-100dpi 1.0.2
+    * font-bh-lucidatypewriter-75dpi 1.0.2
+    * font-bh-ttf 1.0.2
+    * font-bh-type1 1.0.2
+    * font-bitstream-100dpi 1.0.2
+    * font-bitstream-75dpi 1.0.2
+    * font-bitstream-type1 1.0.2
+    * font-cronyx-cyrillic 1.0.2
+    * font-cursor-misc 1.0.2
+    * font-daewoo-misc 1.0.2
+    * font-dec-misc 1.0.2
+    * font-ibm-type1 1.0.2
+    * font-isas-misc 1.0.2
+    * font-jis-misc 1.0.2
+    * font-micro-misc 1.0.2
+    * font-misc-cyrillic 1.0.2
+    * font-misc-ethiopic 1.0.2
+    * font-misc-meltho 1.0.2
+    * font-misc-misc 1.1.1
+    * font-mutt-misc 1.0.2
+    * font-schumacher-misc 1.1.1
+    * font-screen-cyrillic 1.0.3
+    * font-sony-misc 1.0.2
+    * font-sun-misc 1.0.2
+    * font-winitzki-cyrillic 1.0.2
+    * font-xfree86-type1 1.0.3
   * lib:
     * cairo 1.10.0
     * libX11 1.4
     * libxcb 1.7
     * libXvMC 1.0.6
   * misc:
+    * font-utils 1.1.2
     * util-macros 1.10.1
+    * xkeyboard-config 2.0
   * server:
     * xorg-server 1.9.0 plus other patches
       * Initial RandR support (#6)
