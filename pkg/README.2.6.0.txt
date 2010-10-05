@@ -74,6 +74,7 @@ If this is your first time installing XQuartz on Snow Leopard, you may wish to l
     * font-xfree86-type1 1.0.3
   * lib:
     * cairo 1.10.0
+    * freetype 2.4.3
     * libX11 1.4
     * libxcb 1.7
     * libXvMC 1.0.6
@@ -88,28 +89,28 @@ If this is your first time installing XQuartz on Snow Leopard, you may wish to l
 == Changes in 2.5.3 ==
   * All changes in 2.5.2 plus:
   * app:
-      * quartz-wm 1.1.2
-        * Addresses an issue where quartz-wm would not release the KB if there were no meta keys in the modmap (#427)
-      * xditview 1.0.2
-      * xmore 1.0.2
-      * xrandr 1.3.3
-      * xset 1.2.0
+    * quartz-wm 1.1.2
+      * Addresses an issue where quartz-wm would not release the KB if there were no meta keys in the modmap (#427)
+    * xditview 1.0.2
+    * xmore 1.0.2
+    * xrandr 1.3.3
+    * xset 1.2.0
   * lib:
-      * freetype 2.4.2
-        * CVE-2010-1797
-        * CVE-2010-2805
-        * CVE-2010-2806
-        * CVE-2010-2807
-        * CVE-2010-2808
-      * libX11 1.3.5
-      * libXi 1.3.2
+    * freetype 2.4.2
+      * CVE-2010-1797
+      * CVE-2010-2805
+      * CVE-2010-2806
+      * CVE-2010-2807
+      * CVE-2010-2808
+    * libX11 1.3.5
+    * libXi 1.3.2
   * proto:
-      * kbproto 1.0.5
-      * glproto 1.4.12
-      * renderproto 0.11.1
-      * videoproto 2.3.1
-      * xproto 7.0.18
-      * xextproto 7.1.2
+    * kbproto 1.0.5
+    * glproto 1.4.12
+    * renderproto 0.11.1
+    * videoproto 2.3.1
+    * xproto 7.0.18
+    * xextproto 7.1.2
   * server:
     * xorg-server 1.8.2 plus other patches
       * Finish cleanup of /tmp on server quit (#421)
@@ -118,15 +119,15 @@ If this is your first time installing XQuartz on Snow Leopard, you may wish to l
 == Changes in 2.5.2 ==
   * All changes in 2.5.1 plus:
   * lib:
-      * freetype 2.4.1
-        * CVE-2010-2497
-        * CVE-2010-2498
-        * CVE-2010-2499
-        * CVE-2010-2500
-        * CVE-2010-2519
-        * CVE-2010-2520
-      * libXau 1.0.6
-      * mesa 7.8.2
+    * freetype 2.4.1
+      * CVE-2010-2497
+      * CVE-2010-2498
+      * CVE-2010-2499
+      * CVE-2010-2500
+      * CVE-2010-2519
+      * CVE-2010-2520
+    * libXau 1.0.6
+    * mesa 7.8.2
   * server:
     * xorg-server 1.8.2 plus other patches
       * Fixed possible memory errors with cursor on ppc (#415)
