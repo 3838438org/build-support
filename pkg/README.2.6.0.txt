@@ -19,8 +19,11 @@ If this is your first time installing XQuartz on Snow Leopard, you may wish to l
 == Changes in 2.6.0 ==
   * All changes in 2.5.3 plus:
   * app:
+    * bitmap 1.0.5
     * lndir 1.0.2
+    * luit 1.1.0
     * oclock 1.0.2
+    * rgb 1.0.4
     * setxkbmap 1.2.0
     * x11perf 1.5.2
     * xauth 1.0.5
