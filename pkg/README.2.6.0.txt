@@ -38,7 +38,7 @@ If this is your first time installing XQuartz on Snow Leopard, you may wish to l
     * xmodmap 1.0.5
     * xsm 1.0.2
     * xstdcmap 1.0.2
-    * xterm 262
+    * xterm 264
     * xwininfo 1.1.0
   * font:
     * font-adobe-100dpi 1.0.2
@@ -84,7 +84,7 @@ If this is your first time installing XQuartz on Snow Leopard, you may wish to l
     * libxcb 1.7
     * libXvMC 1.0.6
   * misc:
-    * font-utils 1.1.2
+    * font-util 1.2.0
     * util-macros 1.10.1
     * xkeyboard-config 2.0
   * server:
