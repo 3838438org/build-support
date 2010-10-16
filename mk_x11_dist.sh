@@ -83,9 +83,8 @@ fi
 if [[ "${MACOSFORGE_LEO}" == "YES" ]] ; then
 	ARCH_EXEC="-arch i386 -arch ppc"
 	ARCH_ALL="${ARCH_EXEC} -arch x86_64 -arch ppc64"
-	export PYTHONPATH="/usr/X11/lib/python2.5:/usr/X11/lib/python2.5/site-packages"
-	export GROFF=/opt/local/bin/groff
 	export CC="/usr/bin/gcc-4.2"
+	export PYTHONPATH="/usr/X11/lib/python2.5:/usr/X11/lib/python2.5/site-packages"
 elif [[ "${TRAIN}" == "trains/SULeo" ]] ; then
 	ARCH_EXEC="-arch i386 -arch ppc"
 	ARCH_ALL="${ARCH_EXEC} -arch x86_64 -arch ppc64"
