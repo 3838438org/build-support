@@ -38,14 +38,14 @@ LDFLAGS="$CFLAGS"
 
 # This section is for building release tarballs
 if false ; then
-CONFOPT="${CONFOPT} --enable-docs --enable-devel-docs --enable-builddocs --with-doxygen --with-xmlto --with-fop"
-export XMLTO=/opt/local/bin/xmlto
-export ASCIIDOC=/opt/local/bin/asciidoc
-export DOXYGEN=/opt/local/bin/doxygen
-export FOP=/opt/local/bin/fop
-export FOP_OPTS="-Xmx2048m"
-export GROFF=/opt/local/bin/groff
-export PS2PDF=/opt/local/bin/ps2pdf
+	CONFOPT="${CONFOPT} --enable-docs --enable-devel-docs --enable-builddocs --with-doxygen --with-xmlto --with-fop"
+	export XMLTO=/opt/local/bin/xmlto
+	export ASCIIDOC=/opt/local/bin/asciidoc
+	export DOXYGEN=/opt/local/bin/doxygen
+	export FOP=/opt/local/bin/fop
+	export FOP_OPTS="-Xmx2048m"
+	export GROFF=/opt/local/bin/groff
+	export PS2PDF=/opt/local/bin/ps2pdf
 fi
 
 export ACLOCAL CPPFLAGS CFLAGS LDFLAGS
