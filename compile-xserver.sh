@@ -1,13 +1,13 @@
 #!/bin/bash
 
-CONFOPT="--disable-xquartz --disable-glx --disable-dri --disable-launchd --enable-kdrive --disable-xsdl --enable-xnest --enable-xvfb"
+#CONFOPT="--disable-xquartz --disable-glx --disable-dri --disable-launchd --enable-kdrive --disable-xsdl --enable-xnest --enable-xvfb"
 
 CONFOPT="--enable-standalone-xpbproxy"
 #CONFOPT="--disable-shave --without-dtrace"
 
 # Parallel Make.  Change $MAKE if you don't have gmake installed
 MAKE="gnumake"
-MAKE_OPTS="-j3"
+MAKE_OPTS="-j10"
 
 #SCAN_BUILD="scan-build -v -V -o clang.d"
  
@@ -30,6 +30,16 @@ LDFLAGS="$CFLAGS"
 
 #CPPFLAGS="$CPPFLAGS -F/Applications/Utilities/XQuartz.app/Contents/Frameworks"
 #LDFLAGS="$LDFLAGS -F/Applications/Utilities/XQuartz.app/Contents/Frameworks"
+#CPPFLAGS="$CPPFLAGS -F/Applications/Utilities/X11.app/Contents/Frameworks"
+#LDFLAGS="$LDFLAGS -F/Applications/Utilities/X11.app/Contents/Frameworks"
+#CONFOPT="${CONFOPT} --enable-sparkle"
+
+export XMLTO=/opt/local/bin/xmlto
+export ASCIIDOC=/opt/local/bin/asciidoc
+export DOXYGEN=/opt/local/bin/doxygen
+export FOP=/opt/local/bin/fop
+export GROFF=/opt/local/bin/groff
+export PS2PDF=/opt/local/bin/ps2pdf
 
 export ACLOCAL CPPFLAGS CFLAGS LDFLAGS
 
