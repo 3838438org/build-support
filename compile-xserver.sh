@@ -5,6 +5,8 @@
 CONFOPT="--enable-standalone-xpbproxy"
 #CONFOPT="--disable-shave --without-dtrace"
 
+CONFOPT="${CONFOPT} --with-dtrace"
+
 # Parallel Make.  Change $MAKE if you don't have gmake installed
 MAKE="gnumake"
 MAKE_OPTS="-j10"
@@ -34,6 +36,9 @@ LDFLAGS="$CFLAGS"
 #LDFLAGS="$LDFLAGS -F/Applications/Utilities/X11.app/Contents/Frameworks"
 #CONFOPT="${CONFOPT} --enable-sparkle"
 
+# This section is for building release tarballs
+if false ; then
+CONFOPT="${CONFOPT} --enable-docs --enable-devel-docs --enable-builddocs --with-doxygen --with-xmlto --with-fop"
 export XMLTO=/opt/local/bin/xmlto
 export ASCIIDOC=/opt/local/bin/asciidoc
 export DOXYGEN=/opt/local/bin/doxygen
@@ -41,6 +46,7 @@ export FOP=/opt/local/bin/fop
 export FOP_OPTS="-Xmx2048m"
 export GROFF=/opt/local/bin/groff
 export PS2PDF=/opt/local/bin/ps2pdf
+fi
 
 export ACLOCAL CPPFLAGS CFLAGS LDFLAGS
 
