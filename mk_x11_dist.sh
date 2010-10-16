@@ -9,7 +9,7 @@ BUILDIT=~rc/bin/buildit
 #BUILDIT=./buildit
 
 MERGE_DIRS="/"
-#MERGE_DIRS="${MERGE_DIRS} /Users/jeremy/src/freedesktop/pkg/X11"
+MERGE_DIRS="${MERGE_DIRS} /Users/jeremy/src/freedesktop/pkg/X11"
 
 #MACOSFORGE=LEO
 MACOSFORGE=SL
@@ -61,15 +61,18 @@ fi
 if [[ ${MACOSFORGE_RELEASE} == "YES" ]] ; then
 	BUILDIT="${BUILDIT} -noverifydstroot"
 
+	export MACOSFORGE_BUILD_DOCS="YES"
+
 	export XMLTO=/opt/local/bin/xmlto
 	export ASCIIDOC=/opt/local/bin/asciidoc
 	export DOXYGEN=/opt/local/bin/doxygen
 	export FOP=/opt/local/bin/fop
+	export FOP_OPTS="-Xmx2048m"
 	export GROFF=/opt/local/bin/groff
 	export PS2PDF=/opt/local/bin/ps2pdf
 
 	for f in "${XMLTO}" "${ASCIIDOC}" "${DOXYGEN}" "${FOP}" "${GROFF}" "${PS2PDF}" ; do
-		[[ -x "${f}" ]] || die "Could not find ${f}"
+		[[ -z "${f}" || -x "${f}" ]] || die "Could not find ${f}"
 	done
 fi
 
@@ -88,26 +91,45 @@ elif [[ "${TRAIN}" == "trains/SULeo" ]] ; then
 	ARCH_ALL="${ARCH_EXEC} -arch x86_64 -arch ppc64"
 else
 	ARCH_EXEC="-arch i386 -arch x86_64"
+	ARCH_ALL="${ARCH_EXEC}"
 	if [[ "${MACOSFORGE_SL}" == "YES" ]] ; then
+		export CC="/opt/llvm/bin/clang"
 		export PYTHONPATH="${X11_PREFIX}/lib/python2.6:${X11_PREFIX}/lib/python2.6/site-packages"
-		ARCH_ALL="${ARCH_EXEC}"
-	else
-		ARCH_ALL="${ARCH_EXEC} -arch ppc"
 	fi
 fi
 
 bit() {
-	local MERGE_DIR
-	for MERGE_DIR in ${MERGE_DIRS}; do
-		[[ $(echo /tmp/X11*.roots) = '/tmp/X11*.roots' ]] || /bin/rm -rf /tmp/X11*.roots
-		${BUILDIT} "${@}" -merge ${MERGE_DIR} || die
-		/bin/ls -1 /var/tmp | /usr/bin/head -n 4000 | /usr/bin/grep dSYM | /usr/bin/sed 's:^:/var/tmp/:' | /usr/bin/xargs /bin/rm -rf
+	local MERGE_ROOT
+	if [[ "${MERGE_DIRS/ /}" == "${MERGE_DIRS}" ]] ; then
+		MERGE_ROOT="${MERGE_DIRS}"
+		mkdir -p ${MERGE_ROOT}
+	else
+		MERGE_ROOT="$(/usr/bin/mktemp -d ${TMPDIR-/tmp}/X11dst.XXXXXX)"
+	fi
 
-		if [[ -n ${MERGE_DIR} && ${MERGE_DIR} != "/" ]] ; then
-			/bin/rm -rf ${MERGE_DIR}/usr/local
-			/bin/rmdir ${MERGE_DIR}/usr >& /dev/null
+	[[ -d "${MERGE_ROOT}" ]] || die
+	${BUILDIT} "${@}" -merge "${MERGE_ROOT}" || die
+
+	if [[ "${MERGE_DIRS/ /}" == "${MERGE_DIRS}" ]] ; then
+		if [[ -n "${MERGE_ROOT}" && "${MERGE_ROOT}" != "/" ]] ; then
+			/bin/rm -rf ${MERGE_ROOT}/usr/local
+			/bin/rmdir ${MERGE_ROOT}/usr >& /dev/null
 		fi
-	done
+	else
+		local MERGE_DIR
+		echo ""
+		for MERGE_DIR in ${MERGE_DIRS}; do
+			echo "*** mk_x11_dist.sh ***: Merging into root: ${MERGE_DIR}" || die
+			mkdir -p ${MERGE_DIR} || die
+			ditto ${MERGE_ROOT} ${MERGE_DIR} || die
+
+			if [[ -n "${MERGE_DIR}" && "${MERGE_DIR}" != "/" ]] ; then
+				/bin/rm -rf ${MERGE_DIR}/usr/local
+				/bin/rmdir ${MERGE_DIR}/usr >& /dev/null
+			fi
+		done
+		rm -rf ${MERGE_ROOT}
+	fi
 }
 
 [[ $(echo /tmp/X11*.roots) = '/tmp/X11*.roots' ]] || /bin/rm -rf /tmp/X11*.roots
