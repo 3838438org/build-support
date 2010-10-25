@@ -25,6 +25,7 @@ If this is your first time installing XQuartz on Snow Leopard, you may wish to l
     * oclock 1.0.2
     * rgb 1.0.4
     * setxkbmap 1.2.0
+    * smproxy 1.0.4
     * x11perf 1.5.2
     * xauth 1.0.5
     * xclock 1.0.5
@@ -33,12 +34,13 @@ If this is your first time installing XQuartz on Snow Leopard, you may wish to l
     * xcursorgen 1.0.4
     * xdpyinfo 1.2.0
     * xfontsel 1.0.3
+    * xfd 1.1.0
     * xload 1.1.0
     * xlsclients 1.1.1
     * xmodmap 1.0.5
     * xsm 1.0.2
     * xstdcmap 1.0.2
-    * xterm 264
+    * xterm 266
     * xwininfo 1.1.0
   * font:
     * font-adobe-100dpi 1.0.2
@@ -80,8 +82,11 @@ If this is your first time installing XQuartz on Snow Leopard, you may wish to l
     * cairo 1.10.0
     * fontconfig 2.8.0
     * freetype 2.4.3
+    * libICE 1.0.7
+    * libfontenc 1.1.0
     * libpng 1.4.4
     * libX11 1.4
+    * libXaw 1.0.8
     * libxcb 1.7
     * libXvMC 1.0.6
   * misc:
@@ -89,7 +94,7 @@ If this is your first time installing XQuartz on Snow Leopard, you may wish to l
     * util-macros 1.10.1
     * xkeyboard-config 2.0
   * server:
-    * xorg-server 1.9.0 plus other patches
+    * xorg-server 1.9.1 plus other patches
       * Initial RandR support (#6)
 
 == Changes in 2.5.3 ==
