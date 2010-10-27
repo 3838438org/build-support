@@ -26,7 +26,7 @@ echo "         <sparkle:minimumSystemVersion>10.5.8</sparkle:minimumSystemVersio
 fi
 echo "         <title>${verString}</title>"
 echo "         <sparkle:releaseNotesLink>http://xquartz.macosforge.org/trac/wiki/ChangeLog</sparkle:releaseNotesLink>"
-echo "         <pubDate>$(date)</pubDate>"
+echo "         <pubDate>$(date -u +"%a, %d %b %Y %T %Z")</pubDate>"
 if [[ "${name}" == "XQuartz" ]] ; then
 echo "         <enclosure url=\"http://xquartz.macosforge.org/downloads/SL/${verString}.dmg\" sparkle:version=\"$2\" sparkle:shortVersionString=\"${verString}\" length=\"${SIZE}\" type=\"application/octet-stream\" sparkle:dsaSignature=\"${DSA}\" />"
 else
