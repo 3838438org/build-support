@@ -82,8 +82,9 @@ If this is your first time installing XQuartz on Snow Leopard, you may wish to l
     * cairo 1.10.0
     * fontconfig 2.8.0
     * freetype 2.4.3
-    * libICE 1.0.7
     * libfontenc 1.1.0
+    * libFS 1.0.3
+    * libICE 1.0.7
     * libpng 1.4.4
     * libX11 1.4
     * libXaw 1.0.8
