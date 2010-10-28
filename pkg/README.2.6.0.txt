@@ -86,10 +86,16 @@ If this is your first time installing XQuartz on Snow Leopard, you may wish to l
     * libFS 1.0.3
     * libICE 1.0.7
     * libpng 1.4.4
+    * libSM 1.0.3
     * libX11 1.4
     * libXaw 1.0.8
     * libxcb 1.7
+    * libXcomposite 0.4.3
+    * libXcursor 1.1.11
+    * libXext 1.2.0
+    * libXinerama 1.1.1
     * libXvMC 1.0.6
+    * pixman 0.20.0
   * misc:
     * font-util 1.2.0
     * util-macros 1.10.1
