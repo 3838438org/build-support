@@ -17,32 +17,73 @@ You will need to re-install this package after future OS, and Security Updates d
 If this is your first time installing XQuartz on Snow Leopard, you may wish to logout and log back in.  This will update your DISPLAY environment variable to point to XQuartz.app rather than X11.app.  If you would prefer to keep using X11.app as your default server (you can still launch XQuartz.app manually), you'll want to disable /Library/LaunchAgents/org.macosforge.xquartz.startx.plist using launchctl(1).
 
 == Changes in 2.6.0 ==
-  * All changes in 2.5.3 plus:
+  * All changes in 2.5.3 plus:
   * app:
+    * appres 1.0.3
+    * bdftopcf 1.0.3
     * bitmap 1.0.5
+    * editres 1.0.5
+    * fslsfonts 1.0.3
+    * fstobdf 1.0.4
+    * iceauth 1.0.4
+    * ico 1.0.3
     * lndir 1.0.2
     * luit 1.1.0
+    * mkfontdir 1.0.6
+    * mkfontscale 1.0.8
     * oclock 1.0.2
     * rgb 1.0.4
     * setxkbmap 1.2.0
+    * showfont 1.0.3
     * smproxy 1.0.4
+    * twm 1.0.5
+    * viewres 1.0.3
     * x11perf 1.5.2
     * xauth 1.0.5
+    * xclipboard 1.1.1
     * xclock 1.0.5
     * xcmsdb 1.0.3
     * xconsole 1.0.4
     * xcursorgen 1.0.4
     * xdpyinfo 1.2.0
+    * xedit 1.2.0
+    * xev 1.1.0
     * xfontsel 1.0.3
     * xfd 1.1.0
-    * xload 1.1.0
+    * xfs 1.1.1
+    * xfsinfo 1.0.3
+    * xgamma 1.0.4
+    * xgc 1.0.3
+    * xhost 1.0.0
+    * xinit 1.3.0
+    * xinput 1.5.3
+    * xkbcomp 1.2.0
+    * xkbevd 1.1.1
+    * xkbutils 1.0.3
+    * xkill 1.0.3
+    * xlogo 1.0.3
     * xlsclients 1.1.1
+    * xload 1.1.0
+    * xmag 1.0.4
+    * xman 1.1.1
+    * xmh 1.0.2
     * xmodmap 1.0.5
+    * xprop 1.2.0
+    * xrandr 1.3.4
+    * xrdb 1.0.7
+    * xrefresh 1.0.4
+    * xscope 1.3
+    * xset 1.2.1
+    * xsetroot 1.1.0
     * xsm 1.0.2
     * xstdcmap 1.0.2
     * xterm 266
-    * xwininfo 1.1.0
+    * xvinfo 1.1.1
+    * xwd 1.0.4
+    * xwud 1.0.3
+    * xwininfo 1.1.1
   * font:
+    * encodings 1.0.4
     * font-adobe-100dpi 1.0.2
     * font-adobe-75dpi 1.0.2
     * font-adobe-utopia-100dpi 1.0.3
@@ -54,7 +95,7 @@ If this is your first time installing XQuartz on Snow Leopard, you may wish to l
     * font-bh-75dpi 1.0.2
     * font-bh-lucidatypewriter-100dpi 1.0.2
     * font-bh-lucidatypewriter-75dpi 1.0.2
-    * font-bh-ttf 1.0.2
+    * font-bh-ttf 1.0.3
     * font-bh-type1 1.0.2
     * font-bitstream-100dpi 1.0.2
     * font-bitstream-75dpi 1.0.2
@@ -82,26 +123,59 @@ If this is your first time installing XQuartz on Snow Leopard, you may wish to l
     * cairo 1.10.0
     * fontconfig 2.8.0
     * freetype 2.4.3
+    * libdmx 1.1.1
     * libfontenc 1.1.0
+    * libkbfile 1.0.7
     * libFS 1.0.3
     * libICE 1.0.7
     * libpng 1.4.4
-    * libSM 1.0.3
-    * libX11 1.4
+    * libSM 1.2.0
+    * libX11 1.3.99.903
     * libXaw 1.0.8
     * libxcb 1.7
     * libXcomposite 0.4.3
     * libXcursor 1.1.11
+    * libXdmcp 1.1.0
     * libXext 1.2.0
+    * libXevie 1.0.3
+    * libXfont 1.4.3
+    * libXft 2.2.0
+    * libXi 1.4.0
     * libXinerama 1.1.1
+    * libXmu 1.1.0
+    * libXpm 3.5.9
+    * libXrandr 1.3.1
+    * libXres 1.0.5
+    * libXScrnSaver 1.2.1
+    * libXt 1.0.9
+    * libXtst 1.2.0
+    * libXv 1.0.6
     * libXvMC 1.0.6
+    * libXxf86dga 1.1.2
+    * libXxf86vm 1.1.1
     * pixman 0.20.0
+    * xtrans 1.2.6
   * misc:
+    * makedepend 1.0.3
     * font-util 1.2.0
-    * util-macros 1.10.1
+    * util-macros 1.11.0
     * xkeyboard-config 2.0
+    * xorg-docs 1.5.99.901
+    * xorg-sgml-doctools 1.5.99.901
+  * proto:
+    * bigreqsproto 1.1.1
+    * compositeproto 0.4.2
+    * damageproto 1.2.1
+    * fixesproto 4.1.2
+    * fontsproto 2.1.1
+    * inputproto 2.0.1
+    * randrproto 1.3.2
+    * recordproto 1.14.1
+    * scrnsaverproto 1.2.1
+    * xproto 7.0.19
+    * xcmiscproto 1.2.1
   * server:
-    * xorg-server 1.9.1 plus other patches
+    * xorg-server 1.9.2 plus other patches
       * Initial RandR support (#6)
 
 == Changes in 2.5.3 ==
