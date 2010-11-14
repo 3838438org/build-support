@@ -9,7 +9,7 @@ BUILDIT=~rc/bin/buildit
 #BUILDIT=./buildit
 
 MERGE_DIRS="/"
-MERGE_DIRS="${MERGE_DIRS} /Users/jeremy/src/freedesktop/pkg/X11"
+MERGE_DIRS="${MERGE_DIRS} ${HOME}/src/freedesktop/pkg/X11"
 
 #MACOSFORGE=LEO
 MACOSFORGE=SL
@@ -21,8 +21,8 @@ TRAIN="trunk"
 ### End Configuration ###
 
 XPLUGIN="${XPLUGIN:-${TRAIN}}"
-X11PROTO="${X11PROTO:-${TRAIN}}"
 X11MISC="${X11MISC:-${TRAIN}}"
+X11PROTO="${X11PROTO:-${TRAIN}}"
 X11LIBS="${X11LIBS:-${TRAIN}}"
 QUARTZWM="${QUARTZWM:-${TRAIN}}"
 X11SERVER="${X11SERVER:-${TRAIN}}"
@@ -67,7 +67,7 @@ if [[ ${MACOSFORGE_RELEASE} == "YES" ]] ; then
 	export ASCIIDOC=/opt/local/bin/asciidoc
 	export DOXYGEN=/opt/local/bin/doxygen
 	export FOP=/opt/local/bin/fop
-	export FOP_OPTS="-Xmx2048m"
+	export FOP_OPTS="-Xmx2048m -Djava.awt.headless=true"
 	export GROFF=/opt/local/bin/groff
 	export PS2PDF=/opt/local/bin/ps2pdf
 
@@ -93,6 +93,7 @@ else
 	ARCH_ALL="${ARCH_EXEC}"
 	if [[ "${MACOSFORGE_SL}" == "YES" ]] ; then
 		export CC="/opt/llvm/bin/clang"
+		#export CC="/opt/local/bin/clang"
 		export PYTHONPATH="${X11_PREFIX}/lib/python2.6:${X11_PREFIX}/lib/python2.6/site-packages"
 	fi
 fi
@@ -107,7 +108,7 @@ bit() {
 	fi
 
 	[[ -d "${MERGE_ROOT}" ]] || die
-	${BUILDIT} "${@}" -merge "${MERGE_ROOT}" || die
+	${BUILDIT} -noverify "${@}" -merge "${MERGE_ROOT}" || die
 
 	if [[ "${MERGE_DIRS/ /}" == "${MERGE_DIRS}" ]] ; then
 		if [[ -n "${MERGE_ROOT}" && "${MERGE_ROOT}" != "/" ]] ; then
@@ -134,8 +135,8 @@ bit() {
 [[ $(echo /tmp/X11*.roots) = '/tmp/X11*.roots' ]] || /bin/rm -rf /tmp/X11*.roots
 
 [[ -n ${XPLUGIN} && -d X11_Xplugin/${XPLUGIN} ]]      && bit X11_Xplugin/${XPLUGIN}    -project X11_Xplugin   ${ARCH_ALL} 
-[[ -n ${X11PROTO} && -d X11proto/${X11PROTO} ]]       && bit X11proto/${X11PROTO}      -project X11proto      ${ARCH_ALL}
 [[ -n ${X11MISC} && -d X11misc/${X11MISC} ]]          && bit X11misc/${X11MISC}        -project X11misc       ${ARCH_ALL}
+[[ -n ${X11PROTO} && -d X11proto/${X11PROTO} ]]       && bit X11proto/${X11PROTO}      -project X11proto      ${ARCH_ALL}
 [[ -n ${X11LIBS} && -d X11libs/${X11LIBS} ]]          && bit X11libs/${X11LIBS}        -project X11libs       ${ARCH_ALL}
 [[ -n ${QUARTZWM} && -d X11_quartz_wm/${QUARTZWM} ]]  && bit X11_quartz_wm/${QUARTZWM} -project X11_quartz_wm ${ARCH_EXEC}
 [[ -n ${X11SERVER} && -d X11server/${X11SERVER} ]]    && bit X11server/${X11SERVER}    -project X11server     ${ARCH_ALL}

@@ -43,7 +43,7 @@ if false ; then
 	export ASCIIDOC=/opt/local/bin/asciidoc
 	export DOXYGEN=/opt/local/bin/doxygen
 	export FOP=/opt/local/bin/fop
-	export FOP_OPTS="-Xmx2048m"
+	export FOP_OPTS="-Xmx2048m -Djava.awt.headless=true"
 	export GROFF=/opt/local/bin/groff
 	export PS2PDF=/opt/local/bin/ps2pdf
 fi
