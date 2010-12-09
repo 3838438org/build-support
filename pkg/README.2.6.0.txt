@@ -40,6 +40,7 @@ If this is your first time installing XQuartz on Snow Leopard, you may wish to l
     * viewres 1.0.3
     * x11perf 1.5.2
     * xauth 1.0.5
+    * xcalc 1.0.4.1
     * xclipboard 1.1.1
     * xclock 1.0.5
     * xcmsdb 1.0.3
@@ -48,6 +49,7 @@ If this is your first time installing XQuartz on Snow Leopard, you may wish to l
     * xdpyinfo 1.2.0
     * xedit 1.2.0
     * xev 1.1.0
+    * xeyes 1.1.1
     * xfontsel 1.0.3
     * xfd 1.1.0
     * xfs 1.1.1
@@ -77,52 +79,53 @@ If this is your first time installing XQuartz on Snow Leopard, you may wish to l
     * xsetroot 1.1.0
     * xsm 1.0.2
     * xstdcmap 1.0.2
-    * xterm 266
+    * xterm 267
     * xvinfo 1.1.1
     * xwd 1.0.4
     * xwud 1.0.3
     * xwininfo 1.1.1
   * font:
     * encodings 1.0.4
-    * font-adobe-100dpi 1.0.2
-    * font-adobe-75dpi 1.0.2
-    * font-adobe-utopia-100dpi 1.0.3
-    * font-adobe-utopia-75dpi 1.0.3
-    * font-adobe-utopia-type1 1.0.3
+    * font-adobe-100dpi 1.0.3
+    * font-adobe-75dpi 1.0.3
+    * font-adobe-utopia-100dpi 1.0.4
+    * font-adobe-utopia-75dpi 1.0.4
+    * font-adobe-utopia-type1 1.0.4
     * font-alias 1.0.3
-    * font-arabic-misc 1.0.2
-    * font-bh-100dpi 1.0.2
-    * font-bh-75dpi 1.0.2
-    * font-bh-lucidatypewriter-100dpi 1.0.2
-    * font-bh-lucidatypewriter-75dpi 1.0.2
+    * font-arabic-misc 1.0.3
+    * font-bh-100dpi 1.0.3
+    * font-bh-75dpi 1.0.3
+    * font-bh-lucidatypewriter-100dpi 1.0.3
+    * font-bh-lucidatypewriter-75dpi 1.0.3
     * font-bh-ttf 1.0.3
-    * font-bh-type1 1.0.2
-    * font-bitstream-100dpi 1.0.2
-    * font-bitstream-75dpi 1.0.2
-    * font-bitstream-type1 1.0.2
-    * font-cronyx-cyrillic 1.0.2
-    * font-cursor-misc 1.0.2
-    * font-daewoo-misc 1.0.2
-    * font-dec-misc 1.0.2
-    * font-ibm-type1 1.0.2
-    * font-isas-misc 1.0.2
-    * font-jis-misc 1.0.2
-    * font-micro-misc 1.0.2
-    * font-misc-cyrillic 1.0.2
-    * font-misc-ethiopic 1.0.2
-    * font-misc-meltho 1.0.2
-    * font-misc-misc 1.1.1
-    * font-mutt-misc 1.0.2
-    * font-schumacher-misc 1.1.1
-    * font-screen-cyrillic 1.0.3
-    * font-sony-misc 1.0.2
-    * font-sun-misc 1.0.2
-    * font-winitzki-cyrillic 1.0.2
-    * font-xfree86-type1 1.0.3
+    * font-bh-type1 1.0.3
+    * font-bitstream-100dpi 1.0.3
+    * font-bitstream-75dpi 1.0.3
+    * font-bitstream-type1 1.0.3
+    * font-cronyx-cyrillic 1.0.3
+    * font-cursor-misc 1.0.3
+    * font-daewoo-misc 1.0.3
+    * font-dec-misc 1.0.3
+    * font-ibm-type1 1.0.3
+    * font-isas-misc 1.0.3
+    * font-jis-misc 1.0.3
+    * font-micro-misc 1.0.3
+    * font-misc-cyrillic 1.0.3
+    * font-misc-ethiopic 1.0.3
+    * font-misc-meltho 1.0.3
+    * font-misc-misc 1.1.2
+    * font-mutt-misc 1.0.3
+    * font-schumacher-misc 1.1.2
+    * font-screen-cyrillic 1.0.4
+    * font-sony-misc 1.0.3
+    * font-sun-misc 1.0.3
+    * font-winitzki-cyrillic 1.0.3
+    * font-xfree86-type1 1.0.4
   * lib:
     * cairo 1.10.0
     * fontconfig 2.8.0
-    * freetype 2.4.3
+    * freetype 2.4.4
+      * Addresses some font rendering regressions introduced in the freetype included in 2.5.2
     * libdmx 1.1.1
     * libfontenc 1.1.0
     * libkbfile 1.0.7
@@ -130,7 +133,7 @@ If this is your first time installing XQuartz on Snow Leopard, you may wish to l
     * libICE 1.0.7
     * libpng 1.4.4
     * libSM 1.2.0
-    * libX11 1.3.99.903
+    * libX11 1.4.0
     * libXaw 1.0.8
     * libxcb 1.7
     * libXcomposite 0.4.3
@@ -152,6 +155,7 @@ If this is your first time installing XQuartz on Snow Leopard, you may wish to l
     * libXv 1.0.6
     * libXvMC 1.0.6
     * libXxf86dga 1.1.2
+    * libXxf86misc 1.0.3
     * libXxf86vm 1.1.1
     * pixman 0.20.0
     * xtrans 1.2.6
@@ -172,11 +176,14 @@ If this is your first time installing XQuartz on Snow Leopard, you may wish to l
     * randrproto 1.3.2
     * recordproto 1.14.1
     * scrnsaverproto 1.2.1
-    * xproto 7.0.19
+    * xproto 7.0.20
     * xcmiscproto 1.2.1
   * server:
-    * xorg-server 1.9.2 plus other patches
+    * xorg-server 1.9.3 plus other patches
       * Initial RandR support (#6)
+      * Fullscreen mode disables the Mac OS screensaver
+      * Localization Updates
+      * CoreAudio path for XBell() removed in favor of always using NSBell()
 
 == Changes in 2.5.3 ==
   * All changes in 2.5.2 plus:
