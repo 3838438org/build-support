@@ -40,6 +40,7 @@ If this is your first time installing XQuartz on Snow Leopard, you may wish to l
     * viewres 1.0.3
     * x11perf 1.5.2
     * xauth 1.0.5
+    * xbacklight 1.1.2
     * xcalc 1.0.4.1
     * xclipboard 1.1.1
     * xclock 1.0.5
@@ -60,7 +61,7 @@ If this is your first time installing XQuartz on Snow Leopard, you may wish to l
     * xinit 1.3.0
     * xinput 1.5.3
     * xkbcomp 1.2.0
-    * xkbevd 1.1.1
+    * xkbevd 1.1.2
     * xkbutils 1.0.3
     * xkill 1.0.3
     * xlogo 1.0.3
@@ -125,13 +126,13 @@ If this is your first time installing XQuartz on Snow Leopard, you may wish to l
     * cairo 1.10.0
     * fontconfig 2.8.0
     * freetype 2.4.4
-      * Addresses some font rendering regressions introduced in the freetype included in 2.5.2
+      * Addresses some font rendering regressions introduced by the freetype included in 2.5.2
     * libdmx 1.1.1
     * libfontenc 1.1.0
     * libkbfile 1.0.7
     * libFS 1.0.3
     * libICE 1.0.7
-    * libpng 1.4.4
+    * libpng 1.4.5
     * libSM 1.2.0
     * libX11 1.4.0
     * libXaw 1.0.8
@@ -163,9 +164,10 @@ If this is your first time installing XQuartz on Snow Leopard, you may wish to l
     * makedepend 1.0.3
     * font-util 1.2.0
     * util-macros 1.11.0
+    * xbitmaps 1.1.1
     * xkeyboard-config 2.0
-    * xorg-docs 1.5.99.901
-    * xorg-sgml-doctools 1.5.99.901
+    * xorg-docs 1.6
+    * xorg-sgml-doctools 1.6
   * proto:
     * bigreqsproto 1.1.1
     * compositeproto 0.4.2
@@ -175,6 +177,7 @@ If this is your first time installing XQuartz on Snow Leopard, you may wish to l
     * inputproto 2.0.1
     * randrproto 1.3.2
     * recordproto 1.14.1
+    * resourcesproto 1.1.1
     * scrnsaverproto 1.2.1
     * xproto 7.0.20
     * xcmiscproto 1.2.1
