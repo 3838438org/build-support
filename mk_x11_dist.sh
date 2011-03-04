@@ -14,6 +14,9 @@ MERGE_DIRS="${MERGE_DIRS} ${HOME}/src/freedesktop/pkg/X11"
 #MACOSFORGE=LEO
 MACOSFORGE=SL
 
+MACOSFORGE_BUILD_DOCS="YES"
+#MACOSFORGE_BUILD_DOCS="NO"
+
 TRAIN="trunk"
 #TRAIN="trains/SnowLeopard"
 #TRAIN="trains/SULeo"
@@ -61,19 +64,21 @@ fi
 if [[ ${MACOSFORGE_RELEASE} == "YES" ]] ; then
 	BUILDIT="${BUILDIT} -noverifydstroot"
 
-	export MACOSFORGE_BUILD_DOCS="YES"
+	export MACOSFORGE_BUILD_DOCS
 
-	export XMLTO=/opt/local/bin/xmlto
-	export ASCIIDOC=/opt/local/bin/asciidoc
-	export DOXYGEN=/opt/local/bin/doxygen
-	export FOP=/opt/local/bin/fop
-	export FOP_OPTS="-Xmx2048m -Djava.awt.headless=true"
-	export GROFF=/opt/local/bin/groff
-	export PS2PDF=/opt/local/bin/ps2pdf
+	if [[ ${MACOSFORGE_BUILD_DOCS} == "YES" ]] ; then
+		export XMLTO=/opt/local/bin/xmlto
+		export ASCIIDOC=/opt/local/bin/asciidoc
+		export DOXYGEN=/opt/local/bin/doxygen
+		export FOP=/opt/local/bin/fop
+		export FOP_OPTS="-Xmx2048m -Djava.awt.headless=true"
+		export GROFF=/opt/local/bin/groff
+		export PS2PDF=/opt/local/bin/ps2pdf
 
-	for f in "${XMLTO}" "${ASCIIDOC}" "${DOXYGEN}" "${FOP}" "${GROFF}" "${PS2PDF}" ; do
-		[[ -z "${f}" || -x "${f}" ]] || die "Could not find ${f}"
-	done
+		for f in "${XMLTO}" "${ASCIIDOC}" "${DOXYGEN}" "${FOP}" "${GROFF}" "${PS2PDF}" ; do
+			[[ -z "${f}" || -x "${f}" ]] || die "Could not find ${f}"
+		done
+	fi
 fi
 
 if [[ "${MACOSFORGE_LEO}" == "YES" && ${XPLUGIN} == "trunk" ]] ; then
@@ -94,7 +99,8 @@ else
 	ARCH_EXEC="-arch i386 -arch x86_64"
 	ARCH_ALL="${ARCH_EXEC}"
 	if [[ "${MACOSFORGE_SL}" == "YES" ]] ; then
-		export CC="/opt/llvm/bin/clang"
+		export CC="/usr/bin/clang"
+		#export CC="/opt/llvm/bin/clang"
 		#export CC="/opt/local/bin/clang"
 		export PYTHON=/usr/bin/python2.6
 		export PYTHONPATH="${X11_PREFIX}/lib/python2.6:${X11_PREFIX}/lib/python2.6/site-packages"
