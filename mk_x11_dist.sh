@@ -84,6 +84,7 @@ if [[ "${MACOSFORGE_LEO}" == "YES" ]] ; then
 	ARCH_EXEC="-arch i386 -arch ppc"
 	ARCH_ALL="${ARCH_EXEC} -arch x86_64 -arch ppc64"
 	export CC="/usr/bin/gcc-4.2"
+	export PYTHON=/usr/bin/python2.5
 	export PYTHONPATH="/usr/X11/lib/python2.5:/usr/X11/lib/python2.5/site-packages"
 	export MACOSX_DEPLOYMENT_TARGET=10.5
 elif [[ "${TRAIN}" == "trains/SULeo" ]] ; then
@@ -95,6 +96,7 @@ else
 	if [[ "${MACOSFORGE_SL}" == "YES" ]] ; then
 		export CC="/opt/llvm/bin/clang"
 		#export CC="/opt/local/bin/clang"
+		export PYTHON=/usr/bin/python2.6
 		export PYTHONPATH="${X11_PREFIX}/lib/python2.6:${X11_PREFIX}/lib/python2.6/site-packages"
 		export MACOSX_DEPLOYMENT_TARGET=10.6
 	fi
@@ -134,7 +136,7 @@ bit() {
 	fi
 }
 
-[[ $(echo /tmp/X11*.roots) = '/tmp/X11*.roots' ]] || /bin/rm -rf /tmp/X11*.roots
+#[[ $(echo /tmp/X11*.roots) = '/tmp/X11*.roots' ]] || /bin/rm -rf /tmp/X11*.roots
 
 [[ -n ${XPLUGIN} && -d X11_Xplugin/${XPLUGIN} ]]      && bit X11_Xplugin/${XPLUGIN}    -project X11_Xplugin   ${ARCH_ALL} 
 [[ -n ${X11MISC} && -d X11misc/${X11MISC} ]]          && bit X11misc/${X11MISC}        -project X11misc       ${ARCH_ALL}
