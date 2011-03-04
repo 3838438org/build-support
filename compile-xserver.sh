@@ -15,11 +15,11 @@ MAKE_OPTS="-j10"
  
 . ~/src/strip.sh
 
-#PREFIX=/usr/X11
+PREFIX=/usr/X11
 #ARCHFLAGS="-arch i386 -arch ppc"
 
-PREFIX=/opt/X11
-CONFOPT="$CONFOPT --with-apple-application-name=XQuartz --with-launchd-id-prefix=org.macosforge.xquartz"
+#PREFIX=/opt/X11
+#CONFOPT="$CONFOPT --with-apple-application-name=XQuartz --with-launchd-id-prefix=org.macosforge.xquartz"
 ARCHFLAGS="-arch i386 -arch x86_64"
 
 ACLOCAL="aclocal -I ${PREFIX}/share/aclocal -I /usr/local/share/aclocal"

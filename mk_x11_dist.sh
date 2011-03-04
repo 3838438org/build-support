@@ -1,6 +1,6 @@
 #!/bin/sh
 
-. ~/src/strip.sh
+. ~jeremy/src/strip.sh
 
 unset CFLAGS OBJCFLAGS CPPFLAGS LDFLAGS C_INCLUDE_PATH OBJC_INCLUDE_PATH CPLUS_INCLUDE_PATH PKG_CONFIG_PATH
 
@@ -148,7 +148,7 @@ bit() {
 [[ -n ${X11MISC} && -d X11misc/${X11MISC} ]]          && bit X11misc/${X11MISC}        -project X11misc       ${ARCH_ALL}
 [[ -n ${X11PROTO} && -d X11proto/${X11PROTO} ]]       && bit X11proto/${X11PROTO}      -project X11proto      ${ARCH_ALL}
 [[ -n ${X11LIBS} && -d X11libs/${X11LIBS} ]]          && bit X11libs/${X11LIBS}        -project X11libs       ${ARCH_ALL}
-[[ -n ${QUARTZWM} && -d X11_quartz_wm/${QUARTZWM} ]]  && bit X11_quartz_wm/${QUARTZWM} -project X11_quartz_wm ${ARCH_EXEC}
+[[ -n ${QUARTZWM} && -d X11_quartz_wm/${QUARTZWM} ]]  && bit X11_quartz_wm/${QUARTZWM} -project X11_quartz_wm ${ARCH_ALL}
 [[ -n ${X11SERVER} && -d X11server/${X11SERVER} ]]    && bit X11server/${X11SERVER}    -project X11server     ${ARCH_ALL}
 [[ -n ${X11APPS} && -d X11apps/${X11APPS} ]]          && bit X11apps/${X11APPS}        -project X11apps       ${ARCH_ALL}
 [[ -n ${X11FONTS} && -d X11fonts/${X11FONTS} ]]       && bit X11fonts/${X11FONTS}      -project X11fonts      ${ARCH_ALL}
