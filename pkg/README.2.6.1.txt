@@ -21,7 +21,9 @@ If this is your first time installing XQuartz on Snow Leopard, you may wish to l
   * app:
     * twm 1.0.6
     * x11perf 1.5.3
+    * xkbcomp 1.2.1
     * xrdb 1.0.8
+    * xterm 269
   * lib:
     * cairo 1.10.2
       * enabled support for tee and XML surfaces
@@ -31,7 +33,10 @@ If this is your first time installing XQuartz on Snow Leopard, you may wish to l
     * libXaw 1.0.9
     * libXi 1.4.1
     * libXp 1.0.1
+    * libXt 1.1.0
     * pixman 0.20.2
+  * misc:
+    * util-macros 1.12.0
   * proto:
     * dmxproto 2.3.1
     * eviext 1.1.1
@@ -42,6 +47,7 @@ If this is your first time installing XQuartz on Snow Leopard, you may wish to l
   * server:
     * xorg-server 1.9.4 plus other patches
     * fixed monitor hot-swapping regression (#460)
+    * Windows have the correct color profile when first created (#425)
     * Localization updates
 
 == Changes in 2.6.0 ==
