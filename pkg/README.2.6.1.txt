@@ -29,23 +29,26 @@ If this is your first time installing XQuartz on Snow Leopard, you may wish to l
       * enabled support for tee and XML surfaces
     * libpng 1.5.1
       * SDKs from previous releases are not provided, but binaries remain for ABI compatibility
-    * libX11 1.4.1
+    * libX11 1.4.2
+      * Fixes some error handler issues with xcb (#469)
     * libXaw 1.0.9
+    * libXfixes 5.0
     * libXi 1.4.1
     * libXp 1.0.1
-    * libXt 1.1.0
+    * libXt 1.1.1
     * pixman 0.20.2
   * misc:
-    * util-macros 1.12.0
+    * util-macros 1.13.0
   * proto:
     * dmxproto 2.3.1
     * eviext 1.1.1
+    * fixesproto 5.0
     * printproto 1.0.5
     * xf86driproto 2.1.1
     * xf86vidmodeproto 2.3.1
     * xineramaproto 1.2.1
   * server:
-    * xorg-server 1.9.4 plus other patches
+    * xorg-server 1.9.5 plus other patches
     * fixed monitor hot-swapping regression (#460)
     * Windows have the correct color profile when first created (#425)
     * Localization updates
