@@ -164,6 +164,8 @@ If this is your first time installing XQuartz on Snow Leopard, you may wish to l
     * fontconfig 2.8.0
     * freetype 2.4.4
       * Addresses some font rendering regressions introduced by the freetype included in 2.5.2
+      * CVE-2010-3814
+      * CVE-2010-3855
     * libdmx 1.1.1
     * libfontenc 1.1.0
     * libkbfile 1.0.7
