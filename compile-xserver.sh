@@ -9,17 +9,17 @@ CONFOPT="${CONFOPT} --with-dtrace"
 
 # Parallel Make.  Change $MAKE if you don't have gmake installed
 MAKE="gnumake"
-MAKE_OPTS="-j10"
+MAKE_OPTS="-j3"
 
 #SCAN_BUILD="scan-build -v -V -o clang.d"
  
 . ~/src/strip.sh
 
-PREFIX=/usr/X11
+#PREFIX=/usr/X11
 #ARCHFLAGS="-arch i386 -arch ppc"
 
-#PREFIX=/opt/X11
-#CONFOPT="$CONFOPT --with-apple-application-name=XQuartz --with-launchd-id-prefix=org.macosforge.xquartz"
+PREFIX=/opt/X11
+CONFOPT="$CONFOPT --with-apple-application-name=XQuartz --with-launchd-id-prefix=org.macosforge.xquartz"
 ARCHFLAGS="-arch i386 -arch x86_64"
 
 ACLOCAL="aclocal -I ${PREFIX}/share/aclocal -I /usr/local/share/aclocal"
