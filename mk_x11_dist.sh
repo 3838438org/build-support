@@ -89,6 +89,7 @@ if [[ "${MACOSFORGE_LEO}" == "YES" ]] ; then
 	ARCH_EXEC="-arch i386 -arch ppc"
 	ARCH_ALL="${ARCH_EXEC} -arch x86_64 -arch ppc64"
 	export CC="/usr/bin/gcc-4.2"
+	export OBJC="$CC"
 	export PYTHON=/usr/bin/python2.5
 	export PYTHONPATH="/usr/X11/lib/python2.5:/usr/X11/lib/python2.5/site-packages"
 	export MACOSX_DEPLOYMENT_TARGET=10.5
@@ -99,9 +100,10 @@ else
 	ARCH_EXEC="-arch i386 -arch x86_64"
 	ARCH_ALL="${ARCH_EXEC}"
 	if [[ "${MACOSFORGE_SL}" == "YES" ]] ; then
-		export CC="/usr/bin/clang"
-		#export CC="/opt/llvm/bin/clang"
+		#export CC="/usr/bin/clang"
+		export CC="/opt/llvm/bin/clang"
 		#export CC="/opt/local/bin/clang"
+		export OBJC="$CC"
 		export PYTHON=/usr/bin/python2.6
 		export PYTHONPATH="${X11_PREFIX}/lib/python2.6:${X11_PREFIX}/lib/python2.6/site-packages"
 		export MACOSX_DEPLOYMENT_TARGET=10.6
