@@ -8,7 +8,7 @@ This updates is not an official Apple releases. It is a convenient way for users
 
 OS-X 10.6.3, or later is required to install this package.
 
-=== Default X11 Server (Snow Leopard Only) ===
+=== Default X11 Server ===
 
 If this is your first time installing XQuartz on Snow Leopard, you may wish to logout and log back in.  This will update your DISPLAY environment variable to point to XQuartz.app rather than X11.app.  If you would prefer to keep using X11.app as your default server (you can still launch XQuartz.app manually), you'll want to disable /Library/LaunchAgents/org.macosforge.xquartz.startx.plist using launchctl(1).
 
