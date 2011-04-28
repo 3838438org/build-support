@@ -1,33 +1,28 @@
-#GIT_BASE="git://anongit.freedesktop.org/git"
+#!/bin/bash -e
+
 GIT_BASE="ssh://git.freedesktop.org/git"
 
-#svn checkout --username jeremyhu@freedesktop.org https://svn.macosforge.org/repository/xquartz
-#mv xquartz svn-xquartz
+[[ -e svn-xquartz ]] || svn checkout --username jeremyhu@freedesktop.org https://svn.macosforge.org/repository/xquartz svn-xquartz
 
-mkdir src
+[[ -e src ]] || mkdir src
 cd src
-#curl -LO http://superb-west.dl.sourceforge.net/sourceforge/mesa3d/MesaLib-6.5.2.tar.bz2
-#tar -xjvf MesaLib-6.5.2.tar.bz2
-#curl -LO http://superb-west.dl.sourceforge.net/sourceforge/mesa3d/MesaLib-7.0.4.tar.bz2
-#tar -xjvf MesaLib-7.0.4.tar.bz2
-#curl -LO ftp://invisible-island.net/xterm/xterm-229.tgz
-#tar -xjzf xterm-229.tgz
-#git-clone ${GIT_BASE}/fontconfig
-#git-clone ${GIT_BASE}/xorg/app/xauth.git
-#git-clone ${GIT_BASE}/xorg/app/xinit.git
-#git-clone ${GIT_BASE}/xorg/util/lndir.git
-#git-clone ${GIT_BASE}/xorg/lib/libX11.git
-#git-clone ${GIT_BASE}/xorg/lib/libXfont
 
-git clone ${GIT_BASE}/xorg/xserver.git
-mv xserver xserver-master
+if [[ ! -e xserver-1.11 ]] ; then
+	git clone ${GIT_BASE}/xorg/xserver.git
 
-for branch in 1.4 1.5 1.6 1.7 ; do
-	git clone --reference xserver-master ${GIT_BASE}/xorg/xserver.git
-	mv xserver xserver-${branch}
-	cd xserver-${branch}
-	git branch --track xorg-server-${branch}-apple origin/xorg-server-${branch}-apple
-	git checkout -f xorg-server-${branch}-apple
-	ln -s ../compile-xserver.sh compile.sh
+	cd xserver
+	git remote add jeremyhu git+ssh://jeremyhu@people.freedesktop.org/~jeremyhu/xserver.git
+	git fetch --all
+	git branch --set-upstream master jeremyhu/master
+	git branch --track server-1.11-apple jeremyhu/server-1.11-apple
+	git branch --track server-1.10-apple jeremyhu/server-1.10-apple
+	git branch --track server-1.9-apple jeremyhu/server-1.9-apple
+	git branch --track server-1.10-branch origin/server-1.10-branch
+	git branch --track server-1.9-branch origin/server-1.9-branch
+	ln -s ../../svn-xquartz/trunk/compile-xserver.sh compile
 	cd ..
-done
+
+	cp -pPR xserver xserver-1.9
+	cp -pPR xserver xserver-1.10
+	mv xserver xserver-1.11
+fi
