@@ -11,8 +11,6 @@ CONFOPT="${CONFOPT} --with-dtrace"
 MAKE="gnumake"
 MAKE_OPTS="-j3"
 
-#SCAN_BUILD="scan-build -v -V -o clang.d"
- 
 . ~/src/strip.sh
 
 #PREFIX=/usr/X11
@@ -24,12 +22,24 @@ ARCHFLAGS="-arch i386 -arch x86_64"
 
 ACLOCAL="aclocal -I ${PREFIX}/share/aclocal -I /usr/local/share/aclocal"
 
-CFLAGS="-Wall -pipe -DNO_ALLOCA"
-CFLAGS="$CFLAGS -O0 -ggdb3"
-CFLAGS="$CFLAGS $ARCHFLAGS"
+CPPFLAGS="-DNO_ALLOCA"
 
+CFLAGS="$CFLAGS -O0 -ggdb3 -pipe"
+CFLAGS="$CFLAGS $ARCHFLAGS"
+CFLAGS="$CFLAGS -Wall -Wextra -Wno-sign-compare -Wno-unused-parameter -Wno-missing-field-initializers"
+
+OBJCFLAGS="$CFLAGS"
 LDFLAGS="$CFLAGS"
 
+#CC="llvm-gcc"
+#CXX="llvm-g++"
+CC="clang"
+CXX="clang++"
+
+OBJC="$CC"
+
+#SCAN_BUILD="scan-build -v -V -o clang.d --use-cc=${CC} --use-c++=${CXX}"
+ 
 #CPPFLAGS="$CPPFLAGS -F/Applications/Utilities/XQuartz.app/Contents/Frameworks"
 #LDFLAGS="$LDFLAGS -F/Applications/Utilities/XQuartz.app/Contents/Frameworks"
 #CPPFLAGS="$CPPFLAGS -F/Applications/Utilities/X11.app/Contents/Frameworks"
@@ -48,7 +58,7 @@ if false ; then
 	export PS2PDF=/opt/local/bin/ps2pdf
 fi
 
-export ACLOCAL CPPFLAGS CFLAGS LDFLAGS
+export ACLOCAL CPPFLAGS CFLAGS OBJCFLAGS LDFLAGS CC OBJC
 
 PKG_CONFIG_PATH=${PREFIX}/share/pkgconfig:${PREFIX}/lib/pkgconfig:$PKG_CONFIG_PATH
 PATH=${PREFIX}/bin:$PATH
