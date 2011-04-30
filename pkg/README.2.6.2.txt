@@ -13,6 +13,7 @@ OS-X 10.6.3, or later is required to install this package.
 If this is your first time installing XQuartz on Snow Leopard, you may wish to logout and log back in.  This will update your DISPLAY environment variable to point to XQuartz.app rather than X11.app.  If you would prefer to keep using X11.app as your default server (you can still launch XQuartz.app manually), you'll want to disable /Library/LaunchAgents/org.macosforge.xquartz.startx.plist using launchctl(1).
 
 == Changes in 2.6.2 ==
+== Changes in 2.6.2 ==
   * All changes in 2.6.1 plus:
   * app:
     * quartz-wm 1.2.0
@@ -30,6 +31,9 @@ If this is your first time installing XQuartz on Snow Leopard, you may wish to l
     * xproto 7.0.21
   * server:
     * xorg-server 1.10.1 plus other patches
+      * Fixed an issue which could cause incorrect data to be proxied by pbproxy (#476)
+      * Initial applications should have proper xrdb resources (#416)
+      * Fixed a crash/corruption bug resulting from an incorrect offset in RootlessGlyphs
 
 == Changes in 2.6.1 ==
   * All changes in 2.6.0 plus:
