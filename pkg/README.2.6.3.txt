@@ -18,7 +18,7 @@ If this is your first time installing XQuartz on Snow Leopard, you may wish to l
     * iceauth 1.0.5
       * Addresses an issue with home directories on AFP mount-points
     * quartz-wm 1.2.1
-      * Improved initial placement of windows
+      * Improved initial placement of windows (#481)
       * Window sizes are bounded to the current display size rather than the initial display size (should improve fullscreen games at native resolution)
     * xauth 1.0.6
       * Addresses an issue with home directories on AFP mount-points
