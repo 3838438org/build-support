@@ -25,7 +25,7 @@ If this is your first time installing XQuartz on Snow Leopard, you may wish to l
     * xlsclients 1.1.2
     * xterm 270
   * server:
-    * xorg-server 1.10.2 plus other patches
+    * xorg-server 1.10.3 plus other patches
       * Fixed a crash in RandR when resizing while displays are asleep (#463)
       * Fixed a crash in RandR when launching X11 while displays are asleep
       * Fixed a crash in rootless when resizing to a larger display
