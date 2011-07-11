@@ -22,8 +22,11 @@ If this is your first time installing XQuartz on Snow Leopard, you may wish to l
       * Window sizes are bounded to the current display size rather than the initial display size (should improve fullscreen games at native resolution)
     * xauth 1.0.6
       * Addresses an issue with home directories on AFP mount-points
-    * xlsclients 1.1.2
-    * xterm 270
+  * lib:
+    * libpng-1.2.46
+    * libpng-1.4.8
+    * libpng-1.5.4
+      * All versions of libpng were updated to address security vulnerabilities
   * server:
     * xorg-server 1.10.3 plus other patches
       * Fixed a crash in RandR when resizing while displays are asleep (#463)
