@@ -30,7 +30,9 @@ If this is your first time installing XQuartz on Snow Leopard, you may wish to l
     * libpng-1.2.46
     * libpng-1.4.8
     * libpng-1.5.4
-      * All versions of libpng were updated to address security vulnerabilities
+      * CVE-2011-2690
+      * CVE-2011-2691
+      * CVE-2011-2692
   * server:
     * xorg-server 1.10.3 plus other patches
       * Fixed a crash in RandR when resizing while displays are asleep (#463)
