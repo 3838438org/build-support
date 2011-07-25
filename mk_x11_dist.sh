@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 . ~jeremy/src/strip.sh
 
@@ -9,17 +9,31 @@ BUILDIT=~rc/bin/buildit
 #BUILDIT=./buildit
 
 MERGE_DIRS="/"
-#MERGE_DIRS="${MERGE_DIRS} $(eval echo ~jeremy)/src/freedesktop/pkg/X11"
+
+if [[ $# -eq 2 ]] ; then
+	MERGE_DIRS="${MERGE_DIRS} $(eval echo ~jeremy)/src/freedesktop/pkg/X11"
+
+	VERSION_TXT=$1
+	VERSION_TXT_SHORT=${VERSION_TXT%_*}
+	VERSION=$2
+
+	echo "User Version: ${VERSION_TXT}"
+	echo "Base Version: ${VERSION_TXT_SHORT}"
+	echo "Bundle Version: ${VERSION}"
+fi
 
 #MACOSFORGE=LEO
 MACOSFORGE=SL
 
-MACOSFORGE_BUILD_DOCS="YES"
-#MACOSFORGE_BUILD_DOCS="NO"
+#MACOSFORGE_BUILD_DOCS="YES"
+MACOSFORGE_BUILD_DOCS="NO"
+
+#QUARTZWM="trains/quartz-wm-1.2-branch"
 
 TRAIN="trunk"
 #TRAIN="trains/SnowLeopard"
 #TRAIN="trains/SULeo"
+#TRAIN="trains/Lion"
 
 ### End Configuration ###
 
@@ -88,11 +102,13 @@ fi
 if [[ "${MACOSFORGE_LEO}" == "YES" ]] ; then
 	ARCH_EXEC="-arch i386 -arch ppc"
 	ARCH_ALL="${ARCH_EXEC} -arch x86_64 -arch ppc64"
+	export MACOSX_DEPLOYMENT_TARGET=10.5
+	export EXTRA_XQUARTZ_CFLAGS="-mmacosx-version-min=${MACOSX_DEPLOYMENT_TARGET}"
+	export EXTRA_XQUARTZ_LDFLAGS="-Wl,-macosx_version_min,${MACOSX_DEPLOYMENT_TARGET}"
 	export CC="/usr/bin/gcc-4.2"
-	export OBJC="$CC"
+	export OBJC="${CC}"
 	export PYTHON=/usr/bin/python2.5
 	export PYTHONPATH="/usr/X11/lib/python2.5:/usr/X11/lib/python2.5/site-packages"
-	export MACOSX_DEPLOYMENT_TARGET=10.5
 	BUILDIT="${BUILDIT} -release SULeoLoki"
 elif [[ "${TRAIN}" == "trains/SULeo" ]] ; then
 	ARCH_EXEC="-arch i386 -arch ppc"
@@ -102,14 +118,16 @@ else
 	ARCH_EXEC="-arch i386 -arch x86_64"
 	ARCH_ALL="${ARCH_EXEC}"
 	if [[ "${MACOSFORGE_SL}" == "YES" ]] ; then
-		#export CC="/usr/bin/clang"
+		export MACOSX_DEPLOYMENT_TARGET=10.6
+		export EXTRA_XQUARTZ_CFLAGS="-mmacosx-version-min=${MACOSX_DEPLOYMENT_TARGET}"
+		export EXTRA_XQUARTZ_LDFLAGS="-Wl,-macosx_version_min,${MACOSX_DEPLOYMENT_TARGET}"
 		export CC="/opt/llvm/bin/clang"
-		#export CC="/opt/local/bin/clang"
-		export OBJC="$CC"
+		#export CC="/usr/bin/gcc-4.2"
+		#export CC="/usr/bin/llvm-gcc-4.2"
+		#export CC="/usr/bin/clang"
+		export OBJC="${CC}"
 		export PYTHON=/usr/bin/python2.6
 		export PYTHONPATH="${X11_PREFIX}/lib/python2.6:${X11_PREFIX}/lib/python2.6/site-packages"
-		export MACOSX_DEPLOYMENT_TARGET=10.6
-		BUILDIT="${BUILDIT} -release SUSnowJacks"
 	fi
 fi
 
@@ -172,3 +190,25 @@ bit_git X11_Xplugin "${XPLUGIN}" ${ARCH_ALL}
 [[ -n ${X11FONTS} && -d X11fonts/${X11FONTS} ]]       && bit X11fonts/${X11FONTS}      -project X11fonts      ${ARCH_ALL}
 
 [[ -n ${X11SERVER} ]] && echo "Remember to edit the plists"
+
+INFO_PLIST="$(eval echo ~jeremy)/src/freedesktop/pkg/X11/Applications/Utilities/XQuartz.app/Contents/Info.plist"
+if [[ -n ${VERSION_TXT} ]] ; then
+	if [[ "${VERSION_TXT}" == "VERSION_TXT_SHORT" ]] ; then
+		/opt/local/bin/gsed -i 's:beta.xml:release.xml:' "${INFO_PLIST}"
+	else
+		/opt/local/bin/gsed -i 's:release.xml:beta.xml:' "${INFO_PLIST}"
+	fi
+	defaults write "${INFO_PLIST}" CFBundleShortVersionString "${VERSION_TXT}"
+	plutil -convert xml1 "${INFO_PLIST}"
+	chmod 644 "${INFO_PLIST}"
+fi
+if [[ -n ${VERSION} ]] ; then
+	defaults write "${INFO_PLIST}" CFBundleVersion "${VERSION}"
+	plutil -convert xml1 "${INFO_PLIST}"
+	chmod 644 "${INFO_PLIST}"
+
+	cd $(eval echo ~jeremy)/src/freedesktop/pkg
+	./mkpmdoc.sh
+	chown -R jeremy XQuartz-${VERSION_TXT}.pmdoc
+	sudo -u jeremy open XQuartz-${VERSION_TXT}.pmdoc
+fi
