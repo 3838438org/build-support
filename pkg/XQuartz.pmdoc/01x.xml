@@ -29,7 +29,7 @@
           </search-rule>
         </token>
       </locator-info>
-      <component id="org.andymatuschak.Sparkle" path="@@PKG_DIR@/X11/Applications/Utilities/XQuartz.app/Contents/Frameworks/Sparkle.framework" isDowngradeable="true">
+      <component id="org.andymatuschak.Sparkle" path="@@PKG_DIR@@/X11/Applications/Utilities/XQuartz.app/Contents/Frameworks/Sparkle.framework" isDowngradeable="true">
         <mod>isDowngradeable</mod>
       </component>
       <mod>isDowngradeable</mod>
