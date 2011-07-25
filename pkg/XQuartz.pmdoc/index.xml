@@ -20,9 +20,9 @@
   </contents>
   <resources bg-scale="proportional" bg-align="topleft">
     <locale lang="en">
-      <resource mod="true" type="license">@@PKG_DIR@@/LICENSE.txt</resource>
-      <resource mod="true" type="readme">@@PKG_DIR@@/README.@@VERSION_TXT_SHORT@@.txt</resource>
-      <resource mod="true" type="welcome">@@PKG_DIR@@/INTRODUCTION-SL.txt</resource>
+      <resource mod="true" type="license">@@PKG_DIR@@/resources/LICENSE.txt</resource>
+      <resource mod="true" type="readme">@@PKG_DIR@@/resources/README.@@VERSION_TXT_SHORT@@.txt</resource>
+      <resource mod="true" type="welcome">@@PKG_DIR@@/resources/INTRODUCTION-SL.txt</resource>
       <resource mime-type="text/rtf" kind="embedded" type="conclusion"><![CDATA[{\rtf1\ansi\ansicpg1252\cocoartf1110\cocoasubrtf910
 {\fonttbl\f0\fnil\fcharset0 LucidaGrande;}
 {\colortbl;\red255\green255\blue255;}
