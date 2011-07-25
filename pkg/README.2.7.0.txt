@@ -12,7 +12,7 @@ This updates is not an official Apple releases. It is a convenient way for users
 
 If this is your first time installing XQuartz, you may wish to logout and log back in.  This will update your DISPLAY environment variable to point to XQuartz.app rather than X11.app.  If you would prefer to keep using X11.app as your default server (you can still launch XQuartz.app manually), you'll want to disable /Library/LaunchAgents/org.macosforge.xquartz.startx.plist using launchctl(1).
 
-== Changes in 2.7.0 (In Development) ==
+== Changes in 2.7.0 ==
   * All changes in 2.6.3 plus:
   * app:
     * mkfontscale 1.0.9
@@ -35,6 +35,7 @@ If this is your first time installing XQuartz, you may wish to logout and log ba
     * libXrandr 1.3.2
     * libXcursor 1.1.2
     * libXi 1.4.3
+    * mesa 7.10.3
     * pixman 0.23.2
     * xcb-util 0.3.8
     * xcb-util-image 0.3.8
