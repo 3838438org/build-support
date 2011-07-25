@@ -192,23 +192,21 @@ bit_git X11_Xplugin "${XPLUGIN}" ${ARCH_ALL}
 [[ -n ${X11SERVER} ]] && echo "Remember to edit the plists"
 
 INFO_PLIST="$(eval echo ~jeremy)/src/freedesktop/pkg/X11/Applications/Utilities/XQuartz.app/Contents/Info.plist"
-if [[ -n ${VERSION_TXT} ]] ; then
+if [[ -n ${VERSION} ]] ; then
+	defaults write "${INFO_PLIST}" CFBundleVersion "${VERSION}"
+	defaults write "${INFO_PLIST}" CFBundleShortVersionString "${VERSION_TXT}"
+	plutil -convert xml1 "${INFO_PLIST}"
+	chmod 644 "${INFO_PLIST}"
+
 	if [[ "${VERSION_TXT}" == "VERSION_TXT_SHORT" ]] ; then
 		/opt/local/bin/gsed -i 's:beta.xml:release.xml:' "${INFO_PLIST}"
 	else
 		/opt/local/bin/gsed -i 's:release.xml:beta.xml:' "${INFO_PLIST}"
 	fi
-	defaults write "${INFO_PLIST}" CFBundleShortVersionString "${VERSION_TXT}"
-	plutil -convert xml1 "${INFO_PLIST}"
-	chmod 644 "${INFO_PLIST}"
-fi
-if [[ -n ${VERSION} ]] ; then
-	defaults write "${INFO_PLIST}" CFBundleVersion "${VERSION}"
-	plutil -convert xml1 "${INFO_PLIST}"
-	chmod 644 "${INFO_PLIST}"
 
 	cd $(eval echo ~jeremy)/src/freedesktop/pkg
 	./mkpmdoc.sh
 	chown -R jeremy XQuartz-${VERSION_TXT}.pmdoc
-	sudo -u jeremy open XQuartz-${VERSION_TXT}.pmdoc
+	sudo -u jeremy /Developer/usr/bin/packagemaker --verbose --doc XQuartz-${VERSION_TXT}.pmdoc --out XQuartz-${VERSION_TXT}.pkg
+	sudo -u jeremy ./mkdmg.sh XQuartz-${VERSION_TXT}.pkg ${VERSION} > XQuartz-${VERSION_TXT}.sparkle.xml
 fi
