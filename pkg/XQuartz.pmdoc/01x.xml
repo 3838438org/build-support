@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<pkgref spec="1.12" uuid="7EAEB797-6BF7-4861-8F15-3175B9D7BF46">
+  <config>
+    <identifier>org.macosforge.xquartz.pkg</identifier>
+    <version>@@VERSION@@</version>
+    <description/>
+    <post-install type="none"/>
+    <requireAuthorization/>
+    <installFrom>@@PKG_DIR@@/X11</installFrom>
+    <installTo>/</installTo>
+    <flags>
+      <followSymbolicLinks/>
+    </flags>
+    <packageStore type="internal"/>
+    <mod>version</mod>
+    <mod>identifier</mod>
+    <mod>parent</mod>
+  </config>
+  <scripts>
+    <postinstall mod="true">@@PKG_DIR@@/resources/scripts/postinst_sl.sh</postinstall>
+    <scripts-dir mod="true">@@PKG_DIR@@/resources/scripts</scripts-dir>
+  </scripts>
+  <contents>
+    <component id="org.macosforge.xquartz.X11" path="@@PKG_DIR@@/X11/Applications/Utilities/XQuartz.app" isRelocatable="true" isDowngradeable="true">
+      <locator-info>
+        <token title="pkmk-token-23">
+          <search-rule>
+            <combo identifier="org.macosforge.xquartz.X11" default-path="/Applications/Utilities/XQuartz.app"/>
+          </search-rule>
+        </token>
+      </locator-info>
+      <component id="org.andymatuschak.Sparkle" path="@@PKG_DIR@/X11/Applications/Utilities/XQuartz.app/Contents/Frameworks/Sparkle.framework" isDowngradeable="true">
+        <mod>isDowngradeable</mod>
+      </component>
+      <mod>isDowngradeable</mod>
+    </component>
+    <filter>/CVS$</filter>
+    <filter>/\.svn$</filter>
+    <filter>/\.cvsignore$</filter>
+    <filter>/\.cvspass$</filter>
+    <filter>/\.DS_Store$</filter>
+  </contents>
+</pkgref>

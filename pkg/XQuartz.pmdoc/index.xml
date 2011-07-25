@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<pkmkdoc spec="1.12">
+  <properties>
+    <title>XQuartz @@VERSION_TXT@@</title>
+    <build>@@PKG_DIR@@/XQuartz-@@VERSION_TXT@@.pkg</build>
+    <organization>org.macosforge.xquartz</organization>
+    <userSees ui="easy"/>
+    <min-target os="3"/>
+    <domain system="true"/>
+  </properties>
+  <distribution>
+    <versions min-spec="1.000000"/>
+    <scripts/>
+  </distribution>
+  <description>This is a community supported version of X11 for Mac OSX Snow Leopard.  Please visit http://xquartz.macosforge.org for more information.</description>
+  <contents>
+    <choice title="X11" id="x11" starts_selected="true" starts_enabled="true" starts_hidden="false">
+      <pkgref id="org.macosforge.xquartz.pkg"/>
+    </choice>
+  </contents>
+  <resources bg-scale="proportional" bg-align="topleft">
+    <locale lang="en">
+      <resource mod="true" type="license">@@PKG_DIR@@/LICENSE.txt</resource>
+      <resource mod="true" type="readme">@@PKG_DIR@@/README.@@VERSION_TXT_SHORT@@.txt</resource>
+      <resource mod="true" type="welcome">@@PKG_DIR@@/INTRODUCTION-SL.txt</resource>
+      <resource mime-type="text/rtf" kind="embedded" type="conclusion"><![CDATA[{\rtf1\ansi\ansicpg1252\cocoartf1110\cocoasubrtf910
+{\fonttbl\f0\fnil\fcharset0 LucidaGrande;}
+{\colortbl;\red255\green255\blue255;}
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\ql\qnatural\pardirnatural
+
+\f0\fs26 \cf0 Installation is complete.  If this is your first time installing XQuartz, you may want to log out and log back in to make it your default X11 server.}]]></resource>
+    </locale>
+  </resources>
+  <requirements>
+    <requirement id="sosv" operator="ge" value="'10.6.3'">
+      <message-title>OS-X 10.6.3</message-title>
+      <message>This update requires you to first update your system to OS-X 10.6.3</message>
+    </requirement>
+    <requirement id="tosv" operator="ge" value="'10.6.3'">
+      <message>This update requires you to first update your system to OS-X 10.6.3</message>
+    </requirement>
+  </requirements>
+  <flags/>
+  <item type="file">01x.xml</item>
+  <mod>properties.title</mod>
+  <mod>properties.customizeOption</mod>
+  <mod>description</mod>
+  <mod>properties.anywhereDomain</mod>
+  <mod>properties.systemDomain</mod>
+</pkmkdoc>
