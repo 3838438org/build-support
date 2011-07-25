@@ -10,13 +10,15 @@ if [[ -z "${VERSION}" || -z "${VERSION_TXT}" ]] ; then
 	exit 1
 fi
 
-gcp -a XQuartz.pmdoc XQuartz-${VERSION_TXT_SHORT}.pmdoc
+[[ -d XQuartz-${VERSION_TXT}.pmdoc ]] && rm -rf XQuartz-${VERSION_TXT}.pmdoc
+mkdir XQuartz-${VERSION_TXT}.pmdoc
 
-XML_FILES=XQuartz-${VERSION_TXT_SHORT}.pmdoc/*xml
-
-gsed -i "s:@@VERSION_TXT@@:${VERSION_TXT}:g" ${XML_FILES}
-gsed -i "s:@@VERSION_TXT_SHORT@@:${VERSION_TXT_SHORT}:g" ${XML_FILES}
-gsed -i "s:@@VERSION@@:${VERSION}:g" ${XML_FILES}
-gsed -i "s:@@PKG_DIR@@:${PKG_DIR}:g" ${XML_FILES}
-gsed -i "s:@@ROOT@@:${ROOT}:g" ${XML_FILES}
-gsed -i "s:@@SCRIPTS_DIR@@:${SCRIPTS_DIR}:g" ${XML_FILES}
+for f in XQuartz.pmdoc/*.xml ; do
+	sed -e "s:@@VERSION_TXT@@:${VERSION_TXT}:g" \
+	    -e "s:@@VERSION_TXT_SHORT@@:${VERSION_TXT_SHORT}:g" \
+	    -e "s:@@VERSION@@:${VERSION}:g" \
+	    -e "s:@@PKG_DIR@@:${PKG_DIR}:g" \
+	    -e "s:@@ROOT@@:${ROOT}:g" \
+	    -e "s:@@SCRIPTS_DIR@@:${SCRIPTS_DIR}:g" \
+	    ${f} > ${f/.pmdoc/-${VERSION_TXT}.pmdoc}
+done
