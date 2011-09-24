@@ -27,11 +27,15 @@ If this is your first time installing XQuartz, you may wish to logout and log ba
     * xman 1.1.2
     * xrandr 1.3.5
     * xprop 1.2.1
-    * xterm 271
+    * xset 1.2.2
+    * xterm 275
     * xwininfo 1.1.2
   * lib:
     * freetype 2.4.5
+    * libX11 1.4.4
     * libXext 1.3.0
+    * libXfont 1.4.4
+      * CVE-2011-2895
     * libXrandr 1.3.2
     * libXcursor 1.1.2
     * libXi 1.4.3
@@ -44,7 +48,7 @@ If this is your first time installing XQuartz, you may wish to logout and log ba
     * xcb-util-wm 0.3.8
   * misc:
     * util-macros 1.15.0
-    * xorg-sgml-doctools 1.8
+    * xorg-sgml-doctools 1.10
   * proto:
     * dri2proto 2.6
     * glproto 1.4.14
@@ -52,7 +56,7 @@ If this is your first time installing XQuartz, you may wish to logout and log ba
     * resourceproto 1.2.0
     * xproto 7.0.22
   * server:
-    * xorg-server 1.11.0 plus other patches
+    * xorg-server 1.11.1 plus other patches
       * Initial support for GCD in the server to increase performance on multi-core systems
       * Improved logging
 
