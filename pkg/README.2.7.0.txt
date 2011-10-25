@@ -19,7 +19,11 @@ If this is your first time installing XQuartz, you may wish to logout and log ba
     * quartz-wm 1.3.0
       * Improved logging
       * Removed legacy pbproxy support
+    * sessreg 1.0.7
     * smproxy 1.0.5
+    * twm 1.0.7
+    * x11perf 1.5.4
+    * xdpyinfo 1.3.0
     * xinit 1.3.1
       * Improved logging for startx LaunchAgent and privileged_startx LaunchDaemon
     * xkbcomp 1.2.3
@@ -28,10 +32,13 @@ If this is your first time installing XQuartz, you may wish to logout and log ba
     * xrandr 1.3.5
     * xprop 1.2.1
     * xset 1.2.2
-    * xterm 275
+    * xterm 276
     * xwininfo 1.1.2
   * lib:
-    * freetype 2.4.5
+    * freetype 2.4.7
+      * CVE-2011-3256
+    * libpng 1.5.5
+      * CVE-2011-3328
     * libX11 1.4.4
     * libXext 1.3.0
     * libXfont 1.4.4
@@ -39,8 +46,9 @@ If this is your first time installing XQuartz, you may wish to logout and log ba
     * libXrandr 1.3.2
     * libXcursor 1.1.2
     * libXi 1.4.3
-    * mesa 7.10.3
-    * pixman 0.23.2
+    * mesa 7.11
+      * rewritten dispatch to use glapi, should be much more reliable and more consistent with other platforms
+    * pixman 0.23.6
     * xcb-util 0.3.8
     * xcb-util-image 0.3.8
     * xcb-util-kysyms 0.3.8
@@ -52,13 +60,16 @@ If this is your first time installing XQuartz, you may wish to logout and log ba
   * proto:
     * dri2proto 2.6
     * glproto 1.4.14
-    * inputproto 1.0.2
+    * inputproto 2.0.2
     * resourceproto 1.2.0
     * xproto 7.0.22
   * server:
-    * xorg-server 1.11.1 plus other patches
+    * xorg-server 1.11.2 plus other patches
       * Initial support for GCD in the server to increase performance on multi-core systems
       * Improved logging
+      * CVE-2011-4028
+      * CVE-2011-4029
+      * Fixed server side bug sending the AppleDRICreatePixmap request (#508)
 
 == Changes in 2.6.3 ==
   * All changes in 2.6.2 plus:
