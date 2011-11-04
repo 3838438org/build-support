@@ -16,4 +16,7 @@
 # Cache system fonts
 /opt/X11/bin/font_cache --force --system
 
+# Hook for the system X11 if it wants to do something after XQuartz installs
+[[ -x /usr/X11/libexec/xquartz_postinst.sh ]] && /usr/X11/libexec/xquartz_postinst.sh
+
 exit 0
