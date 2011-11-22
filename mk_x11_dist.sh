@@ -180,7 +180,7 @@ bit_git() {
 
 #[[ $(echo /tmp/X11*.roots) = '/tmp/X11*.roots' ]] || /bin/rm -rf /tmp/X11*.roots
 
-bit_git X11_Xplugin "${XPLUGIN}" ${ARCH_ALL} 
+[[ -n ${XPLUGIN} ]]      && bit_git X11_Xplugin "${XPLUGIN}" ${ARCH_ALL} 
 [[ -n ${X11MISC} ]]     && bit X11misc/${X11MISC}        -project X11misc       ${ARCH_ALL}
 [[ -n ${X11PROTO} ]]    && bit X11proto/${X11PROTO}      -project X11proto      ${ARCH_ALL}
 [[ -n ${X11LIBS} ]]     && bit X11libs/${X11LIBS}        -project X11libs       ${ARCH_ALL}

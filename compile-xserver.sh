@@ -32,46 +32,18 @@ CFLAGS="$CFLAGS -Wall -Wextra -Wno-sign-compare -Wno-unused-parameter -Wno-missi
 CFLAGS="${CFLAGS} -fdiagnostics-show-category=name"
 
 # Stage 1:
-#    CFLAGS="${CFLAGS} -Werror=implicit"         # Disabled because current master has a regression
-    CFLAGS="${CFLAGS} -Werror=nonnull"
-    CFLAGS="${CFLAGS} -Wformat-security"         # <rdar://problem/9418512> clang is overzealous about -Werror=format-*
-    CFLAGS="${CFLAGS} -Wformat-extra-args"
-    CFLAGS="${CFLAGS} -Wformat-y2k"
-    CFLAGS="${CFLAGS} -Werror=init-self"
-    CFLAGS="${CFLAGS} -Werror=main"
-    CFLAGS="${CFLAGS} -Werror=missing-braces"
-    CFLAGS="${CFLAGS} -Wparentheses"             # libX11 XKBBind.c:169
-    CFLAGS="${CFLAGS} -Werror=sequence-point"
-    CFLAGS="${CFLAGS} -Werror=return-type"
-    CFLAGS="${CFLAGS} -Werror=trigraphs"
-    CFLAGS="${CFLAGS} -Werror=array-bounds"
 #    CFLAGS="${CFLAGS} -Wcast-align"             # Noisy
-    CFLAGS="${CFLAGS} -Werror=write-strings"
 #    CFLAGS="${CFLAGS} -Werror=clobbered"
-    CFLAGS="${CFLAGS} -Werror=address"
-    CFLAGS="${CFLAGS} -Werror=int-to-pointer-cast"
-    CFLAGS="${CFLAGS} -Werror=pointer-to-int-cast"
-
-# Stage 2:
 #    CFLAGS="${CFLAGS} -Wlogical-op"
-    CFLAGS="${CFLAGS} -Wunused"
-    CFLAGS="${CFLAGS} -Wuninitialized"
-    CFLAGS="${CFLAGS} -Wshadow"
 #    CFLAGS="${CFLAGS} -Wunsafe-loop-optimizations"
-    CFLAGS="${CFLAGS} -Wcast-qual"
-    CFLAGS="${CFLAGS} -Wmissing-noreturn"
-    CFLAGS="${CFLAGS} -Wmissing-format-attribute"
-    CFLAGS="${CFLAGS} -Wredundant-decls"
-    CFLAGS="${CFLAGS} -Wnested-externs"
-    CFLAGS="${CFLAGS} -Winline"
 
 OBJCFLAGS="$CFLAGS"
 LDFLAGS="$CFLAGS"
 
 #CC="llvm-gcc"
 #CXX="llvm-g++"
-CC="clang"
-CXX="clang++"
+CC="/opt/local/bin/clang-mp-3.1"
+CXX="/opt/local/bin/clang++-mp-3.1"
 
 OBJC="$CC"
 
