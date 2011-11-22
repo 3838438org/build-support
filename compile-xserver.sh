@@ -32,9 +32,10 @@ CFLAGS="$CFLAGS -Wall -Wextra -Wno-sign-compare -Wno-unused-parameter -Wno-missi
 CFLAGS="${CFLAGS} -fdiagnostics-show-category=name"
 
 # Stage 1:
-#    CFLAGS="${CFLAGS} -Wcast-align"             # Noisy
 #    CFLAGS="${CFLAGS} -Werror=clobbered"
 #    CFLAGS="${CFLAGS} -Wlogical-op"
+#    CFLAGS="${CFLAGS} -Wparentheses"
+#    CFLAGS="${CFLAGS} -Wcast-align"
 #    CFLAGS="${CFLAGS} -Wunsafe-loop-optimizations"
 
 OBJCFLAGS="$CFLAGS"
