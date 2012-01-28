@@ -14,16 +14,25 @@ If this is your first time installing XQuartz, you may wish to logout and log ba
 
 == Changes in 2.7.1 ==
   * All changes in 2.7.0 plus:
+  * app:
+    * quartz-wm 1.2.99.902
+    * xinit 1.3.2
+      * Fixed setting of $DISPLAY (Bug #523)
+    * xinput 1.4.5
   * lib:
     * freetype 2.4.8
       * CVE-2011-3439
-    * libXi 1.4.4
+    * libpng-1.5.7
+    * libXi 1.5.0
+    * mesa 7.11.2
+    * pixman 0.24.2
   * misc:
-    * util-macros 1.16.0
+    * util-macros 1.16.1
   * proto:
+    * glproto 1.4.15
     * inputproto 2.1
   * server:
-    * xorg-server 1.11.3 plus other patches
+    * xorg-server 1.11.4 plus other patches
 
 == Changes in 2.7.0 ==
   * All changes in 2.6.3 plus:
