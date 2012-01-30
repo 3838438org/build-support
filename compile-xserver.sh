@@ -25,7 +25,7 @@ ACLOCAL="aclocal -I ${PREFIX}/share/aclocal -I /usr/local/share/aclocal"
 
 CPPFLAGS="-DNO_ALLOCA -DNO_COMPILER_H -DFAKEIT"
 
-CFLAGS="$CFLAGS -O0 -ggdb3 -pipe"
+CFLAGS="$CFLAGS -O0 -g3 -pipe"
 CFLAGS="$CFLAGS $ARCHFLAGS"
 CFLAGS="$CFLAGS -Wall -Wextra -Wno-sign-compare -Wno-unused-parameter -Wno-missing-field-initializers"
 
@@ -83,6 +83,8 @@ docomp() {
 	${SCAN_BUILD} ./configure --prefix=${PREFIX} ${CONFOPT} --disable-dependency-tracking --enable-maintainer-mode --enable-xcsecurity --enable-record --disable-xevie "${@}" || die "Could not configure xserver"
 	${MAKE} clean || die "Unable to make clean"
 	${SCAN_BUILD} ${MAKE} ${MAKE_OPTS} || die "Could not make xserver"
+	#${MAKE} distcheck ${MAKE_OPTS} DESTDIR=/tmp/distcheck || die "distcheck failed"
+	#../modular/release.sh .
 }
 
 doinst() {
