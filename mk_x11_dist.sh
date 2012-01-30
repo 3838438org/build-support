@@ -178,8 +178,6 @@ bit_git() {
 	fi
 }
 
-#[[ $(echo /tmp/X11*.roots) = '/tmp/X11*.roots' ]] || /bin/rm -rf /tmp/X11*.roots
-
 [[ -n ${XPLUGIN} ]]      && bit_git X11_Xplugin "${XPLUGIN}" ${ARCH_ALL} 
 [[ -n ${X11MISC} ]]     && bit X11misc/${X11MISC}        -project X11misc       ${ARCH_ALL}
 [[ -n ${X11PROTO} ]]    && bit X11proto/${X11PROTO}      -project X11proto      ${ARCH_ALL}
@@ -207,6 +205,11 @@ if [[ -n ${VERSION} ]] ; then
 	cd $(eval echo ~jeremy)/src/freedesktop/pkg
 	./mkpmdoc.sh
 	chown -R jeremy XQuartz-${VERSION_TXT}.pmdoc
+	echo "Browse to the components tab and check the box to make XQuartz.app downgradeable"
+	echo "<rdar://problem/10772627>"
+	echo "Press enter when done"
+	sudo -u jeremy open XQuartz-${VERSION_TXT}.pmdoc
+	readline IGNORE
 	sudo -u jeremy /Developer/usr/bin/packagemaker --verbose --doc XQuartz-${VERSION_TXT}.pmdoc --out XQuartz-${VERSION_TXT}.pkg
 	sudo -u jeremy ./mkdmg.sh XQuartz-${VERSION_TXT}.pkg ${VERSION} > XQuartz-${VERSION_TXT}.sparkle.xml
 fi
