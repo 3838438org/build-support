@@ -13,7 +13,7 @@ XQuartz is released by the open source XQuartz project.  While Apple Inc. is an 
 If this is your first time installing XQuartz, you may wish to logout and log back in.  This will update your DISPLAY environment variable to point to XQuartz.app rather than X11.app.  If you would prefer to keep using X11.app as your default server (you can still launch XQuartz.app manually), you'll want to disable /Library/LaunchAgents/org.macosforge.xquartz.startx.plist using launchctl(1).
 
 == Changes in 2.7.1 ==
- * All changes in 2.7.0 plus:
+  * All changes in 2.7.0 plus:
   * app:
     * mkfontdir 1.0.7
     * mkfontscale 1.1.0
