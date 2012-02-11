@@ -13,26 +13,37 @@ XQuartz is released by the open source XQuartz project.  While Apple Inc. is an 
 If this is your first time installing XQuartz, you may wish to logout and log back in.  This will update your DISPLAY environment variable to point to XQuartz.app rather than X11.app.  If you would prefer to keep using X11.app as your default server (you can still launch XQuartz.app manually), you'll want to disable /Library/LaunchAgents/org.macosforge.xquartz.startx.plist using launchctl(1).
 
 == Changes in 2.7.1 ==
-  * All changes in 2.7.0 plus:
+ * All changes in 2.7.0 plus:
   * app:
-    * quartz-wm 1.2.99.902
+    * mkfontdir 1.0.7
+    * mkfontscale 1.1.0
+    * oclock 1.0.3
+    * quartz-wm 1.3.0
+      * Fixes a possible crash when restoring from the dock (#538)
+    * xclipboard 1.1.2
+    * xclock 1.0.6
     * xinit 1.3.2
       * Fixed setting of $DISPLAY (Bug #523)
     * xinput 1.4.5
   * lib:
     * freetype 2.4.8
       * CVE-2011-3439
-    * libpng-1.5.7
+    * libpng-1.5.8
     * libXi 1.5.0
     * mesa 7.11.2
-    * pixman 0.24.2
+    * pixman 0.24.4
   * misc:
     * util-macros 1.16.1
   * proto:
     * glproto 1.4.15
     * inputproto 2.1
+  * pkg
+    * The installer should now allow downgrading to this release (Bug #532)
+      * If you need to downgrade to 2.7.0, you should manually delete XQuartz.app first.
   * server:
     * xorg-server 1.11.4 plus other patches
+      * While in fullscreen mode, hiding by using CMD-H now causes you to leave fullscreen mode first, as if by cmd-opt-a (Bug #478)
+      * Release all mouse buttons when switching applications (Bug #486)
 
 == Changes in 2.7.0 ==
   * All changes in 2.6.3 plus:
