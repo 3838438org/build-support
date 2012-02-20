@@ -4,7 +4,7 @@ XQuartz is released by the open source XQuartz project.  While Apple Inc. is an 
 
 == Important Notices ==
 
-=== OS-X Requirements ===
+=== OS X Requirements ===
 
 10.6.3, or later is required to install this package.
 
