@@ -28,8 +28,6 @@ MACOSFORGE=SL
 #MACOSFORGE_BUILD_DOCS="YES"
 MACOSFORGE_BUILD_DOCS="NO"
 
-#QUARTZWM="trains/quartz-wm-1.2-branch"
-
 TRAIN="trunk"
 #TRAIN="trains/SnowLeopard"
 #TRAIN="trains/SULeo"
@@ -76,7 +74,7 @@ if [[ ${MACOSFORGE_SL} == "YES" ]] ; then
 fi
 
 if [[ ${MACOSFORGE_RELEASE} == "YES" ]] ; then
-	BUILDIT="${BUILDIT} -noverifydstroot"
+	BUILDIT="${BUILDIT} -noverify -noverifydstroot"
 
 	export MACOSFORGE_BUILD_DOCS
 
@@ -141,7 +139,7 @@ bit() {
 	fi
 
 	[[ -d "${MERGE_ROOT}" ]] || die
-	${BUILDIT} -noverify "${@}" -merge "${MERGE_ROOT}" || die
+	${BUILDIT} "${@}" -merge "${MERGE_ROOT}" || die
 
 	if [[ "${MERGE_DIRS/ /}" == "${MERGE_DIRS}" ]] ; then
 		if [[ -n "${MERGE_ROOT}" && "${MERGE_ROOT}" != "/" ]] ; then
@@ -209,7 +207,7 @@ if [[ -n ${VERSION} ]] ; then
 	echo "<rdar://problem/10772627>"
 	echo "Press enter when done"
 	sudo -u jeremy open XQuartz-${VERSION_TXT}.pmdoc
-	readline IGNORE
+	read IGNORE
 	sudo -u jeremy /Developer/usr/bin/packagemaker --verbose --doc XQuartz-${VERSION_TXT}.pmdoc --out XQuartz-${VERSION_TXT}.pkg
 	sudo -u jeremy ./mkdmg.sh XQuartz-${VERSION_TXT}.pkg ${VERSION} > XQuartz-${VERSION_TXT}.sparkle.xml
 fi
