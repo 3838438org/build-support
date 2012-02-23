@@ -76,6 +76,8 @@ fi
 if [[ ${MACOSFORGE_RELEASE} == "YES" ]] ; then
 	BUILDIT="${BUILDIT} -noverify -noverifydstroot"
 
+	export MACOSFORGE_XQUARTZ_CODESIGN_IDENTITY="-"
+
 	export MACOSFORGE_BUILD_DOCS
 
 	if [[ ${MACOSFORGE_BUILD_DOCS} == "YES" ]] ; then
