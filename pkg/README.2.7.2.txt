@@ -25,14 +25,40 @@ If this is your first time installing XQuartz, you may wish to logout and log ba
     * xterm 278
     * xwd 1.0.5
   * lib:
+    * libdmx 1.1.2
     * libfontenc 1.1.1
     * libFS 1.0.4
     * libICE 1.0.8
+    * libpng 1.2.47
+    * libpng 1.4.9
+    * libpng 1.5.9
+      * CVE-2011-3026
     * libSM 1.2.1
+    * libXau 1.0.7
     * libXaw3d 1.6.1
+    * libXcursor 1.1.13
+    * libXdmcp 1.1.1
+    * libXext 1.3.1
     * libXfont 1.4.5
+    * libXft 2.3.0
+    * libXi 1.6.0
+    * libXinerama 1.1.2
+    * libxkbfile 1.0.8
+    * libXmu 1.1.1
+    * libXpm 3.5.10
+    * libXrender 0.9.7
+    * libXres 1.0.6
+    * libXScrnSaver 1.2.2
+    * libXt 1.1.2
+    * libXtst 1.2.1
+    * libXv 1.0.7
+    * libXvMC 1.0.7
+    * libXxf86dga 1.1.3
+    * libXxf86vm 1.1.2
   * misc:
     * font-util 1.3.0
+    * lndir 1.0.3
+    * makedepend 1.0.4
     * util-macros 1.16.2
   * proto:
     * inputproto 2.2
