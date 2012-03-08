@@ -34,6 +34,7 @@ If this is your first time installing XQuartz, you may wish to logout and log ba
     * libpng 1.5.9
       * CVE-2011-3026
     * libSM 1.2.1
+    * libX11 1.4.99.1
     * libXau 1.0.7
     * libXaw3d 1.6.1
     * libXcursor 1.1.13
