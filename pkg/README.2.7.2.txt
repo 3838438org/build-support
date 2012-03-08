@@ -38,6 +38,7 @@ If this is your first time installing XQuartz, you may wish to logout and log ba
     * libXau 1.0.7
     * libXaw3d 1.6.1
     * libXcursor 1.1.13
+    * libxcb 1.8
     * libXdmcp 1.1.1
     * libXext 1.3.1
     * libXfont 1.4.5
