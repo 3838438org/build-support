@@ -15,6 +15,7 @@ If this is your first time installing XQuartz, you may wish to logout and log ba
 == Changes in 2.7.2 ==
   * All changes in 2.7.1 plus:
   * app:
+    * bitmap 1.0.6
     * listres 1.0.3
     * xcmsdb 1.0.4
     * xcompmgr 1.1.6
@@ -25,6 +26,27 @@ If this is your first time installing XQuartz, you may wish to logout and log ba
     * xterm 278
     * xwd 1.0.5
   * lib:
+    * freeglut 2.8.0
+    * freetype 2.4.9
+      * CVE-2012-1126
+      * CVE-2012-1127
+      * CVE-2012-1128
+      * CVE-2012-1129
+      * CVE-2012-1130
+      * CVE-2012-1131
+      * CVE-2012-1132
+      * CVE-2012-1133
+      * CVE-2012-1134
+      * CVE-2012-1135
+      * CVE-2012-1136
+      * CVE-2012-1137
+      * CVE-2012-1138
+      * CVE-2012-1139
+      * CVE-2012-1140
+      * CVE-2012-1141
+      * CVE-2012-1142
+      * CVE-2012-1143
+      * CVE-2012-1144
     * libdmx 1.1.2
     * libfontenc 1.1.1
     * libFS 1.0.4
@@ -34,16 +56,18 @@ If this is your first time installing XQuartz, you may wish to logout and log ba
     * libpng 1.5.9
       * CVE-2011-3026
     * libSM 1.2.1
-    * libX11 1.4.99.1
+    * libX11 1.4.99.901
     * libXau 1.0.7
     * libXaw3d 1.6.1
     * libXcursor 1.1.13
-    * libxcb 1.8
+    * libxcb 1.8.1
     * libXdmcp 1.1.1
     * libXext 1.3.1
     * libXfont 1.4.5
     * libXft 2.3.0
+      * Plus a fix for a bold font regression
     * libXi 1.6.0
+      * Plus a fix for a padding bug regression on x86_64
     * libXinerama 1.1.2
     * libxkbfile 1.0.8
     * libXmu 1.1.1
@@ -51,20 +75,22 @@ If this is your first time installing XQuartz, you may wish to logout and log ba
     * libXrender 0.9.7
     * libXres 1.0.6
     * libXScrnSaver 1.2.2
-    * libXt 1.1.2
+    * libXt 1.1.3
     * libXtst 1.2.1
     * libXv 1.0.7
     * libXvMC 1.0.7
     * libXxf86dga 1.1.3
     * libXxf86vm 1.1.2
+    * mesa 8.0.1
   * misc:
     * font-util 1.3.0
     * lndir 1.0.3
     * makedepend 1.0.4
-    * util-macros 1.16.2
+    * util-macros 1.17
   * proto:
     * inputproto 2.2
     * xcb-proto 1.7
+    * xproto 7.0.23
   * server:
     * xf86-input-void 1.4.0
     * xf86-video-dummy 0.3.5
