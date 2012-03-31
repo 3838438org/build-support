@@ -17,15 +17,28 @@ If this is your first time installing XQuartz, you may wish to logout and log ba
   * app:
     * bitmap 1.0.6
     * listres 1.0.3
+    * luit 1.1.1
+    * setxkbmap 1.3.0
+    * xauth 1.0.7
     * xcmsdb 1.0.4
     * xcompmgr 1.1.6
+    * xcursor 1.0.5
     * xev 1.2.0
     * xfd 1.1.1
     * xfs 1.1.2
+    * xhost 1.0.5
+    * xkbcomp 1.2.4
+    * xfontsel 1.0.4
+    * xgamma 1.0.5
+    * xkbevd 1.1.3
+    * xload 1.1.1
+    * xlogo 1.0.4
+    * xmodmap 1.0.6
     * xscope 1.3.1
     * xterm 278
     * xwd 1.0.5
   * lib:
+    * cairo 1.12.0
     * freeglut 2.8.0
     * freetype 2.4.9
       * CVE-2012-1126
@@ -58,7 +71,8 @@ If this is your first time installing XQuartz, you may wish to logout and log ba
     * libSM 1.2.1
     * libX11 1.4.99.901
     * libXau 1.0.7
-    * libXaw3d 1.6.1
+    * libXaw 1.0.10
+    * libXaw3d 1.6.2
     * libXcursor 1.1.13
     * libxcb 1.8.1
     * libXdmcp 1.1.1
@@ -82,14 +96,22 @@ If this is your first time installing XQuartz, you may wish to logout and log ba
     * libXxf86dga 1.1.3
     * libXxf86vm 1.1.2
     * mesa 8.0.1
+    * xtrans 1.2.7
   * misc:
     * font-util 1.3.0
     * lndir 1.0.3
     * makedepend 1.0.4
     * util-macros 1.17
   * proto:
+    * bigreqsproto 1.1.2
+    * fontsproto 2.1.2
+    * kbproto 1.0.6
     * inputproto 2.2
+    * recordproto 1.14.2
+    * scrnsaverproto 1.2.2
     * xcb-proto 1.7
+    * xcmiscproto 1.2.2
+    * xextproto 7.2.1
     * xproto 7.0.23
   * server:
     * xf86-input-void 1.4.0
@@ -98,6 +120,8 @@ If this is your first time installing XQuartz, you may wish to logout and log ba
       * Xfake, Xvfb, Xfake are now using the same server version as XQuartz
       * Xephyr is still using 1.6.5-apple3
       * Xorg binary is now installed as well, for use with the dummy, nested, or vnc drivers (experts only, not yet fully supported)
+      * Improved support for Xi2 including sub-pixel resolution of valuators and smooth scrolling
+      * Workaround a wine bug in mouse input
 
 == Changes in 2.7.1 ==
   * All changes in 2.7.0 plus:
