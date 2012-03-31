@@ -19,4 +19,7 @@
 # Hook for the system X11 if it wants to do something after XQuartz installs
 [[ -x /usr/X11/libexec/xquartz_postinst.sh ]] && /usr/X11/libexec/xquartz_postinst.sh
 
+[[ -e /usr/X11 ]] || ln -s /opt/X11 /usr/X11
+[[ -e /usr/X11R6 ]] || ln -s /opt/X11 /usr/X11R6
+
 exit 0
