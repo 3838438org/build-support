@@ -22,4 +22,11 @@
 [[ -e /usr/X11 ]] || ln -s /opt/X11 /usr/X11
 [[ -e /usr/X11R6 ]] || ln -s /opt/X11 /usr/X11R6
 
+/usr/bin/osascript <<EOF
+        tell application "System Events"
+            activate
+            display dialog "If this is your first time installing XQuartz, you may want to log out and log back in to make it your default X11 server." buttons {"OK"}
+        end tell
+EOF
+
 exit 0
