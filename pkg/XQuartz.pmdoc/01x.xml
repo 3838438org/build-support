@@ -17,6 +17,7 @@
     <mod>parent</mod>
   </config>
   <scripts>
+    <preinstall mod="true">@@PKG_DIR@@/resources/scripts/preinst_sl.sh</preinstall>
     <postinstall mod="true">@@PKG_DIR@@/resources/scripts/postinst_sl.sh</postinstall>
     <scripts-dir mod="true">@@PKG_DIR@@/resources/scripts</scripts-dir>
   </scripts>

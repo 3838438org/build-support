@@ -22,11 +22,13 @@
 [[ -e /usr/X11 ]] || ln -s /opt/X11 /usr/X11
 [[ -e /usr/X11R6 ]] || ln -s /opt/X11 /usr/X11R6
 
-/usr/bin/osascript <<EOF
+if [[ -e /tmp/.xquartz_first_time ]] ; then
+    /usr/bin/osascript <<EOF
         tell application "System Events"
             activate
-            display dialog "If this is your first time installing XQuartz, you may want to log out and log back in to make it your default X11 server." buttons {"OK"}
+            display dialog "You will need to log out and log back in to make XQuartz your default X11 server." buttons {"OK"}
         end tell
 EOF
+fi
 
 exit 0
