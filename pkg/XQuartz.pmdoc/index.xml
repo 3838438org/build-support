@@ -3,6 +3,7 @@
   <properties>
     <title>XQuartz @@VERSION_TXT@@</title>
     <build>@@PKG_DIR@@/XQuartz-@@VERSION_TXT@@.pkg</build>
+    <certificate>Developer ID Installer: Apple Inc. - XQuartz</certificate>
     <organization>org.macosforge.xquartz</organization>
     <userSees ui="easy"/>
     <min-target os="3"/>
