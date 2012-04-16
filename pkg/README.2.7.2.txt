@@ -33,10 +33,13 @@ If this is your first time installing XQuartz, you may wish to logout and log ba
     * xkbevd 1.1.3
     * xload 1.1.1
     * xlogo 1.0.4
+    * xlsatoms 1.1.1
     * xmodmap 1.0.6
+    * xpr 1.0.4
     * xscope 1.3.1
     * xterm 278
     * xwd 1.0.5
+    * xwud 1.0.4
   * lib:
     * cairo 1.12.0
     * freeglut 2.8.0
@@ -116,7 +119,7 @@ If this is your first time installing XQuartz, you may wish to logout and log ba
   * server:
     * xf86-input-void 1.4.0
     * xf86-video-dummy 0.3.5
-    * xorg-server 1.12.0 plus other patches
+    * xorg-server 1.12.1 plus other patches
       * Xfake, Xvfb, Xfake are now using the same server version as XQuartz
       * Xephyr is still using 1.6.5-apple3
       * Xorg binary is now installed as well, for use with the dummy, nested, or vnc drivers (experts only, not yet fully supported)
