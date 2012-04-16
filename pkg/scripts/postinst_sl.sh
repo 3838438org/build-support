@@ -29,6 +29,7 @@ if [[ -e /tmp/.xquartz_first_time ]] ; then
             display dialog "You will need to log out and log back in to make XQuartz your default X11 server." buttons {"OK"}
         end tell
 EOF
+rm /tmp/.xquartz_first_time
 fi
 
 exit 0
