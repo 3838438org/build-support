@@ -16,6 +16,8 @@ If this is your first time installing XQuartz, you may wish to logout and log ba
   * All changes in 2.7.1 plus:
   * app:
     * bitmap 1.0.6
+    * fslsfonts 1.0.4
+    * fstobdf 1.0.5
     * listres 1.0.3
     * luit 1.1.1
     * setxkbmap 1.3.0
@@ -27,6 +29,7 @@ If this is your first time installing XQuartz, you may wish to logout and log ba
     * xfd 1.1.1
     * xfs 1.1.2
     * xhost 1.0.5
+    * xinput 1.5.99.901
     * xkbcomp 1.2.4
     * xfontsel 1.0.4
     * xgamma 1.0.5
@@ -34,7 +37,8 @@ If this is your first time installing XQuartz, you may wish to logout and log ba
     * xload 1.1.1
     * xlogo 1.0.4
     * xlsatoms 1.1.1
-    * xmodmap 1.0.6
+    * xlsfonts 1.0.4
+    * xmodmap 1.0.7
     * xpr 1.0.4
     * xscope 1.3.1
     * xterm 278
@@ -67,10 +71,12 @@ If this is your first time installing XQuartz, you may wish to logout and log ba
     * libfontenc 1.1.1
     * libFS 1.0.4
     * libICE 1.0.8
-    * libpng 1.2.47
-    * libpng 1.4.9
-    * libpng 1.5.9
+    * libpng 1.2.49
+    * libpng 1.4.11
+    * libpng 1.5.10
       * CVE-2011-3026
+      * CVE-2011-3045
+      * CVE-2011-3048
     * libSM 1.2.1
     * libX11 1.4.99.901
     * libXau 1.0.7
@@ -78,6 +84,7 @@ If this is your first time installing XQuartz, you may wish to logout and log ba
     * libXaw3d 1.6.2
     * libXcursor 1.1.13
     * libxcb 1.8.1
+      * Plus a fix for xcb_connect incorrectly trying tcp on failure
     * libXdmcp 1.1.1
     * libXext 1.3.1
     * libXfont 1.4.5
@@ -98,13 +105,16 @@ If this is your first time installing XQuartz, you may wish to logout and log ba
     * libXvMC 1.0.7
     * libXxf86dga 1.1.3
     * libXxf86vm 1.1.2
-    * mesa 8.0.1
+    * mesa 8.0.2
+    * xpyb 1.3.1
     * xtrans 1.2.7
   * misc:
     * font-util 1.3.0
     * lndir 1.0.3
     * makedepend 1.0.4
     * util-macros 1.17
+    * xorg-docs 1.6.99.901
+    * xorg-sgml-doctools 1.10.99.901
   * proto:
     * bigreqsproto 1.1.2
     * fontsproto 2.1.2
