@@ -106,6 +106,7 @@ If this is your first time installing XQuartz, you may wish to logout and log ba
     * libXxf86dga 1.1.3
     * libXxf86vm 1.1.2
     * mesa 8.0.2
+      * Plus fixes for two crashes and a memory leak (#512)
     * xpyb 1.3.1
     * xtrans 1.2.7
   * misc:
@@ -122,10 +123,13 @@ If this is your first time installing XQuartz, you may wish to logout and log ba
     * inputproto 2.2
     * recordproto 1.14.2
     * scrnsaverproto 1.2.2
-    * xcb-proto 1.7
+    * xcb-proto 1.7.1
     * xcmiscproto 1.2.2
     * xextproto 7.2.1
     * xproto 7.0.23
+  * pkg:
+    * The installer and executables are now signed with an Apple DeveloperID for increased security.
+      * You should be able to install it with Gatekeeper set to "Mac App Store and identified developers"
   * server:
     * xf86-input-void 1.4.0
     * xf86-video-dummy 0.3.5
