@@ -45,7 +45,7 @@ If this is your first time installing XQuartz, you may wish to logout and log ba
     * xwd 1.0.5
     * xwud 1.0.4
   * lib:
-    * cairo 1.12.0
+    * cairo 1.12.2
     * freeglut 2.8.0
     * freetype 2.4.9
       * CVE-2012-1126
@@ -90,8 +90,7 @@ If this is your first time installing XQuartz, you may wish to logout and log ba
     * libXfont 1.4.5
     * libXft 2.3.0
       * Plus a fix for a bold font regression
-    * libXi 1.6.0
-      * Plus a fix for a padding bug regression on x86_64
+    * libXi 1.6.1
     * libXinerama 1.1.2
     * libxkbfile 1.0.8
     * libXmu 1.1.1
