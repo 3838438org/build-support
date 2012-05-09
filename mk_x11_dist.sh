@@ -74,9 +74,10 @@ if [[ ${MACOSFORGE_SL} == "YES" ]] ; then
 fi
 
 if [[ ${MACOSFORGE_RELEASE} == "YES" ]] ; then
-	BUILDIT="${BUILDIT} -noverify -noverifydstroot"
+	BUILDIT="${BUILDIT} -noverify -noverifydstroot -nocortex"
+# -nopathChanges"
 
-	export MACOSFORGE_XQUARTZ_CODESIGN_IDENTITY="-"
+	export MACOSFORGE_XQUARTZ_CODESIGN_IDENTITY="Developer ID Application: Apple Inc. - XQuartz"
 
 	export MACOSFORGE_BUILD_DOCS
 
@@ -106,6 +107,7 @@ if [[ "${MACOSFORGE_LEO}" == "YES" ]] ; then
 	export EXTRA_XQUARTZ_CFLAGS="-mmacosx-version-min=${MACOSX_DEPLOYMENT_TARGET}"
 	export EXTRA_XQUARTZ_LDFLAGS="-Wl,-macosx_version_min,${MACOSX_DEPLOYMENT_TARGET}"
 	export CC="/usr/bin/gcc-4.2"
+	export CXX="/usr/bin/g++-4.2"
 	export OBJC="${CC}"
 	export PYTHON=/usr/bin/python2.5
 	export PYTHONPATH="/usr/X11/lib/python2.5:/usr/X11/lib/python2.5/site-packages"
@@ -121,10 +123,8 @@ else
 		export MACOSX_DEPLOYMENT_TARGET=10.6
 		export EXTRA_XQUARTZ_CFLAGS="-mmacosx-version-min=${MACOSX_DEPLOYMENT_TARGET}"
 		export EXTRA_XQUARTZ_LDFLAGS="-Wl,-macosx_version_min,${MACOSX_DEPLOYMENT_TARGET}"
-		export CC="/opt/llvm/bin/clang"
-		#export CC="/usr/bin/gcc-4.2"
-		#export CC="/usr/bin/llvm-gcc-4.2"
-		#export CC="/usr/bin/clang"
+		export CC="$(xcrun -find clang)"
+		export CXX="$(xcrun -find clang++)"
 		export OBJC="${CC}"
 		export PYTHON=/usr/bin/python2.6
 		export PYTHONPATH="${X11_PREFIX}/lib/python2.6:${X11_PREFIX}/lib/python2.6/site-packages"
@@ -210,6 +210,7 @@ if [[ -n ${VERSION} ]] ; then
 	echo "Press enter when done"
 	sudo -u jeremy open XQuartz-${VERSION_TXT}.pmdoc
 	read IGNORE
-	sudo -u jeremy /Developer/usr/bin/packagemaker --verbose --doc XQuartz-${VERSION_TXT}.pmdoc --out XQuartz-${VERSION_TXT}.pkg
+	sudo -u jeremy /Applications/PackageMaker.app/Contents/MacOS/PackageMaker --verbose --doc XQuartz-${VERSION_TXT}.pmdoc --out XQuartz-${VERSION_TXT}.pkg
+	sudo -u jeremy productsign --sign "Developer ID Installer: Apple Inc. - XQuartz" XQuartz-${VERSION_TXT}.pkg
 	sudo -u jeremy ./mkdmg.sh XQuartz-${VERSION_TXT}.pkg ${VERSION} > XQuartz-${VERSION_TXT}.sparkle.xml
 fi
