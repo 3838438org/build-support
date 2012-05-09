@@ -14,6 +14,8 @@ MAKE_OPTS="-j10"
 
 . ~/src/strip.sh
 
+PATH=$PATH:/opt/local/bin
+
 #PREFIX=/usr/X11
 #ARCHFLAGS="-arch i386 -arch x86_64"
 
@@ -43,8 +45,8 @@ LDFLAGS="$CFLAGS"
 
 #CC="llvm-gcc"
 #CXX="llvm-g++"
-CC="/opt/local/bin/clang-mp-3.1"
-CXX="/opt/local/bin/clang++-mp-3.1"
+CC="/opt/local/bin/clang-mp-3.0"
+CXX="/opt/local/bin/clang++-mp-3.0"
 
 OBJC="$CC"
 
@@ -66,6 +68,8 @@ if false ; then
 	export FOP_OPTS="-Xmx2048m -Djava.awt.headless=true"
 	export GROFF=/opt/local/bin/groff
 	export PS2PDF=/opt/local/bin/ps2pdf
+else
+	CONFOPT="${CONFOPT} --disable-docs --disable-devel-docs --disable-builddocs"
 fi
 
 export ACLOCAL CPPFLAGS CFLAGS OBJCFLAGS LDFLAGS CC OBJC
