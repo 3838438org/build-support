@@ -29,7 +29,7 @@ If this is your first time installing XQuartz, you may wish to logout and log ba
     * xfd 1.1.1
     * xfs 1.1.2
     * xhost 1.0.5
-    * xinput 1.5.99.901
+    * xinput 1.6.0
     * xkbcomp 1.2.4
     * xfontsel 1.0.4
     * xgamma 1.0.5
@@ -104,8 +104,8 @@ If this is your first time installing XQuartz, you may wish to logout and log ba
     * libXvMC 1.0.7
     * libXxf86dga 1.1.3
     * libXxf86vm 1.1.2
-    * mesa 8.0.2
-      * Plus fixes for two crashes and a memory leak (#512)
+    * mesa 8.0.3
+      * Including fixes for two crashes, a memory leak, and regressions (#512, #575)
     * xpyb 1.3.1
     * xtrans 1.2.7
   * misc:
@@ -138,6 +138,7 @@ If this is your first time installing XQuartz, you may wish to logout and log ba
       * Xorg binary is now installed as well, for use with the dummy, nested, or vnc drivers (experts only, not yet fully supported)
       * Improved support for Xi2 including sub-pixel resolution of valuators and smooth scrolling
       * Workaround a wine bug in mouse input
+      * Address a race condition at startup that affects tablets and VMWare users (#579)
 
 == Changes in 2.7.1 ==
   * All changes in 2.7.0 plus:
