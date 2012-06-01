@@ -21,6 +21,8 @@ If this is your first time installing XQuartz, you may wish to logout and log ba
     * listres 1.0.3
     * luit 1.1.1
     * setxkbmap 1.3.0
+    * quartz-wm 1.3.1
+      * Plus a fix for a crash when minimizing windows without titles
     * xauth 1.0.7
     * xcmsdb 1.0.4
     * xcompmgr 1.1.6
@@ -132,7 +134,7 @@ If this is your first time installing XQuartz, you may wish to logout and log ba
   * server:
     * xf86-input-void 1.4.0
     * xf86-video-dummy 0.3.5
-    * xorg-server 1.12.1 plus other patches
+    * xorg-server 1.12.2 plus other patches
       * Xfake, Xvfb, Xfake are now using the same server version as XQuartz
       * Xephyr is still using 1.6.5-apple3
       * Xorg binary is now installed as well, for use with the dummy, nested, or vnc drivers (experts only, not yet fully supported)
