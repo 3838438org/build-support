@@ -2,7 +2,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 The software contained in this package are licensed under multiple licenses.  It is not feasible to include all of the licenses here in a precise manner.  For clarification on licensing issues, please contact the OS X X11 Users mailing list (http://trac.macosforge.org/projects/xquartz/wiki/MailingLists).  What comes below is an attempt to give a brief overview of some of the relevant licenses.
 
-libXplugin is open sourced and is licensed to you under the same conditions as any Apple Software Update (although lacking any warranty, since this is *NOT* an official Apple release).
+libXplugin is not open source.  It is licensed to you under the same conditions as any Apple Software Update (although lacking any warranty, since this is *NOT* an official Apple release).
 
 All other software installed is made available under an OSI approved license (see http://www.opensource.org/licenses/alphabetical) including, but not necessarily limited to the following licenses: MIT, BSD, APSL-2, GPL-2, and LGPL-2.
 
