@@ -22,7 +22,7 @@
 [[ -e /usr/X11 ]] || ln -s /opt/X11 /usr/X11
 [[ -e /usr/X11R6 ]] || ln -s /opt/X11 /usr/X11R6
 
-if [[ -e /tmp/.xquartz_first_time ]] ; then
+if [[ -z "${COMMAND_LINE_INSTALL}" && -e /tmp/.xquartz_first_time ]] ; then
     /usr/bin/osascript <<EOF
         tell application "System Events"
             activate
