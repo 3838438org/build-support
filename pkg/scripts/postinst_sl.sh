@@ -1,7 +1,24 @@
 #!/bin/sh
 
-[[ -f /etc/paths.d/XQuartz ]] && rm /etc/paths.d/XQuartz 
-[[ -f /etc/manpaths.d/XQuartz ]] && rm /etc/manpaths.d/XQuartz 
+if ! cat /etc/sshd_config | grep -v '^#' | grep -q XAuthLocation ; then
+    {
+        echo ""
+        echo "# XAuthLocation added by XQuartz (http://xquartz.macosforge.org)"
+        echo "XAuthLocation /opt/X11/bin/xauth"
+    } >> /etc/sshd_config
+fi
+
+if ! cat /etc/ssh_config | grep -v '^#' | grep -q XAuthLocation ; then
+    {
+        echo ""
+        echo "# XAuthLocation added by XQuartz (http://xquartz.macosforge.org)"
+        echo "Host *"
+        echo "    XAuthLocation /opt/X11/bin/xauth"
+    } >> /etc/ssh_config
+fi
+
+[[ -f /etc/paths.d/XQuartz ]] && rm /etc/paths.d/XQuartz
+[[ -f /etc/manpaths.d/XQuartz ]] && rm /etc/manpaths.d/XQuartz
 
 [[ -d /opt/X11/include/libpng12 ]] && rm -rf /opt/X11/include/libpng12
 [[ -f /opt/X11/bin/libpng12-config ]] && rm /opt/X11/bin/libpng12-config
