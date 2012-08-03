@@ -12,6 +12,39 @@ XQuartz is released by the open source XQuartz project.  While Apple Inc. is an 
 
 If this is your first time installing XQuartz, you may wish to logout and log back in.  This will update your DISPLAY environment variable to point to XQuartz.app rather than X11.app.  If you would prefer to keep using X11.app as your default server (you can still launch XQuartz.app manually), you'll want to disable /Library/LaunchAgents/org.macosforge.xquartz.startx.plist using launchctl(1).
 
+== Changes in 2.7.3 ==
+   * All changes in 2.7.2 plus:
+  * app:
+    * xinit
+      * Fixed an issue with the dpi preference (#600)
+    * xterm 281
+  * proto:
+    * dri2proto 2.8
+    * glproto 1.4.16
+    * randrproto 1.4.0
+  * lib:
+    * libpng 1.2.50
+    * libpng 1.4.11
+    * libpng 1.5.10
+    * libX11 1.5.0
+    * libXaw 1.0.11
+    * libXft 2.3.1
+    * pixman 0.26.2
+    * xcb-util 0.3.9
+    * xcb-util-image 0.3.9
+    * xcb-util-keyyms 0.3.9
+    * xcb-util-wm 0.3.9
+  * misc:
+    * xorg-docs 1.7
+    * xorg-sgml-doctools 1.11
+  * pkg:
+    * Edit /etc/ssh_config on install, so it will find xauth
+    * Edit /etc/sshd_config on install, so it will find xauth
+  * server:
+    * Xvfb should once again work on Snow Leopard (#588)
+    * xorg-server 1.12.3 plus other patches
+      * Work around menu bar bug on Mountain Lion (#607)
+
 == Changes in 2.7.2 ==
   * All changes in 2.7.1 plus:
   * app:
