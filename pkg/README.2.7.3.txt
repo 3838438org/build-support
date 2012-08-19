@@ -29,6 +29,9 @@ If this is your first time installing XQuartz, you may wish to logout and log ba
     * libX11 1.5.0
     * libXaw 1.0.11
     * libXft 2.3.1
+    * libXplugin
+      * Work around menu bar bug on Mountain Lion (#607)
+      * Don't accidentally switch spaces on Mountain Lion (#610)
     * pixman 0.26.2
     * xcb-util 0.3.9
     * xcb-util-image 0.3.9
@@ -38,12 +41,10 @@ If this is your first time installing XQuartz, you may wish to logout and log ba
     * xorg-docs 1.7
     * xorg-sgml-doctools 1.11
   * pkg:
-    * Edit /etc/ssh_config on install, so it will find xauth
-    * Edit /etc/sshd_config on install, so it will find xauth
+    * Set XAuthLocation in /etc/ssh_config and /etc/sshd_config, so ssh can find xauth (#619)
   * server:
     * Xvfb should once again work on Snow Leopard (#588)
-    * xorg-server 1.12.3 plus other patches
-      * Work around menu bar bug on Mountain Lion (#607)
+    * xorg-server 1.12.4 plus other patches
 
 == Changes in 2.7.2 ==
   * All changes in 2.7.1 plus:
