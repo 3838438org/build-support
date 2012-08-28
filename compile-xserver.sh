@@ -6,11 +6,11 @@
 CONFOPT="--enable-standalone-xpbproxy"
 #CONFOPT="--disable-shave --without-dtrace"
 
-CONFOPT="${CONFOPT} --with-dtrace"
+#CONFOPT="${CONFOPT} --with-dtrace"
 
 # Parallel Make.  Change $MAKE if you don't have gmake installed
 MAKE="gnumake"
-MAKE_OPTS="-j10"
+MAKE_OPTS="-j3"
 
 . ~/src/strip.sh
 
@@ -20,14 +20,16 @@ PATH=$PATH:/opt/local/bin
 #ARCHFLAGS="-arch i386 -arch x86_64"
 
 PREFIX=/opt/X11
+#CONFOPT="$CONFOPT --with-apple-applications-dir=/Applications/MacPorts --with-launchd-id-prefix=org.macports"
 CONFOPT="$CONFOPT --with-apple-application-name=XQuartz --with-launchd-id-prefix=org.macosforge.xquartz"
 ARCHFLAGS="-arch i386 -arch x86_64"
 
-ACLOCAL="aclocal -I ${PREFIX}/share/aclocal -I /usr/local/share/aclocal"
+ACLOCAL="aclocal -I ${PREFIX}/share/aclocal -I /opt/local/share/aclocal"
 
-CPPFLAGS="-DNO_ALLOCA -DNO_COMPILER_H -DFAKEIT -DFAIL_HARD"
+CPPFLAGS="-DNO_ALLOCA -D_FORTIFY_SOURCE=2 -DFAIL_HARD -DFAKEIT"
 
-CFLAGS="$CFLAGS -O0 -g3 -pipe"
+CFLAGS="$CFLAGS -pipe -O1"
+CFLAGS="$CFLAGS -g3 -gdwarf-2"
 CFLAGS="$CFLAGS $ARCHFLAGS"
 CFLAGS="$CFLAGS -Wall -Wextra -Wno-sign-compare -Wno-unused-parameter -Wno-missing-field-initializers"
 
@@ -45,13 +47,15 @@ LDFLAGS="$CFLAGS"
 
 #CC="llvm-gcc"
 #CXX="llvm-g++"
-CC="/opt/local/bin/clang-mp-3.0"
-CXX="/opt/local/bin/clang++-mp-3.0"
+#CC="/opt/local/bin/gcc-apple-4.2"
+#CXX="/opt/local/bin/g++-apple-4.2"
+CC="/opt/local/bin/clang-mp-3.1"
+CXX="/opt/local/bin/clang++-mp-3.1"
 
 OBJC="$CC"
 
 #SCAN_BUILD="scan-build -v -V -o clang.d --use-cc=${CC} --use-c++=${CXX}"
- 
+
 #CPPFLAGS="$CPPFLAGS -F/Applications/Utilities/XQuartz.app/Contents/Frameworks"
 #LDFLAGS="$LDFLAGS -F/Applications/Utilities/XQuartz.app/Contents/Frameworks"
 #CPPFLAGS="$CPPFLAGS -F/Applications/Utilities/X11.app/Contents/Frameworks"
@@ -83,7 +87,7 @@ die() {
 }
 
 docomp() {
-	autoreconf -fvi || die
+	PATH=/opt/local/bin:${PATH} autoreconf -fvi || die
 	${SCAN_BUILD} ./configure --prefix=${PREFIX} ${CONFOPT} --disable-dependency-tracking --enable-maintainer-mode --enable-xcsecurity --enable-record --disable-xevie "${@}" || die "Could not configure xserver"
 	${MAKE} clean || die "Unable to make clean"
 	${SCAN_BUILD} ${MAKE} ${MAKE_OPTS} || die "Could not make xserver"
