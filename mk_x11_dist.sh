@@ -66,7 +66,7 @@ export MACOSFORGE_LEO MACOSFORGE_SL MACOSFORGE_RELEASE
 if [[ ${MACOSFORGE_SL} == "YES" ]] ; then
 	export X11_PREFIX="/opt/X11"
 	export XPLUGIN_PREFIX="/opt/X11"
-	export QUARTZWM_PREFIX="/opt/X11"	
+	export QUARTZWM_PREFIX="/opt/X11"
 	export X11_BUNDLE_ID_PREFIX="org.macosforge.xquartz"
 	export X11_APP_NAME="XQuartz"
 	export LAUNCHD_PREFIX="/Library"
@@ -120,8 +120,12 @@ else
 		export MACOSX_DEPLOYMENT_TARGET=10.6
 		export EXTRA_XQUARTZ_CFLAGS="-mmacosx-version-min=${MACOSX_DEPLOYMENT_TARGET}"
 		export EXTRA_XQUARTZ_LDFLAGS="-Wl,-macosx_version_min,${MACOSX_DEPLOYMENT_TARGET}"
-		export CC="$(xcrun -find clang)"
-		export CXX="$(xcrun -find clang++)"
+		#export CC="clang-mp-3.1"
+		#export CXX="clang++-mp-3.1"
+		#export CC="$(xcrun -find clang)"
+		#export CXX="$(xcrun -find clang++)"
+		export CC="/usr/bin/clang"
+		export CXX="/usr/bin/clang++"
 		export OBJC="${CC}"
 		export PYTHON=/usr/bin/python2.6
 		export PYTHONPATH="${X11_PREFIX}/lib/python2.6:${X11_PREFIX}/lib/python2.6/site-packages"
@@ -193,7 +197,7 @@ if [[ -n ${VERSION} ]] ; then
 	plutil -convert xml1 "${INFO_PLIST}"
 	chmod 644 "${INFO_PLIST}"
 
-	if [[ "${VERSION_TXT}" == "VERSION_TXT_SHORT" ]] ; then
+	if [[ "${VERSION_TXT}" == "${VERSION_TXT_SHORT}" ]] ; then
 		/opt/local/bin/gsed -i 's:beta.xml:release.xml:' "${INFO_PLIST}"
 	else
 		/opt/local/bin/gsed -i 's:release.xml:beta.xml:' "${INFO_PLIST}"
