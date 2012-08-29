@@ -10,7 +10,7 @@ CONFOPT="--enable-standalone-xpbproxy"
 
 # Parallel Make.  Change $MAKE if you don't have gmake installed
 MAKE="gnumake"
-MAKE_OPTS="-j3"
+MAKE_OPTS="-j12"
 
 . ~/src/strip.sh
 
@@ -28,7 +28,7 @@ ACLOCAL="aclocal -I ${PREFIX}/share/aclocal -I /opt/local/share/aclocal"
 
 CPPFLAGS="-DNO_ALLOCA -D_FORTIFY_SOURCE=2 -DFAIL_HARD -DFAKEIT"
 
-CFLAGS="$CFLAGS -pipe -O1"
+CFLAGS="$CFLAGS -pipe -O0"
 CFLAGS="$CFLAGS -g3 -gdwarf-2"
 CFLAGS="$CFLAGS $ARCHFLAGS"
 CFLAGS="$CFLAGS -Wall -Wextra -Wno-sign-compare -Wno-unused-parameter -Wno-missing-field-initializers"
@@ -87,7 +87,7 @@ die() {
 }
 
 docomp() {
-	PATH=/opt/local/bin:${PATH} autoreconf -fvi || die
+	#PATH=/opt/local/bin:${PATH} autoreconf -fvi || die
 	${SCAN_BUILD} ./configure --prefix=${PREFIX} ${CONFOPT} --disable-dependency-tracking --enable-maintainer-mode --enable-xcsecurity --enable-record --disable-xevie "${@}" || die "Could not configure xserver"
 	${MAKE} clean || die "Unable to make clean"
 	${SCAN_BUILD} ${MAKE} ${MAKE_OPTS} || die "Could not make xserver"

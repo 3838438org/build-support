@@ -132,38 +132,43 @@ else
 	fi
 fi
 
+BUILDRECORDS="$(/usr/bin/mktemp -d ${TMPDIR-/tmp}/X11roots.XXXXXX)"
+chown jeremy "${BUILDRECORDS}"
+
 bit() {
-	local MERGE_ROOT
-	if [[ "${MERGE_DIRS/ /}" == "${MERGE_DIRS}" ]] ; then
-		MERGE_ROOT="${MERGE_DIRS}"
-		mkdir -p ${MERGE_ROOT}
-	else
-		MERGE_ROOT="$(/usr/bin/mktemp -d ${TMPDIR-/tmp}/X11dst.XXXXXX)"
-	fi
+	local PROJECT="${1}" ; shift
+	local SRCROOT="${1}" ; shift
+	local DSTROOT="${BUILDRECORDS}/${PROJECT}.roots/${PROJECT}~dst"
+	local SYMROOT="${BUILDRECORDS}/${PROJECT}.roots/${PROJECT}~sym"
 
-	[[ -d "${MERGE_ROOT}" ]] || die
-	${BUILDIT} "${@}" -merge "${MERGE_ROOT}" || die
+	pushd "${SRCROOT}" || die
+	${BUILDIT} -rootsDirectory "${BUILDRECORDS}" -project "${PROJECT}" . "${@}" || die
+	popd || die
 
-	if [[ "${MERGE_DIRS/ /}" == "${MERGE_DIRS}" ]] ; then
-		if [[ -n "${MERGE_ROOT}" && "${MERGE_ROOT}" != "/" ]] ; then
-			/bin/rm -rf ${MERGE_ROOT}/usr/local
-			/bin/rmdir ${MERGE_ROOT}/usr >& /dev/null
+	local MERGE_DIR
+	echo ""
+	for MERGE_DIR in ${MERGE_DIRS}; do
+		echo "*** mk_x11_dist.sh ***: Merging into root: ${MERGE_DIR}" || die
+		mkdir -p "${MERGE_DIR}" || die
+		ditto "${DSTROOT}" "${MERGE_DIR}" || die
+
+		if [[ -n "${MERGE_DIR}" && "${MERGE_DIR}" != "/" ]] ; then
+			/bin/rm -rf "${MERGE_DIR}"/usr/local
+			/bin/rmdir "${MERGE_DIR}"/usr >& /dev/null
+
+			mkdir -p "${MERGE_DIR}.dSYMS"
+			find "${SYMROOT}" -type d -name '*.dSYM' | while read dsym ; do
+				local file_basename="${dsym##*/}"
+				file_basename="${file_basename%.dSYM}"
+				file=$(find "${DSTROOT}" -type f -name "${file_basename}")
+
+				local dirname="${file#${DSTROOT}}"
+				dirname="${dirname%/*}"
+
+				ditto "${dsym}" "${MERGE_DIR}.dSYMS/${dirname}/${file_basename}.dSYM"
+			done
 		fi
-	else
-		local MERGE_DIR
-		echo ""
-		for MERGE_DIR in ${MERGE_DIRS}; do
-			echo "*** mk_x11_dist.sh ***: Merging into root: ${MERGE_DIR}" || die
-			mkdir -p ${MERGE_DIR} || die
-			ditto ${MERGE_ROOT} ${MERGE_DIR} || die
-
-			if [[ -n "${MERGE_DIR}" && "${MERGE_DIR}" != "/" ]] ; then
-				/bin/rm -rf ${MERGE_DIR}/usr/local
-				/bin/rmdir ${MERGE_DIR}/usr >& /dev/null
-			fi
-		done
-		rm -rf ${MERGE_ROOT}
-	fi
+	done
 }
 
 bit_git() {
@@ -172,23 +177,21 @@ bit_git() {
 	[[ "${branch}" == "trunk" ]] && branch="master"
 
 	if [[ -n "${branch}" && -d "${proj}" ]] ; then
-		pushd ${proj}
+		pushd "${proj}"
 		git checkout "${branch}" || die "Unable to checkout ${branch}"
-		bit . -project ${proj} "${@}"
+		bit "${proj}" . "${@}"
 		popd
 	fi
 }
 
-[[ -n ${XPLUGIN} ]]      && bit_git X11_Xplugin "${XPLUGIN}" ${ARCH_ALL} 
-[[ -n ${X11MISC} ]]     && bit X11misc/${X11MISC}        -project X11misc       ${ARCH_ALL}
-[[ -n ${X11PROTO} ]]    && bit X11proto/${X11PROTO}      -project X11proto      ${ARCH_ALL}
-[[ -n ${X11LIBS} ]]     && bit X11libs/${X11LIBS}        -project X11libs       ${ARCH_ALL}
-[[ -n ${QUARTZWM} ]]    && bit X11_quartz_wm/${QUARTZWM} -project X11_quartz_wm ${ARCH_ALL}
-[[ -n ${X11SERVER} ]]   && bit X11server/${X11SERVER}    -project X11server     ${ARCH_ALL}
-[[ -n ${X11APPS} ]]     && bit X11apps/${X11APPS}        -project X11apps       ${ARCH_ALL}
-[[ -n ${X11FONTS} ]]    && bit X11fonts/${X11FONTS}      -project X11fonts      ${ARCH_ALL}
-
-[[ -n ${X11SERVER} ]] && echo "Remember to edit the plists"
+[[ -n ${XPLUGIN} ]]     && bit_git X11_Xplugin   "${XPLUGIN}"              ${ARCH_ALL}
+[[ -n ${X11MISC} ]]     && bit     X11misc       X11misc/${X11MISC}        ${ARCH_ALL}
+[[ -n ${X11PROTO} ]]    && bit     X11proto      X11proto/${X11PROTO}      ${ARCH_ALL}
+[[ -n ${X11LIBS} ]]     && bit     X11libs       X11libs/${X11LIBS}        ${ARCH_ALL}
+[[ -n ${QUARTZWM} ]]    && bit     X11_quartz_wm X11_quartz_wm/${QUARTZWM} ${ARCH_ALL}
+[[ -n ${X11SERVER} ]]   && bit     X11server     X11server/${X11SERVER}    ${ARCH_ALL}
+[[ -n ${X11APPS} ]]     && bit     X11apps       X11apps/${X11APPS}        ${ARCH_ALL}
+[[ -n ${X11FONTS} ]]    && bit     X11fonts      X11fonts/${X11FONTS}      ${ARCH_ALL}
 
 INFO_PLIST="$(eval echo ~jeremy)/src/freedesktop/pkg/X11/Applications/Utilities/XQuartz.app/Contents/Info.plist"
 if [[ -n ${VERSION} ]] ; then
