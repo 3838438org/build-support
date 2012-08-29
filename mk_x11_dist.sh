@@ -214,6 +214,12 @@ if [[ -n ${VERSION} ]] ; then
 		fi
 	done
 
+	if [[ -d X11.dSYMS ]] ; then
+		cd X11.dSYMS
+		tar cjf ../XQuartz-${VERSION_TXT}.dSYMS.tar.bz2 .
+		cd ..
+	fi
+
 	./mkpmdoc.sh
 	chown -R jeremy XQuartz-${VERSION_TXT}.pmdoc
 	echo "Browse to the components tab and check the box to make XQuartz.app downgradeable"
