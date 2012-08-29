@@ -87,7 +87,7 @@ die() {
 }
 
 docomp() {
-	#PATH=/opt/local/bin:${PATH} autoreconf -fvi || die
+	PATH=/opt/local/bin:${PATH} autoreconf -fvi || die
 	${SCAN_BUILD} ./configure --prefix=${PREFIX} ${CONFOPT} --disable-dependency-tracking --enable-maintainer-mode --enable-xcsecurity --enable-record --disable-xevie "${@}" || die "Could not configure xserver"
 	${MAKE} clean || die "Unable to make clean"
 	${SCAN_BUILD} ${MAKE} ${MAKE_OPTS} || die "Could not make xserver"
