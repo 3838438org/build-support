@@ -138,11 +138,16 @@ chown jeremy "${BUILDRECORDS}"
 bit() {
 	local PROJECT="${1}" ; shift
 	local SRCROOT="${1}" ; shift
-	local DSTROOT="${BUILDRECORDS}/${PROJECT}.roots/${PROJECT}~dst"
-	local SYMROOT="${BUILDRECORDS}/${PROJECT}.roots/${PROJECT}~sym"
+	local EXTRA=""
 
 	pushd "${SRCROOT}" || die
+
+	[[ "$(basename $(pwd))" != "${PROJECT}" ]] && EXTRA="_$(basename $(pwd))"
+	local DSTROOT="${BUILDRECORDS}/${PROJECT}${EXTRA}.roots/${PROJECT}${EXTRA}~dst"
+	local SYMROOT="${BUILDRECORDS}/${PROJECT}${EXTRA}.roots/${PROJECT}${EXTRA}~sym"
+
 	${BUILDIT} -rootsDirectory "${BUILDRECORDS}" -project "${PROJECT}" . "${@}" || die
+
 	popd || die
 
 	local MERGE_DIR
