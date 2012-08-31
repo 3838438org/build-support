@@ -1,6 +1,6 @@
 #!/bin/sh
 
-if ! cat /etc/sshd_config | grep -v '^#' | grep -q XAuthLocation ; then
+if ! cat /etc/sshd_config | grep -v '^#' | egrep -q '^(Match|XAuthLocation)' ; then
     {
         echo ""
         echo "# XAuthLocation added by XQuartz (http://xquartz.macosforge.org)"
@@ -8,7 +8,7 @@ if ! cat /etc/sshd_config | grep -v '^#' | grep -q XAuthLocation ; then
     } >> /etc/sshd_config
 fi
 
-if ! cat /etc/ssh_config | grep -v '^#' | grep -q XAuthLocation ; then
+if ! cat /etc/ssh_config | grep -v '^#' | grep -q 'XAuthLocation' ; then
     {
         echo ""
         echo "# XAuthLocation added by XQuartz (http://xquartz.macosforge.org)"
