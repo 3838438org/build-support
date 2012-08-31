@@ -216,6 +216,10 @@ if [[ -n ${VERSION} ]] ; then
 	find X11 -type f | while read file ; do
 		if /usr/bin/file "${file}" | grep -q "Mach-O" ; then
 			codesign -s "Developer ID Application: Apple Inc. - XQuartz" "${file}"
+
+			if otool -L "${file}" | grep -q "local/lib" ; then
+				die "=== ${file} links against an invalid library ==="
+			fi
 		fi
 	done
 
