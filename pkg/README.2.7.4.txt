@@ -14,6 +14,9 @@ If this is your first time installing XQuartz, you may wish to logout and log ba
 
 == Changes in 2.7.4 ==
   * All changes in 2.7.3 plus:
+  * app:
+    * xinit
+      * Address a possible startup bug if a user is named "0" on the system (#637).
   * lib:
     * fontconfig 2.10.1
   * server:
