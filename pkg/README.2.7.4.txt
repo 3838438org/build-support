@@ -17,7 +17,8 @@ If this is your first time installing XQuartz, you may wish to logout and log ba
   * lib:
     * fontconfig 2.10.1
   * server:
-    * xorg-server 1.13.0 plus  other patches
+    * xorg-server 1.13.0 plus other patches
+      * Workaround for a deadlock issue plaguing wine on OS X 10.7.5 and 10.8.2 (wine bug #31751)
 
 == Changes in 2.7.3 ==
   * All changes in 2.7.2 plus:
