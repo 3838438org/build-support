@@ -19,9 +19,12 @@ If this is your first time installing XQuartz, you may wish to logout and log ba
       * Address a possible startup bug if a user is named "0" on the system (#637).
   * lib:
     * fontconfig 2.10.1
+    * mesa 8.0.4
+      * Fix an issue with GLX pixmaps (#536) plaguing wine
   * server:
+    * xf86-video-dummy 0.3.6
     * xorg-server 1.13.0 plus other patches
-      * Workaround for a deadlock issue plaguing wine on OS X 10.7.5 and 10.8.2 (wine bug #31751)
+      * Workaround for a deadlock issue plaguing wine on OS X 10.7.5 and 10.8.2 (wine bug #31751, #649)
 
 == Changes in 2.7.3 ==
   * All changes in 2.7.2 plus:
