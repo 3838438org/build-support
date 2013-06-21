@@ -12,18 +12,78 @@ XQuartz is released by the open source XQuartz project.  While Apple Inc. is an 
 
 If this is your first time installing XQuartz, you may wish to logout and log back in.  This will update your DISPLAY environment variable to point to XQuartz.app rather than X11.app.  If you would prefer to keep using X11.app as your default server (you can still launch XQuartz.app manually), you'll want to disable /Library/LaunchAgents/org.macosforge.xquartz.startx.plist using launchctl(1).
 
-== Changes in 2.7.5 ==
   * All changes in 2.7.4 plus:
   * app:
-    * xterm 287
+    * appres 1.0.4
+    * bitmap 1.0.7
+    * xdpyinfo 1.3.1
+    * xfontsel 1.0.5
+    * xfs 1.1.3
+    * xrefresh 1.0.5
+    * xterm 293
+    * xwininfo 1.1.3
   * proto:
+    * inputproto 2.3
+    * xproto 7.0.24
     * xcb-proto 1.8
   * lib:
-    * libxcb 1.9
+    * cairo 1.12.14
+    * freeglut 2.8.1
+    * freetype 2.5.0.1
+    * libdmx 1.1.3
+      * CVE-2013-1992
+    * libfontenc 1.1.2
+      * CVE-2013-19
+    * libFS 1.0.5
+      * CVE-2013-1996
+    * libpng 1.5.16
+    * libX11 1.6.0
+      * CVE-2013-1981
+      * CVE-2013-1997
+      * CVE-2013-1981
+      * CVE-2013-2004
+    * libXau 1.0.8
+    * libxcb 1.9.1
+      * CVE-2013-2064
       * Fixes a deadlock in wine (#696)
-    * libXrandr 1.4.0
+    * libXcursor 1.1.14
+      * CVE-2013-2003
+    * libXext 1.3.2
+      * CVE-2013-1982
+    * libXfixes 5.0.1
+      * CVE-2013-1983
+    * libXi 1.7.1
+      * Still missing patches for: CVE-2013-1984
+      * Still missing patches for: CVE-2013-1995
+      * Still missing patches for: CVE-2013-1998
+    * libXinerama 1.1.3
+      * CVE-2013-1985
+    * libXp 1.0.2
+      * CVE-2013-2062
+    * libXrandr 1.4.1
+      * CVE-2013-1986
+    * libXrender 0.9.8
+      * CVE-2013-1987
+    * libXres 1.0.7
+      * CVE-2013-1988
+    * libXt 1.1.4
+      * CVE-2013-2002
+      * CVE-2013-2005
+    * libXtst 1.1.2
+      * CVE-2013-3063
+    * libXxf86dga 1.1.4
+      * CVE-2013-1991
+      * CVE-2013-2000
+    * libXxf86vm 1.1.3
+      * CVE-2013-2001
+    * libXv 1.0.8
+      * CVE-2013-1989
+      * CVE-2013-2066
+    * libXvMC 1.0.8
+      * CVE-2013-1999
+    * pixman 0.30.0
   * server:
-    * xorg-server 1.13.1 plus other patches
+    * xorg-server 1.13.4 plus other patches
       * Don't force discreet graphics (#654)
       * Removed support for 15bit visuals which no longer work in Mountain Lion (#633)
 
