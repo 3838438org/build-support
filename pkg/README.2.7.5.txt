@@ -52,6 +52,7 @@ If this is your first time installing XQuartz, you may wish to logout and log ba
     * xcb-proto 1.8
   * lib:
     * cairo 1.12.14
+    * fontconfig 2.11.0
     * freeglut 2.8.1
     * freetype 2.5.0.1
     * libdmx 1.1.3
@@ -60,7 +61,7 @@ If this is your first time installing XQuartz, you may wish to logout and log ba
       * CVE-2013-19
     * libFS 1.0.5
       * CVE-2013-1996
-    * libpng 1.5.16
+    * libpng 1.5.17
     * libSM 1.2.2
     * libX11 1.6.2
       * CVE-2013-1981
