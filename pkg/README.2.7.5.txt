@@ -12,18 +12,42 @@ XQuartz is released by the open source XQuartz project.  While Apple Inc. is an 
 
 If this is your first time installing XQuartz, you may wish to logout and log back in.  This will update your DISPLAY environment variable to point to XQuartz.app rather than X11.app.  If you would prefer to keep using X11.app as your default server (you can still launch XQuartz.app manually), you'll want to disable /Library/LaunchAgents/org.macosforge.xquartz.startx.plist using launchctl(1).
 
+== Changes in 2.7.5 ==
   * All changes in 2.7.4 plus:
   * app:
     * appres 1.0.4
     * bitmap 1.0.7
+    * iceauth 1.0.6
+    * makedepend 1.0.5
+    * mkfontscale 1.1.1
+    * twm 1.0.8
+    * xauth 1.0.8
+    * xclipboard 1.1.3
+    * xconsole 1.0.6
+    * xclock 1.0.7
     * xdpyinfo 1.3.1
+    * xfd 1.1.2
     * xfontsel 1.0.5
     * xfs 1.1.3
+    * xhost 1.0.6
+    * xinit 1.3.3
+    * xinput 1.6.1
+    * xkill 1.0.4
+    * xload 1.1.2
+    * xlsclients 1.1.3
+    * xman 1.1.3
+    * xmodmap 1.0.8
+    * xprop 1.2.2
+    * xrandr 1.4.1
+    * xrdb 1.1.0
     * xrefresh 1.0.5
+    * xset 1.2.3
     * xterm 293
+    * xwd 1.0.6
     * xwininfo 1.1.3
   * proto:
     * inputproto 2.3
+    * videoproto 2.3.2
     * xproto 7.0.24
     * xcb-proto 1.8
   * lib:
@@ -37,12 +61,14 @@ If this is your first time installing XQuartz, you may wish to logout and log ba
     * libFS 1.0.5
       * CVE-2013-1996
     * libpng 1.5.16
-    * libX11 1.6.0
+    * libSM 1.2.2
+    * libX11 1.6.2
       * CVE-2013-1981
       * CVE-2013-1997
       * CVE-2013-1981
       * CVE-2013-2004
     * libXau 1.0.8
+    * libXaw 1.0.12
     * libxcb 1.9.1
       * CVE-2013-2064
       * Fixes a deadlock in wine (#696)
@@ -52,15 +78,18 @@ If this is your first time installing XQuartz, you may wish to logout and log ba
       * CVE-2013-1982
     * libXfixes 5.0.1
       * CVE-2013-1983
-    * libXi 1.7.1
-      * Still missing patches for: CVE-2013-1984
-      * Still missing patches for: CVE-2013-1995
-      * Still missing patches for: CVE-2013-1998
+    * libXfont 1.4.6
+    * libXi 1.7.2
+      * CVE-2013-1984
+      * CVE-2013-1995
+      * CVE-2013-1998
     * libXinerama 1.1.3
       * CVE-2013-1985
+    * libXmu 1.1.2
     * libXp 1.0.2
       * CVE-2013-2062
-    * libXrandr 1.4.1
+    * libXpm 3.5.11
+    * libXrandr 1.4.2
       * CVE-2013-1986
     * libXrender 0.9.8
       * CVE-2013-1987
@@ -71,6 +100,7 @@ If this is your first time installing XQuartz, you may wish to logout and log ba
       * CVE-2013-2005
     * libXtst 1.1.2
       * CVE-2013-3063
+    * libXv 1.0.10
     * libXxf86dga 1.1.4
       * CVE-2013-1991
       * CVE-2013-2000
@@ -81,11 +111,16 @@ If this is your first time installing XQuartz, you may wish to logout and log ba
       * CVE-2013-2066
     * libXvMC 1.0.8
       * CVE-2013-1999
-    * pixman 0.30.0
+    * pixman 0.30.2
+    * xcb-util-cursor 0.1.0
+  * misc:
+    * util-macros 1.17.1
   * server:
-    * xorg-server 1.13.4 plus other patches
+    * xf86-video-dummy 0.3.7
+    * xorg-server 1.14.4 RC1 plus other patches
       * Don't force discreet graphics (#654)
       * Removed support for 15bit visuals which no longer work in Mountain Lion (#633)
+      * CVE-2013-4396
 
 == Changes in 2.7.4 ==
   * All changes in 2.7.3 plus:
