@@ -113,7 +113,6 @@ If this is your first time installing XQuartz, you may wish to logout and log ba
     * libXvMC 1.0.8
       * CVE-2013-1999
     * pixman 0.30.2
-    * xcb-util-cursor 0.1.0
   * misc:
     * util-macros 1.17.1
   * server:
