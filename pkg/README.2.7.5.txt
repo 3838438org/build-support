@@ -42,7 +42,7 @@ If this is your first time installing XQuartz, you may wish to logout and log ba
     * xrdb 1.1.0
     * xrefresh 1.0.5
     * xset 1.2.3
-    * xterm 293
+    * xterm 297
     * xwd 1.0.6
     * xwininfo 1.1.3
   * proto:
