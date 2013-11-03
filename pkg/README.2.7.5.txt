@@ -117,9 +117,10 @@ If this is your first time installing XQuartz, you may wish to logout and log ba
     * util-macros 1.17.1
   * server:
     * xf86-video-dummy 0.3.7
-    * xorg-server 1.14.4 RC1 plus other patches
+    * xorg-server 1.14.4 plus other patches
       * Don't force discreet graphics (#654)
       * Removed support for 15bit visuals which no longer work in Mountain Lion (#633)
+      * Fix a rendering regression seen in pixman by reverting to old rendering code paths (#525)
       * CVE-2013-4396
 
 == Changes in 2.7.4 ==
