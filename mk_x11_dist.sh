@@ -89,6 +89,7 @@ if [[ ${MACOSFORGE_RELEASE} == "YES" ]] ; then
 
 		for f in "${XMLTO}" "${ASCIIDOC}" "${DOXYGEN}" "${FOP}" "${GROFF}" "${PS2PDF}" ; do
 			[[ -z "${f}" || -x "${f}" ]] || die "Could not find ${f}"
+			exit 1
 		done
 	fi
 fi
@@ -102,7 +103,7 @@ if [[ "${MACOSFORGE_LEO}" == "YES" ]] ; then
 	ARCH_ALL="${ARCH_EXEC} -arch x86_64 -arch ppc64"
 	export MACOSX_DEPLOYMENT_TARGET=10.5
 	export EXTRA_XQUARTZ_CFLAGS="-mmacosx-version-min=${MACOSX_DEPLOYMENT_TARGET}"
-	export EXTRA_XQUARTZ_LDFLAGS="-Wl,-macosx_version_min,${MACOSX_DEPLOYMENT_TARGET}"
+	export EXTRA_XQUARTZ_LDFLAGS="-Wl,-macosx_version_min,${MACOSX_DEPLOYMENT_TARGET} -lobjc"
 	export CC="/usr/bin/gcc-4.2"
 	export CXX="/usr/bin/g++-4.2"
 	export OBJC="${CC}"
@@ -143,8 +144,8 @@ bit() {
 	pushd "${SRCROOT}" || die
 
 	[[ "$(basename $(pwd))" != "${PROJECT}" ]] && EXTRA="_$(basename $(pwd))"
-	local DSTROOT="${BUILDRECORDS}/${PROJECT}${EXTRA}.roots/${PROJECT}${EXTRA}~dst"
-	local SYMROOT="${BUILDRECORDS}/${PROJECT}${EXTRA}.roots/${PROJECT}${EXTRA}~sym"
+	local DSTROOT="${BUILDRECORDS}/${PROJECT}${EXTRA}.roots/BuildRecords/${PROJECT}_install/Root"
+	local SYMROOT="${BUILDRECORDS}/${PROJECT}${EXTRA}.roots/BuildRecords/${PROJECT}_install/Symbols"
 
 	${BUILDIT} -rootsDirectory "${BUILDRECORDS}" -project "${PROJECT}" . "${@}" || die
 
@@ -217,7 +218,11 @@ if [[ -n ${VERSION} ]] ; then
 		if /usr/bin/file "${file}" | grep -q "Mach-O" ; then
 			codesign -s "Developer ID Application: Apple Inc. - XQuartz" "${file}"
 
-			if otool -L "${file}" | grep -q "local/lib" ; then
+			if otool -L "${file}" | grep -q "/opt/local/lib" ; then
+				die "=== ${file} links against an invalid library ==="
+			fi
+
+			if otool -L "${file}" | grep -q "/opt/buildX11/lib" ; then
 				die "=== ${file} links against an invalid library ==="
 			fi
 		fi

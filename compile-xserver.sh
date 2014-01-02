@@ -3,14 +3,14 @@
 #CONFOPT="--disable-xquartz --disable-glx --disable-dri --disable-launchd --enable-kdrive --disable-xsdl --enable-xnest --enable-xvfb"
 #CONFOPT="--enable-xorg --disable-xquartz --disable-kdrive --disable-xnest --disable-xvfb"
 
-CONFOPT="--enable-standalone-xpbproxy"
+#CONFOPT="--enable-standalone-xpbproxy"
 #CONFOPT="--disable-shave --without-dtrace"
 
 #CONFOPT="${CONFOPT} --with-dtrace"
 
 # Parallel Make.  Change $MAKE if you don't have gmake installed
 MAKE="gnumake"
-MAKE_OPTS="-j12"
+MAKE_OPTS="-j8"
 
 . ~/src/strip.sh
 
@@ -19,14 +19,17 @@ PATH=$PATH:/opt/local/bin
 #PREFIX=/usr/X11
 #ARCHFLAGS="-arch i386 -arch x86_64"
 
-PREFIX=/opt/X11
+#PREFIX=/opt/local
 #CONFOPT="$CONFOPT --with-apple-applications-dir=/Applications/MacPorts --with-launchd-id-prefix=org.macports"
+#CPPFLAGS="$CPPFLAGS -I/Users/jeremy/src/macports/dports/x11/xorg-server-devel/files/dri"
+
+PREFIX=/opt/X11
 CONFOPT="$CONFOPT --with-apple-application-name=XQuartz --with-launchd-id-prefix=org.macosforge.xquartz"
 ARCHFLAGS="-arch i386 -arch x86_64"
 
 ACLOCAL="aclocal -I ${PREFIX}/share/aclocal -I /opt/local/share/aclocal"
 
-CPPFLAGS="-DNO_ALLOCA -D_FORTIFY_SOURCE=2 -DFAIL_HARD -DFAKEIT"
+CPPFLAGS="$CPPFLAGS -DNO_ALLOCA -D_FORTIFY_SOURCE=2 -DFAIL_HARD -DFAKEIT -DHAVE_STRLCPY"
 
 CFLAGS="$CFLAGS -pipe -O0"
 CFLAGS="$CFLAGS -g3 -gdwarf-2"
@@ -49,12 +52,14 @@ LDFLAGS="$CFLAGS"
 #CXX="llvm-g++"
 #CC="/opt/local/bin/gcc-apple-4.2"
 #CXX="/opt/local/bin/g++-apple-4.2"
-CC="/opt/local/bin/clang-mp-3.1"
-CXX="/opt/local/bin/clang++-mp-3.1"
+CC="/opt/local/bin/clang-mp-3.4"
+CXX="/opt/local/bin/clang++-mp-3.4"
+#CC=clang
+#CXX=clang++
 
 OBJC="$CC"
 
-#SCAN_BUILD="scan-build -v -V -o clang.d --use-cc=${CC} --use-c++=${CXX}"
+#SCAN_BUILD="scan-build-mp-3.4 -v -V -o clang.d --use-cc=${CC} --use-c++=${CXX}"
 
 #CPPFLAGS="$CPPFLAGS -F/Applications/Utilities/XQuartz.app/Contents/Frameworks"
 #LDFLAGS="$LDFLAGS -F/Applications/Utilities/XQuartz.app/Contents/Frameworks"
