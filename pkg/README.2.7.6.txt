@@ -25,6 +25,8 @@ If this is your first time installing XQuartz, you may wish to logout and log ba
     * xproto 7.0.25
   * lib:
     * fontconfig 2.11.1
+    *​freetype 2.5.3
+​     * CVE-2014-2240
     * libFS 1.0.6
     * libpng 1.2.51
     * libpng 1.4.13
