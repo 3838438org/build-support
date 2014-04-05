@@ -26,6 +26,9 @@ If this is your first time installing XQuartz, you may wish to logout and log ba
   * lib:
     * fontconfig 2.11.1
     * libFS 1.0.6
+    * libpng 1.2.51
+    * libpng 1.4.13
+    * libpng 1.5.18
     * libxcb 1.10
     * libXfont 1.4.7
       * CVE-2013-6462
