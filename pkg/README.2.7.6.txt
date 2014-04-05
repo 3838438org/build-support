@@ -36,6 +36,7 @@ If this is your first time installing XQuartz, you may wish to logout and log ba
       * CVE-2013-6462
     * libxshmfence 1.1
     * pixman 0.32.4
+    * xcb-util-cursor 0.1.1
     * xcb-util-wm 0.4.1
     * xtrans 1.3.4
   * misc:
