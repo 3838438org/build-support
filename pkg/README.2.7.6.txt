@@ -17,6 +17,7 @@ If this is your first time installing XQuartz, you may wish to logout and log ba
   * app:
     * xauth 1.0.9
     * xrandr 1.4.2
+    * xterm 303
   * proto:
     * presentproto 1.0
     * dri3proto 1.0
