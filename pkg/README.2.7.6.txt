@@ -44,6 +44,7 @@ If this is your first time installing XQuartz, you may wish to logout and log ba
     * util-macros 1.19.0
   * server:
     * xorg-server 1.14.5.901 plus other patches
+      * Fix the deletion of display lock files (#823)
 
 == Changes in 2.7.5 ==
   * All changes in 2.7.4 plus:
