@@ -16,6 +16,7 @@ If this is your first time installing XQuartz, you may wish to logout and log ba
   * All changes in 2.7.5 plus:
   * app:
     * xauth 1.0.9
+    * xbacklight 1.2.1
     * xrandr 1.4.2
     * xterm 303
   * proto:
@@ -23,18 +24,21 @@ If this is your first time installing XQuartz, you may wish to logout and log ba
     * dri3proto 1.0
     * xcb-proto 1.10
     * xextproto 7.3.0
-    * xproto 7.0.25
+    * xproto 7.0.26
   * lib:
     * fontconfig 2.11.1
-    *​freetype 2.5.3
-​     * CVE-2014-2240
+    * freetype 2.5.3
+      * CVE-2014-2240
     * libFS 1.0.6
     * libpng 1.2.51
     * libpng 1.4.13
     * libpng 1.5.18
     * libxcb 1.10
-    * libXfont 1.4.7
+    * libXfont 1.4.8
       * CVE-2013-6462
+      * CVE-2014-0209
+      * CVE-2014-0210
+      * CVE-2014-0211
     * libxshmfence 1.1
     * pixman 0.32.4
     * xcb-util-cursor 0.1.1
@@ -43,7 +47,7 @@ If this is your first time installing XQuartz, you may wish to logout and log ba
   * misc:
     * util-macros 1.19.0
   * server:
-    * xorg-server 1.14.5.901 plus other patches
+    * xorg-server 1.14.6 plus other patches
       * Fix the deletion of display lock files (#823)
 
 == Changes in 2.7.5 ==
