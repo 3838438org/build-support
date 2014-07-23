@@ -12,12 +12,25 @@ XQuartz is released by the open source XQuartz project.  While Apple Inc. is an 
 
 If this is your first time installing XQuartz, you may wish to logout and log back in.  This will update your DISPLAY environment variable to point to XQuartz.app rather than X11.app.  If you would prefer to keep using X11.app as your default server (you can still launch XQuartz.app manually), you'll want to disable /Library/LaunchAgents/org.macosforge.xquartz.startx.plist using launchctl(1).
 
-== Changes in 2.7.6 ==
-  * All changes in 2.7.5 plus:
+== Changes in 2.7.7 ==
+  * All changes in 2.7.6 plus:
+  * app:
+    * xcursorgen 1.0.6
+    * xscope 1.4.1
+    * xterm 309
+  * lib:
+    * libICE 1.0.9
+    * libXft 2.3.2
+    * libXi 1.7.4
+    * pixman 0.32.6
+    * xcb-util-renderutil 0.3.9
   * proto:
     * glproto 1.4.17
+    * inputproto 2.3.1
   * server:
-    * xorg-server 1.15.1 plus other patches
+    * xorg-server 1.15.2 plus other patches
+      * Fixes multimonitor support on Mavericks (#832)
+      * Fix Xephyr "failed to create root window" bug (#822)
 
 == Changes in 2.7.6 ==
   * All changes in 2.7.5 plus:
