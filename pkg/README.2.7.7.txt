@@ -16,10 +16,14 @@ If this is your first time installing XQuartz, you may wish to logout and log ba
   * All changes in 2.7.6 plus:
   * app:
     * xcursorgen 1.0.6
+    * xrandr 1.4.3
     * xscope 1.4.1
     * xterm 309
   * lib:
+    * cairo 1.12.16
     * libICE 1.0.9
+    * libxcb 1.11
+    * libXext 1.3.3
     * libXft 2.3.2
     * libXi 1.7.4
     * pixman 0.32.6
@@ -27,10 +31,12 @@ If this is your first time installing XQuartz, you may wish to logout and log ba
   * proto:
     * glproto 1.4.17
     * inputproto 2.3.1
+    * xcb-proto 1.11
   * server:
     * xorg-server 1.15.2 plus other patches
-      * Fixes multimonitor support on Mavericks (#832)
+      * Fixes multimonitor support on Mavericks (#832, #1876)
       * Fix Xephyr "failed to create root window" bug (#822)
+      * Fix a crash resulting from a rare race condition in fd handoff (#869)
 
 == Changes in 2.7.6 ==
   * All changes in 2.7.5 plus:
