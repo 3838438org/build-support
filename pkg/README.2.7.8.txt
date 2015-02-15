@@ -41,6 +41,7 @@ If this is your first time installing XQuartz, you may wish to logout and log ba
     * libpng 1.2.52
     * libpng 1.4.15
     * libpng 1.5.21
+      * CVE-2014-9495
     * libxshmfence 1.2
     * libXfont 1.5.0
     * xcb-util 0.4.0
