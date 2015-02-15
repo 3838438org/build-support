@@ -31,6 +31,7 @@ If this is your first time installing XQuartz, you may wish to logout and log ba
     * xinit 1.3.4
     * xkbcomp 1.3.0
     * xfs 1.1.4
+    * xterm 314
   * lib:
     * cairo 1.14.0
     * freetype 2.5.5
