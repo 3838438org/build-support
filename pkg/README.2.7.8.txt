@@ -14,12 +14,60 @@ If this is your first time installing XQuartz, you may wish to logout and log ba
 
 == Changes in 2.7.8 ==
   * All changes in 2.7.7 plus:
+  * app:
+    * bdtopcf 1.0.5
+    * bitmap 1.0.8
+    * fslsfonts 1.0.5
+    * fstobdf 1.0.6
+    * iceauth 1.0.7
+    * mkfontscale 1.1.2
+    * rgb 1.0.6
+    * sessreg 1.1.0
+    * showfont 1.0.5
+    * xauth
+      * Fix support for Yosemite launchd socket (#2068)
+    * xcalc 1.0.6
+    * xfsinfo 1.0.5
+    * xinit 1.3.4
+    * xkbcomp 1.3.0
+    * xfs 1.1.4
   * lib:
+    * cairo 1.14.0
+    * freetype 2.5.5
+      * CVE-2014-2240
+    * glu 9.0.0
+    * mesa 10.4.4
+    * libpng 1.2.52
+    * libpng 1.4.15
+    * libpng 1.5.21
+    * libxshmfence 1.2
     * libXfont 1.5.0
+    * xcb-util 0.4.0
+    * xcb-util-image 0.4.0
+    * xtrans 1.3.5
+  * misc:
+    * Sparkle 1.6.1
+      * Fix the "This update is locked with a password." issue with auto-updates.
+        * Note that this bug is fixed for updates FROM 2.7.8_beta2 or later.  Updating from 2.7.7_rc1 through 2.7.8_beta1 may encounter this bug.
   * proto:
     * fontsproto 2.1.3
+    * xproto 7.0.27
   * server:
-    * xorg-server 1.16.0 plus other patches
+    * xorg-server 1.16.4 plus other patches
+      * CVE-2014-8091
+      * CVE-2014-8092
+      * CVE-2014-8093
+      * CVE-2014-8094
+      * CVE-2014-8095
+      * CVE-2014-8096
+      * CVE-2014-8097
+      * CVE-2014-8098
+      * CVE-2014-8099
+      * CVE-2014-8100
+      * CVE-2014-8101
+      * CVE-2014-8102
+      * CVE-2014-8103
+      * CVE-2015-0255
 
 == Changes in 2.7.7 ==
   * All changes in 2.7.6 plus:
