@@ -27,32 +27,62 @@ If this is your first time installing XQuartz, you may wish to logout and log ba
     * xauth
       * Fix support for Yosemite launchd socket (#2068)
     * xcalc 1.0.6
+    * xedit 1.2.2
     * xfsinfo 1.0.5
     * xinit 1.3.4
     * xkbcomp 1.3.0
+    * xman 1.1.4
     * xfs 1.1.4
-    * xterm 314
+    * xterm 316
   * lib:
-    * cairo 1.14.0
+    * cairo 1.14.2
     * freetype 2.5.5
       * CVE-2014-2240
+      * CVE-2014-9656
+      * CVE-2014-9657
+      * CVE-2014-9658
+      * CVE-2014-9661
+      * CVE-2014-9662
+      * CVE-2014-9663
+      * CVE-2014-9664
+      * CVE-2014-9665
+      * CVE-2014-9666
+      * CVE-2014-9668
+      * CVE-2014-9670
+      * CVE-2014-9671
+      * CVE-2014-9672
+      * CVE-2014-9673
+      * CVE-2014-9674
+      * CVE-2014-9675
     * glu 9.0.0
-    * mesa 10.4.4
+    * mesa 10.4.7
+      * Fixes GLhandleARB declaration (#858)
     * libpng 1.2.52
     * libpng 1.4.15
     * libpng 1.5.21
       * CVE-2014-9495
+    * libX11 1.6.3
     * libxshmfence 1.2
-    * libXfont 1.5.0
+    * libXdmcp 1.1.2
+    * libXxf86vm 1.1.4
+    * libXfont 1.5.1
+      * CVE-2015-1802
+      * CVE-2015-1803
+      * CVE-2015-1804
+    * libXp 1.0.3
+    * libXvMC 1.0.9
     * xcb-util 0.4.0
     * xcb-util-image 0.4.0
+    * xcb-util-keysyms 0.4.0
     * xtrans 1.3.5
   * misc:
+    * font-util 1.3.1
     * Sparkle 1.6.1
       * Fix the "This update is locked with a password." issue with auto-updates.
         * Note that this bug is fixed for updates FROM 2.7.8_beta2 or later.  Updating from 2.7.7_rc1 through 2.7.8_beta1 may encounter this bug.
   * proto:
     * fontsproto 2.1.3
+    * randrproto 1.4.1
     * xproto 7.0.27
   * server:
     * xorg-server 1.16.4 plus other patches
