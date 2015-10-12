@@ -1,20 +1,30 @@
 #!/bin/sh
 
-if ! cat /etc/sshd_config | grep -v '^#' | egrep -q '^(Match|XAuthLocation)' ; then
+[[ -e /etc/sshd_config ]] && SSHD_CONFIG=/etc/sshd_config
+[[ -e /etc/ssh/sshd_config ]] && SSHD_CONFIG=/etc/ssh/sshd_config
+
+[[ -e /etc/ssh_config ]] && SSH_CONFIG=/etc/ssh_config
+[[ -e /etc/ssh/ssh_config ]] && SSH_CONFIG=/etc/ssh/ssh_config
+
+if [[ -n "${SSHD_CONFIG}" ]] ; then
+    if ! cat ${SSHD_CONFIG} | grep -v '^#' | egrep -q '^(Match|XAuthLocation)' ; then
     {
         echo ""
         echo "# XAuthLocation added by XQuartz (http://xquartz.macosforge.org)"
         echo "XAuthLocation /opt/X11/bin/xauth"
-    } >> /etc/sshd_config
+    } >> ${SSHD_CONFIG}
+    fi
 fi
 
-if ! cat /etc/ssh_config | grep -v '^#' | grep -q 'XAuthLocation' ; then
+if [[ -n "${SSH_CONFIG}" ]] ; then
+    if ! cat ${SSH_CONFIG} | grep -v '^#' | grep -q 'XAuthLocation' ; then
     {
         echo ""
         echo "# XAuthLocation added by XQuartz (http://xquartz.macosforge.org)"
         echo "Host *"
         echo "    XAuthLocation /opt/X11/bin/xauth"
-    } >> /etc/ssh_config
+    } >> ${SSH_CONFIG}
+    fi
 fi
 
 [[ -f /etc/paths.d/XQuartz ]] && rm /etc/paths.d/XQuartz
