@@ -52,10 +52,10 @@ LDFLAGS="$CFLAGS"
 #CXX="llvm-g++"
 #CC="/opt/local/bin/gcc-apple-4.2"
 #CXX="/opt/local/bin/g++-apple-4.2"
-CC="/opt/local/bin/clang-mp-3.4"
-CXX="/opt/local/bin/clang++-mp-3.4"
-#CC=clang
-#CXX=clang++
+#CC="/opt/local/bin/clang-mp-3.4"
+#CXX="/opt/local/bin/clang++-mp-3.4"
+CC=clang
+CXX=clang++
 
 OBJC="$CC"
 
