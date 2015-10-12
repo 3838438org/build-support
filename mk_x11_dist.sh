@@ -74,7 +74,7 @@ if [[ ${MACOSFORGE_SL} == "YES" ]] ; then
 fi
 
 if [[ ${MACOSFORGE_RELEASE} == "YES" ]] ; then
-	BUILDIT="${BUILDIT} -noverify -noverifydstroot -nocortex -nopathChanges"
+	BUILDIT="${BUILDIT} -noverify -noverifydstroot -nocortex -nopathChanges -supportedPlatforms osx -sdkForPlatform osx=macosx.internal -deploymentTargetForPlatform osx=10.6 -platform osx"
 
 	export MACOSFORGE_BUILD_DOCS
 
@@ -117,10 +117,14 @@ elif [[ "${TRAIN}" == "trains/SULeo" ]] ; then
 else
 	ARCH_EXEC="-arch i386 -arch x86_64"
 	ARCH_ALL="${ARCH_EXEC}"
+	BUILDIT="${BUILDIT} -release Syrah"
 	if [[ "${MACOSFORGE_SL}" == "YES" ]] ; then
 		export MACOSX_DEPLOYMENT_TARGET=10.6
-		export EXTRA_XQUARTZ_CFLAGS="-mmacosx-version-min=${MACOSX_DEPLOYMENT_TARGET}"
-		export EXTRA_XQUARTZ_LDFLAGS="-Wl,-macosx_version_min,${MACOSX_DEPLOYMENT_TARGET}"
+		#HARDENING_FLAGS="-fstack-protector-all -fsanitize=address"
+		#HARDENING_FLAGS="-fstack-protector-all -fsanitize=address"
+		# -fstack-protector-strong -fstack-protector
+		export EXTRA_XQUARTZ_CFLAGS="-mmacosx-version-min=${MACOSX_DEPLOYMENT_TARGET} ${HARDENING_FLAGS}"
+		export EXTRA_XQUARTZ_LDFLAGS="-Wl,-macosx_version_min,${MACOSX_DEPLOYMENT_TARGET} ${HARDENING_FLAGS}"
 		#export CC="clang-mp-3.1"
 		#export CXX="clang++-mp-3.1"
 		#export CC="$(xcrun -find clang)"
