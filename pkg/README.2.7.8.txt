@@ -23,20 +23,41 @@ If this is your first time installing XQuartz, you may wish to logout and log ba
     * mkfontscale 1.1.2
     * rgb 1.0.6
     * sessreg 1.1.0
+    * setxkbmap 1.3.1
     * showfont 1.0.5
+    * smproxy 1.0.6
+    * twm 1.0.9
+    * x11perf 1.6.0
     * xauth
       * Fix support for Yosemite launchd socket (#2068)
     * xcalc 1.0.6
+    * xcmsdb 1.0.5
+    * xcompmgr 1.1.7
+    * xdpyinfo 1.3.2
+    * xditview 1.0.4
     * xedit 1.2.2
+    * xev 1.2.2
+    * xfindproxy 1.0.4
+    * xfs 1.1.4
     * xfsinfo 1.0.5
+    * xgamma 1.0.6
+    * xgc 1.0.5
+    * xhost 1.0.7
     * xinit 1.3.4
     * xkbcomp 1.3.0
+    * xkbevd 1.1.4
+    * xkbprint 1.0.4
+    * xlsatoms 1.1.2
+    * xlsfonts 1.0.5
+    * xmag 1.0.6
     * xman 1.1.4
-    * xfs 1.1.4
+    * xmh 1.0.3
+    * xmodmap 1.0.9
     * xterm 316
+    * xvinfo 1.1.3
   * lib:
     * cairo 1.14.2
-    * freetype 2.5.5
+    * freetype 2.6.1
       * CVE-2014-2240
       * CVE-2014-9656
       * CVE-2014-9657
@@ -55,23 +76,36 @@ If this is your first time installing XQuartz, you may wish to logout and log ba
       * CVE-2014-9674
       * CVE-2014-9675
     * glu 9.0.0
-    * mesa 10.4.7
-      * Fixes GLhandleARB declaration (#858)
-    * libpng 1.2.52
-    * libpng 1.4.15
-    * libpng 1.5.21
+    * libfontenc 1.1.3
+    * libFS 1.0.7
+    * libpng 1.2.53
+    * libpng 1.4.16
+    * libpng 1.5.23
       * CVE-2014-9495
     * libX11 1.6.3
-    * libxshmfence 1.2
+    * libXaw 1.0.13
+    * libxcb 1.11.1
     * libXdmcp 1.1.2
-    * libXxf86vm 1.1.4
     * libXfont 1.5.1
       * CVE-2015-1802
       * CVE-2015-1803
       * CVE-2015-1804
+    * libXi 1.7.5
+    * libxkbfile 1.0.9
     * libXp 1.0.3
+    * libXpresent 1.0.0
+    * libXrandr 1.5.0
+    * libXrender 0.9.9
+    * libxshmfence 1.2
+    * libXt 1.1.5
     * libXvMC 1.0.9
+    * libXxf86vm 1.1.4
+    * mesa 11.0.3
+      * Fixes GLhandleARB declaration (#858)
+    * pixman 0.32.8
     * xcb-util 0.4.0
+    * xcb-util-cursor 0.1.2
+    * xcb-util-errors 1.0
     * xcb-util-image 0.4.0
     * xcb-util-keysyms 0.4.0
     * xtrans 1.3.5
@@ -80,11 +114,14 @@ If this is your first time installing XQuartz, you may wish to logout and log ba
     * Sparkle 1.6.1
       * Fix the "This update is locked with a password." issue with auto-updates.
         * Note that this bug is fixed for updates FROM 2.7.8_beta2 or later.  Updating from 2.7.7_rc1 through 2.7.8_beta1 may encounter this bug.
+    * xorg-docs 1.7.1
   * proto:
     * fontsproto 2.1.3
-    * randrproto 1.4.1
-    * xproto 7.0.27
+    * kbproto 1.0.7
+    * randrproto 1.5.0
+    * xproto 7.0.28
   * server:
+    * xf86-input-void 1.4.1
     * xorg-server 1.16.4 plus other patches
       * CVE-2014-8091
       * CVE-2014-8092
