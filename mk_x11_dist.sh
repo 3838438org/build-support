@@ -74,7 +74,7 @@ if [[ ${MACOSFORGE_SL} == "YES" ]] ; then
 fi
 
 if [[ ${MACOSFORGE_RELEASE} == "YES" ]] ; then
-	BUILDIT="${BUILDIT} -noverify -noverifydstroot -nocortex -nopathChanges -supportedPlatforms osx -sdkForPlatform osx=macosx.internal -deploymentTargetForPlatform osx=10.6 -platform osx"
+	BUILDIT="${BUILDIT} -noverify -noverifydstroot -nocortex -nopathChanges -supportedPlatforms osx -sdkForPlatform osx=macosx10.10internal -deploymentTargetForPlatform osx=10.6 -platform osx"
 
 	export MACOSFORGE_BUILD_DOCS
 
