@@ -71,6 +71,10 @@ if [[ ${MACOSFORGE_SL} == "YES" ]] ; then
 	export X11_APP_NAME="XQuartz"
 	export LAUNCHD_PREFIX="/Library"
 	export X11_PATHS_D_PREFIX="40"
+
+	if [[ -n "${X11SERVER}" && -d /Applications/Utilities/XQuartz.app/Contents/Resources/zh_TW.lproj/main.nib ]] ; then
+		die "You should delete /Applications/Utilities/XQuartz.app first or you will have merge issues."
+	fi
 fi
 
 if [[ ${MACOSFORGE_RELEASE} == "YES" ]] ; then
