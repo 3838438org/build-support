@@ -10,7 +10,7 @@
 
 # Parallel Make.  Change $MAKE if you don't have gmake installed
 MAKE="gnumake"
-MAKE_OPTS="-j8"
+MAKE_OPTS="-j8 V=1"
 
 . ~/src/strip.sh
 
@@ -21,7 +21,7 @@ PATH=$PATH:/opt/local/bin
 
 #PREFIX=/opt/local
 #CONFOPT="$CONFOPT --with-apple-applications-dir=/Applications/MacPorts --with-launchd-id-prefix=org.macports"
-#CPPFLAGS="$CPPFLAGS -I/Users/jeremy/src/macports/dports/x11/xorg-server-devel/files/dri"
+#CPPFLAGS="$CPPFLAGS -I${HOME}/src/macports/dports/x11/xorg-server-devel/files/dri"
 
 PREFIX=/opt/X11
 CONFOPT="$CONFOPT --with-apple-application-name=XQuartz --with-launchd-id-prefix=org.macosforge.xquartz"
@@ -122,7 +122,7 @@ dodist() {
 
 	cp hw/xquartz/mach-startup/X11.bin X11.bin-$1
 	bzip2 X11.bin-$1
-	dosign X11.bin-$1.bz2 
+	dosign X11.bin-$1.bz2
 }
 
 docomp `[ -f conf_flags ] && cat conf_flags`
