@@ -29,7 +29,13 @@ ARCHFLAGS="-arch i386 -arch x86_64"
 
 ACLOCAL="aclocal -I ${PREFIX}/share/aclocal -I /opt/local/share/aclocal"
 
-CPPFLAGS="$CPPFLAGS -DNO_ALLOCA -D_FORTIFY_SOURCE=2 -DFAIL_HARD -DFAKEIT -DHAVE_STRLCPY"
+CPPFLAGS="$CPPFLAGS -DNO_ALLOCA -DFAIL_HARD -DFAKEIT -DHAVE_STRLCPY"
+
+#CPPFLAGS="$CPPFLAGS -D_FORTIFY_SOURCE=2"
+#CFLAGS="$CFLAGS -fstack-protector"
+#CFLAGS="$CFLAGS -fstack-protector-strong"
+CFLAGS="$CFLAGS -fstack-protector-all"
+CFLAGS="$CFLAGS -fsanitize=address"
 
 CFLAGS="$CFLAGS -pipe -O0"
 CFLAGS="$CFLAGS -g3 -gdwarf-2"
