@@ -53,7 +53,7 @@ If this is your first time installing XQuartz, you may wish to logout and log ba
     * xman 1.1.4
     * xmh 1.0.3
     * xmodmap 1.0.9
-    * xterm 320
+    * xterm 314
     * xvinfo 1.1.3
   * lib:
     * cairo 1.14.2
