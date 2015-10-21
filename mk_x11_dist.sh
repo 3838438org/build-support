@@ -20,6 +20,14 @@ if [[ $# -eq 2 ]] ; then
 	echo "User Version: ${VERSION_TXT}"
 	echo "Base Version: ${VERSION_TXT_SHORT}"
 	echo "Bundle Version: ${VERSION}"
+
+	if [[ "${VERSION_TXT/beta/}" == "${VERSION_TXT}" ]] ; then
+		DEBUG_HARDENING=NO
+	else
+		DEBUG_HARDENING=YES
+	fi
+else
+	DEBUG_HARDENING=YES
 fi
 
 #MACOSFORGE=LEO
@@ -124,18 +132,33 @@ else
 	BUILDIT="${BUILDIT} -release Syrah"
 	if [[ "${MACOSFORGE_SL}" == "YES" ]] ; then
 		export MACOSX_DEPLOYMENT_TARGET=10.6
-		#HARDENING_FLAGS="-fstack-protector-all -fsanitize=address"
-		#HARDENING_FLAGS="-fstack-protector-all -fsanitize=address"
-		# -fstack-protector-strong -fstack-protector
-		export EXTRA_XQUARTZ_CFLAGS="-mmacosx-version-min=${MACOSX_DEPLOYMENT_TARGET} ${HARDENING_FLAGS}"
-		export EXTRA_XQUARTZ_LDFLAGS="-Wl,-macosx_version_min,${MACOSX_DEPLOYMENT_TARGET} ${HARDENING_FLAGS}"
-		#export CC="clang-mp-3.1"
-		#export CXX="clang++-mp-3.1"
+		export EXTRA_XQUARTZ_CFLAGS="-mmacosx-version-min=${MACOSX_DEPLOYMENT_TARGET}"
+		export EXTRA_XQUARTZ_LDFLAGS="-Wl,-macosx_version_min,${MACOSX_DEPLOYMENT_TARGET}"
+
+		#export CC="clang-mp-3.7"
+		#export CXX="clang++-mp-3.7"
+
 		export CC="$(xcrun -find clang)"
 		export CXX="$(xcrun -find clang++)"
-		#export CC="/usr/bin/clang"
-		#export CXX="/usr/bin/clang++"
+		ASAN_DYLIB=$(echo $(xcode-select -p)/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/*/lib/darwin/libclang_rt.asan_osx_dynamic.dylib)
+
+		if [[ "${DEBUG_HARDENING}" == "YES" ]] ; then
+			EXTRA_XQUARTZ_CFLAGS="${EXTRA_XQUARTZ_CFLAGS} -fsanitize=address"
+			EXTRA_XQUARTZ_LDFLAGS="${EXTRA_XQUARTZ_LDFLAGS} -Wl,${ASAN_DYLIB},-rpath,/opt/X11/lib/asan"
+
+			EXTRA_XQUARTZ_CFLAGS="${EXTRA_XQUARTZ_CFLAGS} -fstack-protector-all"
+			EXTRA_XQUARTZ_LDFLAGS="${EXTRA_XQUARTZ_LDFLAGS} -fstack-protector-all"
+			#EXTRA_XQUARTZ_CFLAGS="${EXTRA_XQUARTZ_CFLAGS} -fstack-protector-strong"
+			#EXTRA_XQUARTZ_LDFLAGS="${EXTRA_XQUARTZ_LDFLAGS} -fstack-protector-strong"
+		else
+			EXTRA_XQUARTZ_CFLAGS="${EXTRA_XQUARTZ_CFLAGS} -fstack-protector-strong"
+			EXTRA_XQUARTZ_LDFLAGS="${EXTRA_XQUARTZ_LDFLAGS} -fstack-protector-strong"
+			#EXTRA_XQUARTZ_CFLAGS="${EXTRA_XQUARTZ_CFLAGS} -fstack-protector"
+			#EXTRA_XQUARTZ_LDFLAGS="${EXTRA_XQUARTZ_LDFLAGS} -fstack-protector"
+		fi
+
 		export OBJC="${CC}"
+
 		export PYTHON=/usr/bin/python2.6
 		export PYTHONPATH="${X11_PREFIX}/lib/python2.6:${X11_PREFIX}/lib/python2.6/site-packages"
 	fi
@@ -198,6 +221,16 @@ bit_git() {
 	fi
 }
 
+if [[ -n "${ASAN_DYLIB}" && "${DEBUG_HARDENING}" == "YES" ]] ; then
+	mkdir -p /opt/X11/lib/asan
+	install -o root -g wheel -m 755 "${ASAN_DYLIB}" /opt/X11/lib/asan
+
+	if [[ -n ${VERSION} ]] ; then
+		mkdir -p $(eval echo ~jeremy)/src/freedesktop/pkg/X11/opt/X11/lib/asan
+		install -o root -g wheel -m 755 "${ASAN_DYLIB}" $(eval echo ~jeremy)/src/freedesktop/pkg/X11/opt/X11/lib/asan
+	fi
+fi
+
 [[ -n ${XPLUGIN} ]]     && bit_git X11_Xplugin   "${XPLUGIN}"              ${ARCH_ALL}
 [[ -n ${X11MISC} ]]     && bit     X11misc       X11misc/${X11MISC}        ${ARCH_ALL}
 [[ -n ${X11PROTO} ]]    && bit     X11proto      X11proto/${X11PROTO}      ${ARCH_ALL}
@@ -207,8 +240,9 @@ bit_git() {
 [[ -n ${X11APPS} ]]     && bit     X11apps       X11apps/${X11APPS}        ${ARCH_ALL}
 [[ -n ${X11FONTS} ]]    && bit     X11fonts      X11fonts/${X11FONTS}      ${ARCH_ALL}
 
-INFO_PLIST="$(eval echo ~jeremy)/src/freedesktop/pkg/X11/Applications/Utilities/XQuartz.app/Contents/Info.plist"
 if [[ -n ${VERSION} ]] ; then
+	INFO_PLIST="$(eval echo ~jeremy)/src/freedesktop/pkg/X11/Applications/Utilities/XQuartz.app/Contents/Info.plist"
+
 	defaults write "${INFO_PLIST}" CFBundleVersion "${VERSION}"
 	defaults write "${INFO_PLIST}" CFBundleShortVersionString "${VERSION_TXT}"
 	plutil -convert xml1 "${INFO_PLIST}"
