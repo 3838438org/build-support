@@ -18,9 +18,12 @@ If this is your first time installing XQuartz, you may wish to logout and log ba
     * xinput 1.6.2
     * xterm 320
   * lib:
+    * libXt
+      * No longer linked with -flat_namespace
+      * Binary compatibility maintained for existing clients of libXt.6.dylib
     * xcb-util-keysyms 0.4.0
   * server:
-    * xorg-server 1.17.2 plus other patches
+    * xorg-server 1.17.4 plus other patches
 
 == Changes in 2.7.8 ==
   * All changes in 2.7.7 plus:
