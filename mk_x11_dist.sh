@@ -21,13 +21,30 @@ if [[ $# -eq 2 ]] ; then
 	echo "Base Version: ${VERSION_TXT_SHORT}"
 	echo "Bundle Version: ${VERSION}"
 
-	if [[ "${VERSION_TXT/beta/}" == "${VERSION_TXT}" ]] ; then
-		DEBUG_HARDENING=NO
+	if [[ "${VERSION_TXT/beta/}" != "${VERSION_TXT}" ]] ; then
+		BETA=YES
 	else
-		DEBUG_HARDENING=YES
+		BETA=NO
+	fi
+
+	if [[ "${VERSION_TXT_SHORT}" == "${VERSION_TXT}" ]] ; then
+		PRERELEASE=NO
+	else
+		PRERELEASE=YES
 	fi
 else
-	DEBUG_HARDENING=YES
+	BETA=YES
+	PRERELEASE=YES
+fi
+
+if [[ "${BETA}" == "YES" ]] ; then
+	MEMORY_HARDENING=YES
+	export OPTIMIZATION_FLAGS="-O1 -fno-optimize-sibling-calls -fno-omit-frame-pointer"
+	export STRIP_SYMBOLS=NO
+else
+	MEMORY_HARDENING=NO
+	export OPTIMIZATION_FLAGS="-Os"
+	export STRIP_SYMBOLS=YES
 fi
 
 #MACOSFORGE=LEO
@@ -86,7 +103,7 @@ if [[ ${MACOSFORGE_SL} == "YES" ]] ; then
 fi
 
 if [[ ${MACOSFORGE_RELEASE} == "YES" ]] ; then
-	BUILDIT="${BUILDIT} -noverify -noverifydstroot -nocortex -nopathChanges -supportedPlatforms osx -sdkForPlatform osx=macosx10.10internal -deploymentTargetForPlatform osx=10.6 -platform osx"
+	BUILDIT="${BUILDIT} -noverify -noverifydstroot -nocortex -nopathChanges -supportedPlatforms osx -sdkForPlatform osx=macosx10.10internal -deploymentTargetForPlatform osx=10.8 -platform osx"
 
 	export MACOSFORGE_BUILD_DOCS
 
@@ -131,18 +148,23 @@ else
 	ARCH_ALL="${ARCH_EXEC}"
 	BUILDIT="${BUILDIT} -release Syrah"
 	if [[ "${MACOSFORGE_SL}" == "YES" ]] ; then
-		export MACOSX_DEPLOYMENT_TARGET=10.6
+		export MACOSX_DEPLOYMENT_TARGET=10.8
 		export EXTRA_XQUARTZ_CFLAGS="-mmacosx-version-min=${MACOSX_DEPLOYMENT_TARGET}"
 		export EXTRA_XQUARTZ_LDFLAGS="-Wl,-macosx_version_min,${MACOSX_DEPLOYMENT_TARGET}"
 
-		#export CC="clang-mp-3.7"
-		#export CXX="clang++-mp-3.7"
+		OSS_CLANG_VERSION=3.7
 
-		export CC="$(xcrun -find clang)"
-		export CXX="$(xcrun -find clang++)"
-		ASAN_DYLIB=$(echo $(xcode-select -p)/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/*/lib/darwin/libclang_rt.asan_osx_dynamic.dylib)
+		if [[ -n "${OSS_CLANG_VERSION}" ]] ; then
+			export CC="/opt/local/bin/clang-mp-${OSS_CLANG_VERSION}"
+			export CXX="/opt/local/bin/clang++-mp-${OSS_CLANG_VERSION}"
+			ASAN_DYLIB="/opt/local/libexec/llvm-${OSS_CLANG_VERSION}/lib/clang/${OSS_CLANG_VERSION}/lib/darwin/libclang_rt.asan_osx_dynamic.dylib"
+		else
+			export CC="$(xcrun -find clang)"
+			export CXX="$(xcrun -find clang++)"
+			ASAN_DYLIB=$(echo $(xcode-select -p)/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/*/lib/darwin/libclang_rt.asan_osx_dynamic.dylib)
+		fi
 
-		if [[ "${DEBUG_HARDENING}" == "YES" ]] ; then
+		if [[ "${MEMORY_HARDENING}" == "YES" ]] ; then
 			EXTRA_XQUARTZ_CFLAGS="${EXTRA_XQUARTZ_CFLAGS} -fsanitize=address"
 			EXTRA_XQUARTZ_LDFLAGS="${EXTRA_XQUARTZ_LDFLAGS} -Wl,${ASAN_DYLIB},-rpath,/opt/X11/lib/asan"
 
@@ -158,6 +180,8 @@ else
 		fi
 
 		export OBJC="${CC}"
+
+		export XQUARTZ_CC="${CC}"
 
 		export PYTHON=/usr/bin/python2.6
 		export PYTHONPATH="${X11_PREFIX}/lib/python2.6:${X11_PREFIX}/lib/python2.6/site-packages"
@@ -221,7 +245,7 @@ bit_git() {
 	fi
 }
 
-if [[ -n "${ASAN_DYLIB}" && "${DEBUG_HARDENING}" == "YES" ]] ; then
+if [[ -n "${ASAN_DYLIB}" && "${MEMORY_HARDENING}" == "YES" ]] ; then
 	mkdir -p /opt/X11/lib/asan
 	install -o root -g wheel -m 755 "${ASAN_DYLIB}" /opt/X11/lib/asan
 
@@ -248,7 +272,7 @@ if [[ -n ${VERSION} ]] ; then
 	plutil -convert xml1 "${INFO_PLIST}"
 	chmod 644 "${INFO_PLIST}"
 
-	if [[ "${VERSION_TXT}" == "${VERSION_TXT_SHORT}" ]] ; then
+	if [[ "${PRERELEASE}" == "NO" ]] ; then
 		/opt/local/bin/gsed -i 's:beta.xml:release.xml:' "${INFO_PLIST}"
 	else
 		/opt/local/bin/gsed -i 's:release.xml:beta.xml:' "${INFO_PLIST}"
