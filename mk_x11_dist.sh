@@ -258,7 +258,7 @@ if [[ -n ${VERSION} ]] ; then
 
 	find X11 -type f | while read file ; do
 		if /usr/bin/file "${file}" | grep -q "Mach-O" ; then
-			codesign -s "Developer ID Application: Apple Inc. - XQuartz" "${file}"
+			codesign -s "Developer ID Application: Apple Inc. - XQuartz (NA574AWV7E)" "${file}"
 
 			if otool -L "${file}" | grep -q "/opt/local/lib" ; then
 				die "=== ${file} links against an invalid library ==="
@@ -284,7 +284,7 @@ if [[ -n ${VERSION} ]] ; then
 	sudo -u jeremy open XQuartz-${VERSION_TXT}.pmdoc
 	read IGNORE
 	sudo -u jeremy /Applications/PackageMaker.app/Contents/MacOS/PackageMaker --verbose --doc XQuartz-${VERSION_TXT}.pmdoc --out XQuartz-${VERSION_TXT}.pkg
-	sudo -u jeremy productsign --sign "Developer ID Installer: Apple Inc. - XQuartz" XQuartz-${VERSION_TXT}.pkg{,.s}
+	sudo -u jeremy productsign --sign "Developer ID Installer: Apple Inc. - XQuartz (NA574AWV7E)" XQuartz-${VERSION_TXT}.pkg{,.s}
 	mv XQuartz-${VERSION_TXT}.pkg{.s,}
 	sudo -u jeremy ./mkdmg.sh XQuartz-${VERSION_TXT}.pkg ${VERSION} > XQuartz-${VERSION_TXT}.sparkle.xml
 fi
