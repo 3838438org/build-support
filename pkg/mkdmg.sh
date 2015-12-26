@@ -19,17 +19,9 @@ dosign ${verString}.dmg
 DSA=$(openssl dgst -sha1 -binary < ${verString}.dmg | openssl dgst -dss1 -sign sparkle_priv.pem | openssl enc -base64)
 SIZE=$(wc -c ${verString}.dmg | awk '{print $1}')
 echo "      <item>"
-if [[ "${name}" == "XQuartz" ]] ; then
 echo "         <sparkle:minimumSystemVersion>10.6.3</sparkle:minimumSystemVersion>"
-else
-echo "         <sparkle:minimumSystemVersion>10.5.8</sparkle:minimumSystemVersion>"
-fi
 echo "         <title>${verString}</title>"
-echo "         <sparkle:releaseNotesLink>http://xquartz.macosforge.org/trac/wiki/ChangeLog</sparkle:releaseNotesLink>"
+echo "         <sparkle:releaseNotesLink>http://xquartz.org/releases/bare/${verString}.html</sparkle:releaseNotesLink>"
 echo "         <pubDate>$(date -u +"%a, %d %b %Y %T %Z")</pubDate>"
-if [[ "${name}" == "XQuartz" ]] ; then
-echo "         <enclosure url=\"http://xquartz.macosforge.org/downloads/SL/${verString}.dmg\" sparkle:version=\"$2\" sparkle:shortVersionString=\"${verString}\" length=\"${SIZE}\" type=\"application/octet-stream\" sparkle:dsaSignature=\"${DSA}\" />"
-else
-echo "         <enclosure url=\"http://xquartz.macosforge.org/downloads/Leopard/${verString}.dmg\" sparkle:version=\"$2\" sparkle:shortVersionString=\"${verString}\" length=\"${SIZE}\" type=\"application/octet-stream\" sparkle:dsaSignature=\"${DSA}\" />"
-fi
+echo "         <enclosure url=\"https://dl.bintray.com/xquartz/downloads/${verString}.dmg\" sparkle:version=\"$2\" sparkle:shortVersionString=\"${verString}\" length=\"${SIZE}\" type=\"application/octet-stream\" sparkle:dsaSignature=\"${DSA}\" />"
 echo "      </item>"
