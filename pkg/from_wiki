@@ -1,3 +1,4 @@
 #!/bin/sh
-pbpaste | sed 's:\[[^ ]* \([^]]*\)\]:\1:g' | pbcopy
+#pbpaste | sed 's:\[[^ ]* \([^]]*\)\]:\1:g' | pbcopy
+pbpaste | sed 's:\[\([^]]*\)\]([^)]*):\1:g' | pbcopy
 
