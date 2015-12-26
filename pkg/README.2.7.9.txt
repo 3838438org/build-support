@@ -15,12 +15,17 @@ If this is your first time installing XQuartz, you may wish to logout and log ba
 == Changes in 2.7.9 ==
   * All changes in 2.7.8 plus:
   * app:
+    * quartz-wm 1.3.2
+    * xkbcomp 1.3.1
     * xinput 1.6.2
     * xterm 320
   * lib:
+    * libXfont2 2.0.0
+    * libXi 1.7.6
     * libXt
       * No longer linked with -flat_namespace
       * Binary compatibility maintained for existing clients of libXt.6.dylib
+    * pixman 0.33.6
     * xcb-util-keysyms 0.4.0
   * server:
     * xorg-server 1.17.4 plus other patches
