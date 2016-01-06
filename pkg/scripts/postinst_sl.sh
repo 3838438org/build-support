@@ -20,7 +20,7 @@ if [[ -n "${SSH_CONFIG}" ]] ; then
     if ! cat ${SSH_CONFIG} | grep -v '^#' | grep -q 'XAuthLocation' ; then
     {
         echo ""
-        echo "# XAuthLocation added by XQuartz (http://xquartz.macosforge.org)"
+        echo "# XAuthLocation added by XQuartz (http://www.xquartz.org)"
         echo "Host *"
         echo "    XAuthLocation /opt/X11/bin/xauth"
     } >> ${SSH_CONFIG}
