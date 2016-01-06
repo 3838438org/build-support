@@ -18,10 +18,21 @@ If this is your first time installing XQuartz, you may wish to logout and log ba
     * quartz-wm 1.3.2
     * xkbcomp 1.3.1
     * xinput 1.6.2
-    * xterm 320
+    * xterm 322
   * lib:
-    * libXfont2 2.0.0
+    * cairo 1.14.6
+    * freetype 2.6.2
+    * libpng 1.2.56
+    * libpng 1.4.19
+    * libpng 1.5.26
+    * libpng 1.6.20
+      * CVE-2015-7981
+      * CVE-2015-8126
+      * CVE-2015-8540
+    * libXfont2 2.0.1
     * libXi 1.7.6
+    * libXplugin
+      * Worked around an El Capitan regression that would cause OpenGL widgets to sometimes remain visible (#93318)
     * libXt
       * No longer linked with -flat_namespace
       * Binary compatibility maintained for existing clients of libXt.6.dylib
