@@ -15,6 +15,8 @@ If this is your first time installing XQuartz, you may wish to logout and log ba
 == Changes in 2.7.9 ==
   * All changes in 2.7.8 plus:
   * app:
+    * glxgears 8.3.0
+    * glxinfo 8.3.0
     * quartz-wm 1.3.2
     * xkbcomp 1.3.1
     * xinput 1.6.2
