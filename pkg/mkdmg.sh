@@ -6,6 +6,7 @@
 
 verString=${1%.pkg}
 name=${verString%-*}
+userVersion=${verString#*-}
 
 mkdir ${verString}.d
 mv ${verString}.pkg ${verString}.d/${name}.pkg
@@ -14,6 +15,10 @@ mv ${verString}.d/${name}.pkg ${verString}.pkg
 rmdir ${verString}.d
 
 dosign ${verString}.dmg
+
+for FILE in ${verString}.d* ; do
+    curl -T $FILE -ujeremyhu:bd354e2ec66eeedcfbdb24335f19b5d2e3e32b5c https://api.bintray.com/content/xquartz/downloads/XQuartz/${userVersion}/$FILE
+done
 
 #DSA=$(./sign_update.rb ${verString}.dmg sparkle_priv.pem)
 DSA=$(openssl dgst -sha1 -binary < ${verString}.dmg | openssl dgst -dss1 -sign sparkle_priv.pem | openssl enc -base64)
