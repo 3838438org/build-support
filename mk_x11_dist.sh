@@ -64,7 +64,7 @@ XPLUGIN="${XPLUGIN:-${TRAIN}}"
 X11MISC="${X11MISC:-${TRAIN}}"
 X11PROTO="${X11PROTO:-${TRAIN}}"
 X11LIBS="${X11LIBS:-${TRAIN}}"
-QUARTZWM="${QUARTZWM:-${TRAIN}}"
+###QUARTZWM="${QUARTZWM:-${TRAIN}}"
 X11SERVER="${X11SERVER:-${TRAIN}}"
 X11APPS="${X11APPS:-${TRAIN}}"
 X11FONTS="${X11FONTS:-${TRAIN}}"
@@ -103,7 +103,7 @@ if [[ ${MACOSFORGE_SL} == "YES" ]] ; then
 fi
 
 if [[ ${MACOSFORGE_RELEASE} == "YES" ]] ; then
-	BUILDIT="${BUILDIT} -noverify -noverifydstroot -nocortex -nopathChanges -supportedPlatforms osx -sdkForPlatform osx=macosx10.10internal -deploymentTargetForPlatform osx=10.8 -platform osx"
+	BUILDIT="${BUILDIT} -noverify -noverifydstroot -nocortex -nopathChanges -supportedPlatforms osx -sdkForPlatform osx=macosx10.10internal -deploymentTargetForPlatform osx=10.6 -platform osx"
 
 	export MACOSFORGE_BUILD_DOCS
 
@@ -148,7 +148,7 @@ else
 	ARCH_ALL="${ARCH_EXEC}"
 	BUILDIT="${BUILDIT} -release Syrah"
 	if [[ "${MACOSFORGE_SL}" == "YES" ]] ; then
-		export MACOSX_DEPLOYMENT_TARGET=10.8
+		export MACOSX_DEPLOYMENT_TARGET=10.6
 		export EXTRA_XQUARTZ_CFLAGS="-mmacosx-version-min=${MACOSX_DEPLOYMENT_TARGET}"
 		export EXTRA_XQUARTZ_LDFLAGS="-Wl,-macosx_version_min,${MACOSX_DEPLOYMENT_TARGET}"
 
@@ -259,7 +259,7 @@ fi
 [[ -n ${X11MISC} ]]     && bit     X11misc       X11misc/${X11MISC}        ${ARCH_ALL}
 [[ -n ${X11PROTO} ]]    && bit     X11proto      X11proto/${X11PROTO}      ${ARCH_ALL}
 [[ -n ${X11LIBS} ]]     && bit     X11libs       X11libs/${X11LIBS}        ${ARCH_ALL}
-[[ -n ${QUARTZWM} ]]    && bit     X11_quartz_wm X11_quartz_wm/${QUARTZWM} ${ARCH_ALL}
+#[[ -n ${QUARTZWM} ]]    && bit     X11_quartz_wm X11_quartz_wm/${QUARTZWM} ${ARCH_ALL}
 [[ -n ${X11SERVER} ]]   && bit     X11server     X11server/${X11SERVER}    ${ARCH_ALL}
 [[ -n ${X11APPS} ]]     && bit     X11apps       X11apps/${X11APPS}        ${ARCH_ALL}
 [[ -n ${X11FONTS} ]]    && bit     X11fonts      X11fonts/${X11FONTS}      ${ARCH_ALL}
