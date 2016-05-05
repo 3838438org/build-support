@@ -24,11 +24,11 @@ If this is your first time installing XQuartz, you may wish to logout and log ba
     * xterm 324
   * lib:
     * cairo 1.14.6
-    * freetype 2.6.2
+    * freetype 2.6.3
     * libpng 1.2.56
     * libpng 1.4.19
     * libpng 1.5.26
-    * libpng 1.6.20
+    * libpng 1.6.21
       * CVE-2015-7981
       * CVE-2015-8126
       * CVE-2015-8540
