@@ -20,7 +20,8 @@ If this is your first time installing XQuartz, you may wish to logout and log ba
     * quartz-wm 1.3.2
     * xkbcomp 1.3.1
     * xinput 1.6.2
-    * xterm 322
+    * xrandr 1.5.0
+    * xterm 324
   * lib:
     * cairo 1.14.6
     * freetype 2.6.2
@@ -31,6 +32,10 @@ If this is your first time installing XQuartz, you may wish to logout and log ba
       * CVE-2015-7981
       * CVE-2015-8126
       * CVE-2015-8540
+    * libXaw
+      * Remove incorrect export of vendorShellClassRec and vendorShellWidgetClass
+    * libXaw3D
+      * Remove incorrect export of vendorShellClassRec and vendorShellWidgetClass
     * libXfont2 2.0.1
     * libXi 1.7.6
     * libXplugin
@@ -38,8 +43,11 @@ If this is your first time installing XQuartz, you may wish to logout and log ba
     * libXt
       * No longer linked with -flat_namespace
       * Binary compatibility maintained for existing clients of libXt.6.dylib
-    * pixman 0.33.6
+    * pixman 0.34.0
     * xcb-util-keysyms 0.4.0
+  * proto:
+    * inputproto 2.3.2
+    * videoproto 2.3.3
   * server:
     * xorg-server 1.17.4 plus other patches
 
