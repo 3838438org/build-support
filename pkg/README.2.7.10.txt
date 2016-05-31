@@ -14,10 +14,28 @@ If this is your first time installing XQuartz, you may wish to logout and log ba
 
 == Changes in 2.7.10 ==
   * All changes in 2.7.9 plus:
+  * app:
+    * quartz-wm
+      * Properly handle updates to WM_PROTOCOLS property changes(#92652)
+    * xinit
+      * Fixed support for enabling TCP server connections (#95379)
+      * Added support for enabling IGLX (#96260)
+        * defaults write org.macosforge.xquartz.X11 enable_iglx -bool true
+  * proto:
+    * xcb-proto 1.12
+    * xproto 7.0.29
   * lib:
-    * mesa 11.2.1
+    * libxcb 1.12
+    * libXfixes 5.0.2
+    * libXfont
+      * Fix a buffer overrun (#83224)
+    * libXfont2
+      * Fix a buffer overrun (#83224)
+    * mesa 11.2.2
+    * xcb-util-cursor 0.1.3
   * server:
     * xorg-server 1.18.3 plus other patches
+      * Fix the issue where the h key could be come "stuck" after hiding XQuartz with cmd-h (#92648)
 
 == Changes in 2.7.9 ==
   * All changes in 2.7.8 plus:
