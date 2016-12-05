@@ -50,16 +50,10 @@ else
 	export STRIP_SYMBOLS=YES
 fi
 
-#MACOSFORGE=LEO
-MACOSFORGE=SL
-
 #MACOSFORGE_BUILD_DOCS="YES"
 MACOSFORGE_BUILD_DOCS="NO"
 
 TRAIN="trunk"
-#TRAIN="trains/SnowLeopard"
-#TRAIN="trains/SULeo"
-#TRAIN="trains/Lion"
 
 ### End Configuration ###
 
@@ -76,128 +70,89 @@ die() {
 	exit 1
 }
 
-MACOSFORGE_LEO=NO
-MACOSFORGE_SL=NO
-MACOSFORGE_RELEASE=NO
+export MACOSFORGE_RELEASE=YES
 
-if [[ "${MACOSFORGE}" == "LEO" ]] ; then
-	MACOSFORGE_LEO=YES
-	MACOSFORGE_RELEASE=YES
-elif [[ "${MACOSFORGE}" == "SL" ]] ; then
-	MACOSFORGE_SL=YES
-	MACOSFORGE_RELEASE=YES
-fi
+export X11_PREFIX="/opt/X11"
+export XPLUGIN_PREFIX="/opt/X11"
+export X11_BUNDLE_ID_PREFIX="org.macosforge.xquartz"
+export X11_APP_NAME="XQuartz"
+export LAUNCHD_PREFIX="/Library"
+export X11_PATHS_D_PREFIX="40"
 
-export MACOSFORGE_LEO MACOSFORGE_SL MACOSFORGE_RELEASE
-
-if [[ ${MACOSFORGE_SL} == "YES" ]] ; then
-	export X11_PREFIX="/opt/X11"
-	export XPLUGIN_PREFIX="/opt/X11"
-	export X11_BUNDLE_ID_PREFIX="org.macosforge.xquartz"
-	export X11_APP_NAME="XQuartz"
-	export LAUNCHD_PREFIX="/Library"
-	export X11_PATHS_D_PREFIX="40"
-
-	if [[ "${PRERELEASE}" == "YES" ]] ; then
-		export SPARKLE_FEED_URL="https://www.xquartz.org/releases/sparkle/beta.xml"
-	else
-		export SPARKLE_FEED_URL="https://www.xquartz.org/releases/sparkle/release.xml"
-	fi
-
-	if [[ -n "${X11SERVER}" && -d /Applications/Utilities/XQuartz.app/Contents/Resources/zh_TW.lproj/main.nib ]] ; then
-		die "You should delete /Applications/Utilities/XQuartz.app first or you will have merge issues."
-	fi
-fi
-
-if [[ ${MACOSFORGE_RELEASE} == "YES" ]] ; then
-	BUILDIT="${BUILDIT} -noverify -noverifydstroot -nocortex -nopathChanges -supportedPlatforms osx -sdkForPlatform osx=macosx10.11internal -deploymentTargetForPlatform osx=10.6 -platform osx"
-
-	export MACOSFORGE_BUILD_DOCS
-
-	if [[ ${MACOSFORGE_BUILD_DOCS} == "YES" ]] ; then
-		export XMLTO=/opt/local/bin/xmlto
-		export ASCIIDOC=/opt/local/bin/asciidoc
-		export DOXYGEN=/opt/local/bin/doxygen
-		export FOP=/opt/local/bin/fop
-		export FOP_OPTS="-Xmx2048m -Djava.awt.headless=true"
-		export GROFF=/opt/local/bin/groff
-		export PS2PDF=/opt/local/bin/ps2pdf
-
-		for f in "${XMLTO}" "${ASCIIDOC}" "${DOXYGEN}" "${FOP}" "${GROFF}" "${PS2PDF}" ; do
-			[[ -z "${f}" || -x "${f}" ]] || die "Could not find ${f}"
-			exit 1
-		done
-	fi
-fi
-
-if [[ "${MACOSFORGE_LEO}" == "YES" && ${XPLUGIN} == "trunk" ]] ; then
-	XPLUGIN="trains/MacOSForge"
-fi
-
-if [[ "${MACOSFORGE_LEO}" == "YES" ]] ; then
-	ARCH_EXEC="-arch i386 -arch ppc"
-	ARCH_ALL="${ARCH_EXEC} -arch x86_64 -arch ppc64"
-	export MACOSX_DEPLOYMENT_TARGET=10.5
-	export EXTRA_XQUARTZ_CFLAGS="-mmacosx-version-min=${MACOSX_DEPLOYMENT_TARGET}"
-	export EXTRA_XQUARTZ_LDFLAGS="-Wl,-macosx_version_min,${MACOSX_DEPLOYMENT_TARGET} -lobjc"
-	export CC="/usr/bin/gcc-4.2"
-	export CXX="/usr/bin/g++-4.2"
-	export OBJC="${CC}"
-	export PYTHON=/usr/bin/python2.5
-	export PYTHONPATH="/usr/X11/lib/python2.5:/usr/X11/lib/python2.5/site-packages"
-	BUILDIT="${BUILDIT} -release SULeoLoki"
-elif [[ "${TRAIN}" == "trains/SULeo" ]] ; then
-	ARCH_EXEC="-arch i386 -arch ppc"
-	ARCH_ALL="${ARCH_EXEC} -arch x86_64 -arch ppc64"
-	BUILDIT="${BUILDIT} -release SULeoLoki"
+if [[ "${PRERELEASE}" == "YES" ]] ; then
+	export SPARKLE_FEED_URL="https://www.xquartz.org/releases/sparkle/beta.xml"
 else
-	ARCH_EXEC="-arch i386 -arch x86_64"
-	ARCH_ALL="${ARCH_EXEC}"
-	BUILDIT="${BUILDIT} -release Syrah"
-	if [[ "${MACOSFORGE_SL}" == "YES" ]] ; then
-		export MACOSX_DEPLOYMENT_TARGET=10.6
-		if [[ "${MEMORY_HARDENING}" == "YES" ]] ; then
-			export MACOSX_DEPLOYMENT_TARGET=10.8
-		fi
-
-		export EXTRA_XQUARTZ_CFLAGS="-mmacosx-version-min=${MACOSX_DEPLOYMENT_TARGET}"
-		export EXTRA_XQUARTZ_LDFLAGS="-Wl,-macosx_version_min,${MACOSX_DEPLOYMENT_TARGET}"
-
-		OSS_CLANG_VERSION=3.9
-
-		if [[ -n "${OSS_CLANG_VERSION}" ]] ; then
-			export CC="/opt/local/bin/clang-mp-${OSS_CLANG_VERSION}"
-			export CXX="/opt/local/bin/clang++-mp-${OSS_CLANG_VERSION}"
-			ASAN_DYLIB="/opt/local/libexec/llvm-${OSS_CLANG_VERSION}/lib/clang/${OSS_CLANG_VERSION}.0/lib/darwin/libclang_rt.asan_osx_dynamic.dylib"
-		else
-			export CC="$(xcrun -find clang)"
-			export CXX="$(xcrun -find clang++)"
-			ASAN_DYLIB=$(echo $(xcode-select -p)/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/*/lib/darwin/libclang_rt.asan_osx_dynamic.dylib)
-		fi
-
-		if [[ "${MEMORY_HARDENING}" == "YES" ]] ; then
-			EXTRA_XQUARTZ_CFLAGS="${EXTRA_XQUARTZ_CFLAGS} -fsanitize=address"
-			EXTRA_XQUARTZ_LDFLAGS="${EXTRA_XQUARTZ_LDFLAGS} -Wl,${ASAN_DYLIB},-rpath,/opt/X11/lib/asan"
-
-			EXTRA_XQUARTZ_CFLAGS="${EXTRA_XQUARTZ_CFLAGS} -fstack-protector-all"
-			EXTRA_XQUARTZ_LDFLAGS="${EXTRA_XQUARTZ_LDFLAGS} -fstack-protector-all"
-			#EXTRA_XQUARTZ_CFLAGS="${EXTRA_XQUARTZ_CFLAGS} -fstack-protector-strong"
-			#EXTRA_XQUARTZ_LDFLAGS="${EXTRA_XQUARTZ_LDFLAGS} -fstack-protector-strong"
-		else
-			EXTRA_XQUARTZ_CFLAGS="${EXTRA_XQUARTZ_CFLAGS} -fstack-protector-strong"
-			EXTRA_XQUARTZ_LDFLAGS="${EXTRA_XQUARTZ_LDFLAGS} -fstack-protector-strong"
-			#EXTRA_XQUARTZ_CFLAGS="${EXTRA_XQUARTZ_CFLAGS} -fstack-protector"
-			#EXTRA_XQUARTZ_LDFLAGS="${EXTRA_XQUARTZ_LDFLAGS} -fstack-protector"
-		fi
-
-		export OBJC="${CC}"
-
-		export XQUARTZ_CC="${CC}"
-
-		export PYTHON=/usr/bin/python2.6
-		export PYTHONPATH="${X11_PREFIX}/lib/python2.6:${X11_PREFIX}/lib/python2.6/site-packages"
-	fi
+	export SPARKLE_FEED_URL="https://www.xquartz.org/releases/sparkle/release.xml"
 fi
+
+if [[ -n "${X11SERVER}" && -d /Applications/Utilities/XQuartz.app/Contents/Resources/zh_TW.lproj/main.nib ]] ; then
+	die "You should delete /Applications/Utilities/XQuartz.app first or you will have merge issues."
+fi
+
+BUILDIT="${BUILDIT} -noverify -noverifydstroot -nocortex -nopathChanges -supportedPlatforms osx -sdkForPlatform osx=macosx10.11internal -deploymentTargetForPlatform osx=10.6 -platform osx"
+
+export MACOSFORGE_BUILD_DOCS
+
+if [[ ${MACOSFORGE_BUILD_DOCS} == "YES" ]] ; then
+	export XMLTO=/opt/local/bin/xmlto
+	export ASCIIDOC=/opt/local/bin/asciidoc
+	export DOXYGEN=/opt/local/bin/doxygen
+	export FOP=/opt/local/bin/fop
+	export FOP_OPTS="-Xmx2048m -Djava.awt.headless=true"
+	export GROFF=/opt/local/bin/groff
+	export PS2PDF=/opt/local/bin/ps2pdf
+
+	for f in "${XMLTO}" "${ASCIIDOC}" "${DOXYGEN}" "${FOP}" "${GROFF}" "${PS2PDF}" ; do
+		[[ -z "${f}" || -x "${f}" ]] || die "Could not find ${f}"
+		exit 1
+	done
+fi
+
+ARCH_EXEC="-arch i386 -arch x86_64"
+ARCH_ALL="${ARCH_EXEC}"
+BUILDIT="${BUILDIT} -release Syrah"
+
+export MACOSX_DEPLOYMENT_TARGET=10.6
+if [[ "${MEMORY_HARDENING}" == "YES" ]] ; then
+	export MACOSX_DEPLOYMENT_TARGET=10.8
+fi
+
+export EXTRA_XQUARTZ_CFLAGS="-mmacosx-version-min=${MACOSX_DEPLOYMENT_TARGET}"
+export EXTRA_XQUARTZ_LDFLAGS="-Wl,-macosx_version_min,${MACOSX_DEPLOYMENT_TARGET}"
+
+OSS_CLANG_VERSION=3.9
+
+if [[ -n "${OSS_CLANG_VERSION}" ]] ; then
+	export CC="/opt/local/bin/clang-mp-${OSS_CLANG_VERSION}"
+	export CXX="/opt/local/bin/clang++-mp-${OSS_CLANG_VERSION}"
+	ASAN_DYLIB="/opt/local/libexec/llvm-${OSS_CLANG_VERSION}/lib/clang/${OSS_CLANG_VERSION}.0/lib/darwin/libclang_rt.asan_osx_dynamic.dylib"
+else
+	export CC="$(xcrun -find clang)"
+	export CXX="$(xcrun -find clang++)"
+	ASAN_DYLIB=$(echo $(xcode-select -p)/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/*/lib/darwin/libclang_rt.asan_osx_dynamic.dylib)
+fi
+
+if [[ "${MEMORY_HARDENING}" == "YES" ]] ; then
+	EXTRA_XQUARTZ_CFLAGS="${EXTRA_XQUARTZ_CFLAGS} -fsanitize=address"
+	EXTRA_XQUARTZ_LDFLAGS="${EXTRA_XQUARTZ_LDFLAGS} -Wl,${ASAN_DYLIB},-rpath,/opt/X11/lib/asan"
+
+	EXTRA_XQUARTZ_CFLAGS="${EXTRA_XQUARTZ_CFLAGS} -fstack-protector-all"
+	EXTRA_XQUARTZ_LDFLAGS="${EXTRA_XQUARTZ_LDFLAGS} -fstack-protector-all"
+	#EXTRA_XQUARTZ_CFLAGS="${EXTRA_XQUARTZ_CFLAGS} -fstack-protector-strong"
+	#EXTRA_XQUARTZ_LDFLAGS="${EXTRA_XQUARTZ_LDFLAGS} -fstack-protector-strong"
+else
+	EXTRA_XQUARTZ_CFLAGS="${EXTRA_XQUARTZ_CFLAGS} -fstack-protector-strong"
+	EXTRA_XQUARTZ_LDFLAGS="${EXTRA_XQUARTZ_LDFLAGS} -fstack-protector-strong"
+	#EXTRA_XQUARTZ_CFLAGS="${EXTRA_XQUARTZ_CFLAGS} -fstack-protector"
+	#EXTRA_XQUARTZ_LDFLAGS="${EXTRA_XQUARTZ_LDFLAGS} -fstack-protector"
+fi
+
+export OBJC="${CC}"
+
+export XQUARTZ_CC="${CC}"
+
+export PYTHON=/usr/bin/python2.6
+export PYTHONPATH="${X11_PREFIX}/lib/python2.6:${X11_PREFIX}/lib/python2.6/site-packages"
 
 BUILDRECORDS="$(/usr/bin/mktemp -d ${TMPDIR-/tmp}/X11roots.XXXXXX)"
 chown jeremy "${BUILDRECORDS}"

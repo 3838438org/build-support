@@ -12,7 +12,7 @@
     <versions min-spec="1.000000"/>
     <scripts/>
   </distribution>
-  <description>This is a community supported version of X11 for OS X.  Please visit http://www.xquartz.org for more information.</description>
+  <description>This is a community-supported version of the X11 windowing system for macOS.  Please visit http://www.xquartz.org for more information.</description>
   <contents>
     <choice title="X11" id="x11" starts_selected="true" starts_enabled="true" starts_hidden="false">
       <pkgref id="org.macosforge.xquartz.pkg"/>
@@ -22,7 +22,7 @@
     <locale lang="en">
       <resource mod="true" type="license">@@PKG_DIR@@/resources/LICENSE.txt</resource>
       <resource mod="true" type="readme">@@PKG_DIR@@/resources/README.txt</resource>
-      <resource mod="true" type="welcome">@@PKG_DIR@@/resources/INTRODUCTION-SL.txt</resource>
+      <resource mod="true" type="welcome">@@PKG_DIR@@/resources/INTRODUCTION.txt</resource>
     </locale>
   </resources>
   <requirements>
