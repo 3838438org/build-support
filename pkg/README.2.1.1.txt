@@ -11,7 +11,7 @@ This updates is not an official Apple releases. It is a convenient way for users
   * Updated versions of packages:
     * app:
       * lndir git 2007.12.08
-        * Properly ignore .DS_Store 
+        * Properly ignore .DS_Store
       * xinit git 2007.12.10
         * Added package.
       * xterm 229
@@ -32,7 +32,7 @@ This updates is not an official Apple releases. It is a convenient way for users
 
 == Changes in 2.1.0.1 ==
   * All changes in 2.1.0 plus
-  * Fixed package post-install to not error on machines without Xcode. 
+  * Fixed package post-install to not error on machines without Xcode.
 
 == Changes in 2.1.0 ==
   * New versions of packages from x.org:
@@ -54,7 +54,7 @@ This updates is not an official Apple releases. It is a convenient way for users
     * Fixed broken 3-button mouse emulation (i.e. option-click to paste)
     * Fixed missing support for Japanese JIS-layout keyboards
     * Improved compatibility with Spaces
-    * Fixed the "Xquartz chews up 100% CPU when I run xauth / ssh / xdpyinfo" bug 
+    * Fixed the "Xquartz chews up 100% CPU when I run xauth / ssh / xdpyinfo" bug
     * Fixed support for customized Applications items
     * Fixed performance problems (slow drawing in Gimp, etc)
     * Fixed focus issues

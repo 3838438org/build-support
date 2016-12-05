@@ -1315,7 +1315,7 @@ If this is your first time installing XQuartz, you may wish to logout and log ba
       * Fixed bug with --no-pasteboard option that didn't completely disable it (it still grabbed PRIMARY in activate/deactivate)
       * defaults to --no-pasteboard when the server uses version 1.1 and greater of applewmproto
       * Cleaned up some memory leaks
-      * Support added for window gravity in WM size hints 
+      * Support added for window gravity in WM size hints
       * Support added for WM fullscreen hints
     * xedit 1.1.2
     * xinit 1.1.1
@@ -1448,14 +1448,14 @@ If this is your first time installing XQuartz, you may wish to logout and log ba
       * replaces old xkbdata
     * xrx 1.0.2
     * xwd 1.0.2
-    * xwininfo 1.0.4 
+    * xwininfo 1.0.4
   * lib:
     * libFS 1.0.1
     * libSM 1.1.0
     * libXfont 1.3.3
     * libXft 2.1.13
     * libXrandr 1.2.3
-    * libXxf86vm 1.0.2  
+    * libXxf86vm 1.0.2
     * xtrans 1.2.1
   * proto:
     * randrproto 1.2.2
@@ -1475,8 +1475,8 @@ If this is your first time installing XQuartz, you may wish to logout and log ba
   * All changes in 2.2.2 plus:
   * lib:
     * freetype 2.3.6
-      * Note from freetype developers: "A bunch of potential security problems have been found [and fixed] in this release" 
-    * pixman 0.11.4 
+      * Note from freetype developers: "A bunch of potential security problems have been found [and fixed] in this release"
+    * pixman 0.11.4
 
 == Changes in 2.2.2 ==
   * All changes in 2.2.1 plus:
@@ -1487,13 +1487,13 @@ If this is your first time installing XQuartz, you may wish to logout and log ba
       * CVE-2008-1379
       * CVE-2008-2360
       * CVE-2008-2361
-      * CVE-2008-2362 
+      * CVE-2008-2362
 
 == Changes in 2.2.1 ==
   * All changes in 2.2.0.1 plus:
   * All packages updated to versions intended to ship as part of X11R7.4 (as of 2008.04.21):
   * app:
-    * setxkbmap 1.0.4 
+    * setxkbmap 1.0.4
     * xinit 1.0.8-git-2008.04.26
       * Use CFProcessPath instead of argv[0] trick
     * xkbcomp 1.0.4
@@ -1522,7 +1522,7 @@ If this is your first time installing XQuartz, you may wish to logout and log ba
 == Changes in 2.2.0.1 ==
   * All changes in 2.2.0 plus:
     * Updated /usr/X11/lib/X11/xinit/privileged_startx.d/10-tmpdirs to address a potential security risk (privilege escalation):
-      * A user could create a symbolic link from /tmp/.X11-unix to /usr/X11/lib/X11/xinit/privileged_startx.d and execute privileged_startx to give himself write permission to /usr/X11/lib/X11/xinit/privileged_startx.d 
+      * A user could create a symbolic link from /tmp/.X11-unix to /usr/X11/lib/X11/xinit/privileged_startx.d and execute privileged_startx to give himself write permission to /usr/X11/lib/X11/xinit/privileged_startx.d
 
 == Changes in 2.2.0 ==
   * All changes in 2.1.4 plus:
@@ -1704,7 +1704,7 @@ If this is your first time installing XQuartz, you may wish to logout and log ba
   * Updated versions of packages:
     * app:
       * lndir git 2007.12.08
-        * Properly ignore .DS_Store 
+        * Properly ignore .DS_Store
       * xinit git 2007.12.10
         * Added package.
       * xterm 229
@@ -1725,7 +1725,7 @@ If this is your first time installing XQuartz, you may wish to logout and log ba
 
 == Changes in 2.1.0.1 ==
   * All changes in 2.1.0 plus
-  * Fixed package post-install to not error on machines without Xcode. 
+  * Fixed package post-install to not error on machines without Xcode.
 
 == Changes in 2.1.0 ==
   * New versions of packages from x.org:
@@ -1747,7 +1747,7 @@ If this is your first time installing XQuartz, you may wish to logout and log ba
     * Fixed broken 3-button mouse emulation (i.e. option-click to paste)
     * Fixed missing support for Japanese JIS-layout keyboards
     * Improved compatibility with Spaces
-    * Fixed the "Xquartz chews up 100% CPU when I run xauth / ssh / xdpyinfo" bug 
+    * Fixed the "Xquartz chews up 100% CPU when I run xauth / ssh / xdpyinfo" bug
     * Fixed support for customized Applications items
     * Fixed performance problems (slow drawing in Gimp, etc)
     * Fixed focus issues

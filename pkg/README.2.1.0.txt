@@ -22,7 +22,7 @@ This updates is not an official Apple releases. It is a convenient way for users
     * Fixed broken 3-button mouse emulation (i.e. option-click to paste)
     * Fixed missing support for Japanese JIS-layout keyboards
     * Improved compatibility with Spaces
-    * Fixed the "Xquartz chews up 100% CPU when I run xauth / ssh / xdpyinfo" bug 
+    * Fixed the "Xquartz chews up 100% CPU when I run xauth / ssh / xdpyinfo" bug
     * Fixed support for customized Applications items
     * Fixed performance problems (slow drawing in Gimp, etc)
     * Fixed focus issues
