@@ -21,7 +21,7 @@
   <resources bg-scale="proportional" bg-align="topleft">
     <locale lang="en">
       <resource mod="true" type="license">@@PKG_DIR@@/resources/LICENSE.txt</resource>
-      <resource mod="true" type="readme">@@PKG_DIR@@/resources/README.@@VERSION_TXT_SHORT@@.txt</resource>
+      <resource mod="true" type="readme">@@PKG_DIR@@/resources/README.txt</resource>
       <resource mod="true" type="welcome">@@PKG_DIR@@/resources/INTRODUCTION-SL.txt</resource>
     </locale>
   </resources>
