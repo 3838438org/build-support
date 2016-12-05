@@ -21,6 +21,9 @@ if [[ $# -eq 2 ]] ; then
 	echo "Base Version: ${VERSION_TXT_SHORT}"
 	echo "Bundle Version: ${VERSION}"
 
+	export X11_APP_VERSION=${VERSION}
+	export X11_APP_VERSION_STRING=${VERSION_TXT}
+
 	if [[ "${VERSION_TXT/beta/}" != "${VERSION_TXT}" ]] ; then
 		BETA=YES
 	else
@@ -97,13 +100,19 @@ if [[ ${MACOSFORGE_SL} == "YES" ]] ; then
 	export LAUNCHD_PREFIX="/Library"
 	export X11_PATHS_D_PREFIX="40"
 
+	if [[ "${PRERELEASE}" == "YES" ]] ; then
+		export SPARKLE_FEED_URL="https://www.xquartz.org/releases/sparkle/beta.xml"
+	else
+		export SPARKLE_FEED_URL="https://www.xquartz.org/releases/sparkle/release.xml"
+	fi
+
 	if [[ -n "${X11SERVER}" && -d /Applications/Utilities/XQuartz.app/Contents/Resources/zh_TW.lproj/main.nib ]] ; then
 		die "You should delete /Applications/Utilities/XQuartz.app first or you will have merge issues."
 	fi
 fi
 
 if [[ ${MACOSFORGE_RELEASE} == "YES" ]] ; then
-	BUILDIT="${BUILDIT} -noverify -noverifydstroot -nocortex -nopathChanges -supportedPlatforms osx -sdkForPlatform osx=macosx10.10internal -deploymentTargetForPlatform osx=10.6 -platform osx"
+	BUILDIT="${BUILDIT} -noverify -noverifydstroot -nocortex -nopathChanges -supportedPlatforms osx -sdkForPlatform osx=macosx10.11internal -deploymentTargetForPlatform osx=10.6 -platform osx"
 
 	export MACOSFORGE_BUILD_DOCS
 
@@ -149,15 +158,19 @@ else
 	BUILDIT="${BUILDIT} -release Syrah"
 	if [[ "${MACOSFORGE_SL}" == "YES" ]] ; then
 		export MACOSX_DEPLOYMENT_TARGET=10.6
+		if [[ "${MEMORY_HARDENING}" == "YES" ]] ; then
+			export MACOSX_DEPLOYMENT_TARGET=10.8
+		fi
+
 		export EXTRA_XQUARTZ_CFLAGS="-mmacosx-version-min=${MACOSX_DEPLOYMENT_TARGET}"
 		export EXTRA_XQUARTZ_LDFLAGS="-Wl,-macosx_version_min,${MACOSX_DEPLOYMENT_TARGET}"
 
-		OSS_CLANG_VERSION=3.7
+		OSS_CLANG_VERSION=3.9
 
 		if [[ -n "${OSS_CLANG_VERSION}" ]] ; then
 			export CC="/opt/local/bin/clang-mp-${OSS_CLANG_VERSION}"
 			export CXX="/opt/local/bin/clang++-mp-${OSS_CLANG_VERSION}"
-			ASAN_DYLIB="/opt/local/libexec/llvm-${OSS_CLANG_VERSION}/lib/clang/${OSS_CLANG_VERSION}/lib/darwin/libclang_rt.asan_osx_dynamic.dylib"
+			ASAN_DYLIB="/opt/local/libexec/llvm-${OSS_CLANG_VERSION}/lib/clang/${OSS_CLANG_VERSION}.0/lib/darwin/libclang_rt.asan_osx_dynamic.dylib"
 		else
 			export CC="$(xcrun -find clang)"
 			export CXX="$(xcrun -find clang++)"
@@ -227,6 +240,9 @@ bit() {
 				dirname="${dirname%/*}"
 
 				ditto "${dsym}" "${MERGE_DIR}.dSYMS/${dirname}/${file_basename}.dSYM"
+				if [[ -d "${MERGE_DIR}.dSYMS/usr" ]] ; then
+					rm -rf "${MERGE_DIR}.dSYMS/usr"
+				fi
 			done
 		fi
 	done
@@ -246,12 +262,12 @@ bit_git() {
 }
 
 if [[ -n "${ASAN_DYLIB}" && "${MEMORY_HARDENING}" == "YES" ]] ; then
-	mkdir -p /opt/X11/lib/asan
-	install -o root -g wheel -m 755 "${ASAN_DYLIB}" /opt/X11/lib/asan
+	mkdir -p /opt/X11/lib/asan || die "Unable to install the asan dylib"
+	install -o root -g wheel -m 755 "${ASAN_DYLIB}" /opt/X11/lib/asan || die "Unable to install the asan dylib"
 
 	if [[ -n ${VERSION} ]] ; then
-		mkdir -p $(eval echo ~jeremy)/src/freedesktop/pkg/X11/opt/X11/lib/asan
-		install -o root -g wheel -m 755 "${ASAN_DYLIB}" $(eval echo ~jeremy)/src/freedesktop/pkg/X11/opt/X11/lib/asan
+		mkdir -p $(eval echo ~jeremy)/src/freedesktop/pkg/X11/opt/X11/lib/asan || die "Unable to install the asan dylib"
+		install -o root -g wheel -m 755 "${ASAN_DYLIB}" $(eval echo ~jeremy)/src/freedesktop/pkg/X11/opt/X11/lib/asan || die "Unable to install the asan dylib"
 	fi
 fi
 
@@ -272,12 +288,6 @@ if [[ -n ${VERSION} ]] ; then
 	plutil -convert xml1 "${INFO_PLIST}"
 	chmod 644 "${INFO_PLIST}"
 
-	if [[ "${PRERELEASE}" == "NO" ]] ; then
-		/opt/local/bin/gsed -i 's:beta.xml:release.xml:' "${INFO_PLIST}"
-	else
-		/opt/local/bin/gsed -i 's:release.xml:beta.xml:' "${INFO_PLIST}"
-	fi
-
 	cd $(eval echo ~jeremy)/src/freedesktop/pkg
 
 	find X11 -type f | while read file ; do
@@ -293,6 +303,8 @@ if [[ -n ${VERSION} ]] ; then
 			fi
 		fi
 	done
+
+	codesign --deep --force -s "Developer ID Application: Apple Inc. - XQuartz (NA574AWV7E)" X11/Applications/Utilities/XQuartz.app
 
 	if [[ -d X11.dSYMS ]] ; then
 		cd X11.dSYMS
