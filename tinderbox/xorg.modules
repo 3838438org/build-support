@@ -1,0 +1,47 @@
+<?xml version="1.0" standalone="no"?> <!--*- mode: nxml -*-->
+<!DOCTYPE moduleset SYSTEM "moduleset.dtd">
+<?xml-stylesheet type="text/xsl" href="moduleset.xsl"?>
+
+<moduleset>
+  <include href="http://cgit.freedesktop.org/xorg/util/modular/blob/xorg.modules" />
+  <!-- <include href="/home/jeremy/src/freedesktop/src/modular/xorg.modules" /> -->
+
+  <repository type="git" name="git.freedesktop.org" href="git://anongit.freedesktop.org/git/"/>
+
+  <autotools id="xserver-1.11">
+    <branch repo="git.freedesktop.org" module="xorg/xserver" checkoutdir="xorg/xserver-1.11" revision="server-1.11-branch" />
+    <dependencies>
+      <dep package="libGL"/>
+      <dep package="libXaw"/>
+      <dep package="libxkbui"/>
+      <dep package="libXfont"/>
+      <dep package="libxtrans"/>
+      <dep package="libXau"/>
+      <dep package="libxkbfile"/>
+      <dep package="libXdmcp"/>
+      <dep package="libXxf86vm"/>
+      <dep package="libXinerama"/>
+      <dep package="libdrm"/>
+      <dep package="libdmx"/>
+      <dep package="libXtst"/>
+      <dep package="libXRes"/>
+      <dep package="pixman"/>
+      <dep package="libpciaccess"/>
+    </dependencies>
+  </autotools>
+
+  <metamodule id="xorg-jeremyhu-tinderbox">
+    <dependencies>
+      <dep package="xorg"/>
+      <dep package="xserver-1.11"/>
+    </dependencies>
+  </metamodule>
+
+  <metamodule id="xquartz">
+    <dependencies>
+      <dep package="libAppleWM"/>
+      <dep package="xorg-jeremyhu-tinderbox"/>
+    </dependencies>
+  </metamodule>
+
+</moduleset>

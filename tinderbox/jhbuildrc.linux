@@ -1,0 +1,29 @@
+# Nonstandard Ubuntu requirements: gperf bison flex libxml2-dev libexpat-dev libpng-dev libfreetype6-dev libgcrypt-dev intltool libglib2.0-dev
+# Nonstandard Gentoo requirements: libxslt
+
+moduleset = os.path.join(os.environ['JHBUILDDIR'], 'xorg.modules')
+
+modules = [ 'xorg-jeremyhu-tinderbox' ]
+
+# xf86-video-geode: https://bugs.freedesktop.org/show_bug.cgi?id=35645
+skip = [ 'xf86-video-geode', 'xf86-video-tdfx', 'xf86-video-xgi', 'xf86-video-openchrome' ]
+
+build_policy = 'all'
+
+checkoutroot = os.path.join(os.environ['JHBUILDDIR'] , 'src')
+prefix = os.environ['PREFIX']
+
+autogenargs = '--without-xf86misc --without-fontcache --without-fop --without-xmlto --without-doxygen --without-asciidoc --without-groff --disable-specs --disable-devel-docs --disable-docs --disable-static --disable-dependency-tracking --disable-runtime-deps --disable-silent-rules --disable-gtk'
+
+makeargs = '-j1'
+
+makecheck = True
+makecheck_advisory = False
+#makecheck_advisory = True
+
+static_analyzer = os.environ['STATIC_ANALYSIS'] != 'False'
+# libxcb generated code has a bunch of warnings that take up 1G of log space
+module_static_analyzer = { 'libxcb' : False }
+static_analyzer_outputdir = os.path.join(os.environ['JHBUILDDIR'] , os.environ['ANALYZERSUBDIR'])
+static_analyzer_template = 'scan-build -v --use-cc=gcc --use-c++=g++ -o %(outputdir)s/%(module)s '
+
