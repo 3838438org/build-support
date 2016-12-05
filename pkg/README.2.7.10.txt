@@ -15,26 +15,48 @@ If this is your first time installing XQuartz, you may wish to logout and log ba
 == Changes in 2.7.10 ==
   * All changes in 2.7.9 plus:
   * app:
+    * mkfontdir
+      * Fix a buffer underrun crash (#96905)
     * quartz-wm
-      * Properly handle updates to WM_PROTOCOLS property changes(#92652)
+      * Properly handle updates to WM_PROTOCOLS property changes (#92652)
     * xinit
       * Fixed support for enabling TCP server connections (#95379)
       * Added support for enabling IGLX (#96260)
         * defaults write org.macosforge.xquartz.X11 enable_iglx -bool true
+    * xterm 326
   * proto:
     * xcb-proto 1.12
-    * xproto 7.0.29
+    * xproto 7.0.31
   * lib:
+    * fontconfig 2.12.1
+      * CVE-2016-5384
+    * freetype 2.7
+    * libpng 1.5.27
+    * libpng 1.6.25
     * libxcb 1.12
-    * libXfixes 5.0.2
-    * libXfont
+    * libX11 1.6.4
+    * libXfixes 5.0.3
+    * libXfont 1.5.2
       * Fix a buffer overrun (#83224)
     * libXfont2
       * Fix a buffer overrun (#83224)
+    * libXi 1.7.7
+    * libXrandr 1.5.1
+    * libXrender 0.9.10
+    * libXt
+      * libXt.6.dylib is now a two-level-namespace dylib
+      * libXt.7.dylib is now a stub dylib that re-exports libXt.6.dylib (for binary compatibility with anything built against XQuartz 2.7.9)
+      * A flat_namespace version of libXt is available in /opt/X11/lib/flat_namespace to help ease the transition (#96292)
+         * Set DYLD_LIBRARY_PATH=/opt/X11/lib/flat_namespace when executing older non-compliant software (eg: Motif-based applications)
+         * Motif users are encouraged to file bugs against Motif to encourage them to fix that library.
+    * libXtst 1.2.3
+    * libXv 1.0.11
+      * CVE-2016-5407
+    * libXvMC 1.0.10
     * mesa 11.2.2
     * xcb-util-cursor 0.1.3
   * server:
-    * xorg-server 1.18.3 plus other patches
+    * xorg-server 1.18.4 plus other patches
       * Fix the issue where the h key could be come "stuck" after hiding XQuartz with cmd-h (#92648)
 
 == Changes in 2.7.9 ==
