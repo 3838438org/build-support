@@ -10,7 +10,7 @@ if [[ -n "${SSHD_CONFIG}" ]] ; then
     if ! cat ${SSHD_CONFIG} | grep -v '^#' | egrep -q '^(Match|XAuthLocation)' ; then
     {
         echo ""
-        echo "# XAuthLocation added by XQuartz (http://xquartz.macosforge.org)"
+        echo "# XAuthLocation added by XQuartz (https://www.xquartz.org)"
         echo "XAuthLocation /opt/X11/bin/xauth"
     } >> ${SSHD_CONFIG}
     fi
@@ -20,7 +20,7 @@ if [[ -n "${SSH_CONFIG}" ]] ; then
     if ! cat ${SSH_CONFIG} | grep -v '^#' | grep -q 'XAuthLocation' ; then
     {
         echo ""
-        echo "# XAuthLocation added by XQuartz (http://www.xquartz.org)"
+        echo "# XAuthLocation added by XQuartz (https://www.xquartz.org)"
         echo "Host *"
         echo "    XAuthLocation /opt/X11/bin/xauth"
     } >> ${SSH_CONFIG}
